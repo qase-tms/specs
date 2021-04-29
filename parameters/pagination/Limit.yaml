@@ -1,0 +1,6 @@
+name: limit
+description: A number of entities in result set.
+in: query
+schema:
+  type: integer
+  default: 100

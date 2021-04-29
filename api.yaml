@@ -1,0 +1,134 @@
+openapi: 3.0.0
+info:
+  title: Qase.io API
+  description: |
+    You can use our API to access Qase.io API endpoints,
+    which allows to retrieve information about entities
+    stored in database and perform actions with them.
+    The API is organized around REST.
+  termsOfService: 'https://qase.io/terms'
+  version: 1.0.0
+  contact:
+    name: Qase.io
+    url: 'https://qase.io'
+    email: support@qase.io
+  license:
+    name: Apache 2.0
+    url: 'https://github.com/qase-tms/specs/blob/master/LICENSE'
+externalDocs:
+  url: 'https://developers.qase.io'
+  description: Qase.io API Reference
+tags:
+  - name: testops
+servers:
+  - url: 'https://api.qase.io/v1'
+    description: The production API server.
+  - url: 'https://dev.qase.io/v1'
+    description: The development API server.
+paths:
+  /project:
+    get:
+      operationId: project-list
+      tags: []
+      summary: Get All Projects.
+      description: |
+        This method allows to retrieve all projects available
+        for your account. You can you limit and offset params
+        to paginate.
+      externalDocs:
+        url: 'https://developers.qase.io/#get-all-projects'
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          $ref: '#/components/responses/ProjectListResponse'
+components:
+  schemas:
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        counts:
+          type: object
+          properties:
+            cases:
+              type: integer
+            suites:
+              type: integer
+            milestones:
+              type: integer
+            runs:
+              type: object
+              properties:
+                total:
+                  type: integer
+                active:
+                  type: integer
+            defects:
+              type: object
+              properties:
+                total:
+                  type: integer
+                open:
+                  type: integer
+    Projects:
+      type: array
+      items:
+        $ref: '#/components/schemas/Project'
+  headers:
+    Token:
+      description: API Access Token
+      schema:
+        type: string
+      required: true
+  responses:
+    Response:
+      description: Common response structure.
+      content:
+        any:
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+              result:
+                type: object
+    ProjectListResponse:
+      description: A list of all projects.
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/responses/Response/content/any/schema'
+              - type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                      filtered:
+                        type: integer
+                      count:
+                        type: integer
+                      entities:
+                        $ref: '#/components/schemas/Projects'
+  parameters:
+    Limit:
+      name: limit
+      description: A number of entities in result set.
+      in: query
+      schema:
+        type: integer
+        default: 100
+    Offset:
+      name: offset
+      description: How many entities should be skipped.
+      in: query
+      schema:
+        type: integer
+        default: 0

@@ -1,0 +1,53 @@
+openapi: '3.0.0'
+
+info:
+  title: Qase.io API
+  description: |
+    You can use our API to access Qase.io API endpoints,
+    which allows to retrieve information about entities
+    stored in database and perform actions with them.
+    The API is organized around REST.
+  termsOfService: https://qase.io/terms
+  version: 1.0.0
+
+  contact:
+    name: Qase.io
+    url: https://qase.io
+    email: support@qase.io
+
+  license:
+    name: Apache 2.0
+    url: https://github.com/qase-tms/specs/blob/master/LICENSE
+
+externalDocs:
+  url: https://developers.qase.io
+  description: Qase.io API Reference
+
+tags:
+  - name: testops
+
+servers:
+  - url: https://api.qase.io/v1
+    description: The production API server.
+  - url: https://dev.qase.io/v1
+    description: The development API server.
+
+paths:
+  /project:
+    $ref: './paths/projects.yaml'
+
+components:
+  schemas:
+    Project: { $ref: './schemas/Project.yaml' }
+    Projects: { $ref: './schemas/Projects.yaml' }
+
+  headers:
+    Token: { $ref: './headers/Token.yaml' }
+
+  responses:
+    Response: { $ref: './responses/Response.yaml' }
+    ProjectListResponse: { $ref: './responses/ProjectListResponse.yaml' }
+
+  parameters:
+    Limit: { $ref: './parameters/pagination/Limit.yaml' }
+    Offset: { $ref: './parameters/pagination/Offset.yaml' }

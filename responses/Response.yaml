@@ -1,0 +1,11 @@
+description: Common response structure.
+content:
+  any:
+    schema:
+      type: object
+      properties:
+        status:
+          type: boolean
+
+        result:
+          type: object

@@ -1,0 +1,32 @@
+type: object
+properties:
+  name:
+    type: string
+  code:
+    type: string
+
+  counts:
+    type: object
+    properties:
+      cases:
+        type: integer
+      suites:
+        type: integer
+      milestones:
+        type: integer
+
+      runs:
+        type: object
+        properties:
+          total:
+            type: integer
+          active:
+            type: integer
+
+      defects:
+        type: object
+        properties:
+          total:
+            type: integer
+          open:
+            type: integer

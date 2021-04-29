@@ -1,0 +1,15 @@
+get:
+  operationId: project-list
+  tags: [ ]
+  summary: Get All Projects.
+  description: |
+    This method allows to retrieve all projects available
+    for your account. You can you limit and offset params
+    to paginate.
+  externalDocs:
+    url: https://developers.qase.io/#get-all-projects
+  parameters:
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+  responses:
+    200: { $ref: '../responses/ProjectListResponse.yaml' }

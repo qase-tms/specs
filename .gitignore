@@ -1,2 +1,11 @@
+# unnecessary for tracking
 /.scratch
 /node_modules
+
+# code coverage and quality reports
+*.out
+
+# sensitive data
+.private.env
+.private.hosts
+http-client.private.env.json

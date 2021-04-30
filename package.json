@@ -1,10 +1,10 @@
 {
-  "name": "qaseio-api-specs",
+  "name": "specs",
+  "author": "qase",
   "version": "1.0.0",
-  "description": "",
-  "directories": {
-    "example": "examples"
-  },
+  "description": "Official Qase.io API specifications.",
+  "homepage": "https://developers.qase.io",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "swagger-cli bundle src.yaml -o api.yaml -t yaml",
     "validate": "swagger-cli validate src.yaml && spectral lint api.yaml",
@@ -14,14 +14,14 @@
     "type": "git",
     "url": "git+https://github.com/qase-tms/specs.git"
   },
-  "author": "",
-  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/qase-tms/specs/issues"
   },
-  "homepage": "https://github.com/qase-tms/specs#readme",
   "dependencies": {
     "@apidevtools/swagger-cli": "^4.0.4",
     "@stoplight/spectral": "^5.9.1"
+  },
+  "directories": {
+    "example": "examples"
   }
 }

@@ -1,0 +1,4 @@
+# operationId: project-list
+GET {{host}}/project
+Token: {{token}}
+Content-Type: application/json

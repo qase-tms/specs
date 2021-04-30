@@ -1,6 +1,6 @@
 get:
   operationId: project-list
-  tags: [ ]
+  tags: [ projects ]
   summary: Get All Projects.
   description: |
     This method allows to retrieve all projects available

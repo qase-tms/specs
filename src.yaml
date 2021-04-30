@@ -24,7 +24,7 @@ externalDocs:
   description: Qase.io API Reference
 
 tags:
-  - name: testops
+  - name: projects
 
 servers:
   - url: https://api.qase.io/v1

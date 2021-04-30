@@ -19,7 +19,7 @@ externalDocs:
   url: 'https://developers.qase.io'
   description: Qase.io API Reference
 tags:
-  - name: testops
+  - name: projects
 servers:
   - url: 'https://api.qase.io/v1'
     description: The production API server.
@@ -29,7 +29,8 @@ paths:
   /project:
     get:
       operationId: project-list
-      tags: []
+      tags:
+        - projects
       summary: Get All Projects.
       description: |
         This method allows to retrieve all projects available

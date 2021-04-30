@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -o nounset
+set -o pipefail
+
+function build() {
+  npm run test
+}
+
+function ui() {
+  docker run --rm -it \
+    -e SWAGGER_JSON=/specs/api.yaml \
+    -p 8080:8080 \
+    -v "$(pwd)"/api.yaml:/specs/api.yaml \
+    swaggerapi/swagger-ui
+}
+
+__default() { help; }
+
+"${@:-__default}"

@@ -15,6 +15,15 @@ function ui() {
     swaggerapi/swagger-ui
 }
 
+function go() {
+  docker run --rm -it \
+    -v "$(pwd)"/examples/sdk:/sdk \
+    -v "$(pwd)"/api.json:/specs/api.json \
+    --entrypoint=sh \
+    swaggerapi/swagger-codegen-cli
+#    generate -i /specs/api.json -l go -o /sdk -DpackageName=qase
+}
+
 __default() { help; }
 
 "${@:-__default}"

@@ -7,6 +7,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "swagger-cli bundle src.yaml -o api.yaml -t yaml",
+    "build.json": "swagger-cli bundle src.yaml -o api.json -t json",
     "validate": "swagger-cli validate src.yaml && spectral lint api.yaml",
     "test": "npm run build && npm run validate",
     "preview": "npm run build && redoc-cli serve api.yaml",

@@ -1,0 +1,172 @@
+openapi: 3.0.0
+info:
+  title: Qase.io API
+  description: "You can use our API to access Qase.io API endpoints,\nwhich allows\
+    \ to retrieve information about entities\nstored in database and perform actions\
+    \ with them.\nThe API is organized around REST.\n"
+  termsOfService: https://qase.io/terms
+  contact:
+    name: Qase.io
+    url: https://qase.io
+    email: support@qase.io
+  license:
+    name: Apache 2.0
+    url: https://github.com/qase-tms/specs/blob/master/LICENSE
+  version: 1.0.0
+externalDocs:
+  description: Qase.io API Reference
+  url: https://developers.qase.io
+servers:
+- url: https://api.qase.io/v1
+  description: The production API server.
+- url: https://dev.qase.io/v1
+  description: The development API server.
+tags:
+- name: projects
+paths:
+  /project:
+    get:
+      tags:
+      - projects
+      summary: Get All Projects.
+      description: |
+        This method allows to retrieve all projects available
+        for your account. You can you limit and offset params
+        to paginate.
+      externalDocs:
+        url: https://developers.qase.io/#get-all-projects
+      operationId: project-list
+      parameters:
+      - name: limit
+        in: query
+        description: A number of entities in result set.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 100
+      - name: offset
+        in: query
+        description: How many entities should be skipped.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 0
+      responses:
+        "200":
+          description: A list of all projects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+components:
+  schemas:
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        counts:
+          $ref: '#/components/schemas/Project_counts'
+    Projects:
+      type: array
+      items:
+        $ref: '#/components/schemas/Project'
+      x-schema-name: Projects
+    inline_response_200:
+      allOf:
+      - $ref: '#/components/responses/Response/content/any/schema'
+      - type: object
+        properties:
+          result:
+            $ref: '#/components/schemas/inline_response_200_result'
+    Project_counts_runs:
+      type: object
+      properties:
+        total:
+          type: integer
+        active:
+          type: integer
+    Project_counts_defects:
+      type: object
+      properties:
+        total:
+          type: integer
+        open:
+          type: integer
+    Project_counts:
+      type: object
+      properties:
+        cases:
+          type: integer
+        suites:
+          type: integer
+        milestones:
+          type: integer
+        runs:
+          $ref: '#/components/schemas/Project_counts_runs'
+        defects:
+          $ref: '#/components/schemas/Project_counts_defects'
+    inline_response_200_result:
+      type: object
+      properties:
+        total:
+          type: integer
+        filtered:
+          type: integer
+        count:
+          type: integer
+        entities:
+          $ref: '#/components/schemas/Projects'
+  responses:
+    Response:
+      description: Common response structure.
+      content:
+        any:
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+              result:
+                type: object
+    ProjectListResponse:
+      description: A list of all projects.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: A number of entities in result set.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+        default: 100
+    Offset:
+      name: offset
+      in: query
+      description: How many entities should be skipped.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+        default: 0
+  headers:
+    Token:
+      description: API Access Token
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string

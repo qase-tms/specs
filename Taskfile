@@ -7,6 +7,16 @@ function build() {
   npm run test
 }
 
+function go() {
+  rm -rf examples/sdk/*
+  docker run --rm -it \
+    -v "$(pwd)"/examples/sdk/go:/sdk \
+    -v "$(pwd)"/api.yaml:/specs/api.yaml \
+    swaggerapi/swagger-codegen-cli-v3 \
+    generate -i /specs/api.yaml -l go -o /sdk -D packageName=qase
+  goimports -ungroup -local qase -w ./examples/sdk/go/
+}
+
 function ui() {
   docker run --rm -it \
     -e SWAGGER_JSON=/specs/api.yaml \

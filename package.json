@@ -2,7 +2,7 @@
   "name": "specs",
   "author": "qase",
   "version": "1.0.0",
-  "description": "Official Qase.io API specifications.",
+  "description": "Qase API Specification.",
   "homepage": "https://developers.qase.io",
   "license": "Apache-2.0",
   "scripts": {
@@ -22,7 +22,7 @@
   "dependencies": {
     "@apidevtools/swagger-cli": "^4.0.4",
     "@stoplight/spectral": "^5.9.1",
-    "redoc-cli": "^0.11.4"
+    "redoc-cli": "^0.12.1"
   },
   "directories": {
     "example": "examples"

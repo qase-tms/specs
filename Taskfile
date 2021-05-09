@@ -9,11 +9,7 @@ function build() {
 
 function go() {
   rm -rf examples/sdk/go/*
-  docker run --rm -it \
-    -v "$(pwd)"/examples/sdk/go:/sdk \
-    -v "$(pwd)"/api.yaml:/specs/api.yaml \
-    swaggerapi/swagger-codegen-cli-v3 \
-    generate -i /specs/api.yaml -l go -o /sdk -D packageName=qase
+  swagger-codegen generate -i /specs/api.yaml -l go -o /sdk/go -D packageName=qase
   goimports -ungroup -local qase -w examples/sdk/go/
 }
 
@@ -23,6 +19,13 @@ function ui() {
     -p 8080:8080 \
     -v "$(pwd)"/api.yaml:/specs/api.yaml \
     swaggerapi/swagger-ui
+}
+
+swagger-codegen() {
+  docker run --rm -it \
+    -v "$(pwd)"/api.yaml:/specs/api.yaml \
+    -v "$(pwd)"/examples/sdk:/sdk \
+    swaggerapi/swagger-codegen-cli-v3 "${@}"
 }
 
 __default() { help; }

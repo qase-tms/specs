@@ -13,6 +13,11 @@ function go() {
   goimports -ungroup -local qase -w examples/sdk/go/
 }
 
+function php() {
+  rm -rf examples/sdk/php/*
+  swagger-codegen generate -i /specs/api.yaml -l php -o /sdk/php
+}
+
 function ui() {
   docker run --rm -it \
     -e SWAGGER_JSON=/specs/api.yaml \

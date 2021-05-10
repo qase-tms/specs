@@ -7,6 +7,10 @@ function build() {
   npm run test
 }
 
+function publish() {
+  npm run publish
+}
+
 function go() {
   rm -rf examples/sdk/go/*
   swagger-codegen generate -i /specs/api.yaml -l go -o /sdk/go -D packageName=qase

@@ -18,6 +18,11 @@ function php() {
   swagger-codegen generate -i /specs/api.yaml -l php -o /sdk/php
 }
 
+function typescript() {
+  rm -rf examples/sdk/ts/*
+  swagger-codegen generate -i /specs/api.yaml -l typescript-fetch -o /sdk/ts
+}
+
 function ui() {
   docker run --rm -it \
     -e SWAGGER_JSON=/specs/api.yaml \

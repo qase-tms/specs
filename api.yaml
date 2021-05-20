@@ -271,7 +271,7 @@ paths:
                 $ref: '#/components/schemas/IdResponse'
   /custom_field:
     get:
-      operationId: custom-fields
+      operationId: get-custom-fields
       tags:
         - custom-fields
       summary: Get all Custom Fields.

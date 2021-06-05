@@ -1,4 +1,0 @@
-description: API Access Token
-schema:
-  type: string
-required: true

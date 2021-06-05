@@ -217,8 +217,11 @@ components:
     UserResponse: { $ref: './schemas/responses/User.yaml' }
     UserListResponse: { $ref: './schemas/responses/UserList.yaml' }
 
-  headers:
-    Token: { $ref: './headers/Token.yaml' }
+  securitySchemes:
+    TokenAuth:
+      type: apiKey
+      in: header
+      name: Token
 
   parameters:
     Code: { $ref: './parameters/project/Code.yaml' }
@@ -228,3 +231,6 @@ components:
     IdOrHash: { $ref: './parameters/IdOrHash.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }
+
+security:
+  - TokenAuth: []

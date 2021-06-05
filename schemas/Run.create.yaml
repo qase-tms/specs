@@ -12,16 +12,20 @@ properties:
     type: array
     items:
       type: integer
+      format: int64
   is_autotest:
     type: boolean
   environment_id:
     type: integer
+    format: int64
     minimum: 1
   milestone_id:
     type: integer
+    format: int64
     minimum: 1
   plan_id:
     type: integer
+    format: int64
     minimum: 1
   tags:
     type: array

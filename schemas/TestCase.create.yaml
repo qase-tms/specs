@@ -23,8 +23,10 @@ properties:
     type: integer
   suite_id:
     type: integer
+    format: int64
   milestone_id:
     type: integer
+    format: int64
   automation:
     type: integer
   status:

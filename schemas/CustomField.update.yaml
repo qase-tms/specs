@@ -11,6 +11,7 @@ properties:
       properties:
         id:
           type: integer
+          format: int64
         title:
           type: string
           maxLength: 255

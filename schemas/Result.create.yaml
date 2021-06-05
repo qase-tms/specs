@@ -2,6 +2,7 @@ type: object
 properties:
   case_id:
     type: integer
+    format: int64
   case:
     type: object
     description: Could be used insetad of case_id
@@ -29,11 +30,13 @@ properties:
       - invalid
   time:
     type: integer
+    format: int64
     nullable: true
     minimum: 0
     maximum: 31536000
   time_ms:
     type: integer
+    format: int64
     nullable: true
     minimum: 0
     maximum: 31536000000

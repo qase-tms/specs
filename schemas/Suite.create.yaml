@@ -11,6 +11,7 @@ properties:
     description: Test suite preconditions
   parent_id:
     type: integer
+    format: int64
     description: Parent suite ID
     nullable: true
 required: [title]

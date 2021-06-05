@@ -2,6 +2,7 @@ type: object
 properties:
   id:
     type: integer
+    format: int64
   title:
     type: string
   description:
@@ -43,6 +44,7 @@ properties:
         type: integer
   time_spent:
     type: integer
+    format: int64
     description: Time in ms.
   environment:
     type: object
@@ -76,3 +78,4 @@ properties:
     type: array
     items:
       type: integer
+      format: int64

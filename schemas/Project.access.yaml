@@ -2,4 +2,5 @@ type: object
 properties:
   memeber_id:
     type: integer
+    format: int64
     description: Team member id title.

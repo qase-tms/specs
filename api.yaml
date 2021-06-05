@@ -1944,6 +1944,7 @@ paths:
                         properties:
                           case_id:
                             type: integer
+                            format: int64
                           hash:
                             type: string
   '/result/{code}/{id}/bulk':
@@ -2489,6 +2490,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         title:
           type: string
         entity:
@@ -2535,6 +2537,7 @@ components:
             properties:
               id:
                 type: integer
+                format: int64
               title:
                 type: string
                 maxLength: 255
@@ -2600,6 +2603,7 @@ components:
             properties:
               id:
                 type: integer
+                format: int64
               title:
                 type: string
                 maxLength: 255
@@ -2635,6 +2639,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         value:
           type: string
     Defect:
@@ -2642,6 +2647,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         title:
           type: string
         actual_result:
@@ -2652,6 +2658,7 @@ components:
           type: string
         milestone_id:
           type: integer
+          format: int64
           nullable: true
         custom_fields:
           type: array
@@ -2677,8 +2684,10 @@ components:
           nullable: true
         project_id:
           type: integer
+          format: int64
         member_id:
           type: integer
+          format: int64
         external_data:
           type: string
         tags:
@@ -2696,6 +2705,7 @@ components:
           type: integer
         milestone_id:
           type: integer
+          format: int64
           nullable: true
         attachments:
           type: array
@@ -2736,6 +2746,7 @@ components:
           type: integer
         milestone_id:
           type: integer
+          format: int64
           nullable: true
         attachments:
           type: array
@@ -2755,6 +2766,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         title:
           type: string
         description:
@@ -2797,6 +2809,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         title:
           type: string
         description:
@@ -2832,6 +2845,7 @@ components:
             - active
         due_date:
           type: integer
+          format: int64
           description: unix timestamp
       required:
         - title
@@ -2852,6 +2866,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         title:
           type: string
         description:
@@ -2878,6 +2893,7 @@ components:
           type: array
           items:
             type: integer
+            format: int64
       required:
         - title
         - cases
@@ -2895,8 +2911,10 @@ components:
                 properties:
                   case_id:
                     type: integer
+                    format: int64
                   assignee_id:
                     type: integer
+                    format: int64
                     nullable: true
     PlanUpdate:
       type: object
@@ -2911,6 +2929,7 @@ components:
           type: array
           items:
             type: integer
+            format: int64
     Project:
       type: object
       properties:
@@ -2946,6 +2965,7 @@ components:
       properties:
         memeber_id:
           type: integer
+          format: int64
           description: Team member id title.
     ProjectCreate:
       type: object
@@ -2983,8 +3003,10 @@ components:
           type: string
         run_id:
           type: integer
+          format: int64
         case_id:
           type: integer
+          format: int64
         steps:
           type: array
           items:
@@ -3004,6 +3026,7 @@ components:
           type: boolean
         time_spent_ms:
           type: integer
+          format: int64
         end_time:
           type: string
           format: date-time
@@ -3017,6 +3040,7 @@ components:
       properties:
         case_id:
           type: integer
+          format: int64
         case:
           type: object
           description: Could be used insetad of case_id
@@ -3044,11 +3068,13 @@ components:
             - invalid
         time:
           type: integer
+          format: int64
           nullable: true
           minimum: 0
           maximum: 31536000
         time_ms:
           type: integer
+          format: int64
           nullable: true
           minimum: 0
           maximum: 31536000000
@@ -3126,6 +3152,7 @@ components:
             - skipped
         time_ms:
           type: integer
+          format: int64
           nullable: true
           minimum: 0
           maximum: 31536000000
@@ -3170,6 +3197,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         title:
           type: string
         description:
@@ -3211,6 +3239,7 @@ components:
               type: integer
         time_spent:
           type: integer
+          format: int64
           description: Time in ms.
         environment:
           type: object
@@ -3244,6 +3273,7 @@ components:
           type: array
           items:
             type: integer
+            format: int64
     RunCreate:
       type: object
       properties:
@@ -3259,16 +3289,20 @@ components:
           type: array
           items:
             type: integer
+            format: int64
         is_autotest:
           type: boolean
         environment_id:
           type: integer
+          format: int64
           minimum: 1
         milestone_id:
           type: integer
+          format: int64
           minimum: 1
         plan_id:
           type: integer
+          format: int64
           minimum: 1
         tags:
           type: array
@@ -3288,10 +3322,13 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         parent_id:
           type: integer
+          format: int64
         member_id:
           type: integer
+          format: int64
         title:
           type: string
         description:
@@ -3354,6 +3391,7 @@ components:
           type: array
           items:
             type: integer
+            format: int64
         cases_count:
           type: integer
         created:
@@ -3428,6 +3466,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         title:
           type: string
         description:
@@ -3440,6 +3479,7 @@ components:
           type: integer
         parent_id:
           type: integer
+          format: int64
           nullable: true
         created:
           type: string
@@ -3462,6 +3502,7 @@ components:
           description: Test suite preconditions
         parent_id:
           type: integer
+          format: int64
           description: Parent suite ID
           nullable: true
       required:
@@ -3471,6 +3512,7 @@ components:
       properties:
         destination_id:
           type: integer
+          format: int64
           description: 'If provided, child test cases would be moved to suite with such ID.'
     TagValue:
       type: object
@@ -3479,11 +3521,13 @@ components:
           type: string
         internal_id:
           type: integer
+          format: int64
     TestCase:
       type: object
       properties:
         id:
           type: integer
+          format: int64
         position:
           type: integer
         title:
@@ -3512,9 +3556,11 @@ components:
           type: integer
         milestone_id:
           type: integer
+          format: int64
           nullable: true
         suite_id:
           type: integer
+          format: int64
           nullable: true
         custom_fields:
           type: array
@@ -3549,8 +3595,10 @@ components:
           nullable: true
         member_id:
           type: integer
+          format: int64
         project_id:
           type: integer
+          format: int64
     TestCaseCreate:
       type: object
       properties:
@@ -3577,8 +3625,10 @@ components:
           type: integer
         suite_id:
           type: integer
+          format: int64
         milestone_id:
           type: integer
+          format: int64
         automation:
           type: integer
         status:
@@ -3633,8 +3683,10 @@ components:
           type: integer
         suite_id:
           type: integer
+          format: int64
         milestone_id:
           type: integer
+          format: int64
         automation:
           type: integer
         status:
@@ -3685,6 +3737,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         name:
           type: string
         email:
@@ -3812,6 +3865,7 @@ components:
               properties:
                 id:
                   type: integer
+                  format: int64
     HashResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

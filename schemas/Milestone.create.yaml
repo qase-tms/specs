@@ -12,5 +12,6 @@ properties:
       - active
   due_date:
     type: integer
+    format: int64
     description: unix timestamp
 required: [title]

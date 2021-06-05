@@ -8,8 +8,10 @@ properties:
     type: string
   run_id:
     type: integer
+    format: int64
   case_id:
     type: integer
+    format: int64
   steps:
     type: array
     items:
@@ -29,6 +31,7 @@ properties:
     type: boolean
   time_spent_ms:
     type: integer
+    format: int64
   end_time:
     type: string
     format: date-time

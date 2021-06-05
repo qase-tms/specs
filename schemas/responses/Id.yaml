@@ -7,3 +7,4 @@ allOf:
         properties:
           id:
             type: integer
+            format: int64

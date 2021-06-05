@@ -2,6 +2,7 @@ type: object
 properties:
   id:
     type: integer
+    format: int64
   position:
     type: integer
   title:
@@ -30,9 +31,11 @@ properties:
     type: integer
   milestone_id:
     type: integer
+    format: int64
     nullable: true
   suite_id:
     type: integer
+    format: int64
     nullable: true
   custom_fields:
     type: array
@@ -67,5 +70,7 @@ properties:
     nullable: true
   member_id:
     type: integer
+    format: int64
   project_id:
     type: integer
+    format: int64

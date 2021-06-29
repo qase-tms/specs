@@ -25,6 +25,7 @@ externalDocs:
 
 tags:
   - name: projects
+  - name: search
 
 servers:
   - url: https://api.qase.io/v1
@@ -35,11 +36,17 @@ servers:
 paths:
   /project:
     $ref: './paths/projects.yaml'
+  /search/{projectCode}/{entity}:
+    $ref: './paths/search.yaml'
 
 components:
   schemas:
     Project: { $ref: './schemas/Project.yaml' }
     Projects: { $ref: './schemas/Projects.yaml' }
+    TestCase: { $ref: './schemas/TestCase.yaml' }
+    Attachment: { $ref: './schemas/Attachment.yaml' }
+    CustomField: { $ref: './schemas/CustomField.yaml' }
+    TestStep: { $ref: './schemas/TestStep.yaml' }
 
   headers:
     Token: { $ref: './headers/Token.yaml' }
@@ -47,7 +54,9 @@ components:
   responses:
     Response: { $ref: './responses/Response.yaml' }
     ProjectListResponse: { $ref: './responses/ProjectListResponse.yaml' }
+    SearchResponse: { $ref: './responses/SearchResponse.yaml' }
 
   parameters:
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }
+    ProjectCode: { $ref: './parameters/project/ProjectCode.yaml' }

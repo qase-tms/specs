@@ -4,12 +4,11 @@ get:
   summary: Search entities by Qase Query Language.
   description: |
     This method allows to retrieve data sets for various
-    entities using expressions with conditions. You can
-    you limit and offset params to paginate.
+    entities using expressions with conditions.
   parameters:
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
-    - $ref: '../parameters/project/ProjectCode.yaml'
+    - $ref: '../parameters/project/Code.yaml'
 
     - name: entity
       in: path
@@ -31,4 +30,3 @@ get:
 
   responses:
     200: { $ref: '../responses/SearchResponse.yaml' }
-

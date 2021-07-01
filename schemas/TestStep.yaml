@@ -1,0 +1,22 @@
+type: object
+properties:
+  hash:
+    type: string
+  shared_step_hash:
+    type: string
+    nullable: true
+  shared_step_nested_hash:
+    type: string
+    nullable: true
+  position:
+    type: integer
+  action:
+    type: string
+  expected_result:
+    type: string
+  data:
+    type: string
+  attachments:
+    type: array
+    items:
+      $ref: 'Attachment.yaml'

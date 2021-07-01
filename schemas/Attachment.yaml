@@ -1,0 +1,11 @@
+type: object
+properties:
+  size:
+    type: integer
+  mime:
+    type: string
+  filename:
+    type: string
+  url:
+    type: string
+    format: uri

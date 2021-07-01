@@ -1,0 +1,59 @@
+type: object
+properties:
+  id:
+    type: integer
+  position:
+    type: integer
+  title:
+    type: string
+  description:
+    type: string
+  preconditions:
+    type: string
+  postconditions:
+    type: string
+  severity:
+    type: integer
+  priority:
+    type: integer
+  type:
+    type: integer
+  layer:
+    type: integer
+  is_flaky:
+    type: integer
+  behavior:
+    type: integer
+  automation:
+    type: integer
+  status:
+    type: integer
+  milestone_id:
+    type: integer
+    nullable: true
+  suite_id:
+    type: integer
+    nullable: true
+  custom_fields:
+    type: array
+    items:
+      $ref: 'CustomField.yaml'
+  attachments:
+    type: array
+    items:
+      $ref: 'Attachment.yaml'
+  steps:
+    type: array
+    items:
+      $ref: 'TestStep.yaml'
+  params:
+    anyOf:
+      - type: array
+        items: {}
+      - type: object
+  created:
+    type: string
+    format: date-time
+  updated:
+    type: string
+    format: date-time

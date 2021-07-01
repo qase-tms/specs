@@ -1,0 +1,8 @@
+name: projectCode
+in: path
+description: Code of project, where to seacrh entities.
+required: true
+schema:
+  type: string
+  minLength: 2
+  maxLength: 10

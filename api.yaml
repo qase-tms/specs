@@ -45,7 +45,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/ProjectListResponse'
-  '/search/{projectCode}/{entity}':
+  '/search/{code}/{entity}':
     get:
       operationId: search
       tags:
@@ -53,12 +53,11 @@ paths:
       summary: Search entities by Qase Query Language.
       description: |
         This method allows to retrieve data sets for various
-        entities using expressions with conditions. You can
-        you limit and offset params to paginate.
+        entities using expressions with conditions.
       parameters:
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - $ref: '#/components/parameters/ProjectCode'
+        - $ref: '#/components/parameters/Code'
         - name: entity
           in: path
           description: Type of entities to search.
@@ -80,6 +79,25 @@ paths:
           $ref: '#/components/responses/SearchResponse'
 components:
   schemas:
+    Attachment:
+      type: object
+      properties:
+        size:
+          type: integer
+        mime:
+          type: string
+        filename:
+          type: string
+        url:
+          type: string
+          format: uri
+    CustomField:
+      type: object
+      properties:
+        id:
+          type: integer
+        value:
+          type: string
     Project:
       type: object
       properties:
@@ -174,25 +192,6 @@ components:
         updated:
           type: string
           format: date-time
-    Attachment:
-      type: object
-      properties:
-        size:
-          type: integer
-        mime:
-          type: string
-        filename:
-          type: string
-        url:
-          type: string
-          format: uri
-    CustomField:
-      type: object
-      properties:
-        id:
-          type: integer
-        value:
-          type: string
     TestStep:
       type: object
       properties:
@@ -223,17 +222,6 @@ components:
         type: string
       required: true
   responses:
-    Response:
-      description: Common response structure.
-      content:
-        any:
-          schema:
-            type: object
-            properties:
-              status:
-                type: boolean
-              result:
-                type: object
     ProjectListResponse:
       description: A list of all projects.
       content:
@@ -254,6 +242,17 @@ components:
                         type: integer
                       entities:
                         $ref: '#/components/schemas/Projects'
+    Response:
+      description: Common response structure.
+      content:
+        any:
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+              result:
+                type: object
     SearchResponse:
       description: A list of found entities.
       content:
@@ -272,6 +271,15 @@ components:
                           oneOf:
                             - $ref: '#/components/schemas/TestCase'
   parameters:
+    Code:
+      name: code
+      in: path
+      description: 'Code of project, where to seacrh entities.'
+      required: true
+      schema:
+        type: string
+        minLength: 2
+        maxLength: 10
     Limit:
       name: limit
       description: A number of entities in result set.
@@ -286,12 +294,3 @@ components:
       schema:
         type: integer
         default: 0
-    ProjectCode:
-      name: projectCode
-      in: path
-      description: 'Code of project, where to seacrh entities.'
-      required: true
-      schema:
-        type: string
-        minLength: 2
-        maxLength: 10

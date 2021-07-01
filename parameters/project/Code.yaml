@@ -1,4 +1,4 @@
-name: projectCode
+name: code
 in: path
 description: Code of project, where to seacrh entities.
 required: true

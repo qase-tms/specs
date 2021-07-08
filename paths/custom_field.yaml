@@ -7,7 +7,12 @@ get:
   parameters:
     - $ref: '../parameters/Id.yaml'
   responses:
-    200: { $ref: '../responses/CustomFieldResponse.yaml' }
+    200:
+      description: A Custom Field.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/CustomFieldResponse.yaml'
 
 delete:
   operationId: delete-custom-field
@@ -18,7 +23,12 @@ delete:
   parameters:
     - $ref: '../parameters/Id.yaml'
   responses:
-    200: { $ref: '../responses/Response.yaml' }
+    200:
+      description: Custom Field removal result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Response.yaml'
 
 patch:
   operationId: update-custom-field
@@ -35,4 +45,9 @@ patch:
         schema:
           $ref: '../schemas/CustomFieldUpdate.yaml'
   responses:
-    200: { $ref: '../responses/Response.yaml' }
+    200:
+      description: Custom Field update result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Response.yaml'

@@ -40,7 +40,11 @@ paths:
         - $ref: '#/components/parameters/Id'
       responses:
         '200':
-          $ref: '#/components/responses/CustomFieldResponse'
+          description: A Custom Field.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomFieldResponse'
     delete:
       operationId: delete-custom-field
       tags:
@@ -52,7 +56,11 @@ paths:
         - $ref: '#/components/parameters/Id'
       responses:
         '200':
-          $ref: '#/components/responses/Response'
+          description: Custom Field removal result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
     patch:
       operationId: update-custom-field
       tags:
@@ -70,7 +78,11 @@ paths:
               $ref: '#/components/schemas/CustomFieldUpdate'
       responses:
         '200':
-          $ref: '#/components/responses/Response'
+          description: Custom Field update result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
   /custom_field:
     get:
       operationId: custom-fields
@@ -109,9 +121,13 @@ paths:
                   - datetime
       responses:
         '200':
-          $ref: '#/components/responses/CustomFieldsResponse'
+          description: Custom Fields list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomFieldsResponse'
     post:
-      operationId: create-custom-fields
+      operationId: create-custom-field
       tags:
         - custom_fields
       summary: Create new Custom Field.
@@ -125,7 +141,11 @@ paths:
               $ref: '#/components/schemas/CustomFieldCreate'
       responses:
         '200':
-          $ref: '#/components/responses/IdResponse'
+          description: Created Custom Field id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
   /project:
     get:
       operationId: project-list
@@ -143,7 +163,11 @@ paths:
         - $ref: '#/components/parameters/Offset'
       responses:
         '200':
-          $ref: '#/components/responses/ProjectListResponse'
+          description: A list of all projects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectListResponse'
   '/search/{code}/{entity}':
     get:
       operationId: search
@@ -175,7 +199,11 @@ paths:
             maxLength: 1000
       responses:
         '200':
-          $ref: '#/components/responses/SearchResponse'
+          description: A list of found entities.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
 components:
   schemas:
     Attachment:
@@ -463,106 +491,81 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attachment'
+    CustomFieldResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/CustomField'
+    CustomFieldsResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  $ref: '#/components/schemas/CustomFields'
+    IdResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                id:
+                  type: integer
+    ProjectListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  $ref: '#/components/schemas/Projects'
+    Response:
+      type: object
+      properties:
+        status:
+          type: boolean
+        result:
+          type: object
+    SearchResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                entities:
+                  type: array
+                  items:
+                    oneOf:
+                      - $ref: '#/components/schemas/TestCase'
   headers:
     Token:
       description: API Access Token
       schema:
         type: string
       required: true
-  responses:
-    CustomFieldResponse:
-      description: A Custom Field.
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '#/components/responses/Response/content/any/schema'
-              - type: object
-                properties:
-                  result:
-                    $ref: '#/components/schemas/CustomField'
-    CustomFieldsResponse:
-      description: A list all Custom Fields.
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '#/components/responses/Response/content/any/schema'
-              - type: object
-                properties:
-                  result:
-                    type: object
-                    properties:
-                      total:
-                        type: integer
-                      filtered:
-                        type: integer
-                      count:
-                        type: integer
-                      entities:
-                        $ref: '#/components/schemas/CustomFields'
-    ProjectListResponse:
-      description: A list of all projects.
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '#/components/responses/Response/content/any/schema'
-              - type: object
-                properties:
-                  result:
-                    type: object
-                    properties:
-                      total:
-                        type: integer
-                      filtered:
-                        type: integer
-                      count:
-                        type: integer
-                      entities:
-                        $ref: '#/components/schemas/Projects'
-    IdResponse:
-      description: Response with id.
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '#/components/responses/Response/content/any/schema'
-              - type: object
-                properties:
-                  result:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-    Response:
-      description: Common response structure.
-      content:
-        any:
-          schema:
-            type: object
-            properties:
-              status:
-                type: boolean
-              result:
-                type: object
-    SearchResponse:
-      description: A list of found entities.
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '#/components/responses/Response/content/any/schema'
-              - type: object
-                properties:
-                  result:
-                    type: object
-                    properties:
-                      entities:
-                        type: array
-                        items:
-                          oneOf:
-                            - $ref: '#/components/schemas/TestCase'
   parameters:
     Code:
       name: code

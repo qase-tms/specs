@@ -1,0 +1,9 @@
+allOf:
+  - $ref: './Response.yaml'
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          id:
+            type: integer

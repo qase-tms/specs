@@ -1,0 +1,15 @@
+allOf:
+  - $ref: './Response.yaml'
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          total:
+            type: integer
+          filtered:
+            type: integer
+          count:
+            type: integer
+          entities:
+            $ref: '../CustomFields.yaml'

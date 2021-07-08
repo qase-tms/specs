@@ -19,7 +19,7 @@ function go() {
 
 function php() {
   rm -rf examples/sdk/php/*
-  swagger-codegen generate -i /specs/api.yaml -l php -o /sdk/php
+  swagger-codegen generate -i /specs/api.yaml -l php -o /sdk/php -c /specs/php.sdk.config.json
 }
 
 function typescript() {
@@ -37,6 +37,7 @@ function ui() {
 
 swagger-codegen() {
   docker run --rm -it \
+    -v "$(pwd)"/php.sdk.config.json:/specs/php.sdk.config.json \
     -v "$(pwd)"/api.yaml:/specs/api.yaml \
     -v "$(pwd)"/examples/sdk:/sdk \
     swaggerapi/swagger-codegen-cli-v3 "${@}"

@@ -33,10 +33,15 @@ get:
               - user
               - datetime
   responses:
-    200: { $ref: '../responses/CustomFieldsResponse.yaml' }
+    200:
+      description: Custom Fields list.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/CustomFieldsResponse.yaml'
 
 post:
-  operationId: create-custom-fields
+  operationId: create-custom-field
   tags: [ custom_fields ]
   summary: Create new Custom Field.
   description: |
@@ -48,4 +53,9 @@ post:
         schema:
           $ref: '../schemas/CustomFieldCreate.yaml'
   responses:
-    200: { $ref: '../responses/IdResponse.yaml' }
+    200:
+      description: Created Custom Field id.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/IdResponse.yaml'

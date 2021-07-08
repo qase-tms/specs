@@ -222,6 +222,7 @@ components:
         updated:
           type: string
           format: date-time
+          nullable: true
         projects_codes:
           type: array
           items:

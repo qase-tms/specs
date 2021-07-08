@@ -1,0 +1,13 @@
+description: Response with id.
+content:
+  application/json:
+    schema:
+      allOf:
+        - $ref: './Response.yaml#/content/any/schema'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                id:
+                  type: integer

@@ -26,6 +26,7 @@ externalDocs:
 tags:
   - name: projects
   - name: search
+  - name: custom_fields
 
 servers:
   - url: https://api.qase.io/v1
@@ -34,6 +35,10 @@ servers:
     description: The development API server.
 
 paths:
+  /custom_field/{id}:
+    $ref: './paths/custom_field.yaml'
+  /custom_field:
+    $ref: './paths/custom_fields.yaml'
   /project:
     $ref: './paths/projects.yaml'
   /search/{code}/{entity}:
@@ -43,6 +48,10 @@ components:
   schemas:
     Attachment: { $ref: './schemas/Attachment.yaml' }
     CustomField: { $ref: './schemas/CustomField.yaml' }
+    CustomFields: { $ref: './schemas/CustomFields.yaml' }
+    CustomFieldCreate: { $ref: './schemas/CustomFieldCreate.yaml' }
+    CustomFieldUpdate: { $ref: './schemas/CustomFieldUpdate.yaml' }
+    CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
     Project: { $ref: './schemas/Project.yaml' }
     Projects: { $ref: './schemas/Projects.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
@@ -52,11 +61,16 @@ components:
     Token: { $ref: './headers/Token.yaml' }
 
   responses:
+    CustomFieldResponse: { $ref: './responses/CustomFieldResponse.yaml' }
+    CustomFieldsResponse: { $ref: './responses/CustomFieldsResponse.yaml' }
     ProjectListResponse: { $ref: './responses/ProjectListResponse.yaml' }
+    IdResponse: { $ref: './responses/IdResponse.yaml' }
     Response: { $ref: './responses/Response.yaml' }
     SearchResponse: { $ref: './responses/SearchResponse.yaml' }
 
   parameters:
     Code: { $ref: './parameters/project/Code.yaml' }
+    Id: { $ref: './parameters/Id.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }
+

@@ -12,4 +12,6 @@ allOf:
           count:
             type: integer
           entities:
-            $ref: '../Projects.yaml'
+            type: array
+            items:
+              $ref: '../Project.yaml'

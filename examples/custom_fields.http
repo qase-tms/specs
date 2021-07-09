@@ -1,5 +1,5 @@
 # operationId: custom-fields
-GET {{host}}/custom_field
+GET {{host}}/custom_field?filters[type]=url
 Token: {{token}}
 Content-Type: application/json
 ###

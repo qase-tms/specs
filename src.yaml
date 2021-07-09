@@ -48,29 +48,25 @@ components:
   schemas:
     Attachment: { $ref: './schemas/Attachment.yaml' }
     CustomField: { $ref: './schemas/CustomField.yaml' }
-    CustomFields: { $ref: './schemas/CustomFields.yaml' }
     CustomFieldCreate: { $ref: './schemas/CustomFieldCreate.yaml' }
     CustomFieldUpdate: { $ref: './schemas/CustomFieldUpdate.yaml' }
     CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
     Project: { $ref: './schemas/Project.yaml' }
-    Projects: { $ref: './schemas/Projects.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
 
+    CustomFieldResponse: { $ref: './schemas/responses/CustomFieldResponse.yaml' }
+    CustomFieldsResponse: { $ref: './schemas/responses/CustomFieldsResponse.yaml' }
+    IdResponse: { $ref: './schemas/responses/IdResponse.yaml' }
+    ProjectListResponse: { $ref: './schemas/responses/ProjectListResponse.yaml' }
+    Response: { $ref: './schemas/responses/Response.yaml' }
+    SearchResponse: { $ref: './schemas/responses/SearchResponse.yaml' }
+
   headers:
     Token: { $ref: './headers/Token.yaml' }
-
-  responses:
-    CustomFieldResponse: { $ref: './responses/CustomFieldResponse.yaml' }
-    CustomFieldsResponse: { $ref: './responses/CustomFieldsResponse.yaml' }
-    ProjectListResponse: { $ref: './responses/ProjectListResponse.yaml' }
-    IdResponse: { $ref: './responses/IdResponse.yaml' }
-    Response: { $ref: './responses/Response.yaml' }
-    SearchResponse: { $ref: './responses/SearchResponse.yaml' }
 
   parameters:
     Code: { $ref: './parameters/project/Code.yaml' }
     Id: { $ref: './parameters/Id.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }
-

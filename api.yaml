@@ -30,7 +30,7 @@ servers:
 paths:
   '/custom_field/{id}':
     get:
-      operationId: custom-field
+      operationId: get-custom-field
       tags:
         - custom_fields
       summary: Get Custom Field by id.
@@ -255,10 +255,6 @@ components:
           type: array
           items:
             type: string
-    CustomFields:
-      type: array
-      items:
-        $ref: '#/components/schemas/CustomField'
     CustomFieldCreate:
       type: object
       properties:
@@ -404,10 +400,6 @@ components:
                   type: integer
                 open:
                   type: integer
-    Projects:
-      type: array
-      items:
-        $ref: '#/components/schemas/Project'
     TestCase:
       type: object
       properties:
@@ -513,7 +505,9 @@ components:
                 count:
                   type: integer
                 entities:
-                  $ref: '#/components/schemas/CustomFields'
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CustomField'
     IdResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -539,7 +533,9 @@ components:
                 count:
                   type: integer
                 entities:
-                  $ref: '#/components/schemas/Projects'
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Project'
     Response:
       type: object
       properties:

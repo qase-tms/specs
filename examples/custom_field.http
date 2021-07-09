@@ -1,4 +1,4 @@
-# operationId: custom-field
+# operationId: get-custom-field
 GET {{host}}/custom_field/1
 Token: {{token}}
 Content-Type: application/json

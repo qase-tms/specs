@@ -1,5 +1,5 @@
 get:
-  operationId: custom-field
+  operationId: get-custom-field
   tags: [ custom_fields ]
   summary: Get Custom Field by id.
   description: |

@@ -2,5 +2,35 @@ type: object
 properties:
   id:
     type: integer
+  title:
+    type: string
+  entity:
+    type: string
+  type:
+    type: string
+  placeholder:
+    type: string
+    nullable: true
+  default_value:
+    type: string
+    nullable: true
   value:
     type: string
+    nullable: true
+  is_required:
+    type: boolean
+  is_visible:
+    type: boolean
+  is_filterable:
+    type: boolean
+  created:
+    type: string
+    format: date-time
+  updated:
+    type: string
+    format: date-time
+    nullable: true
+  projects_codes:
+    type: array
+    items:
+      type: string

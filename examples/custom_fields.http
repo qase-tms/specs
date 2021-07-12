@@ -1,0 +1,18 @@
+# operationId: custom-fields
+GET {{host}}/custom_field?filters[type]=url
+Token: {{token}}
+Content-Type: application/json
+###
+
+# operationId: create-custom-field
+POST {{host}}/custom_field
+Token: {{token}}
+Content-Type: application/json
+
+{
+    "entity": 0,
+    "type": 0,
+    "title": "new title",
+    "projects_codes": ["DEMO"]
+}
+###

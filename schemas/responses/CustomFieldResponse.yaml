@@ -1,0 +1,6 @@
+allOf:
+  - $ref: './Response.yaml'
+  - type: object
+    properties:
+      result:
+        $ref: '../CustomField.yaml'

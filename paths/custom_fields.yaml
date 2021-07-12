@@ -1,0 +1,61 @@
+get:
+  operationId: custom-fields
+  tags: [ custom_fields ]
+  summary: Get all Custom Fields.
+  description: |
+    This method allows to retrieve and filter custom fields.
+  parameters:
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+    - name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          entity:
+            type: string
+            enum:
+              - case
+              - run
+              - defect
+          type:
+            type: string
+            enum:
+              - string
+              - text
+              - number
+              - checkbox
+              - selectbox
+              - radio
+              - multiselect
+              - url
+              - user
+              - datetime
+  responses:
+    200:
+      description: Custom Fields list.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/CustomFieldsResponse.yaml'
+
+post:
+  operationId: create-custom-field
+  tags: [ custom_fields ]
+  summary: Create new Custom Field.
+  description: |
+    This method allows to create custom field.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CustomFieldCreate.yaml'
+  responses:
+    200:
+      description: Created Custom Field id.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/IdResponse.yaml'

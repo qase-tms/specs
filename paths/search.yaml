@@ -29,4 +29,9 @@ get:
         maxLength: 1000
 
   responses:
-    200: { $ref: '../responses/SearchResponse.yaml' }
+    200:
+      description: A list of found entities.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/SearchResponse.yaml'

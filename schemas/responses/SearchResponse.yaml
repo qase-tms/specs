@@ -1,0 +1,12 @@
+allOf:
+  - $ref: './Response.yaml'
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          entities:
+            type: array
+            items:
+              oneOf:
+                - $ref: '../TestCase.yaml'

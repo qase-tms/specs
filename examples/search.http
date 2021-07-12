@@ -1,0 +1,4 @@
+# operationId: search
+GET {{host}}/search/DEMO/case?query=title~"project"
+Token: {{token}}
+Content-Type: application/json

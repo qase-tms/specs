@@ -21,12 +21,131 @@ externalDocs:
 tags:
   - name: projects
   - name: search
+  - name: custom_fields
 servers:
   - url: 'https://api.qase.io/v1'
     description: The production API server.
   - url: 'https://dev.qase.io/v1'
     description: The development API server.
 paths:
+  '/custom_field/{id}':
+    get:
+      operationId: get-custom-field
+      tags:
+        - custom_fields
+      summary: Get Custom Field by id.
+      description: |
+        This method allows to retrieve custom field.
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Custom Field.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomFieldResponse'
+    delete:
+      operationId: delete-custom-field
+      tags:
+        - custom_fields
+      summary: Delete Custom Field by id.
+      description: |
+        This method allows to delete custom field.
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Custom Field removal result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+    patch:
+      operationId: update-custom-field
+      tags:
+        - custom_fields
+      summary: Update Custom Field by id.
+      description: |
+        This method allows to update custom field.
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomFieldUpdate'
+      responses:
+        '200':
+          description: Custom Field update result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /custom_field:
+    get:
+      operationId: custom-fields
+      tags:
+        - custom_fields
+      summary: Get all Custom Fields.
+      description: |
+        This method allows to retrieve and filter custom fields.
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              entity:
+                type: string
+                enum:
+                  - case
+                  - run
+                  - defect
+              type:
+                type: string
+                enum:
+                  - string
+                  - text
+                  - number
+                  - checkbox
+                  - selectbox
+                  - radio
+                  - multiselect
+                  - url
+                  - user
+                  - datetime
+      responses:
+        '200':
+          description: Custom Fields list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomFieldsResponse'
+    post:
+      operationId: create-custom-field
+      tags:
+        - custom_fields
+      summary: Create new Custom Field.
+      description: |
+        This method allows to create custom field.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomFieldCreate'
+      responses:
+        '200':
+          description: Created Custom Field id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
   /project:
     get:
       operationId: project-list
@@ -44,7 +163,11 @@ paths:
         - $ref: '#/components/parameters/Offset'
       responses:
         '200':
-          $ref: '#/components/responses/ProjectListResponse'
+          description: A list of all projects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectListResponse'
   '/search/{code}/{entity}':
     get:
       operationId: search
@@ -76,7 +199,11 @@ paths:
             maxLength: 1000
       responses:
         '200':
-          $ref: '#/components/responses/SearchResponse'
+          description: A list of found entities.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
 components:
   schemas:
     Attachment:
@@ -92,6 +219,151 @@ components:
           type: string
           format: uri
     CustomField:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        entity:
+          type: string
+        type:
+          type: string
+        placeholder:
+          type: string
+          nullable: true
+        default_value:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+        is_required:
+          type: boolean
+        is_visible:
+          type: boolean
+        is_filterable:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+          nullable: true
+        projects_codes:
+          type: array
+          items:
+            type: string
+    CustomFieldCreate:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        value:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              title:
+                type: string
+                maxLength: 255
+        entity:
+          type: integer
+          minimum: 0
+          maximum: 2
+          description: |
+            Possible values:
+            0 - case;
+            1 - run;
+            2 - defect;
+        type:
+          type: integer
+          minimum: 0
+          maximum: 9
+          description: |
+            Possible values:
+            0 - number;
+            1 - string;
+            2 - text;
+            3 - selectbox;
+            4 - checkbox;
+            5 - radio;
+            6 - multiselect;
+            7 - url;
+            8 - user;
+            9 - datetime;
+        placeholder:
+          type: string
+          maxLength: 255
+          nullable: true
+        default_value:
+          type: string
+          maxLength: 255
+          nullable: true
+        is_filterable:
+          type: boolean
+        is_visible:
+          type: boolean
+        is_required:
+          type: boolean
+        projects_codes:
+          type: array
+          items:
+            type: string
+      required:
+        - title
+        - entity
+        - type
+        - projects_codes
+    CustomFieldUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        value:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              title:
+                type: string
+                maxLength: 255
+        replace_values:
+          type: object
+          description: Dictionary of old values and their replacemants
+          nullable: true
+          additionalProperties: true
+        placeholder:
+          type: string
+          maxLength: 255
+          nullable: true
+        default_value:
+          type: string
+          maxLength: 255
+          nullable: true
+        is_filterable:
+          type: boolean
+        is_visible:
+          type: boolean
+        is_required:
+          type: boolean
+        projects_codes:
+          type: array
+          items:
+            type: string
+      required:
+        - title
+        - projects_codes
+    CustomFieldValue:
       type: object
       properties:
         id:
@@ -128,10 +400,6 @@ components:
                   type: integer
                 open:
                   type: integer
-    Projects:
-      type: array
-      items:
-        $ref: '#/components/schemas/Project'
     TestCase:
       type: object
       properties:
@@ -172,7 +440,7 @@ components:
         custom_fields:
           type: array
           items:
-            $ref: '#/components/schemas/CustomField'
+            $ref: '#/components/schemas/CustomFieldValue'
         attachments:
           type: array
           items:
@@ -215,61 +483,85 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attachment'
+    CustomFieldResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/CustomField'
+    CustomFieldsResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CustomField'
+    IdResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                id:
+                  type: integer
+    ProjectListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Project'
+    Response:
+      type: object
+      properties:
+        status:
+          type: boolean
+        result:
+          type: object
+    SearchResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                entities:
+                  type: array
+                  items:
+                    oneOf:
+                      - $ref: '#/components/schemas/TestCase'
   headers:
     Token:
       description: API Access Token
       schema:
         type: string
       required: true
-  responses:
-    ProjectListResponse:
-      description: A list of all projects.
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '#/components/responses/Response/content/any/schema'
-              - type: object
-                properties:
-                  result:
-                    type: object
-                    properties:
-                      total:
-                        type: integer
-                      filtered:
-                        type: integer
-                      count:
-                        type: integer
-                      entities:
-                        $ref: '#/components/schemas/Projects'
-    Response:
-      description: Common response structure.
-      content:
-        any:
-          schema:
-            type: object
-            properties:
-              status:
-                type: boolean
-              result:
-                type: object
-    SearchResponse:
-      description: A list of found entities.
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '#/components/responses/Response/content/any/schema'
-              - type: object
-                properties:
-                  result:
-                    type: object
-                    properties:
-                      entities:
-                        type: array
-                        items:
-                          oneOf:
-                            - $ref: '#/components/schemas/TestCase'
   parameters:
     Code:
       name: code
@@ -280,6 +572,13 @@ components:
         type: string
         minLength: 2
         maxLength: 10
+    Id:
+      name: id
+      in: path
+      description: Identifier.
+      required: true
+      schema:
+        type: integer
     Limit:
       name: limit
       description: A number of entities in result set.

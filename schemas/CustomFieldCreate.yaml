@@ -1,0 +1,64 @@
+type: object
+properties:
+  title:
+    type: string
+    maxLength: 255
+  value:
+    type: array
+    nullable: true
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+          maxLength: 255
+  entity:
+    type: integer
+    minimum: 0
+    maximum: 2
+    description: |
+      Possible values:
+      0 - case;
+      1 - run;
+      2 - defect;
+  type:
+    type: integer
+    minimum: 0
+    maximum: 9
+    description: |
+      Possible values:
+      0 - number;
+      1 - string;
+      2 - text;
+      3 - selectbox;
+      4 - checkbox;
+      5 - radio;
+      6 - multiselect;
+      7 - url;
+      8 - user;
+      9 - datetime;
+  placeholder:
+    type: string
+    maxLength: 255
+    nullable: true
+  default_value:
+    type: string
+    maxLength: 255
+    nullable: true
+  is_filterable:
+    type: boolean
+  is_visible:
+    type: boolean
+  is_required:
+    type: boolean
+  projects_codes:
+    type: array
+    items:
+      type: string
+required:
+  - title
+  - entity
+  - type
+  - projects_codes

@@ -1,0 +1,53 @@
+get:
+  operationId: get-custom-field
+  tags: [ custom_fields ]
+  summary: Get Custom Field by id.
+  description: |
+    This method allows to retrieve custom field.
+  parameters:
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Custom Field.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/CustomFieldResponse.yaml'
+
+delete:
+  operationId: delete-custom-field
+  tags: [ custom_fields ]
+  summary: Delete Custom Field by id.
+  description: |
+    This method allows to delete custom field.
+  parameters:
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: Custom Field removal result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Response.yaml'
+
+patch:
+  operationId: update-custom-field
+  tags: [ custom_fields ]
+  summary: Update Custom Field by id.
+  description: |
+    This method allows to update custom field.
+  parameters:
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CustomFieldUpdate.yaml'
+  responses:
+    200:
+      description: Custom Field update result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Response.yaml'

@@ -1,6 +1,6 @@
 get:
   operationId: get-custom-field
-  tags: [ custom_fields ]
+  tags: [ custom-fields ]
   summary: Get Custom Field by id.
   description: |
     This method allows to retrieve custom field.
@@ -12,11 +12,11 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/CustomFieldResponse.yaml'
+            $ref: '../schemas/responses/CustomField.yaml'
 
 delete:
   operationId: delete-custom-field
-  tags: [ custom_fields ]
+  tags: [ custom-fields ]
   summary: Delete Custom Field by id.
   description: |
     This method allows to delete custom field.
@@ -28,11 +28,11 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/Response.yaml'
+            $ref: '../schemas/responses/Base.yaml'
 
 patch:
   operationId: update-custom-field
-  tags: [ custom_fields ]
+  tags: [ custom-fields ]
   summary: Update Custom Field by id.
   description: |
     This method allows to update custom field.
@@ -43,11 +43,11 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '../schemas/CustomFieldUpdate.yaml'
+          $ref: '../schemas/CustomField.update.yaml'
   responses:
     200:
       description: Custom Field update result.
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/Response.yaml'
+            $ref: '../schemas/responses/Base.yaml'

@@ -26,7 +26,7 @@ externalDocs:
 tags:
   - name: projects
   - name: search
-  - name: custom_fields
+  - name: custom-fields
 
 servers:
   - url: https://api.qase.io/v1
@@ -48,19 +48,19 @@ components:
   schemas:
     Attachment: { $ref: './schemas/Attachment.yaml' }
     CustomField: { $ref: './schemas/CustomField.yaml' }
-    CustomFieldCreate: { $ref: './schemas/CustomFieldCreate.yaml' }
-    CustomFieldUpdate: { $ref: './schemas/CustomFieldUpdate.yaml' }
+    CustomFieldCreate: { $ref: './schemas/CustomField.create.yaml' }
+    CustomFieldUpdate: { $ref: './schemas/CustomField.update.yaml' }
     CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
     Project: { $ref: './schemas/Project.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
 
-    CustomFieldResponse: { $ref: './schemas/responses/CustomFieldResponse.yaml' }
-    CustomFieldsResponse: { $ref: './schemas/responses/CustomFieldsResponse.yaml' }
-    IdResponse: { $ref: './schemas/responses/IdResponse.yaml' }
-    ProjectListResponse: { $ref: './schemas/responses/ProjectListResponse.yaml' }
-    Response: { $ref: './schemas/responses/Response.yaml' }
-    SearchResponse: { $ref: './schemas/responses/SearchResponse.yaml' }
+    CustomFieldResponse: { $ref: './schemas/responses/CustomField.yaml' }
+    CustomFieldsResponse: { $ref: './schemas/responses/CustomFields.yaml' }
+    IdResponse: { $ref: './schemas/responses/Id.yaml' }
+    ProjectListResponse: { $ref: './schemas/responses/ProjectList.yaml' }
+    Response: { $ref: './schemas/responses/Base.yaml' }
+    SearchResponse: { $ref: './schemas/responses/Search.yaml' }
 
   headers:
     Token: { $ref: './headers/Token.yaml' }

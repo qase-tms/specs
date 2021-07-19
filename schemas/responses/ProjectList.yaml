@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './Response.yaml'
+  - $ref: './Base.yaml'
   - type: object
     properties:
       result:
@@ -14,4 +14,4 @@ allOf:
           entities:
             type: array
             items:
-              $ref: '../CustomField.yaml'
+              $ref: '../Project.yaml'

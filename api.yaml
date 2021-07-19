@@ -21,7 +21,7 @@ externalDocs:
 tags:
   - name: projects
   - name: search
-  - name: custom_fields
+  - name: custom-fields
 servers:
   - url: 'https://api.qase.io/v1'
     description: The production API server.
@@ -32,7 +32,7 @@ paths:
     get:
       operationId: get-custom-field
       tags:
-        - custom_fields
+        - custom-fields
       summary: Get Custom Field by id.
       description: |
         This method allows to retrieve custom field.
@@ -48,7 +48,7 @@ paths:
     delete:
       operationId: delete-custom-field
       tags:
-        - custom_fields
+        - custom-fields
       summary: Delete Custom Field by id.
       description: |
         This method allows to delete custom field.
@@ -64,7 +64,7 @@ paths:
     patch:
       operationId: update-custom-field
       tags:
-        - custom_fields
+        - custom-fields
       summary: Update Custom Field by id.
       description: |
         This method allows to update custom field.
@@ -87,7 +87,7 @@ paths:
     get:
       operationId: custom-fields
       tags:
-        - custom_fields
+        - custom-fields
       summary: Get all Custom Fields.
       description: |
         This method allows to retrieve and filter custom fields.
@@ -121,7 +121,7 @@ paths:
                   - datetime
       responses:
         '200':
-          description: Custom Fields list.
+          description: Custom Field list.
           content:
             application/json:
               schema:
@@ -129,7 +129,7 @@ paths:
     post:
       operationId: create-custom-field
       tags:
-        - custom_fields
+        - custom-fields
       summary: Create new Custom Field.
       description: |
         This method allows to create custom field.

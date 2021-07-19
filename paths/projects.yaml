@@ -17,4 +17,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/ProjectListResponse.yaml'
+            $ref: '../schemas/responses/ProjectList.yaml'

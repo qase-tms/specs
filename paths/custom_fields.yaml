@@ -1,6 +1,6 @@
 get:
   operationId: custom-fields
-  tags: [ custom_fields ]
+  tags: [ custom-fields ]
   summary: Get all Custom Fields.
   description: |
     This method allows to retrieve and filter custom fields.
@@ -34,15 +34,15 @@ get:
               - datetime
   responses:
     200:
-      description: Custom Fields list.
+      description: Custom Field list.
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/CustomFieldsResponse.yaml'
+            $ref: '../schemas/responses/CustomFields.yaml'
 
 post:
   operationId: create-custom-field
-  tags: [ custom_fields ]
+  tags: [ custom-fields ]
   summary: Create new Custom Field.
   description: |
     This method allows to create custom field.
@@ -51,11 +51,11 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/CustomFieldCreate.yaml'
+          $ref: '../schemas/CustomField.create.yaml'
   responses:
     200:
       description: Created Custom Field id.
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/IdResponse.yaml'
+            $ref: '../schemas/responses/Id.yaml'

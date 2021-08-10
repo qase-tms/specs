@@ -2,36 +2,15 @@ type: object
 properties:
   id:
     type: integer
-  position:
-    type: integer
   title:
     type: string
-  description:
-    type: string
-  preconditions:
-    type: string
-  postconditions:
+  actual_result:
     type: string
   severity:
-    type: integer
-  priority:
-    type: integer
-  type:
-    type: integer
-  layer:
-    type: integer
-  is_flaky:
-    type: integer
-  behavior:
-    type: integer
-  automation:
     type: integer
   status:
     type: integer
   milestone_id:
-    type: integer
-    nullable: true
-  suite_id:
     type: integer
     nullable: true
   custom_fields:
@@ -42,15 +21,6 @@ properties:
     type: array
     items:
       $ref: 'Attachment.yaml'
-  steps:
-    type: array
-    items:
-      $ref: 'TestStep.yaml'
-  params:
-    anyOf:
-      - type: array
-        items: {}
-      - type: object
   created:
     type: string
     format: date-time
@@ -61,7 +31,13 @@ properties:
     type: string
     format: date-time
     nullable: true
-  member_id:
-    type: integer
+  resolved:
+    type: string
+    format: date-time
+    nullable: true
   project_id:
     type: integer
+  member_id:
+    type: integer
+  external_data:
+    type: string

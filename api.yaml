@@ -168,7 +168,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectListResponse'
-  '/search/{code}/{entity}':
+  /search:
     get:
       operationId: search
       tags:
@@ -180,15 +180,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - $ref: '#/components/parameters/Code'
-        - name: entity
-          in: path
-          description: Type of entities to search.
-          required: true
-          schema:
-            type: string
-            enum:
-              - case
         - name: query
           in: query
           description: Expression in Qase Query Language.
@@ -370,6 +361,50 @@ components:
           type: integer
         value:
           type: string
+    Defect:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        actual_result:
+          type: string
+        severity:
+          type: integer
+        status:
+          type: integer
+        milestone_id:
+          type: integer
+          nullable: true
+        custom_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomFieldValue'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: string
+          format: date-time
+          nullable: true
+        resolved:
+          type: string
+          format: date-time
+          nullable: true
+        project_id:
+          type: integer
+        member_id:
+          type: integer
+        external_data:
+          type: string
     Project:
       type: object
       properties:
@@ -460,6 +495,14 @@ components:
         updated:
           type: string
           format: date-time
+        deleted:
+          type: string
+          format: date-time
+          nullable: true
+        member_id:
+          type: integer
+        project_id:
+          type: integer
     TestStep:
       type: object
       properties:
@@ -556,6 +599,7 @@ components:
                   items:
                     oneOf:
                       - $ref: '#/components/schemas/TestCase'
+                      - $ref: '#/components/schemas/Defect'
   headers:
     Token:
       description: API Access Token

@@ -41,7 +41,7 @@ paths:
     $ref: './paths/custom_fields.yaml'
   /project:
     $ref: './paths/projects.yaml'
-  /search/{code}/{entity}:
+  /search:
     $ref: './paths/search.yaml'
 
 components:
@@ -51,6 +51,7 @@ components:
     CustomFieldCreate: { $ref: './schemas/CustomField.create.yaml' }
     CustomFieldUpdate: { $ref: './schemas/CustomField.update.yaml' }
     CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
+    Defect: { $ref: './schemas/Defect.yaml' }
     Project: { $ref: './schemas/Project.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }

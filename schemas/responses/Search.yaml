@@ -10,3 +10,4 @@ allOf:
             items:
               oneOf:
                 - $ref: '../TestCase.yaml'
+                - $ref: '../Defect.yaml'

@@ -8,16 +8,6 @@ get:
   parameters:
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
-    - $ref: '../parameters/project/Code.yaml'
-
-    - name: entity
-      in: path
-      description: Type of entities to search.
-      required: true
-      schema:
-        type: string
-        enum:
-          - case
 
     - name: query
       in: query

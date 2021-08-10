@@ -39,3 +39,5 @@ properties:
     type: integer
   member_id:
     type: integer
+  external_data:
+    type: string

@@ -24,9 +24,10 @@ externalDocs:
   description: Qase.io API Reference
 
 tags:
+  - name: cases
+  - name: custom-fields
   - name: projects
   - name: search
-  - name: custom-fields
 
 servers:
   - url: https://api.qase.io/v1
@@ -35,10 +36,14 @@ servers:
     description: The development API server.
 
 paths:
-  /custom_field/{id}:
-    $ref: './paths/custom_field.yaml'
+  /case/{code}:
+    $ref: './paths/cases.yaml'
+  /case/{code}/{id}:
+    $ref: './paths/case.yaml'
   /custom_field:
     $ref: './paths/custom_fields.yaml'
+  /custom_field/{id}:
+    $ref: './paths/custom_field.yaml'
   /project:
     $ref: './paths/projects.yaml'
   /project/{code}:
@@ -60,6 +65,7 @@ components:
     ProjectAccess: { $ref: './schemas/Project.access.yaml' }
     ProjectCreate: { $ref: './schemas/Project.create.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
+    TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
 
     CustomFieldResponse: { $ref: './schemas/responses/CustomField.yaml' }
@@ -70,6 +76,8 @@ components:
     ProjectListResponse: { $ref: './schemas/responses/ProjectList.yaml' }
     Response: { $ref: './schemas/responses/Base.yaml' }
     SearchResponse: { $ref: './schemas/responses/Search.yaml' }
+    TestCaseResponse: { $ref: './schemas/responses/TestCase.yaml' }
+    TestCaseListResponse: { $ref: './schemas/responses/TestCaseList.yaml' }
 
   headers:
     Token: { $ref: './headers/Token.yaml' }

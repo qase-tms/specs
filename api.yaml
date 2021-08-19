@@ -19,70 +19,161 @@ externalDocs:
   url: 'https://developers.qase.io'
   description: Qase.io API Reference
 tags:
+  - name: custom-fields
+  - name: cases
   - name: projects
   - name: search
-  - name: custom-fields
 servers:
   - url: 'https://api.qase.io/v1'
     description: The production API server.
   - url: 'https://dev.qase.io/v1'
     description: The development API server.
 paths:
-  '/custom_field/{id}':
+  '/case/{code}':
     get:
-      operationId: get-custom-field
+      operationId: get-cases
       tags:
-        - custom-fields
-      summary: Get Custom Field by id.
+        - cases
+      summary: Get all test cases.
       description: |
-        This method allows to retrieve custom field.
+        This method allows to retrieve all test cases stored in selected project.
       parameters:
-        - $ref: '#/components/parameters/Id'
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              search:
+                description: Provide a string that will be used to search by name.
+                type: string
+              milestone_id:
+                description: ID of milestone.
+                type: integer
+              suite_id:
+                description: ID of test suite.
+                type: integer
+              severity:
+                description: |
+                  A list of severity values separated by comma.
+                  Possible values: undefined, blocker, critical,
+                  major, normal, minor, trivial
+                type: string
+              priority:
+                description: |
+                  A list of priority values separated by comma.
+                  Possible values: undefined, high, medium, low
+                type: string
+              type:
+                description: |
+                  A list of type values separated by comma.
+                  Possible values: other, functional smoke, regression,
+                  security, usability, performance, acceptance
+                type: string
+              behavior:
+                description: |
+                  A list of behavior values separated by comma.
+                  Possible values: undefined, positive negative, destructive
+                type: string
+              automation:
+                description: |
+                  A list of values separated by comma.
+                  Possible values: is-not-automated, automated to-be-automated
+                type: string
+              status:
+                description: |
+                  A list of values separated by comma. Possible values: actual, draft deprecated
+                type: string
       responses:
         '200':
-          description: A Custom Field.
+          description: A list of all projects.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomFieldResponse'
+                $ref: '#/components/schemas/TestCaseListResponse'
+    post:
+      operationId: create-case
+      tags:
+        - cases
+      summary: Create a new test case.
+      description: |
+        This method allows to create a new test case in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestCaseCreate'
+      responses:
+        '200':
+          description: A list of all projects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/case/{code}/{id}':
+    get:
+      operationId: get-case
+      tags:
+        - cases
+      summary: Get a specific test case.
+      description: |
+        This method allows to retrieve a specific test case.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Test Case.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestCaseResponse'
     delete:
-      operationId: delete-custom-field
+      operationId: delete-case
       tags:
-        - custom-fields
-      summary: Delete Custom Field by id.
+        - cases
+      summary: Delete test case.
       description: |
-        This method allows to delete custom field.
+        This method completely deletes a test case from repository.
       parameters:
+        - $ref: '#/components/parameters/Code'
         - $ref: '#/components/parameters/Id'
       responses:
         '200':
-          description: Custom Field removal result.
+          description: A Test Case.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Response'
+                $ref: '#/components/schemas/IdResponse'
     patch:
-      operationId: update-custom-field
+      operationId: update-case
       tags:
-        - custom-fields
-      summary: Update Custom Field by id.
+        - cases
+      summary: Update test case.
       description: |
-        This method allows to update custom field.
+        This method updates a test case.
       parameters:
+        - $ref: '#/components/parameters/Code'
         - $ref: '#/components/parameters/Id'
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CustomFieldUpdate'
+              $ref: '#/components/schemas/TestCaseCreate'
       responses:
         '200':
-          description: Custom Field update result.
+          description: A Test Case.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Response'
+                $ref: '#/components/schemas/IdResponse'
   /custom_field:
     get:
       operationId: custom-fields
@@ -146,6 +237,61 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+  '/custom_field/{id}':
+    get:
+      operationId: get-custom-field
+      tags:
+        - custom-fields
+      summary: Get Custom Field by id.
+      description: |
+        This method allows to retrieve custom field.
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Custom Field.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomFieldResponse'
+    delete:
+      operationId: delete-custom-field
+      tags:
+        - custom-fields
+      summary: Delete Custom Field by id.
+      description: |
+        This method allows to delete custom field.
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Custom Field removal result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+    patch:
+      operationId: update-custom-field
+      tags:
+        - custom-fields
+      summary: Update Custom Field by id.
+      description: |
+        This method allows to update custom field.
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomFieldUpdate'
+      responses:
+        '200':
+          description: Custom Field update result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
   /project:
     get:
       operationId: get-projects
@@ -630,6 +776,39 @@ components:
           type: integer
         project_id:
           type: integer
+    TestCaseCreate:
+      type: object
+      properties:
+        description:
+          type: string
+        preconditions:
+          type: string
+        postconditions:
+          type: string
+        title:
+          type: string
+          maxLength: 255
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              action:
+                type: string
+              expected_result:
+                type: string
+              input_data:
+                type: string
+        custom_field:
+          type: object
+          description: A map of custom fields values (id => value)
+          properties:
+            id:
+              type: string
+          additionalProperties:
+            type: string
+      required:
+        - title
     TestStep:
       type: object
       properties:
@@ -744,6 +923,31 @@ components:
                     oneOf:
                       - $ref: '#/components/schemas/TestCase'
                       - $ref: '#/components/schemas/Defect'
+    TestCaseResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/TestCase'
+    TestCaseListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/TestCase'
   headers:
     Token:
       description: API Access Token

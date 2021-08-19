@@ -1,13 +1,11 @@
 get:
-  operationId: projects
+  operationId: get-projects
   tags: [ projects ]
   summary: Get All Projects.
   description: |
     This method allows to retrieve all projects available
     for your account. You can you limit and offset params
     to paginate.
-  externalDocs:
-    url: https://developers.qase.io/#get-all-projects
   parameters:
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
@@ -25,8 +23,6 @@ post:
   summary: Create new project.
   description: |
     This method is used to create a new project through API.
-  externalDocs:
-    url: https://developers.qase.io/#create-a-new-project
   requestBody:
     required: true
     content:

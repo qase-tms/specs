@@ -148,7 +148,7 @@ paths:
                 $ref: '#/components/schemas/IdResponse'
   /project:
     get:
-      operationId: projects
+      operationId: get-projects
       tags:
         - projects
       summary: Get All Projects.
@@ -156,8 +156,6 @@ paths:
         This method allows to retrieve all projects available
         for your account. You can you limit and offset params
         to paginate.
-      externalDocs:
-        url: 'https://developers.qase.io/#get-all-projects'
       parameters:
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
@@ -175,8 +173,6 @@ paths:
       summary: Create new project.
       description: |
         This method is used to create a new project through API.
-      externalDocs:
-        url: 'https://developers.qase.io/#create-a-new-project'
       requestBody:
         required: true
         content:
@@ -198,8 +194,6 @@ paths:
       summary: Get Project by code.
       description: |
         This method allows to retrieve a specific project.
-      externalDocs:
-        url: 'https://developers.qase.io/#get-a-specific-project'
       parameters:
         - $ref: '#/components/parameters/Code'
       responses:

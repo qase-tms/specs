@@ -4,8 +4,6 @@ get:
   summary: Get Project by code.
   description: |
     This method allows to retrieve a specific project.
-  externalDocs:
-    url: https://developers.qase.io/#get-a-specific-project
   parameters:
     - $ref: '../parameters/project/Code.yaml'
   responses:

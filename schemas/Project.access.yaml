@@ -1,0 +1,5 @@
+type: object
+properties:
+  memeber_id:
+    type: integer
+    description: Team member id title.

@@ -1,6 +1,6 @@
 type: object
 properties:
-  name:
+  title:
     type: string
   code:
     type: string

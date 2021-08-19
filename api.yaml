@@ -148,7 +148,7 @@ paths:
                 $ref: '#/components/schemas/IdResponse'
   /project:
     get:
-      operationId: project-list
+      operationId: get-projects
       tags:
         - projects
       summary: Get All Projects.
@@ -156,8 +156,6 @@ paths:
         This method allows to retrieve all projects available
         for your account. You can you limit and offset params
         to paginate.
-      externalDocs:
-        url: 'https://developers.qase.io/#get-all-projects'
       parameters:
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
@@ -168,6 +166,104 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectListResponse'
+    post:
+      operationId: create-project
+      tags:
+        - projects
+      summary: Create new project.
+      description: |
+        This method is used to create a new project through API.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectCreate'
+      responses:
+        '200':
+          description: A result of project creation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCodeResponse'
+  '/project/{code}':
+    get:
+      operationId: get-project
+      tags:
+        - projects
+      summary: Get Project by code.
+      description: |
+        This method allows to retrieve a specific project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      responses:
+        '200':
+          description: A Project.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectResponse'
+    delete:
+      operationId: delete-project
+      tags:
+        - projects
+      summary: Delete Project by code.
+      description: |
+        This method allows to delete a specific project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      responses:
+        '200':
+          description: A result of project removal.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  '/project/{code}/access':
+    post:
+      operationId: grant-access-to-project
+      tags:
+        - projects
+      summary: Grant access to project by code.
+      description: |
+        This method allows to grant access to a specific project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectAccess'
+      responses:
+        '200':
+          description: Result of operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+    delete:
+      operationId: revoke-access-to-project
+      tags:
+        - projects
+      summary: Revoke access to project by code.
+      description: |
+        This method allows to revoke access to a specific project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectAccess'
+      responses:
+        '200':
+          description: Result of operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
   /search:
     get:
       operationId: search
@@ -408,7 +504,7 @@ components:
     Project:
       type: object
       properties:
-        name:
+        title:
           type: string
         code:
           type: string
@@ -435,6 +531,37 @@ components:
                   type: integer
                 open:
                   type: integer
+    ProjectAccess:
+      type: object
+      properties:
+        memeber_id:
+          type: integer
+          description: Team member id title.
+    ProjectCreate:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Project title.
+        code:
+          type: string
+          pattern: '^[a-zA-Z]{2,10}$'
+          description: Project code. Unique for team. Digits and special characters are not allowed.
+        description:
+          type: string
+          description: Project description.
+        access:
+          type: string
+          enum:
+            - all
+            - group
+            - none
+        group:
+          type: string
+          description: Team group hash. Required if access param is set to group.
+      required:
+        - title
+        - code
     TestCase:
       type: object
       properties:
@@ -561,6 +688,23 @@ components:
               properties:
                 id:
                   type: integer
+    ProjectResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Project'
+    ProjectCodeResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                code:
+                  type: string
     ProjectListResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

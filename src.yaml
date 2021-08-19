@@ -41,6 +41,10 @@ paths:
     $ref: './paths/custom_fields.yaml'
   /project:
     $ref: './paths/projects.yaml'
+  /project/{code}:
+    $ref: './paths/project.yaml'
+  /project/{code}/access:
+    $ref: './paths/project_access.yaml'
   /search:
     $ref: './paths/search.yaml'
 
@@ -53,12 +57,16 @@ components:
     CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
     Defect: { $ref: './schemas/Defect.yaml' }
     Project: { $ref: './schemas/Project.yaml' }
+    ProjectAccess: { $ref: './schemas/Project.access.yaml' }
+    ProjectCreate: { $ref: './schemas/Project.create.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
 
     CustomFieldResponse: { $ref: './schemas/responses/CustomField.yaml' }
     CustomFieldsResponse: { $ref: './schemas/responses/CustomFields.yaml' }
     IdResponse: { $ref: './schemas/responses/Id.yaml' }
+    ProjectResponse: { $ref: './schemas/responses/Project.yaml' }
+    ProjectCodeResponse: { $ref: './schemas/responses/ProjectCode.yaml' }
     ProjectListResponse: { $ref: './schemas/responses/ProjectList.yaml' }
     Response: { $ref: './schemas/responses/Base.yaml' }
     SearchResponse: { $ref: './schemas/responses/Search.yaml' }

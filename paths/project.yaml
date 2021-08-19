@@ -1,0 +1,33 @@
+get:
+  operationId: get-project
+  tags: [ projects ]
+  summary: Get Project by code.
+  description: |
+    This method allows to retrieve a specific project.
+  externalDocs:
+    url: https://developers.qase.io/#get-a-specific-project
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+  responses:
+    200:
+      description: A Project.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Project.yaml'
+
+delete:
+  operationId: delete-project
+  tags: [ projects ]
+  summary: Delete Project by code.
+  description: |
+    This method allows to delete a specific project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+  responses:
+    200:
+      description: A result of project removal.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Base.yaml'

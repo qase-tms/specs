@@ -1,5 +1,5 @@
 get:
-  operationId: project-list
+  operationId: projects
   tags: [ projects ]
   summary: Get All Projects.
   description: |
@@ -18,3 +18,25 @@ get:
         application/json:
           schema:
             $ref: '../schemas/responses/ProjectList.yaml'
+
+post:
+  operationId: create-project
+  tags: [ projects ]
+  summary: Create new project.
+  description: |
+    This method is used to create a new project through API.
+  externalDocs:
+    url: https://developers.qase.io/#create-a-new-project
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Project.create.yaml'
+  responses:
+    200:
+      description: A result of project creation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ProjectCode.yaml'

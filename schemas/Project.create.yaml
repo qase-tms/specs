@@ -1,0 +1,27 @@
+type: object
+properties:
+  title:
+    type: string
+    description: Project title.
+
+  code:
+    type: string
+    pattern: "^[a-zA-Z]{2,10}$"
+    description: Project code. Unique for team. Digits and special characters are not allowed.
+
+  description:
+    type: string
+    description: Project description.
+
+  access:
+    type: string
+    enum:
+      - all
+      - group
+      - none
+
+  group:
+    type: string
+    description: Team group hash. Required if access param is set to group.
+
+required: ['title', 'code']

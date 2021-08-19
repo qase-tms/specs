@@ -19,8 +19,8 @@ externalDocs:
   url: 'https://developers.qase.io'
   description: Qase.io API Reference
 tags:
-  - name: custom-fields
   - name: cases
+  - name: custom-fields
   - name: projects
   - name: search
 servers:

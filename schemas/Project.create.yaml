@@ -24,4 +24,4 @@ properties:
     type: string
     description: Team group hash. Required if access param is set to group.
 
-required: ['title', 'code']
+required: [title, code]

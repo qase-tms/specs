@@ -1,10 +1,13 @@
 get:
   operationId: search
   tags: [ search ]
-  summary: Search entities by Qase Query Language.
+  summary: Search entities by Qase Query Language (QQL).
   description: |
     This method allows to retrieve data sets for various
     entities using expressions with conditions.
+  externalDocs:
+    description: Find more info about QQL here.
+    url: https://help.qase.io/hc/en-us/articles/4404615073041
   parameters:
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'

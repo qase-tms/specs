@@ -1,0 +1,49 @@
+get:
+  operationId: get-suites
+  tags: [ suites ]
+  summary: Get all test suites.
+  description: |
+    This method allows to retrieve all test suites stored in selected project..
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+    - name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          search:
+            description: Provide a string that will be used to search by name.
+            type: string
+
+  responses:
+    200:
+      description: A list of all suites of project.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/SuiteList.yaml'
+
+post:
+  operationId: create-suite
+  tags: [ suites ]
+  summary: Create a new test suite.
+  description: |
+    This method is used to create a new test suite through API.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Suite.create.yaml'
+  responses:
+    200:
+      description: A list of all projects.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

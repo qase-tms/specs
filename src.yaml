@@ -28,6 +28,7 @@ tags:
   - name: custom-fields
   - name: projects
   - name: search
+  - name: suites
 
 servers:
   - url: https://api.qase.io/v1
@@ -52,6 +53,10 @@ paths:
     $ref: './paths/project_access.yaml'
   /search:
     $ref: './paths/search.yaml'
+  /suite/{code}:
+    $ref: './paths/suites.yaml'
+  /suite/{code}/{id}:
+    $ref: './paths/suite.yaml'
 
 components:
   schemas:
@@ -64,6 +69,9 @@ components:
     Project: { $ref: './schemas/Project.yaml' }
     ProjectAccess: { $ref: './schemas/Project.access.yaml' }
     ProjectCreate: { $ref: './schemas/Project.create.yaml' }
+    Suite: { $ref: './schemas/Suite.yaml' }
+    SuiteCreate: { $ref: './schemas/Suite.create.yaml' }
+    SuiteDelete: { $ref: './schemas/Suite.delete.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
@@ -76,6 +84,8 @@ components:
     ProjectListResponse: { $ref: './schemas/responses/ProjectList.yaml' }
     Response: { $ref: './schemas/responses/Base.yaml' }
     SearchResponse: { $ref: './schemas/responses/Search.yaml' }
+    SuiteResponse: { $ref: './schemas/responses/Suite.yaml' }
+    SuiteListResponse: { $ref: './schemas/responses/SuiteList.yaml' }
     TestCaseResponse: { $ref: './schemas/responses/TestCase.yaml' }
     TestCaseListResponse: { $ref: './schemas/responses/TestCaseList.yaml' }
 

@@ -1,0 +1,56 @@
+get:
+  operationId: get-case
+  tags: [ cases ]
+  summary: Get a specific test case.
+  description: |
+    This method allows to retrieve a specific test case.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Test Case.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/TestCase.yaml'
+
+delete:
+  operationId: delete-case
+  tags: [ cases ]
+  summary: Delete test case.
+  description: |
+    This method completely deletes a test case from repository.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Test Case.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'
+
+patch:
+  operationId: update-case
+  tags: [ cases ]
+  summary: Update test case.
+  description: |
+    This method updates a test case.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TestCase.create.yaml'
+  responses:
+    200:
+      description: A Test Case.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

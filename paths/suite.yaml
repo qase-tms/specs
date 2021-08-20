@@ -1,0 +1,61 @@
+get:
+  operationId: get-suite
+  tags: [ suites ]
+  summary: Get a specific test suite.
+  description: |
+    This method allows to retrieve a specific test suite.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Test Case.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Suite.yaml'
+
+delete:
+  operationId: delete-suite
+  tags: [ suites ]
+  summary: Delete test suite.
+  description: |
+    This method completely deletes a test suite with test cases from repository.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Suite.delete.yaml'
+  responses:
+    200:
+      description: A result of operation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'
+
+patch:
+  operationId: update-suite
+  tags: [ suites ]
+  summary: Update test suite.
+  description: |
+    This method is used to update a test suite through API.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Suite.create.yaml'
+  responses:
+    200:
+      description: A result of operation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

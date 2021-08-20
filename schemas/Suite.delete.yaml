@@ -1,0 +1,5 @@
+type: object
+properties:
+  destination_id:
+    type: integer
+    description: If provided, child test cases would be moved to suite with such ID.

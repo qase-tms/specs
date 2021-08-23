@@ -1,0 +1,56 @@
+type: object
+properties:
+  status:
+    type: string
+    enum:
+      - in_progress
+      - passed
+      - failed
+      - blocked
+      - skipped
+  time:
+    type: integer
+    nullable: true
+    minimum: 0
+    maximum: 31536000
+  time_ms:
+    type: integer
+    nullable: true
+    minimum: 0
+    maximum: 31536000000
+  defect:
+    type: boolean
+    nullable: true
+  attachments:
+    type: array
+    nullable: true
+    items:
+      type: string
+  stacktrace:
+    type: string
+    nullable: true
+  comment:
+    type: string
+    nullable: true
+  steps:
+    type: array
+    nullable: true
+    items:
+      type: object
+      properties:
+        position:
+          type: integer
+        status:
+          type: string
+          enum:
+            - passed
+            - failed
+            - blocked
+        comment:
+          type: string
+          nullable: true
+        attachments:
+          type: array
+          nullable: true
+          items:
+            type: string

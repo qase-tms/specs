@@ -1,0 +1,6 @@
+allOf:
+  - $ref: './Base.yaml'
+  - type: object
+    properties:
+      result:
+        $ref: '../Result.yaml'

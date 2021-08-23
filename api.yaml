@@ -23,6 +23,7 @@ tags:
   - name: custom-fields
   - name: plans
   - name: projects
+  - name: results
   - name: milestones
   - name: runs
   - name: search
@@ -622,6 +623,166 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+  '/result/{code}':
+    get:
+      operationId: get-results
+      tags:
+        - results
+      summary: Get all test run results.
+      description: |
+        This method allows to retrieve all test run
+        results stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              status:
+                description: |
+                  A single test run result status.
+                  Possible values: in_progress, passed, failed, blocked, skipped, invalid.
+                type: string
+              run:
+                type: string
+                description: A list of run IDs separated by comma.
+              case_id:
+                type: string
+                description: A list of case IDs separated by comma.
+              member:
+                type: string
+                description: A list of member IDs separated by comma.
+              api:
+                type: boolean
+              from_end_time:
+                type: string
+                description: |
+                  Will return all results created after provided datetime.
+                  Allowed format: `Y-m-d H:i:s`.
+              to_end_time:
+                type: string
+                description: |
+                  Will return all results created before provided datetime.
+                  Allowed format: `Y-m-d H:i:s`.
+      responses:
+        '200':
+          description: A list of all test run results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListResponse'
+  '/result/{code}/{id_or_hash}':
+    get:
+      operationId: get-result
+      tags:
+        - results
+      summary: Get test run result by code.
+      description: |
+        This method allows to retrieve a specific test run result by Hash.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/IdOrHash'
+      responses:
+        '200':
+          description: A test run result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultResponse'
+    post:
+      operationId: create-result
+      tags:
+        - results
+      summary: Create test run result.
+      description: |
+        This method allows to create test run result by Run Id.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/IdOrHash'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultCreate'
+      responses:
+        '200':
+          description: A result
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+  '/result/{code}/{id}/bulk':
+    post:
+      operationId: create-result-bulk
+      tags:
+        - results
+      summary: Bulk create test run result.
+      description: |
+        This method allows to create a lot of test run result at once.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultCreateBulk'
+      responses:
+        '200':
+          description: A result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  '/result/{code}/{id}/{hash}':
+    patch:
+      operationId: update-result
+      tags:
+        - results
+      summary: Update test run result.
+      description: |
+        This method allows to update test run result.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+        - $ref: '#/components/parameters/Hash'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultUpdate'
+      responses:
+        '200':
+          description: A result
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+    delete:
+      operationId: delete-result
+      tags:
+        - results
+      summary: Delete test run result.
+      description: |
+        This method allows to delete test run result.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: A result
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
   '/run/{code}':
     get:
       operationId: get-runs
@@ -1421,6 +1582,204 @@ components:
       required:
         - title
         - code
+    Result:
+      type: object
+      properties:
+        hash:
+          type: string
+        comment:
+          type: string
+        stacktrace:
+          type: string
+        run_id:
+          type: integer
+        case_id:
+          type: integer
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: integer
+              position:
+                type: integer
+              attachments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Attachment'
+        status:
+          type: string
+        is_api_result:
+          type: boolean
+        time_spent_ms:
+          type: integer
+        end_time:
+          type: string
+          format: date-time
+          nullable: true
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+    ResultCreate:
+      type: object
+      properties:
+        case_id:
+          type: integer
+        case:
+          type: object
+          description: Could be used insetad of case_id
+          properties:
+            title:
+              type: string
+            suite_title:
+              type: string
+              nullable: true
+            description:
+              type: string
+              nullable: true
+            layer:
+              type: string
+            severity:
+              type: string
+        status:
+          type: string
+          enum:
+            - in_progress
+            - passed
+            - failed
+            - blocked
+            - skipped
+            - invalid
+        time:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 31536000
+        time_ms:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 31536000000
+        defect:
+          type: boolean
+          nullable: true
+        attachments:
+          type: array
+          nullable: true
+          items:
+            type: string
+        stacktrace:
+          type: string
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+        param:
+          type: array
+          maxLength: 1
+          items:
+            type: string
+        steps:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              position:
+                type: integer
+              status:
+                type: string
+                enum:
+                  - passed
+                  - failed
+                  - blocked
+              comment:
+                type: string
+                nullable: true
+              attachments:
+                type: array
+                nullable: true
+                items:
+                  type: string
+              action:
+                type: string
+              expected_result:
+                type: string
+                nullable: true
+              data:
+                type: string
+                nullable: true
+            required:
+              - position
+              - status
+    ResultCreateBulk:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultCreate'
+      required:
+        - results
+    ResultUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - in_progress
+            - passed
+            - failed
+            - blocked
+            - skipped
+        time:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 31536000
+        time_ms:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 31536000000
+        defect:
+          type: boolean
+          nullable: true
+        attachments:
+          type: array
+          nullable: true
+          items:
+            type: string
+        stacktrace:
+          type: string
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+        steps:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              position:
+                type: integer
+              status:
+                type: string
+                enum:
+                  - passed
+                  - failed
+                  - blocked
+              comment:
+                type: string
+                nullable: true
+              attachments:
+                type: array
+                nullable: true
+                items:
+                  type: string
     Run:
       type: object
       properties:
@@ -1946,6 +2305,31 @@ components:
           type: boolean
         result:
           type: object
+    ResultResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Result'
+    ResultListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Result'
     RunResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -2101,6 +2485,15 @@ components:
       required: true
       schema:
         type: integer
+    IdOrHash:
+      name: id_or_hash
+      in: path
+      description: Id or Hash.
+      required: true
+      schema:
+        oneOf:
+          - type: string
+          - type: integer
     Limit:
       name: limit
       description: A number of entities in result set.

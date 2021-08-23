@@ -28,6 +28,7 @@ tags:
   - name: custom-fields
   - name: plans
   - name: projects
+  - name: results
   - name: milestones
   - name: runs
   - name: search
@@ -63,6 +64,14 @@ paths:
     $ref: './paths/project.yaml'
   /project/{code}/access:
     $ref: './paths/project_access.yaml'
+  /result/{code}:
+    $ref: './paths/results.yaml'
+  /result/{code}/{id_or_hash}:
+    $ref: './paths/result.yaml'
+  /result/{code}/{id}/bulk:
+    $ref: './paths/result_bulk.yaml'
+  /result/{code}/{id}/{hash}:
+    $ref: './paths/result_id_hash.yaml'
   /run/{code}:
     $ref: './paths/runs.yaml'
   /run/{code}/{id}:
@@ -100,6 +109,10 @@ components:
     Project: { $ref: './schemas/Project.yaml' }
     ProjectAccess: { $ref: './schemas/Project.access.yaml' }
     ProjectCreate: { $ref: './schemas/Project.create.yaml' }
+    Result: { $ref: './schemas/Result.yaml' }
+    ResultCreate: { $ref: './schemas/Result.create.yaml' }
+    ResultCreateBulk: { $ref: './schemas/Result.create_bulk.yaml' }
+    ResultUpdate: { $ref: './schemas/Result.update.yaml' }
     Run: { $ref: './schemas/Run.yaml' }
     RunCreate: { $ref: './schemas/Run.create.yaml' }
     RunPublic: { $ref: './schemas/Run.public.yaml' }
@@ -124,6 +137,8 @@ components:
     ProjectCodeResponse: { $ref: './schemas/responses/ProjectCode.yaml' }
     ProjectListResponse: { $ref: './schemas/responses/ProjectList.yaml' }
     Response: { $ref: './schemas/responses/Base.yaml' }
+    ResultResponse: { $ref: './schemas/responses/Result.yaml' }
+    ResultListResponse: { $ref: './schemas/responses/ResultList.yaml' }
     RunResponse: { $ref: './schemas/responses/Run.yaml' }
     RunListResponse: { $ref: './schemas/responses/RunList.yaml' }
     RunPublicResponse: { $ref: './schemas/responses/RunPublic.yaml' }
@@ -142,5 +157,6 @@ components:
     Code: { $ref: './parameters/project/Code.yaml' }
     Hash: { $ref: './parameters/Hash.yaml' }
     Id: { $ref: './parameters/Id.yaml' }
+    IdOrHash: { $ref: './parameters/IdOrHash.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }

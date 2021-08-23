@@ -1,0 +1,62 @@
+get:
+  operationId: get-runs
+  tags: [ runs ]
+  summary: Get all runs.
+  description: |
+    This method allows to retrieve all runs stored in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+    - name: include
+      in: query
+      description: |
+        Add this param to include a list of test cases into response. Possible value: cases
+      schema:
+        type: array
+        items:
+          type: string
+    - name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          status:
+            description: |
+              A list of status values separated by comma.
+              Possible values: active, complete, abort.
+            type: string
+          milestone:
+            type: integer
+          environment:
+            type: integer
+  responses:
+    200:
+      description: A list of all runs.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/RunList.yaml'
+
+post:
+  operationId: create-run
+  tags: [ runs ]
+  summary: Create a new run.
+  description: |
+    This method allows to create a run in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Run.create.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

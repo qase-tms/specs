@@ -26,8 +26,12 @@ externalDocs:
 tags:
   - name: cases
   - name: custom-fields
+  - name: plans
   - name: projects
+  - name: milestones
+  - name: runs
   - name: search
+  - name: shared-steps
   - name: suites
 
 servers:
@@ -45,14 +49,34 @@ paths:
     $ref: './paths/custom_fields.yaml'
   /custom_field/{id}:
     $ref: './paths/custom_field.yaml'
+  /milestone/{code}:
+    $ref: './paths/milestones.yaml'
+  /milestone/{code}/{id}:
+    $ref: './paths/milestone.yaml'
+  /plan/{code}:
+    $ref: './paths/plans.yaml'
+  /plan/{code}/{id}:
+    $ref: './paths/plan.yaml'
   /project:
     $ref: './paths/projects.yaml'
   /project/{code}:
     $ref: './paths/project.yaml'
   /project/{code}/access:
     $ref: './paths/project_access.yaml'
+  /run/{code}:
+    $ref: './paths/runs.yaml'
+  /run/{code}/{id}:
+    $ref: './paths/run.yaml'
+  /run/{code}/{id}/public:
+    $ref: './paths/run_public.yaml'
+  /run/{code}/{id}/complete:
+    $ref: './paths/run_complete.yaml'
   /search:
     $ref: './paths/search.yaml'
+  /shared_step/{code}:
+    $ref: './paths/shared_steps.yaml'
+  /shared_step/{code}/{hash}:
+    $ref: './paths/shared_step.yaml'
   /suite/{code}:
     $ref: './paths/suites.yaml'
   /suite/{code}/{id}:
@@ -61,14 +85,27 @@ paths:
 components:
   schemas:
     Attachment: { $ref: './schemas/Attachment.yaml' }
+    AttachmentHash: { $ref: './schemas/Attachment.hash.yaml' }
     CustomField: { $ref: './schemas/CustomField.yaml' }
     CustomFieldCreate: { $ref: './schemas/CustomField.create.yaml' }
     CustomFieldUpdate: { $ref: './schemas/CustomField.update.yaml' }
     CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
     Defect: { $ref: './schemas/Defect.yaml' }
+    Milestone: { $ref: './schemas/Milestone.yaml' }
+    MilestoneCreate: { $ref: './schemas/Milestone.create.yaml' }
+    MilestoneUpdate: { $ref: './schemas/Milestone.update.yaml' }
+    Plan: { $ref: './schemas/Plan.yaml' }
+    PlanCreate: { $ref: './schemas/Plan.create.yaml' }
+    PlanUpdate: { $ref: './schemas/Plan.update.yaml' }
     Project: { $ref: './schemas/Project.yaml' }
     ProjectAccess: { $ref: './schemas/Project.access.yaml' }
     ProjectCreate: { $ref: './schemas/Project.create.yaml' }
+    Run: { $ref: './schemas/Run.yaml' }
+    RunCreate: { $ref: './schemas/Run.create.yaml' }
+    RunPublic: { $ref: './schemas/Run.public.yaml' }
+    SharedStep: { $ref: './schemas/SharedStep.yaml' }
+    SharedStepCreate: { $ref: './schemas/SharedStep.create.yaml' }
+    SharedStepUpdate: { $ref: './schemas/SharedStep.update.yaml' }
     Suite: { $ref: './schemas/Suite.yaml' }
     SuiteCreate: { $ref: './schemas/Suite.create.yaml' }
     SuiteDelete: { $ref: './schemas/Suite.delete.yaml' }
@@ -79,11 +116,20 @@ components:
     CustomFieldResponse: { $ref: './schemas/responses/CustomField.yaml' }
     CustomFieldsResponse: { $ref: './schemas/responses/CustomFields.yaml' }
     IdResponse: { $ref: './schemas/responses/Id.yaml' }
+    MilestoneResponse: { $ref: './schemas/responses/Milestone.yaml' }
+    MilestoneListResponse: { $ref: './schemas/responses/MilestoneList.yaml' }
+    PlanResponse: { $ref: './schemas/responses/Plan.yaml' }
+    PlanListResponse: { $ref: './schemas/responses/PlanList.yaml' }
     ProjectResponse: { $ref: './schemas/responses/Project.yaml' }
     ProjectCodeResponse: { $ref: './schemas/responses/ProjectCode.yaml' }
     ProjectListResponse: { $ref: './schemas/responses/ProjectList.yaml' }
     Response: { $ref: './schemas/responses/Base.yaml' }
+    RunResponse: { $ref: './schemas/responses/Run.yaml' }
+    RunListResponse: { $ref: './schemas/responses/RunList.yaml' }
+    RunPublicResponse: { $ref: './schemas/responses/RunPublic.yaml' }
     SearchResponse: { $ref: './schemas/responses/Search.yaml' }
+    SharedStepResponse: { $ref: './schemas/responses/SharedStep.yaml' }
+    SharedStepListResponse: { $ref: './schemas/responses/SharedStepList.yaml' }
     SuiteResponse: { $ref: './schemas/responses/Suite.yaml' }
     SuiteListResponse: { $ref: './schemas/responses/SuiteList.yaml' }
     TestCaseResponse: { $ref: './schemas/responses/TestCase.yaml' }
@@ -94,6 +140,7 @@ components:
 
   parameters:
     Code: { $ref: './parameters/project/Code.yaml' }
+    Hash: { $ref: './parameters/Hash.yaml' }
     Id: { $ref: './parameters/Id.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }

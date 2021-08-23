@@ -21,8 +21,12 @@ externalDocs:
 tags:
   - name: cases
   - name: custom-fields
+  - name: plans
   - name: projects
+  - name: milestones
+  - name: runs
   - name: search
+  - name: shared-steps
   - name: suites
 servers:
   - url: 'https://api.qase.io/v1'
@@ -293,6 +297,213 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+  '/milestone/{code}':
+    get:
+      operationId: get-milestones
+      tags:
+        - milestones
+      summary: Get all milestones.
+      description: |
+        This method allows to retrieve all milestones stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              search:
+                description: Provide a string that will be used to search by name.
+                type: string
+      responses:
+        '200':
+          description: A list of all milestones.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneListResponse'
+    post:
+      operationId: create-milestone
+      tags:
+        - milestones
+      summary: Create a new milestone.
+      description: |
+        This method allows to create a milestone in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MilestoneCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/milestone/{code}/{id}':
+    get:
+      operationId: get-milestone
+      tags:
+        - milestones
+      summary: Get a specific milestone.
+      description: |
+        This method allows to retrieve a specific milestone.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Milestone.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneResponse'
+    delete:
+      operationId: delete-milestone
+      tags:
+        - milestones
+      summary: Delete milestone.
+      description: |
+        This method completely deletes a milestone from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+    patch:
+      operationId: update-milestone
+      tags:
+        - milestones
+      summary: Update milestone.
+      description: |
+        This method updates a milestone.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MilestoneUpdate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/plan/{code}':
+    get:
+      operationId: get-plans
+      tags:
+        - plans
+      summary: Get all plans.
+      description: |
+        This method allows to retrieve all plans stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of all plans.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlanListResponse'
+    post:
+      operationId: create-plan
+      tags:
+        - plans
+      summary: Create a new plan.
+      description: |
+        This method allows to create a plan in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlanCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/plan/{code}/{id}':
+    get:
+      operationId: get-plan
+      tags:
+        - plans
+      summary: Get a specific plan.
+      description: |
+        This method allows to retrieve a specific plan.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A plan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlanResponse'
+    delete:
+      operationId: delete-plan
+      tags:
+        - plans
+      summary: Delete plan.
+      description: |
+        This method completely deletes a plan from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+    patch:
+      operationId: update-plan
+      tags:
+        - plans
+      summary: Update plan.
+      description: |
+        This method updates a plan.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlanUpdate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
   /project:
     get:
       operationId: get-projects
@@ -411,6 +622,147 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+  '/run/{code}':
+    get:
+      operationId: get-runs
+      tags:
+        - runs
+      summary: Get all runs.
+      description: |
+        This method allows to retrieve all runs stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: include
+          in: query
+          description: |
+            Add this param to include a list of test cases into response. Possible value: cases
+          schema:
+            type: array
+            items:
+              type: string
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              status:
+                description: |
+                  A list of status values separated by comma.
+                  Possible values: active, complete, abort.
+                type: string
+              milestone:
+                type: integer
+              environment:
+                type: integer
+      responses:
+        '200':
+          description: A list of all runs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunListResponse'
+    post:
+      operationId: create-run
+      tags:
+        - runs
+      summary: Create a new run.
+      description: |
+        This method allows to create a run in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/run/{code}/{id}':
+    get:
+      operationId: get-run
+      tags:
+        - runs
+      summary: Get a specific run.
+      description: |
+        This method allows to retrieve a specific run.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A run.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunResponse'
+    delete:
+      operationId: delete-run
+      tags:
+        - runs
+      summary: Delete run.
+      description: |
+        This method completely deletes a run from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/run/{code}/{id}/public':
+    patch:
+      operationId: update-run-publicity
+      tags:
+        - runs
+      summary: Update publicity of a specific run.
+      description: |
+        This method allows to update a publicity of specific run.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunPublic'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunPublicResponse'
+  '/run/{code}/{id}/complete':
+    post:
+      operationId: complete-run
+      tags:
+        - runs
+      summary: Complete a specific run.
+      description: |
+        This method allows to complete a specific run.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
   /search:
     get:
       operationId: search
@@ -441,6 +793,122 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SearchResponse'
+  '/shared_step/{code}':
+    get:
+      operationId: get-shared-steps
+      tags:
+        - shared-steps
+      summary: Get all shared steps.
+      description: |
+        This method allows to retrieve all shared steps stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              search:
+                description: Provide a string that will be used to search by name.
+                type: string
+      responses:
+        '200':
+          description: A list of all shared steps.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStepListResponse'
+    post:
+      operationId: create-shared-step
+      tags:
+        - shared-steps
+      summary: Create a new shared step.
+      description: |
+        This method allows to create a shared step in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharedStepCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Response'
+                  - type: object
+                    properties:
+                      result:
+                        type: object
+                        properties:
+                          hash:
+                            type: string
+  '/shared_step/{code}/{hash}':
+    get:
+      operationId: get-shared-step
+      tags:
+        - shared-steps
+      summary: Get a specific shared step.
+      description: |
+        This method allows to retrieve a specific shared step.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: A shared step.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStepResponse'
+    delete:
+      operationId: delete-shared-step
+      tags:
+        - shared-steps
+      summary: Delete shared step.
+      description: |
+        This method completely deletes a shared step from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+    patch:
+      operationId: update-shared-step
+      tags:
+        - shared-steps
+      summary: Update shared step.
+      description: |
+        This method updates a shared step.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Hash'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharedStepUpdate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
   '/suite/{code}':
     get:
       operationId: get-suites
@@ -568,6 +1036,23 @@ components:
         url:
           type: string
           format: uri
+        hash:
+          type: string
+    AttachmentHash:
+      type: object
+      properties:
+        size:
+          type: integer
+        mime:
+          type: string
+        filename:
+          type: string
+        url:
+          type: string
+          format: |-
+            uri
+
+            'hash' => $attachment->hash, 'size' => $attachment->size, 'mime' => $attachment->mime, 'filename' => $attachment->filename, 'url' => get_attachment_url($attachment, $team->hash)
     CustomField:
       type: object
       properties:
@@ -764,6 +1249,117 @@ components:
           type: integer
         external_data:
           type: string
+    Milestone:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - completed
+            - active
+        due_date:
+          type: string
+          nullable: true
+          format: date-time
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          nullable: true
+          format: date-time
+    MilestoneCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - completed
+            - active
+        due_date:
+          type: integer
+          description: unix timestamp
+    MilestoneUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - completed
+            - active
+    Plan:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        cases_count:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+          nullable: true
+        average_time:
+          type: number
+        cases:
+          type: array
+          items:
+            type: object
+            properties:
+              case_id:
+                type: integer
+              assignee_id:
+                type: integer
+                nullable: true
+    PlanCreate:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        cases:
+          type: array
+          items:
+            type: integer
+      required:
+        - title
+        - cases
+    PlanUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        cases:
+          type: array
+          items:
+            type: integer
     Project:
       type: object
       properties:
@@ -825,6 +1421,231 @@ components:
       required:
         - title
         - code
+    Run:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: integer
+        status_text:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+          nullable: true
+        end_time:
+          type: string
+          format: date-time
+          nullable: true
+        public:
+          type: boolean
+        stats:
+          type: object
+          properties:
+            total:
+              type: integer
+            untested:
+              type: integer
+            passed:
+              type: integer
+            failed:
+              type: integer
+            blocked:
+              type: integer
+            skipped:
+              type: integer
+            retest:
+              type: integer
+            in_progress:
+              type: integer
+            invalid:
+              type: integer
+        time_spent:
+          type: integer
+          description: Time in ms.
+        environment:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            slug:
+              type: string
+            host:
+              type: string
+          nullable: true
+        milestone:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+          nullable: true
+        custom_fields:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              value:
+                type: string
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              internal_id:
+                type: integer
+        cases:
+          type: array
+          items:
+            type: integer
+    RunCreate:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+        include_all_cases:
+          type: boolean
+        cases:
+          type: array
+          items:
+            type: integer
+        environment_id:
+          type: integer
+        milestone_id:
+          type: integer
+        plan_id:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+      required:
+        - title
+    RunPublic:
+      type: object
+      properties:
+        status:
+          type: boolean
+      required:
+        - status
+    SharedStep:
+      type: object
+      properties:
+        hash:
+          type: string
+        title:
+          type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              data:
+                type: string
+              hash:
+                type: string
+              action:
+                type: string
+              expected_result:
+                type: string
+              attachments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentHash'
+        data:
+          type: string
+        cases:
+          type: array
+          items:
+            type: integer
+        cases_count:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          nullable: true
+          format: date-time
+    SharedStepCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+        data:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachmentHash'
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              hash:
+                type: string
+              action:
+                type: string
+              expected_result:
+                type: string
+              data:
+                type: string
+              attachments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentHash'
+    SharedStepUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+        data:
+          type: string
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              hash:
+                type: string
+              action:
+                type: string
+              expected_result:
+                type: string
+              data:
+                type: string
+              attachments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentHash'
     Suite:
       type: object
       properties:
@@ -1033,6 +1854,56 @@ components:
               properties:
                 id:
                   type: integer
+    MilestoneResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Milestone'
+    MilestoneListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Milestone'
+    PlanResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Plan'
+    PlanListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Plan'
     ProjectResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -1075,6 +1946,42 @@ components:
           type: boolean
         result:
           type: object
+    RunResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Run'
+    RunListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Run'
+    RunPublicResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
     SearchResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -1089,6 +1996,31 @@ components:
                     oneOf:
                       - $ref: '#/components/schemas/TestCase'
                       - $ref: '#/components/schemas/Defect'
+    SharedStepResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/SharedStep'
+    SharedStepListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/SharedStep'
     SuiteResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -1155,6 +2087,13 @@ components:
         type: string
         minLength: 2
         maxLength: 10
+    Hash:
+      name: hash
+      in: path
+      description: Hash.
+      required: true
+      schema:
+        type: string
     Id:
       name: id
       in: path

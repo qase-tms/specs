@@ -1,0 +1,24 @@
+type: object
+properties:
+  title:
+    type: string
+    maxLength: 255
+  description:
+    type: string
+  include_all_cases:
+    type: boolean
+  cases:
+    type: array
+    items:
+      type: integer
+  environment_id:
+    type: integer
+  milestone_id:
+    type: integer
+  plan_id:
+    type: integer
+  tags:
+    type: array
+    items:
+      type: string
+required: [title]

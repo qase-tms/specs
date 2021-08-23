@@ -1,0 +1,10 @@
+allOf:
+  - $ref: './Base.yaml'
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          url:
+            type: string
+            format: uri

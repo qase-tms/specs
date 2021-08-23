@@ -1,0 +1,88 @@
+type: object
+properties:
+  id:
+    type: integer
+  title:
+    type: string
+  description:
+    type: string
+  status:
+    type: integer
+  status_text:
+    type: string
+  start_time:
+    type: string
+    format: date-time
+    nullable: true
+  end_time:
+    type: string
+    format: date-time
+    nullable: true
+  public:
+    type: boolean
+  stats:
+    type: object
+    properties:
+      total:
+        type: integer
+      untested:
+        type: integer
+      passed:
+        type: integer
+      failed:
+        type: integer
+      blocked:
+        type: integer
+      skipped:
+        type: integer
+      retest:
+        type: integer
+      in_progress:
+        type: integer
+      invalid:
+        type: integer
+  time_spent:
+    type: integer
+    description: Time in ms.
+  environment:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      slug:
+        type: string
+      host:
+        type: string
+    nullable: true
+  milestone:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+    nullable: true
+  custom_fields:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+        value:
+          type: string
+  tags:
+    type: array
+    items:
+      type: object
+      properties:
+        title:
+          type: string
+        internal_id:
+          type: integer
+  cases:
+    type: array
+    items:
+      type: integer

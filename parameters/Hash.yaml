@@ -1,0 +1,6 @@
+name: hash
+in: path
+description: Hash.
+required: true
+schema:
+  type: string

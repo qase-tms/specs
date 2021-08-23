@@ -1,0 +1,56 @@
+get:
+  operationId: get-milestone
+  tags: [ milestones ]
+  summary: Get a specific milestone.
+  description: |
+    This method allows to retrieve a specific milestone.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Milestone.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Milestone.yaml'
+
+delete:
+  operationId: delete-milestone
+  tags: [ milestones ]
+  summary: Delete milestone.
+  description: |
+    This method completely deletes a milestone from repository.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'
+
+patch:
+  operationId: update-milestone
+  tags: [ milestones ]
+  summary: Update milestone.
+  description: |
+    This method updates a milestone.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Milestone.update.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

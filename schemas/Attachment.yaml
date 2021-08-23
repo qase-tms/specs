@@ -9,3 +9,5 @@ properties:
   url:
     type: string
     format: uri
+  hash:
+    type: string

@@ -1,0 +1,48 @@
+get:
+  operationId: get-shared-steps
+  tags: [ shared-steps ]
+  summary: Get all shared steps.
+  description: |
+    This method allows to retrieve all shared steps stored in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+    - name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          search:
+            description: Provide a string that will be used to search by name.
+            type: string
+  responses:
+    200:
+      description: A list of all shared steps.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/SharedStepList.yaml'
+
+post:
+  operationId: create-shared-step
+  tags: [ shared-steps ]
+  summary: Create a new shared step.
+  description: |
+    This method allows to create a shared step in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/SharedStep.create.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Hash.yaml'

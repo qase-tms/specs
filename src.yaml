@@ -24,8 +24,10 @@ externalDocs:
   description: Qase.io API Reference
 
 tags:
+  - name: attachments
   - name: cases
   - name: custom-fields
+  - name: environments
   - name: defects
   - name: plans
   - name: projects
@@ -35,6 +37,7 @@ tags:
   - name: search
   - name: shared-steps
   - name: suites
+  - name: users
 
 servers:
   - url: https://api.qase.io/v1
@@ -43,6 +46,10 @@ servers:
     description: The development API server.
 
 paths:
+  /attachment:
+    $ref: './paths/attachments.yaml'
+  /attachment/{code_or_hash}:
+    $ref: './paths/attachment.yaml'
   /case/{code}:
     $ref: './paths/cases.yaml'
   /case/{code}/{id}:
@@ -59,6 +66,10 @@ paths:
     $ref: './paths/defect_resolve.yaml'
   /defect/{code}/status/{id}:
     $ref: './paths/defect_status.yaml'
+  /environment/{code}:
+    $ref: './paths/environments.yaml'
+  /environment/{code}/{id}:
+    $ref: './paths/environment.yaml'
   /milestone/{code}:
     $ref: './paths/milestones.yaml'
   /milestone/{code}/{id}:
@@ -99,10 +110,15 @@ paths:
     $ref: './paths/suites.yaml'
   /suite/{code}/{id}:
     $ref: './paths/suite.yaml'
+  /user:
+    $ref: './paths/users.yaml'
+  /user/{id}:
+    $ref: './paths/user.yaml'
 
 components:
   schemas:
     Attachment: { $ref: './schemas/Attachment.yaml' }
+    AttachmentGet: { $ref: './schemas/Attachment.get.yaml' }
     AttachmentHash: { $ref: './schemas/Attachment.hash.yaml' }
     CustomField: { $ref: './schemas/CustomField.yaml' }
     CustomFieldCreate: { $ref: './schemas/CustomField.create.yaml' }
@@ -113,6 +129,9 @@ components:
     DefectQQL: { $ref: './schemas/Defect.qql.yaml' }
     DefectStatus: { $ref: './schemas/Defect.status.yaml' }
     DefectUpdate: { $ref: './schemas/Defect.update.yaml' }
+    Environment: { $ref: './schemas/Environment.yaml' }
+    EnvironmentCreate: { $ref: './schemas/Environment.create.yaml' }
+    EnvironmentUpdate: { $ref: './schemas/Environment.update.yaml' }
     Milestone: { $ref: './schemas/Milestone.yaml' }
     MilestoneCreate: { $ref: './schemas/Milestone.create.yaml' }
     MilestoneUpdate: { $ref: './schemas/Milestone.update.yaml' }
@@ -139,11 +158,17 @@ components:
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
     TestCaseQQL: { $ref: './schemas/TestCase.qql.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
+    User: { $ref: './schemas/User.yaml' }
 
+    AttachmentResponse: { $ref: './schemas/responses/Attachment.yaml' }
+    AttachmentListResponse: { $ref: './schemas/responses/AttachmentList.yaml' }
+    AttachmentUploadsResponse: { $ref: './schemas/responses/AttachmentUploads.yaml' }
     CustomFieldResponse: { $ref: './schemas/responses/CustomField.yaml' }
-    CustomFieldsResponse: { $ref: './schemas/responses/CustomFields.yaml' }
+    CustomFieldsResponse: { $ref: './schemas/responses/CustomFieldList.yaml' }
     DefectResponse: { $ref: './schemas/responses/Defect.yaml' }
     DefectListResponse: { $ref: './schemas/responses/DefectList.yaml' }
+    EnvironmentResponse: { $ref: './schemas/responses/Environment.yaml' }
+    EnvironmentListResponse: { $ref: './schemas/responses/EnvironmentList.yaml' }
     IdResponse: { $ref: './schemas/responses/Id.yaml' }
     MilestoneResponse: { $ref: './schemas/responses/Milestone.yaml' }
     MilestoneListResponse: { $ref: './schemas/responses/MilestoneList.yaml' }
@@ -165,12 +190,15 @@ components:
     SuiteListResponse: { $ref: './schemas/responses/SuiteList.yaml' }
     TestCaseResponse: { $ref: './schemas/responses/TestCase.yaml' }
     TestCaseListResponse: { $ref: './schemas/responses/TestCaseList.yaml' }
+    UserResponse: { $ref: './schemas/responses/User.yaml' }
+    UserListResponse: { $ref: './schemas/responses/UserList.yaml' }
 
   headers:
     Token: { $ref: './headers/Token.yaml' }
 
   parameters:
     Code: { $ref: './parameters/project/Code.yaml' }
+    CodeOrHash: { $ref: './parameters/CodeOrHash.yaml' }
     Hash: { $ref: './parameters/Hash.yaml' }
     Id: { $ref: './parameters/Id.yaml' }
     IdOrHash: { $ref: './parameters/IdOrHash.yaml' }

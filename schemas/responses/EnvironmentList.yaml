@@ -1,0 +1,17 @@
+allOf:
+  - $ref: './Base.yaml'
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          total:
+            type: integer
+          filtered:
+            type: integer
+          count:
+            type: integer
+          entities:
+            type: array
+            items:
+              $ref: '../Environment.yaml'

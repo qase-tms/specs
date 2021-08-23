@@ -1,0 +1,7 @@
+name: code_or_hash
+in: path
+description: Code or Hash.
+required: true
+schema:
+  oneOf:
+    - type: string

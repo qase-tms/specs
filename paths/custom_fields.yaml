@@ -38,7 +38,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/CustomFields.yaml'
+            $ref: '../schemas/responses/CustomFieldList.yaml'
 
 post:
   operationId: create-custom-field

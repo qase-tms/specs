@@ -1,0 +1,39 @@
+get:
+  operationId: get-plans
+  tags: [ plans ]
+  summary: Get all plans.
+  description: |
+    This method allows to retrieve all plans stored in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+  responses:
+    200:
+      description: A list of all plans.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/PlanList.yaml'
+
+post:
+  operationId: create-plan
+  tags: [ plans ]
+  summary: Create a new plan.
+  description: |
+    This method allows to create a plan in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Plan.create.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

@@ -1,0 +1,22 @@
+patch:
+  operationId: update-defect-status
+  tags: [ defects ]
+  summary: Update a specific defect status.
+  description: |
+    This method allows to update a specific defect status.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Defect.status.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Base.yaml'

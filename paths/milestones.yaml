@@ -1,0 +1,48 @@
+get:
+  operationId: get-milestones
+  tags: [ milestones ]
+  summary: Get all milestones.
+  description: |
+    This method allows to retrieve all milestones stored in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+    - name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          search:
+            description: Provide a string that will be used to search by name.
+            type: string
+  responses:
+    200:
+      description: A list of all milestones.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/MilestoneList.yaml'
+
+post:
+  operationId: create-milestone
+  tags: [ milestones ]
+  summary: Create a new milestone.
+  description: |
+    This method allows to create a milestone in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Milestone.create.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

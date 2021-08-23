@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: integer
+  title:
+    type: string
+  description:
+    type: string
+  status:
+    type: string
+    enum:
+      - completed
+      - active
+  due_date:
+    type: string
+    nullable: true
+    format: date-time
+  created:
+    type: string
+    format: date-time
+  updated:
+    type: string
+    nullable: true
+    format: date-time

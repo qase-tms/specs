@@ -1,0 +1,39 @@
+type: object
+properties:
+  hash:
+    type: string
+  comment:
+    type: string
+  stacktrace:
+    type: string
+  run_id:
+    type: integer
+  case_id:
+    type: integer
+  steps:
+    type: array
+    items:
+      type: object
+      properties:
+        status:
+          type: integer
+        position:
+          type: integer
+        attachments:
+          type: array
+          items:
+            $ref: 'Attachment.yaml'
+  status:
+    type: string
+  is_api_result:
+    type: boolean
+  time_spent_ms:
+    type: integer
+  end_time:
+    type: string
+    format: date-time
+    nullable: true
+  attachments:
+    type: array
+    items:
+      $ref: 'Attachment.yaml'

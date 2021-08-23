@@ -1,0 +1,14 @@
+type: object
+properties:
+  title:
+    type: string
+  description:
+    type: string
+  status:
+    type: string
+    enum:
+      - completed
+      - active
+  due_date:
+    type: integer
+    description: unix timestamp

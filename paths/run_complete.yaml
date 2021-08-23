@@ -1,0 +1,16 @@
+post:
+  operationId: complete-run
+  tags: [ runs ]
+  summary: Complete a specific run.
+  description: |
+    This method allows to complete a specific run.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Base.yaml'

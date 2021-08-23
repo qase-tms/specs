@@ -1,0 +1,89 @@
+type: object
+properties:
+  case_id:
+    type: integer
+  case:
+    type: object
+    description: Could be used insetad of case_id
+    properties:
+      title:
+        type: string
+      suite_title:
+        type: string
+        nullable: true
+      description:
+        type: string
+        nullable: true
+      layer:
+        type: string
+      severity:
+        type: string
+  status:
+    type: string
+    enum:
+      - in_progress
+      - passed
+      - failed
+      - blocked
+      - skipped
+      - invalid
+  time:
+    type: integer
+    nullable: true
+    minimum: 0
+    maximum: 31536000
+  time_ms:
+    type: integer
+    nullable: true
+    minimum: 0
+    maximum: 31536000000
+  defect:
+    type: boolean
+    nullable: true
+  attachments:
+    type: array
+    nullable: true
+    items:
+      type: string
+  stacktrace:
+    type: string
+    nullable: true
+  comment:
+    type: string
+    nullable: true
+  param:
+    type: array
+    maxLength: 1
+    items:
+      type: string
+  steps:
+    type: array
+    nullable: true
+    items:
+      type: object
+      properties:
+        position:
+          type: integer
+        status:
+          type: string
+          enum:
+            - passed
+            - failed
+            - blocked
+        comment:
+          type: string
+          nullable: true
+        attachments:
+          type: array
+          nullable: true
+          items:
+            type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+          nullable: true
+        data:
+          type: string
+          nullable: true
+      required: [position, status]

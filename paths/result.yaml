@@ -1,0 +1,39 @@
+get:
+  operationId: get-result
+  tags: [ results ]
+  summary: Get test run result by code.
+  description: |
+    This method allows to retrieve a specific test run result by Hash.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/IdOrHash.yaml'
+  responses:
+    200:
+      description: A test run result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Result.yaml'
+
+post:
+  operationId: create-result
+  tags: [ results ]
+  summary: Create test run result.
+  description: |
+    This method allows to create test run result by Run Id.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/IdOrHash.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Result.create.yaml'
+  responses:
+    200:
+      description: A result
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Hash.yaml'

@@ -1,0 +1,27 @@
+type: object
+properties:
+  title:
+    type: string
+  actual_result:
+    type: string
+  severity:
+    type: integer
+  milestone_id:
+    type: integer
+    nullable: true
+  attachments:
+    type: array
+    items:
+      type: string
+  custom_field:
+    type: object
+    description: A map of custom fields values (id => value)
+    properties:
+      id:
+        type: string
+    additionalProperties:
+      type: string
+  tags:
+    type: array
+    items:
+      type: string

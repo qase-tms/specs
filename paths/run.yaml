@@ -1,0 +1,33 @@
+get:
+  operationId: get-run
+  tags: [ runs ]
+  summary: Get a specific run.
+  description: |
+    This method allows to retrieve a specific run.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A run.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Run.yaml'
+
+delete:
+  operationId: delete-run
+  tags: [ runs ]
+  summary: Delete run.
+  description: |
+    This method completely deletes a run from repository.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

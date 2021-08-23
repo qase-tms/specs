@@ -21,8 +21,14 @@ externalDocs:
 tags:
   - name: cases
   - name: custom-fields
+  - name: defects
+  - name: plans
   - name: projects
+  - name: results
+  - name: milestones
+  - name: runs
   - name: search
+  - name: shared-steps
   - name: suites
 servers:
   - url: 'https://api.qase.io/v1'
@@ -293,6 +299,367 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+  '/defect/{code}':
+    get:
+      operationId: get-defects
+      tags:
+        - defects
+      summary: Get all defects.
+      description: |
+        This method allows to retrieve all defects stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                enum:
+                  - open
+                  - resolved
+                  - in_progress
+                  - invalid
+      responses:
+        '200':
+          description: A list of all defects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefectListResponse'
+    post:
+      operationId: create-defect
+      tags:
+        - defects
+      summary: Create a new defect.
+      description: |
+        This method allows to create a defect in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefectCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/defect/{code}/{id}':
+    get:
+      operationId: get-defect
+      tags:
+        - defects
+      summary: Get a specific defect.
+      description: |
+        This method allows to retrieve a specific defect.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A defect.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefectResponse'
+    delete:
+      operationId: delete-defect
+      tags:
+        - defects
+      summary: Delete defect.
+      description: |
+        This method completely deletes a defect from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+    patch:
+      operationId: update-defect
+      tags:
+        - defects
+      summary: Update defect.
+      description: |
+        This method updates a defect.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefectUpdate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/defect/{code}/resolve/{id}':
+    patch:
+      operationId: resolve-defect
+      tags:
+        - defects
+      summary: Resolve a specific defect.
+      description: |
+        This method allows to resolve a specific defect.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/defect/{code}/status/{id}':
+    patch:
+      operationId: update-defect-status
+      tags:
+        - defects
+      summary: Update a specific defect status.
+      description: |
+        This method allows to update a specific defect status.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefectStatus'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  '/milestone/{code}':
+    get:
+      operationId: get-milestones
+      tags:
+        - milestones
+      summary: Get all milestones.
+      description: |
+        This method allows to retrieve all milestones stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              search:
+                description: Provide a string that will be used to search by name.
+                type: string
+      responses:
+        '200':
+          description: A list of all milestones.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneListResponse'
+    post:
+      operationId: create-milestone
+      tags:
+        - milestones
+      summary: Create a new milestone.
+      description: |
+        This method allows to create a milestone in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MilestoneCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/milestone/{code}/{id}':
+    get:
+      operationId: get-milestone
+      tags:
+        - milestones
+      summary: Get a specific milestone.
+      description: |
+        This method allows to retrieve a specific milestone.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Milestone.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MilestoneResponse'
+    delete:
+      operationId: delete-milestone
+      tags:
+        - milestones
+      summary: Delete milestone.
+      description: |
+        This method completely deletes a milestone from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+    patch:
+      operationId: update-milestone
+      tags:
+        - milestones
+      summary: Update milestone.
+      description: |
+        This method updates a milestone.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MilestoneUpdate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/plan/{code}':
+    get:
+      operationId: get-plans
+      tags:
+        - plans
+      summary: Get all plans.
+      description: |
+        This method allows to retrieve all plans stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A list of all plans.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlanListResponse'
+    post:
+      operationId: create-plan
+      tags:
+        - plans
+      summary: Create a new plan.
+      description: |
+        This method allows to create a plan in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlanCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/plan/{code}/{id}':
+    get:
+      operationId: get-plan
+      tags:
+        - plans
+      summary: Get a specific plan.
+      description: |
+        This method allows to retrieve a specific plan.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A plan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlanResponse'
+    delete:
+      operationId: delete-plan
+      tags:
+        - plans
+      summary: Delete plan.
+      description: |
+        This method completely deletes a plan from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+    patch:
+      operationId: update-plan
+      tags:
+        - plans
+      summary: Update plan.
+      description: |
+        This method updates a plan.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlanUpdate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
   /project:
     get:
       operationId: get-projects
@@ -411,6 +778,307 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+  '/result/{code}':
+    get:
+      operationId: get-results
+      tags:
+        - results
+      summary: Get all test run results.
+      description: |
+        This method allows to retrieve all test run
+        results stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              status:
+                description: |
+                  A single test run result status.
+                  Possible values: in_progress, passed, failed, blocked, skipped, invalid.
+                type: string
+              run:
+                type: string
+                description: A list of run IDs separated by comma.
+              case_id:
+                type: string
+                description: A list of case IDs separated by comma.
+              member:
+                type: string
+                description: A list of member IDs separated by comma.
+              api:
+                type: boolean
+              from_end_time:
+                type: string
+                description: |
+                  Will return all results created after provided datetime.
+                  Allowed format: `Y-m-d H:i:s`.
+              to_end_time:
+                type: string
+                description: |
+                  Will return all results created before provided datetime.
+                  Allowed format: `Y-m-d H:i:s`.
+      responses:
+        '200':
+          description: A list of all test run results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListResponse'
+  '/result/{code}/{id_or_hash}':
+    get:
+      operationId: get-result
+      tags:
+        - results
+      summary: Get test run result by code.
+      description: |
+        This method allows to retrieve a specific test run result by Hash.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/IdOrHash'
+      responses:
+        '200':
+          description: A test run result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultResponse'
+    post:
+      operationId: create-result
+      tags:
+        - results
+      summary: Create test run result.
+      description: |
+        This method allows to create test run result by Run Id.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/IdOrHash'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultCreate'
+      responses:
+        '200':
+          description: A result
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+  '/result/{code}/{id}/bulk':
+    post:
+      operationId: create-result-bulk
+      tags:
+        - results
+      summary: Bulk create test run result.
+      description: |
+        This method allows to create a lot of test run result at once.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultCreateBulk'
+      responses:
+        '200':
+          description: A result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  '/result/{code}/{id}/{hash}':
+    patch:
+      operationId: update-result
+      tags:
+        - results
+      summary: Update test run result.
+      description: |
+        This method allows to update test run result.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+        - $ref: '#/components/parameters/Hash'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultUpdate'
+      responses:
+        '200':
+          description: A result
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+    delete:
+      operationId: delete-result
+      tags:
+        - results
+      summary: Delete test run result.
+      description: |
+        This method allows to delete test run result.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: A result
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+  '/run/{code}':
+    get:
+      operationId: get-runs
+      tags:
+        - runs
+      summary: Get all runs.
+      description: |
+        This method allows to retrieve all runs stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: include
+          in: query
+          description: |
+            Add this param to include a list of test cases into response. Possible value: cases
+          schema:
+            type: array
+            items:
+              type: string
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              status:
+                description: |
+                  A list of status values separated by comma.
+                  Possible values: active, complete, abort.
+                type: string
+              milestone:
+                type: integer
+              environment:
+                type: integer
+      responses:
+        '200':
+          description: A list of all runs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunListResponse'
+    post:
+      operationId: create-run
+      tags:
+        - runs
+      summary: Create a new run.
+      description: |
+        This method allows to create a run in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/run/{code}/{id}':
+    get:
+      operationId: get-run
+      tags:
+        - runs
+      summary: Get a specific run.
+      description: |
+        This method allows to retrieve a specific run.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A run.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunResponse'
+    delete:
+      operationId: delete-run
+      tags:
+        - runs
+      summary: Delete run.
+      description: |
+        This method completely deletes a run from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/run/{code}/{id}/public':
+    patch:
+      operationId: update-run-publicity
+      tags:
+        - runs
+      summary: Update publicity of a specific run.
+      description: |
+        This method allows to update a publicity of specific run.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunPublic'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunPublicResponse'
+  '/run/{code}/{id}/complete':
+    post:
+      operationId: complete-run
+      tags:
+        - runs
+      summary: Complete a specific run.
+      description: |
+        This method allows to complete a specific run.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
   /search:
     get:
       operationId: search
@@ -441,6 +1109,122 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SearchResponse'
+  '/shared_step/{code}':
+    get:
+      operationId: get-shared-steps
+      tags:
+        - shared-steps
+      summary: Get all shared steps.
+      description: |
+        This method allows to retrieve all shared steps stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              search:
+                description: Provide a string that will be used to search by name.
+                type: string
+      responses:
+        '200':
+          description: A list of all shared steps.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStepListResponse'
+    post:
+      operationId: create-shared-step
+      tags:
+        - shared-steps
+      summary: Create a new shared step.
+      description: |
+        This method allows to create a shared step in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharedStepCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Response'
+                  - type: object
+                    properties:
+                      result:
+                        type: object
+                        properties:
+                          hash:
+                            type: string
+  '/shared_step/{code}/{hash}':
+    get:
+      operationId: get-shared-step
+      tags:
+        - shared-steps
+      summary: Get a specific shared step.
+      description: |
+        This method allows to retrieve a specific shared step.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: A shared step.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStepResponse'
+    delete:
+      operationId: delete-shared-step
+      tags:
+        - shared-steps
+      summary: Delete shared step.
+      description: |
+        This method completely deletes a shared step from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+    patch:
+      operationId: update-shared-step
+      tags:
+        - shared-steps
+      summary: Update shared step.
+      description: |
+        This method updates a shared step.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Hash'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharedStepUpdate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
   '/suite/{code}':
     get:
       operationId: get-suites
@@ -568,6 +1352,23 @@ components:
         url:
           type: string
           format: uri
+        hash:
+          type: string
+    AttachmentHash:
+      type: object
+      properties:
+        size:
+          type: integer
+        mime:
+          type: string
+        filename:
+          type: string
+        url:
+          type: string
+          format: |-
+            uri
+
+            'hash' => $attachment->hash, 'size' => $attachment->size, 'mime' => $attachment->mime, 'filename' => $attachment->filename, 'url' => get_attachment_url($attachment, $team->hash)
     CustomField:
       type: object
       properties:
@@ -730,6 +1531,91 @@ components:
         actual_result:
           type: string
         severity:
+          type: string
+        status:
+          type: string
+        milestone_id:
+          type: integer
+          nullable: true
+        custom_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomFieldValue'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: string
+          format: date-time
+          nullable: true
+        resolved:
+          type: string
+          format: date-time
+          nullable: true
+        project_id:
+          type: integer
+        member_id:
+          type: integer
+        external_data:
+          type: string
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              internal_id:
+                type: integer
+    DefectCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        actual_result:
+          type: string
+        severity:
+          type: integer
+        milestone_id:
+          type: integer
+          nullable: true
+        attachments:
+          type: array
+          items:
+            type: string
+        custom_field:
+          type: object
+          description: A map of custom fields values (id => value)
+          properties:
+            id:
+              type: string
+          additionalProperties:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+      required:
+        - title
+        - actual_result
+        - severity
+    DefectQQL:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        actual_result:
+          type: string
+        severity:
           type: integer
         status:
           type: integer
@@ -764,6 +1650,156 @@ components:
           type: integer
         external_data:
           type: string
+    DefectStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - in_progress
+            - resolved
+            - invalid
+      required:
+        - status
+    DefectUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        actual_result:
+          type: string
+        severity:
+          type: integer
+        milestone_id:
+          type: integer
+          nullable: true
+        attachments:
+          type: array
+          items:
+            type: string
+        custom_field:
+          type: object
+          description: A map of custom fields values (id => value)
+          properties:
+            id:
+              type: string
+          additionalProperties:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+    Milestone:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - completed
+            - active
+        due_date:
+          type: string
+          nullable: true
+          format: date-time
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          nullable: true
+          format: date-time
+    MilestoneCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - completed
+            - active
+        due_date:
+          type: integer
+          description: unix timestamp
+    MilestoneUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - completed
+            - active
+    Plan:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        cases_count:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+          nullable: true
+        average_time:
+          type: number
+        cases:
+          type: array
+          items:
+            type: object
+            properties:
+              case_id:
+                type: integer
+              assignee_id:
+                type: integer
+                nullable: true
+    PlanCreate:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        cases:
+          type: array
+          items:
+            type: integer
+      required:
+        - title
+        - cases
+    PlanUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        cases:
+          type: array
+          items:
+            type: integer
     Project:
       type: object
       properties:
@@ -825,6 +1861,429 @@ components:
       required:
         - title
         - code
+    Result:
+      type: object
+      properties:
+        hash:
+          type: string
+        comment:
+          type: string
+        stacktrace:
+          type: string
+        run_id:
+          type: integer
+        case_id:
+          type: integer
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: integer
+              position:
+                type: integer
+              attachments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Attachment'
+        status:
+          type: string
+        is_api_result:
+          type: boolean
+        time_spent_ms:
+          type: integer
+        end_time:
+          type: string
+          format: date-time
+          nullable: true
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+    ResultCreate:
+      type: object
+      properties:
+        case_id:
+          type: integer
+        case:
+          type: object
+          description: Could be used insetad of case_id
+          properties:
+            title:
+              type: string
+            suite_title:
+              type: string
+              nullable: true
+            description:
+              type: string
+              nullable: true
+            layer:
+              type: string
+            severity:
+              type: string
+        status:
+          type: string
+          enum:
+            - in_progress
+            - passed
+            - failed
+            - blocked
+            - skipped
+            - invalid
+        time:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 31536000
+        time_ms:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 31536000000
+        defect:
+          type: boolean
+          nullable: true
+        attachments:
+          type: array
+          nullable: true
+          items:
+            type: string
+        stacktrace:
+          type: string
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+        param:
+          type: array
+          maxLength: 1
+          items:
+            type: string
+        steps:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              position:
+                type: integer
+              status:
+                type: string
+                enum:
+                  - passed
+                  - failed
+                  - blocked
+              comment:
+                type: string
+                nullable: true
+              attachments:
+                type: array
+                nullable: true
+                items:
+                  type: string
+              action:
+                type: string
+              expected_result:
+                type: string
+                nullable: true
+              data:
+                type: string
+                nullable: true
+            required:
+              - position
+              - status
+    ResultCreateBulk:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultCreate'
+      required:
+        - results
+    ResultUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - in_progress
+            - passed
+            - failed
+            - blocked
+            - skipped
+        time:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 31536000
+        time_ms:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 31536000000
+        defect:
+          type: boolean
+          nullable: true
+        attachments:
+          type: array
+          nullable: true
+          items:
+            type: string
+        stacktrace:
+          type: string
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+        steps:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              position:
+                type: integer
+              status:
+                type: string
+                enum:
+                  - passed
+                  - failed
+                  - blocked
+              comment:
+                type: string
+                nullable: true
+              attachments:
+                type: array
+                nullable: true
+                items:
+                  type: string
+    Run:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: integer
+        status_text:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+          nullable: true
+        end_time:
+          type: string
+          format: date-time
+          nullable: true
+        public:
+          type: boolean
+        stats:
+          type: object
+          properties:
+            total:
+              type: integer
+            untested:
+              type: integer
+            passed:
+              type: integer
+            failed:
+              type: integer
+            blocked:
+              type: integer
+            skipped:
+              type: integer
+            retest:
+              type: integer
+            in_progress:
+              type: integer
+            invalid:
+              type: integer
+        time_spent:
+          type: integer
+          description: Time in ms.
+        environment:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            slug:
+              type: string
+            host:
+              type: string
+          nullable: true
+        milestone:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+          nullable: true
+        custom_fields:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              value:
+                type: string
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              internal_id:
+                type: integer
+        cases:
+          type: array
+          items:
+            type: integer
+    RunCreate:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+        include_all_cases:
+          type: boolean
+        cases:
+          type: array
+          items:
+            type: integer
+        environment_id:
+          type: integer
+        milestone_id:
+          type: integer
+        plan_id:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+      required:
+        - title
+    RunPublic:
+      type: object
+      properties:
+        status:
+          type: boolean
+      required:
+        - status
+    SharedStep:
+      type: object
+      properties:
+        hash:
+          type: string
+        title:
+          type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              data:
+                type: string
+              hash:
+                type: string
+              action:
+                type: string
+              expected_result:
+                type: string
+              attachments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentHash'
+        data:
+          type: string
+        cases:
+          type: array
+          items:
+            type: integer
+        cases_count:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          nullable: true
+          format: date-time
+    SharedStepCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+        data:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachmentHash'
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              hash:
+                type: string
+              action:
+                type: string
+              expected_result:
+                type: string
+              data:
+                type: string
+              attachments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentHash'
+    SharedStepUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+        data:
+          type: string
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              hash:
+                type: string
+              action:
+                type: string
+              expected_result:
+                type: string
+              data:
+                type: string
+              attachments:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentHash'
     Suite:
       type: object
       properties:
@@ -934,14 +2393,6 @@ components:
         updated:
           type: string
           format: date-time
-        deleted:
-          type: string
-          format: date-time
-          nullable: true
-        member_id:
-          type: integer
-        project_id:
-          type: integer
     TestCaseCreate:
       type: object
       properties:
@@ -975,6 +2426,74 @@ components:
             type: string
       required:
         - title
+    TestCaseQQL:
+      type: object
+      properties:
+        id:
+          type: integer
+        position:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        preconditions:
+          type: string
+        postconditions:
+          type: string
+        severity:
+          type: integer
+        priority:
+          type: integer
+        type:
+          type: integer
+        layer:
+          type: integer
+        is_flaky:
+          type: integer
+        behavior:
+          type: integer
+        automation:
+          type: integer
+        status:
+          type: integer
+        milestone_id:
+          type: integer
+          nullable: true
+        suite_id:
+          type: integer
+          nullable: true
+        custom_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomFieldValue'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestStep'
+        params:
+          anyOf:
+            - type: array
+              items: {}
+            - type: object
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: string
+          format: date-time
+          nullable: true
+        member_id:
+          type: integer
+        project_id:
+          type: integer
     TestStep:
       type: object
       properties:
@@ -1023,6 +2542,31 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/CustomField'
+    DefectResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Defect'
+    DefectListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Defect'
     IdResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -1033,6 +2577,56 @@ components:
               properties:
                 id:
                   type: integer
+    MilestoneResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Milestone'
+    MilestoneListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Milestone'
+    PlanResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Plan'
+    PlanListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Plan'
     ProjectResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -1075,6 +2669,67 @@ components:
           type: boolean
         result:
           type: object
+    ResultResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Result'
+    ResultListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Result'
+    RunResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Run'
+    RunListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Run'
+    RunPublicResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
     SearchResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -1087,8 +2742,33 @@ components:
                   type: array
                   items:
                     oneOf:
-                      - $ref: '#/components/schemas/TestCase'
-                      - $ref: '#/components/schemas/Defect'
+                      - $ref: '#/components/schemas/TestCaseQQL'
+                      - $ref: '#/components/schemas/DefectQQL'
+    SharedStepResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/SharedStep'
+    SharedStepListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/SharedStep'
     SuiteResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -1155,6 +2835,13 @@ components:
         type: string
         minLength: 2
         maxLength: 10
+    Hash:
+      name: hash
+      in: path
+      description: Hash.
+      required: true
+      schema:
+        type: string
     Id:
       name: id
       in: path
@@ -1162,6 +2849,15 @@ components:
       required: true
       schema:
         type: integer
+    IdOrHash:
+      name: id_or_hash
+      in: path
+      description: Id or Hash.
+      required: true
+      schema:
+        oneOf:
+          - type: string
+          - type: integer
     Limit:
       name: limit
       description: A number of entities in result set.

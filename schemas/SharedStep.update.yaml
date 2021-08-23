@@ -1,0 +1,27 @@
+type: object
+properties:
+  title:
+    type: string
+  action:
+    type: string
+  expected_result:
+    type: string
+  data:
+    type: string
+  steps:
+   type: array
+   items:
+     type: object
+     properties:
+       hash:
+         type: string
+       action:
+         type: string
+       expected_result:
+         type: string
+       data:
+         type: string
+       attachments:
+         type: array
+         items:
+            $ref: 'Attachment.hash.yaml'

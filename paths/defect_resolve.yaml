@@ -1,0 +1,16 @@
+patch:
+  operationId: resolve-defect
+  tags: [ defects ]
+  summary: Resolve a specific defect.
+  description: |
+    This method allows to resolve a specific defect.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

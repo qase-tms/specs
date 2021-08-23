@@ -12,4 +12,3 @@ properties:
   due_date:
     type: integer
     description: unix timestamp
-

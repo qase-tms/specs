@@ -9,10 +9,5 @@ properties:
   url:
     type: string
     format: uri
-
-
-              'hash' => $attachment->hash,
-              'size' => $attachment->size,
-              'mime' => $attachment->mime,
-              'filename' => $attachment->filename,
-              'url' => get_attachment_url($attachment, $team->hash)
+  hash:
+    type: string

@@ -1,0 +1,65 @@
+get:
+  operationId: get-attachment
+  tags: [ attachments ]
+  summary: Get attachment by Hash.
+  description: |
+    This method allows to retrieve attachment by Hash.
+  parameters:
+    - $ref: '../parameters/CodeOrHash.yaml'
+  responses:
+    200:
+      description: An attachments.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Attachment.yaml'
+
+delete:
+  operationId: delete-attachment
+  tags: [ attachments ]
+  summary: Remove attachment by Hash.
+  description: |
+    This method allows to retrieve attachment by Hash.
+  parameters:
+    - $ref: '../parameters/CodeOrHash.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Hash.yaml'
+
+post:
+  operationId: upload-attachment
+  tags: [ attachments ]
+  summary: Upload attachment.
+  description: |
+    This method allows to upload attachment to Qase.
+    Max upload size:
+    * Up to 32 Mb per file
+    * Up to 128 Mb per single request
+    * Up to 20 files per single request
+
+    If there is no free space left in your team account,
+    you will receive an error with code 507 - Insufficient Storage.
+  parameters:
+    - $ref: '../parameters/CodeOrHash.yaml'
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: array
+              items:
+                type: string
+                format: binary
+  responses:
+    200:
+      description: An attachments.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/AttachmentUploads.yaml'

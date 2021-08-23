@@ -1,0 +1,15 @@
+get:
+  operationId: get-user
+  tags: [ users ]
+  summary: Get a specific user.
+  description: |
+    This method allows to retrieve a specific user.
+  parameters:
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A user.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/User.yaml'

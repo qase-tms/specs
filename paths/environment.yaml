@@ -1,0 +1,56 @@
+get:
+  operationId: get-environment
+  tags: [ environments ]
+  summary: Get a specific environment.
+  description: |
+    This method allows to retrieve a specific environment.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A environment.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Environment.yaml'
+
+delete:
+  operationId: delete-environment
+  tags: [ environments ]
+  summary: Delete environment.
+  description: |
+    This method completely deletes a environment from repository.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'
+
+patch:
+  operationId: update-environment
+  tags: [ environments ]
+  summary: Update environment.
+  description: |
+    This method updates a environment.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Environment.update.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

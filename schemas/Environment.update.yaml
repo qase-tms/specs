@@ -1,0 +1,12 @@
+type: object
+properties:
+  title:
+    type: string
+    maxLength: 255
+  description:
+    type: string
+  slug:
+    type: string
+    maxLength: 255
+  host:
+    type: string

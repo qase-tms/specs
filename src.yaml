@@ -26,6 +26,7 @@ externalDocs:
 tags:
   - name: cases
   - name: custom-fields
+  - name: defects
   - name: plans
   - name: projects
   - name: results
@@ -50,6 +51,14 @@ paths:
     $ref: './paths/custom_fields.yaml'
   /custom_field/{id}:
     $ref: './paths/custom_field.yaml'
+  /defect/{code}:
+    $ref: './paths/defects.yaml'
+  /defect/{code}/{id}:
+    $ref: './paths/defect.yaml'
+  /defect/{code}/resolve/{id}:
+    $ref: './paths/defect_resolve.yaml'
+  /defect/{code}/status/{id}:
+    $ref: './paths/defect_status.yaml'
   /milestone/{code}:
     $ref: './paths/milestones.yaml'
   /milestone/{code}/{id}:
@@ -100,6 +109,10 @@ components:
     CustomFieldUpdate: { $ref: './schemas/CustomField.update.yaml' }
     CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
     Defect: { $ref: './schemas/Defect.yaml' }
+    DefectCreate: { $ref: './schemas/Defect.create.yaml' }
+    DefectQQL: { $ref: './schemas/Defect.qql.yaml' }
+    DefectStatus: { $ref: './schemas/Defect.status.yaml' }
+    DefectUpdate: { $ref: './schemas/Defect.update.yaml' }
     Milestone: { $ref: './schemas/Milestone.yaml' }
     MilestoneCreate: { $ref: './schemas/Milestone.create.yaml' }
     MilestoneUpdate: { $ref: './schemas/Milestone.update.yaml' }
@@ -124,10 +137,13 @@ components:
     SuiteDelete: { $ref: './schemas/Suite.delete.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
+    TestCaseQQL: { $ref: './schemas/TestCase.qql.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
 
     CustomFieldResponse: { $ref: './schemas/responses/CustomField.yaml' }
     CustomFieldsResponse: { $ref: './schemas/responses/CustomFields.yaml' }
+    DefectResponse: { $ref: './schemas/responses/Defect.yaml' }
+    DefectListResponse: { $ref: './schemas/responses/DefectList.yaml' }
     IdResponse: { $ref: './schemas/responses/Id.yaml' }
     MilestoneResponse: { $ref: './schemas/responses/Milestone.yaml' }
     MilestoneListResponse: { $ref: './schemas/responses/MilestoneList.yaml' }

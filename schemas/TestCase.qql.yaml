@@ -57,3 +57,11 @@ properties:
   updated:
     type: string
     format: date-time
+  deleted:
+    type: string
+    format: date-time
+    nullable: true
+  member_id:
+    type: integer
+  project_id:
+    type: integer

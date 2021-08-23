@@ -7,9 +7,9 @@ properties:
   actual_result:
     type: string
   severity:
-    type: string
+    type: integer
   status:
-    type: string
+    type: integer
   milestone_id:
     type: integer
     nullable: true
@@ -41,12 +41,3 @@ properties:
     type: integer
   external_data:
     type: string
-  tags:
-    type: array
-    items:
-      type: object
-      properties:
-        title:
-          type: string
-        internal_id:
-          type: integer

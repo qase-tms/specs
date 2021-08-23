@@ -21,6 +21,7 @@ externalDocs:
 tags:
   - name: cases
   - name: custom-fields
+  - name: defects
   - name: plans
   - name: projects
   - name: results
@@ -294,6 +295,160 @@ paths:
       responses:
         '200':
           description: Custom Field update result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  '/defect/{code}':
+    get:
+      operationId: get-defects
+      tags:
+        - defects
+      summary: Get all defects.
+      description: |
+        This method allows to retrieve all defects stored in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - name: filters
+          in: query
+          style: deepObject
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                enum:
+                  - open
+                  - resolved
+                  - in_progress
+                  - invalid
+      responses:
+        '200':
+          description: A list of all defects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefectListResponse'
+    post:
+      operationId: create-defect
+      tags:
+        - defects
+      summary: Create a new defect.
+      description: |
+        This method allows to create a defect in selected project.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefectCreate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/defect/{code}/{id}':
+    get:
+      operationId: get-defect
+      tags:
+        - defects
+      summary: Get a specific defect.
+      description: |
+        This method allows to retrieve a specific defect.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A defect.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefectResponse'
+    delete:
+      operationId: delete-defect
+      tags:
+        - defects
+      summary: Delete defect.
+      description: |
+        This method completely deletes a defect from repository.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A Result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+    patch:
+      operationId: update-defect
+      tags:
+        - defects
+      summary: Update defect.
+      description: |
+        This method updates a defect.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefectUpdate'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/defect/{code}/resolve/{id}':
+    patch:
+      operationId: resolve-defect
+      tags:
+        - defects
+      summary: Resolve a specific defect.
+      description: |
+        This method allows to resolve a specific defect.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdResponse'
+  '/defect/{code}/status/{id}':
+    patch:
+      operationId: update-defect-status
+      tags:
+        - defects
+      summary: Update a specific defect status.
+      description: |
+        This method allows to update a specific defect status.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefectStatus'
+      responses:
+        '200':
+          description: A result.
           content:
             application/json:
               schema:
@@ -1376,6 +1531,91 @@ components:
         actual_result:
           type: string
         severity:
+          type: string
+        status:
+          type: string
+        milestone_id:
+          type: integer
+          nullable: true
+        custom_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomFieldValue'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: string
+          format: date-time
+          nullable: true
+        resolved:
+          type: string
+          format: date-time
+          nullable: true
+        project_id:
+          type: integer
+        member_id:
+          type: integer
+        external_data:
+          type: string
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              internal_id:
+                type: integer
+    DefectCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        actual_result:
+          type: string
+        severity:
+          type: integer
+        milestone_id:
+          type: integer
+          nullable: true
+        attachments:
+          type: array
+          items:
+            type: string
+        custom_field:
+          type: object
+          description: A map of custom fields values (id => value)
+          properties:
+            id:
+              type: string
+          additionalProperties:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+      required:
+        - title
+        - actual_result
+        - severity
+    DefectQQL:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        actual_result:
+          type: string
+        severity:
           type: integer
         status:
           type: integer
@@ -1410,6 +1650,45 @@ components:
           type: integer
         external_data:
           type: string
+    DefectStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - in_progress
+            - resolved
+            - invalid
+      required:
+        - status
+    DefectUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        actual_result:
+          type: string
+        severity:
+          type: integer
+        milestone_id:
+          type: integer
+          nullable: true
+        attachments:
+          type: array
+          items:
+            type: string
+        custom_field:
+          type: object
+          description: A map of custom fields values (id => value)
+          properties:
+            id:
+              type: string
+          additionalProperties:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
     Milestone:
       type: object
       properties:
@@ -2114,14 +2393,6 @@ components:
         updated:
           type: string
           format: date-time
-        deleted:
-          type: string
-          format: date-time
-          nullable: true
-        member_id:
-          type: integer
-        project_id:
-          type: integer
     TestCaseCreate:
       type: object
       properties:
@@ -2155,6 +2426,74 @@ components:
             type: string
       required:
         - title
+    TestCaseQQL:
+      type: object
+      properties:
+        id:
+          type: integer
+        position:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        preconditions:
+          type: string
+        postconditions:
+          type: string
+        severity:
+          type: integer
+        priority:
+          type: integer
+        type:
+          type: integer
+        layer:
+          type: integer
+        is_flaky:
+          type: integer
+        behavior:
+          type: integer
+        automation:
+          type: integer
+        status:
+          type: integer
+        milestone_id:
+          type: integer
+          nullable: true
+        suite_id:
+          type: integer
+          nullable: true
+        custom_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomFieldValue'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestStep'
+        params:
+          anyOf:
+            - type: array
+              items: {}
+            - type: object
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: string
+          format: date-time
+          nullable: true
+        member_id:
+          type: integer
+        project_id:
+          type: integer
     TestStep:
       type: object
       properties:
@@ -2203,6 +2542,31 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/CustomField'
+    DefectResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Defect'
+    DefectListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Defect'
     IdResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -2378,8 +2742,8 @@ components:
                   type: array
                   items:
                     oneOf:
-                      - $ref: '#/components/schemas/TestCase'
-                      - $ref: '#/components/schemas/Defect'
+                      - $ref: '#/components/schemas/TestCaseQQL'
+                      - $ref: '#/components/schemas/DefectQQL'
     SharedStepResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

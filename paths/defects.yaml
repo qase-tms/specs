@@ -1,0 +1,52 @@
+get:
+  operationId: get-defects
+  tags: [ defects ]
+  summary: Get all defects.
+  description: |
+    This method allows to retrieve all defects stored in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+    - name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          status:
+            type: string
+            enum:
+              - open
+              - resolved
+              - in_progress
+              - invalid
+  responses:
+    200:
+      description: A list of all defects.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/DefectList.yaml'
+
+post:
+  operationId: create-defect
+  tags: [ defects ]
+  summary: Create a new defect.
+  description: |
+    This method allows to create a defect in selected project.
+  parameters:
+    - $ref: '../parameters/project/Code.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Defect.create.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/Id.yaml'

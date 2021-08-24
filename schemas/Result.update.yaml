@@ -8,11 +8,6 @@ properties:
       - failed
       - blocked
       - skipped
-  time:
-    type: integer
-    nullable: true
-    minimum: 0
-    maximum: 31536000
   time_ms:
     type: integer
     nullable: true

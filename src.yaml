@@ -156,6 +156,7 @@ components:
     SuiteDelete: { $ref: './schemas/Suite.delete.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
+    TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
     TestCaseQQL: { $ref: './schemas/TestCase.qql.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
     User: { $ref: './schemas/User.yaml' }

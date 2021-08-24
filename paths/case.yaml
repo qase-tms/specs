@@ -46,7 +46,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '../schemas/TestCase.create.yaml'
+          $ref: '../schemas/TestCase.update.yaml'
   responses:
     200:
       description: A Test Case.

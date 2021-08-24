@@ -261,7 +261,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TestCaseCreate'
+              $ref: '#/components/schemas/TestCaseUpdate'
       responses:
         '200':
           description: A Test Case.
@@ -2290,11 +2290,6 @@ components:
             - failed
             - blocked
             - skipped
-        time:
-          type: integer
-          nullable: true
-          minimum: 0
-          maximum: 31536000
         time_ms:
           type: integer
           nullable: true
@@ -2682,6 +2677,26 @@ components:
         title:
           type: string
           maxLength: 255
+        severity:
+          type: integer
+        priority:
+          type: integer
+        behavior:
+          type: integer
+        type:
+          type: integer
+        layer:
+          type: integer
+        is_flaky:
+          type: integer
+        suite_id:
+          type: integer
+        milestone_id:
+          type: integer
+        automation:
+          type: integer
+        status:
+          type: integer
         steps:
           type: array
           items:
@@ -2703,6 +2718,57 @@ components:
             type: string
       required:
         - title
+    TestCaseUpdate:
+      type: object
+      properties:
+        description:
+          type: string
+        preconditions:
+          type: string
+        postconditions:
+          type: string
+        title:
+          type: string
+          maxLength: 255
+        severity:
+          type: integer
+        priority:
+          type: integer
+        behavior:
+          type: integer
+        type:
+          type: integer
+        layer:
+          type: integer
+        is_flaky:
+          type: integer
+        suite_id:
+          type: integer
+        milestone_id:
+          type: integer
+        automation:
+          type: integer
+        status:
+          type: integer
+        steps:
+          type: array
+          items:
+            type: object
+            properties:
+              action:
+                type: string
+              expected_result:
+                type: string
+              input_data:
+                type: string
+        custom_field:
+          type: object
+          description: A map of custom fields values (id => value)
+          properties:
+            id:
+              type: string
+          additionalProperties:
+            type: string
     TestCaseQQL:
       type: object
       properties:

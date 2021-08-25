@@ -1803,12 +1803,7 @@ components:
         tags:
           type: array
           items:
-            type: object
-            properties:
-              title:
-                type: string
-              internal_id:
-                type: integer
+            $ref: '#/components/schemas/TagValue'
     DefectCreate:
       type: object
       properties:
@@ -1841,50 +1836,6 @@ components:
         - title
         - actual_result
         - severity
-    DefectQQL:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        actual_result:
-          type: string
-        severity:
-          type: integer
-        status:
-          type: integer
-        milestone_id:
-          type: integer
-          nullable: true
-        custom_fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomFieldValue'
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Attachment'
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        deleted:
-          type: string
-          format: date-time
-          nullable: true
-        resolved:
-          type: string
-          format: date-time
-          nullable: true
-        project_id:
-          type: integer
-        member_id:
-          type: integer
-        external_data:
-          type: string
     DefectStatus:
       type: object
       properties:
@@ -2401,21 +2352,11 @@ components:
         custom_fields:
           type: array
           items:
-            type: object
-            properties:
-              id:
-                type: integer
-              value:
-                type: string
+            $ref: '#/components/schemas/CustomFieldValue'
         tags:
           type: array
           items:
-            type: object
-            properties:
-              title:
-                type: string
-              internal_id:
-                type: integer
+            $ref: '#/components/schemas/TagValue'
         cases:
           type: array
           items:
@@ -2605,6 +2546,13 @@ components:
         destination_id:
           type: integer
           description: 'If provided, child test cases would be moved to suite with such ID.'
+    TagValue:
+      type: object
+      properties:
+        title:
+          type: string
+        internal_id:
+          type: integer
     TestCase:
       type: object
       properties:
@@ -2665,6 +2613,18 @@ components:
         updated:
           type: string
           format: date-time
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagValue'
+        deleted:
+          type: string
+          format: date-time
+          nullable: true
+        member_id:
+          type: integer
+        project_id:
+          type: integer
     TestCaseCreate:
       type: object
       properties:
@@ -2769,74 +2729,6 @@ components:
               type: string
           additionalProperties:
             type: string
-    TestCaseQQL:
-      type: object
-      properties:
-        id:
-          type: integer
-        position:
-          type: integer
-        title:
-          type: string
-        description:
-          type: string
-        preconditions:
-          type: string
-        postconditions:
-          type: string
-        severity:
-          type: integer
-        priority:
-          type: integer
-        type:
-          type: integer
-        layer:
-          type: integer
-        is_flaky:
-          type: integer
-        behavior:
-          type: integer
-        automation:
-          type: integer
-        status:
-          type: integer
-        milestone_id:
-          type: integer
-          nullable: true
-        suite_id:
-          type: integer
-          nullable: true
-        custom_fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomFieldValue'
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Attachment'
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/TestStep'
-        params:
-          anyOf:
-            - type: array
-              items: {}
-            - type: object
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        deleted:
-          type: string
-          format: date-time
-          nullable: true
-        member_id:
-          type: integer
-        project_id:
-          type: integer
     TestStep:
       type: object
       properties:
@@ -2899,14 +2791,14 @@ components:
                   items:
                     $ref: '#/components/schemas/AttachmentGet'
     AttachmentUploadsResponse:
-      allOf:
-        - $ref: '#/components/schemas/Response'
-        - type: object
-          properties:
-            result:
-              type: array
-              items:
-                $ref: '#/components/schemas/AttachmentGet'
+      type: object
+      properties:
+        status:
+          type: boolean
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachmentGet'
     CustomFieldResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -3157,8 +3049,9 @@ components:
                   type: array
                   items:
                     oneOf:
-                      - $ref: '#/components/schemas/TestCaseQQL'
-                      - $ref: '#/components/schemas/DefectQQL'
+                      - $ref: '#/components/schemas/TestCase'
+                      - $ref: '#/components/schemas/Defect'
+                      - $ref: '#/components/schemas/Run'
     SharedStepResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

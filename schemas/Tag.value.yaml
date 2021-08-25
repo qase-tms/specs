@@ -1,0 +1,6 @@
+type: object
+properties:
+  title:
+    type: string
+  internal_id:
+    type: integer

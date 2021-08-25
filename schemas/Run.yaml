@@ -67,21 +67,11 @@ properties:
   custom_fields:
     type: array
     items:
-      type: object
-      properties:
-        id:
-          type: integer
-        value:
-          type: string
+      $ref: './CustomFieldValue.yaml'
   tags:
     type: array
     items:
-      type: object
-      properties:
-        title:
-          type: string
-        internal_id:
-          type: integer
+      $ref: './Tag.value.yaml'
   cases:
     type: array
     items:

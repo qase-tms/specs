@@ -57,3 +57,15 @@ properties:
   updated:
     type: string
     format: date-time
+  tags:
+    type: array
+    items:
+      $ref: './Tag.value.yaml'
+  deleted:
+    type: string
+    format: date-time
+    nullable: true
+  member_id:
+    type: integer
+  project_id:
+    type: integer

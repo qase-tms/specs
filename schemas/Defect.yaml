@@ -44,9 +44,4 @@ properties:
   tags:
     type: array
     items:
-      type: object
-      properties:
-        title:
-          type: string
-        internal_id:
-          type: integer
+      $ref: './Tag.value.yaml'

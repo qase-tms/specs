@@ -126,7 +126,6 @@ components:
     CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
     Defect: { $ref: './schemas/Defect.yaml' }
     DefectCreate: { $ref: './schemas/Defect.create.yaml' }
-    DefectQQL: { $ref: './schemas/Defect.qql.yaml' }
     DefectStatus: { $ref: './schemas/Defect.status.yaml' }
     DefectUpdate: { $ref: './schemas/Defect.update.yaml' }
     Environment: { $ref: './schemas/Environment.yaml' }
@@ -154,10 +153,10 @@ components:
     Suite: { $ref: './schemas/Suite.yaml' }
     SuiteCreate: { $ref: './schemas/Suite.create.yaml' }
     SuiteDelete: { $ref: './schemas/Suite.delete.yaml' }
+    TagValue: { $ref: './schemas/Tag.value.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
     TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
-    TestCaseQQL: { $ref: './schemas/TestCase.qql.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
     User: { $ref: './schemas/User.yaml' }
 

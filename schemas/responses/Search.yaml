@@ -9,5 +9,6 @@ allOf:
             type: array
             items:
               oneOf:
-                - $ref: '../TestCase.qql.yaml'
-                - $ref: '../Defect.qql.yaml'
+                - $ref: '../TestCase.yaml'
+                - $ref: '../Defect.yaml'
+                - $ref: '../Run.yaml'

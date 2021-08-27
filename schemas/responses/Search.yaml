@@ -13,3 +13,4 @@ allOf:
                 - $ref: '../Defect.yaml'
                 - $ref: '../Run.yaml'
                 - $ref: '../Result.yaml'
+                - $ref: '../Plan.yaml'

@@ -147,6 +147,7 @@ components:
     Run: { $ref: './schemas/Run.yaml' }
     RunCreate: { $ref: './schemas/Run.create.yaml' }
     RunPublic: { $ref: './schemas/Run.public.yaml' }
+    Requirement: { $ref: './schemas/Requirement.yaml' }
     SharedStep: { $ref: './schemas/SharedStep.yaml' }
     SharedStepCreate: { $ref: './schemas/SharedStep.create.yaml' }
     SharedStepUpdate: { $ref: './schemas/SharedStep.update.yaml' }

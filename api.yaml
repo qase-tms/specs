@@ -2394,6 +2394,43 @@ components:
           type: boolean
       required:
         - status
+    Requirement:
+      type: object
+      properties:
+        id:
+          type: integer
+        parent_id:
+          type: integer
+        member_id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - valid
+            - draft
+            - review
+            - rework
+            - finish
+            - implemented
+            - not-testable
+            - obsolete
+        type:
+          type: string
+          enum:
+            - epic
+            - user-story
+            - feature
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+          nullable: true
     SharedStep:
       type: object
       properties:
@@ -3054,42 +3091,7 @@ components:
                       - $ref: '#/components/schemas/Run'
                       - $ref: '#/components/schemas/Result'
                       - $ref: '#/components/schemas/Plan'
-                      - type: object
-                        properties:
-                          id:
-                            type: integer
-                          parent_id:
-                            type: integer
-                          member_id:
-                            type: integer
-                          title:
-                            type: string
-                          description:
-                            type: string
-                          status:
-                            type: string
-                            enum:
-                              - valid
-                              - draft
-                              - review
-                              - rework
-                              - finish
-                              - implemented
-                              - not-testable
-                              - obsolete
-                          type:
-                            type: string
-                            enum:
-                              - epic
-                              - user-story
-                              - feature
-                          created:
-                            type: string
-                            format: date-time
-                          updated:
-                            type: string
-                            format: date-time
-                            nullable: true
+                      - $ref: '#/components/schemas/Requirement'
     SharedStepResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

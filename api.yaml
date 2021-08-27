@@ -3053,6 +3053,7 @@ components:
                       - $ref: '#/components/schemas/Defect'
                       - $ref: '#/components/schemas/Run'
                       - $ref: '#/components/schemas/Result'
+                      - $ref: '#/components/schemas/Plan'
     SharedStepResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

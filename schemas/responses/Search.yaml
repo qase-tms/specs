@@ -12,3 +12,4 @@ allOf:
                 - $ref: '../TestCase.yaml'
                 - $ref: '../Defect.yaml'
                 - $ref: '../Run.yaml'
+                - $ref: '../Result.yaml'

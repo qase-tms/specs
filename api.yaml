@@ -3052,6 +3052,7 @@ components:
                       - $ref: '#/components/schemas/TestCase'
                       - $ref: '#/components/schemas/Defect'
                       - $ref: '#/components/schemas/Run'
+                      - $ref: '#/components/schemas/Result'
     SharedStepResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

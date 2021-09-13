@@ -40,6 +40,8 @@ properties:
           type: string
         input_data:
           type: string
+        position:
+          type: integer
   custom_field:
     type: object
     description: A map of custom fields values (id => value)

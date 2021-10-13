@@ -1987,18 +1987,6 @@ components:
           type: string
           format: date-time
           nullable: true
-        average_time:
-          type: number
-        cases:
-          type: array
-          items:
-            type: object
-            properties:
-              case_id:
-                type: integer
-              assignee_id:
-                type: integer
-                nullable: true
     PlanCreate:
       type: object
       properties:
@@ -2015,6 +2003,23 @@ components:
       required:
         - title
         - cases
+    PlanDetailed:
+      allOf:
+        - $ref: '#/components/schemas/Plan'
+        - type: object
+          properties:
+            average_time:
+              type: number
+            cases:
+              type: array
+              items:
+                type: object
+                properties:
+                  case_id:
+                    type: integer
+                  assignee_id:
+                    type: integer
+                    nullable: true
     PlanUpdate:
       type: object
       properties:
@@ -2960,7 +2965,7 @@ components:
         - type: object
           properties:
             result:
-              $ref: '#/components/schemas/Plan'
+              $ref: '#/components/schemas/PlanDetailed'
     PlanListResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

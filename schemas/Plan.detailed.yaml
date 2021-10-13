@@ -1,0 +1,16 @@
+allOf:
+  - $ref: './Plan.yaml'
+  - type: object
+    properties:
+      average_time:
+        type: number
+      cases:
+        type: array
+        items:
+          type: object
+          properties:
+            case_id:
+              type: integer
+            assignee_id:
+              type: integer
+              nullable: true

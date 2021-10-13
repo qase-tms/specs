@@ -136,6 +136,7 @@ components:
     MilestoneUpdate: { $ref: './schemas/Milestone.update.yaml' }
     Plan: { $ref: './schemas/Plan.yaml' }
     PlanCreate: { $ref: './schemas/Plan.create.yaml' }
+    PlanDetailed: { $ref: './schemas/Plan.detailed.yaml' }
     PlanUpdate: { $ref: './schemas/Plan.update.yaml' }
     Project: { $ref: './schemas/Project.yaml' }
     ProjectAccess: { $ref: './schemas/Project.access.yaml' }

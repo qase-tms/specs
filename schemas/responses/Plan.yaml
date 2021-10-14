@@ -3,4 +3,4 @@ allOf:
   - type: object
     properties:
       result:
-        $ref: '../Plan.yaml'
+        $ref: '../Plan.detailed.yaml'

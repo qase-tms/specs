@@ -3258,7 +3258,9 @@ components:
       in: query
       schema:
         type: integer
-        default: 100
+        default: 10
+        minimum: 0
+        maximum: 25
     Offset:
       name: offset
       description: How many entities should be skipped.
@@ -3266,3 +3268,5 @@ components:
       schema:
         type: integer
         default: 0
+        minimum: 0
+        maximum: 100000

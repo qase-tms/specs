@@ -4,3 +4,5 @@ in: query
 schema:
   type: integer
   default: 0
+  minimum: 0
+  maximum: 100000

@@ -11,6 +11,17 @@ function publish() {
   npm run publish
 }
 
+function latest() {
+  local packages=("${@}")
+  if [ ${#packages[@]} = 0 ]; then
+    IFS=' ' read -r -a packages <<<"$(npm ls --depth=0 --prod --json |
+      jq -r '.dependencies | keys | join(" ")')"
+  fi
+  for pkg in "${packages[@]}"; do
+    npm install "${pkg}"@latest
+  done
+}
+
 function go() {
   rm -rf examples/sdk/go/*
   swagger-codegen generate -i /specs/api.yaml -l go -o /sdk/go -D packageName=qase

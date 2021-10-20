@@ -24,7 +24,7 @@ function latest() {
 
 function go() {
   rm -rf examples/sdk/go/*
-  swagger-codegen generate -i /specs/api.yaml -l go -o /sdk/go -D packageName=qase
+  swagger-codegen generate -i /specs/api.yaml -l go -o /sdk/go -D packageName=client
   goimports -ungroup -local qase -w examples/sdk/go/
 }
 

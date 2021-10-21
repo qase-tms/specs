@@ -36,4 +36,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/Hash.yaml'
+            $ref: '../schemas/responses/Result.create.yaml'

@@ -18,7 +18,8 @@ properties:
     type: object
     description: Dictionary of old values and their replacemants
     nullable: true
-    additionalProperties: true
+    additionalProperties:
+      type: string
   placeholder:
     type: string
     maxLength: 255

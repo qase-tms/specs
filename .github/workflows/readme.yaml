@@ -12,3 +12,4 @@ jobs:
       - uses: readmeio/github-readme-sync@v2
         with:
           readme-oas-key: ${{ secrets.README_KEY }}
+          oas-file-path: './api.yaml'

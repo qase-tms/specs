@@ -1729,7 +1729,8 @@ components:
           type: object
           description: Dictionary of old values and their replacemants
           nullable: true
-          additionalProperties: true
+          additionalProperties:
+            type: string
         placeholder:
           type: string
           maxLength: 255
@@ -1825,9 +1826,6 @@ components:
         custom_field:
           type: object
           description: A map of custom fields values (id => value)
-          properties:
-            id:
-              type: string
           additionalProperties:
             type: string
         tags:
@@ -1868,9 +1866,6 @@ components:
         custom_field:
           type: object
           description: A map of custom fields values (id => value)
-          properties:
-            id:
-              type: string
           additionalProperties:
             type: string
         tags:
@@ -2721,9 +2716,6 @@ components:
         custom_field:
           type: object
           description: A map of custom fields values (id => value)
-          properties:
-            id:
-              type: string
           additionalProperties:
             type: string
       required:
@@ -2776,9 +2768,6 @@ components:
         custom_field:
           type: object
           description: A map of custom fields values (id => value)
-          properties:
-            id:
-              type: string
           additionalProperties:
             type: string
     TestStep:

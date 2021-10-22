@@ -1057,7 +1057,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HashResponse'
+                allOf:
+                  - $ref: '#/components/schemas/Response'
+                  - type: object
+                    properties:
+                      result:
+                        type: object
+                        properties:
+                          case_id:
+                            type: integer
+                          hash:
+                            type: string
   '/result/{code}/{id}/bulk':
     post:
       operationId: create-result-bulk

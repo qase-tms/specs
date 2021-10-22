@@ -172,6 +172,7 @@ components:
     EnvironmentResponse: { $ref: './schemas/responses/Environment.yaml' }
     EnvironmentListResponse: { $ref: './schemas/responses/EnvironmentList.yaml' }
     IdResponse: { $ref: './schemas/responses/Id.yaml' }
+    HashResponse: { $ref: './schemas/responses/Hash.yaml' }
     MilestoneResponse: { $ref: './schemas/responses/Milestone.yaml' }
     MilestoneListResponse: { $ref: './schemas/responses/MilestoneList.yaml' }
     PlanResponse: { $ref: './schemas/responses/Plan.yaml' }

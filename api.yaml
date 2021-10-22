@@ -89,7 +89,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/HashResponse'
     post:
       operationId: upload-attachment
       tags:
@@ -1057,7 +1057,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/HashResponse'
   '/result/{code}/{id}/bulk':
     post:
       operationId: create-result-bulk
@@ -1106,7 +1106,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/HashResponse'
     delete:
       operationId: delete-result
       tags:
@@ -1124,7 +1124,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/HashResponse'
   '/run/{code}':
     get:
       operationId: get-runs
@@ -1345,15 +1345,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Response'
-                  - type: object
-                    properties:
-                      result:
-                        type: object
-                        properties:
-                          hash:
-                            type: string
+                $ref: '#/components/schemas/HashResponse'
   '/shared_step/{code}/{hash}':
     get:
       operationId: get-shared-step
@@ -1388,7 +1380,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/HashResponse'
     patch:
       operationId: update-shared-step
       tags:
@@ -1411,7 +1403,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1shared_step~1%7Bcode%7D/post/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/HashResponse'
   '/suite/{code}':
     get:
       operationId: get-suites
@@ -2934,6 +2926,16 @@ components:
               properties:
                 id:
                   type: integer
+    HashResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                hash:
+                  type: string
     MilestoneResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

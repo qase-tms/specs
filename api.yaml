@@ -4106,8 +4106,7 @@ components:
       description: Code or Hash.
       required: true
       schema:
-        oneOf:
-          - type: string
+        type: string
     Hash:
       name: hash
       in: path

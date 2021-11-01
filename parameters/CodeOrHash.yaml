@@ -3,5 +3,4 @@ in: path
 description: Code or Hash.
 required: true
 schema:
-  oneOf:
-    - type: string
+  type: string

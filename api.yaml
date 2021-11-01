@@ -916,8 +916,6 @@ tags:
 servers:
   - url: 'https://api.qase.io/v1'
     description: The production API server.
-  - url: 'https://dev.qase.io/v1'
-    description: The development API server.
 paths:
   /attachment:
     get:

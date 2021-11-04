@@ -2822,6 +2822,7 @@ components:
       properties:
         title:
           type: string
+          maxLength: 255
         description:
           type: string
         status:
@@ -2832,6 +2833,8 @@ components:
         due_date:
           type: integer
           description: unix timestamp
+      required:
+        - title
     MilestoneUpdate:
       type: object
       properties:

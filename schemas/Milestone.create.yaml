@@ -2,6 +2,7 @@ type: object
 properties:
   title:
     type: string
+    maxLength: 255
   description:
     type: string
   status:
@@ -12,3 +13,4 @@ properties:
   due_date:
     type: integer
     description: unix timestamp
+required: [title]

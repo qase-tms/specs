@@ -3258,6 +3258,8 @@ components:
           type: array
           items:
             type: integer
+        is_autotest:
+          type: boolean
         environment_id:
           type: integer
         milestone_id:

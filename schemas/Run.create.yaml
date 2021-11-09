@@ -5,6 +5,7 @@ properties:
     maxLength: 255
   description:
     type: string
+    maxLength: 10000
   include_all_cases:
     type: boolean
   cases:
@@ -15,10 +16,13 @@ properties:
     type: boolean
   environment_id:
     type: integer
+    minimum: 1
   milestone_id:
     type: integer
+    minimum: 1
   plan_id:
     type: integer
+    minimum: 1
   tags:
     type: array
     items:

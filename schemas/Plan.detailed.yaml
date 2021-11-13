@@ -11,6 +11,8 @@ allOf:
           properties:
             case_id:
               type: integer
+              format: int64
             assignee_id:
               type: integer
+              format: int64
               nullable: true

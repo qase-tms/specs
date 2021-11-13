@@ -8,6 +8,7 @@ properties:
     type: integer
   milestone_id:
     type: integer
+    format: int64
     nullable: true
   attachments:
     type: array

@@ -2,4 +2,5 @@ type: object
 properties:
   destination_id:
     type: integer
+    format: int64
     description: If provided, child test cases would be moved to suite with such ID.

@@ -7,5 +7,6 @@ allOf:
         properties:
           case_id:
             type: integer
+            format: int64
           hash:
             type: string

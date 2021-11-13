@@ -10,6 +10,7 @@ properties:
       - skipped
   time_ms:
     type: integer
+    format: int64
     nullable: true
     minimum: 0
     maximum: 31536000000

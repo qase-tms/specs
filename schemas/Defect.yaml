@@ -2,6 +2,7 @@ type: object
 properties:
   id:
     type: integer
+    format: int64
   title:
     type: string
   actual_result:
@@ -12,6 +13,7 @@ properties:
     type: string
   milestone_id:
     type: integer
+    format: int64
     nullable: true
   custom_fields:
     type: array
@@ -37,8 +39,10 @@ properties:
     nullable: true
   project_id:
     type: integer
+    format: int64
   member_id:
     type: integer
+    format: int64
   external_data:
     type: string
   tags:

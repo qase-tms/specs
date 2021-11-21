@@ -2040,6 +2040,8 @@ paths:
           schema:
             type: object
             properties:
+              search:
+                type: string
               status:
                 description: |
                   A list of status values separated by comma.
@@ -2049,6 +2051,12 @@ paths:
                 type: integer
               environment:
                 type: integer
+              from_start_time:
+                type: integer
+                format: int64
+              to_start_time:
+                type: integer
+                format: int64
       responses:
         '200':
           description: A list of all runs.

@@ -40,7 +40,7 @@ properties:
           type: string
         expected_result:
           type: string
-        input_data:
+        data:
           type: string
         position:
           type: integer

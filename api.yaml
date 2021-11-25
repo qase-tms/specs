@@ -958,7 +958,7 @@ paths:
         - attachments
       summary: Remove attachment by Hash.
       description: |
-        This method allows to retrieve attachment by Hash.
+        This method allows to remove attachment by Hash.
       parameters:
         - $ref: '#/components/parameters/CodeOrHash'
       responses:
@@ -1444,7 +1444,7 @@ paths:
         - environments
       summary: Create a new environment.
       description: |
-        This method allows to create a environment in selected project.
+        This method allows to create an environment in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
       requestBody:
@@ -1473,7 +1473,7 @@ paths:
         - $ref: '#/components/parameters/Id'
       responses:
         '200':
-          description: A environment.
+          description: An environment.
           content:
             application/json:
               schema:
@@ -1484,7 +1484,7 @@ paths:
         - environments
       summary: Delete environment.
       description: |
-        This method completely deletes a environment from repository.
+        This method completely deletes an environment from repository.
       parameters:
         - $ref: '#/components/parameters/Code'
         - $ref: '#/components/parameters/Id'
@@ -1501,7 +1501,7 @@ paths:
         - environments
       summary: Update environment.
       description: |
-        This method updates a environment.
+        This method updates an environment.
       parameters:
         - $ref: '#/components/parameters/Code'
         - $ref: '#/components/parameters/Id'
@@ -1733,7 +1733,7 @@ paths:
       summary: Get All Projects.
       description: |
         This method allows to retrieve all projects available
-        for your account. You can you limit and offset params
+        for your account. You can limit and offset params
         to paginate.
       parameters:
         - $ref: '#/components/parameters/Limit'

@@ -21,7 +21,7 @@ post:
   tags: [ environments ]
   summary: Create a new environment.
   description: |
-    This method allows to create a environment in selected project.
+    This method allows to create an environment in selected project.
   parameters:
     - $ref: '../parameters/project/Code.yaml'
   requestBody:

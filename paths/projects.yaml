@@ -4,7 +4,7 @@ get:
   summary: Get All Projects.
   description: |
     This method allows to retrieve all projects available
-    for your account. You can you limit and offset params
+    for your account. You can limit and offset params
     to paginate.
   parameters:
     - $ref: '../parameters/pagination/Limit.yaml'

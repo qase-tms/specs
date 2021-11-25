@@ -19,7 +19,7 @@ delete:
   tags: [ attachments ]
   summary: Remove attachment by Hash.
   description: |
-    This method allows to retrieve attachment by Hash.
+    This method allows to remove attachment by Hash.
   parameters:
     - $ref: '../parameters/CodeOrHash.yaml'
   responses:

@@ -9,7 +9,7 @@ get:
     - $ref: '../parameters/Id.yaml'
   responses:
     200:
-      description: A environment.
+      description: An environment.
       content:
         application/json:
           schema:
@@ -20,7 +20,7 @@ delete:
   tags: [ environments ]
   summary: Delete environment.
   description: |
-    This method completely deletes a environment from repository.
+    This method completely deletes an environment from repository.
   parameters:
     - $ref: '../parameters/project/Code.yaml'
     - $ref: '../parameters/Id.yaml'
@@ -37,7 +37,7 @@ patch:
   tags: [ environments ]
   summary: Update environment.
   description: |
-    This method updates a environment.
+    This method updates an environment.
   parameters:
     - $ref: '../parameters/project/Code.yaml'
     - $ref: '../parameters/Id.yaml'

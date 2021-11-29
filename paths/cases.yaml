@@ -1,6 +1,6 @@
 get:
   operationId: get-cases
-  tags: [ Сases ]
+  tags: [ Cases ]
   summary: Get all test cases.
   description: |
     This method allows to retrieve all test cases stored in selected project.
@@ -64,7 +64,7 @@ get:
 
 post:
   operationId: create-case
-  tags: [ Сases ]
+  tags: [ Cases ]
   summary: Create a new test case.
   description: |
     This method allows to create a new test case in selected project.

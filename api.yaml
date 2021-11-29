@@ -117,7 +117,7 @@ paths:
     get:
       operationId: get-cases
       tags:
-        - Сases
+        - Cases
       summary: Get all test cases.
       description: |
         This method allows to retrieve all test cases stored in selected project.
@@ -181,7 +181,7 @@ paths:
     post:
       operationId: create-case
       tags:
-        - Сases
+        - Cases
       summary: Create a new test case.
       description: |
         This method allows to create a new test case in selected project.
@@ -221,7 +221,7 @@ paths:
     delete:
       operationId: delete-case
       tags:
-        - Сases
+        - Cases
       summary: Delete test case.
       description: |
         This method completely deletes a test case from repository.
@@ -238,7 +238,7 @@ paths:
     patch:
       operationId: update-case
       tags:
-        - Сases
+        - Cases
       summary: Update test case.
       description: |
         This method updates a test case.
@@ -325,7 +325,7 @@ paths:
     get:
       operationId: get-custom-field
       tags:
-        - Сustom Fields
+        - Custom Fields
       summary: Get Custom Field by id.
       description: |
         This method allows to retrieve custom field.
@@ -341,7 +341,7 @@ paths:
     delete:
       operationId: delete-custom-field
       tags:
-        - Сustom Fields
+        - Custom Fields
       summary: Delete Custom Field by id.
       description: |
         This method allows to delete custom field.
@@ -357,7 +357,7 @@ paths:
     patch:
       operationId: update-custom-field
       tags:
-        - Сustom Fields
+        - Custom Fields
       summary: Update Custom Field by id.
       description: |
         This method allows to update custom field.

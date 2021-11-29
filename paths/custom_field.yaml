@@ -1,6 +1,6 @@
 get:
   operationId: get-custom-field
-  tags: [ Сustom Fields ]
+  tags: [ Custom Fields ]
   summary: Get Custom Field by id.
   description: |
     This method allows to retrieve custom field.
@@ -16,7 +16,7 @@ get:
 
 delete:
   operationId: delete-custom-field
-  tags: [ Сustom Fields ]
+  tags: [ Custom Fields ]
   summary: Delete Custom Field by id.
   description: |
     This method allows to delete custom field.
@@ -32,7 +32,7 @@ delete:
 
 patch:
   operationId: update-custom-field
-  tags: [ Сustom Fields ]
+  tags: [ Custom Fields ]
   summary: Update Custom Field by id.
   description: |
     This method allows to update custom field.

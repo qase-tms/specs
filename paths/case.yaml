@@ -17,7 +17,7 @@ get:
 
 delete:
   operationId: delete-case
-  tags: [ Сases ]
+  tags: [ Cases ]
   summary: Delete test case.
   description: |
     This method completely deletes a test case from repository.
@@ -34,7 +34,7 @@ delete:
 
 patch:
   operationId: update-case
-  tags: [ Сases ]
+  tags: [ Cases ]
   summary: Update test case.
   description: |
     This method updates a test case.

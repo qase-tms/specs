@@ -1,6 +1,6 @@
 get:
   operationId: get-runs
-  tags: [ runs ]
+  tags: [ Runs ]
   summary: Get all runs.
   description: |
     This method allows to retrieve all runs stored in selected project.
@@ -49,7 +49,7 @@ get:
 
 post:
   operationId: create-run
-  tags: [ runs ]
+  tags: [ Runs ]
   summary: Create a new run.
   description: |
     This method allows to create a run in selected project.

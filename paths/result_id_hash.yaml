@@ -1,6 +1,6 @@
 patch:
   operationId: update-result
-  tags: [ results ]
+  tags: [ Results ]
   summary: Update test run result.
   description: |
     This method allows to update test run result.
@@ -24,7 +24,7 @@ patch:
 
 delete:
   operationId: delete-result
-  tags: [ results ]
+  tags: [ Results ]
   summary: Delete test run result.
   description: |
     This method allows to delete test run result.

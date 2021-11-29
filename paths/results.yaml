@@ -1,6 +1,6 @@
 get:
   operationId: get-results
-  tags: [ results ]
+  tags: [ Results ]
   summary: Get all test run results.
   description: |
     This method allows to retrieve all test run

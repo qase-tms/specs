@@ -2,9 +2,6 @@ openapi: '3.0.0'
 
 info:
   title: Qase.io API
-  description:
-    $ref: ./markdown/description.md
-
   termsOfService: https://qase.io/terms
   version: 1.0.0
 
@@ -18,47 +15,19 @@ info:
     url: https://github.com/qase-tms/specs/blob/master/LICENSE
 
 tags:
-  - name: attachments
-  - name: cases
-  - name: custom-fields
-  - name: environments
-  - name: defects
-  - name: plans
-  - name: projects
-  - name: results
-  - name: milestones
-  - name: runs
-  - name: search
-  - name: shared-steps
-  - name: suites
-  - name: users
-  - name: webhooks
-    description:
-      $ref: ./markdown/webhooks.md
-  - name: webhooks/Test case
-    description:
-      $ref: ./markdown/webhooks.case.md
-  - name: webhooks/Defect
-    description:
-      $ref: ./markdown/webhooks.defect.md
-  - name: webhooks/Custom field
-    description:
-      $ref: ./markdown/webhooks.field.md
-  - name: webhooks/Milestone
-    description:
-      $ref: ./markdown/webhooks.milestone.md
-  - name: webhooks/Test plan
-    description:
-      $ref: ./markdown/webhooks.plan.md
-  - name: webhooks/Test run
-    description:
-      $ref: ./markdown/webhooks.run.md
-  - name: webhooks/Shared step
-    description:
-      $ref: ./markdown/webhooks.step.md
-  - name: webhooks/suite
-    description:
-      $ref: ./markdown/webhooks.suite.md
+  - name: Attachments
+  - name: Cases
+  - name: Custom Fields
+  - name: Environments
+  - name: Defects
+  - name: Plans
+  - name: Projects
+  - name: Results
+  - name: Milestones
+  - name: Runs
+  - name: Search
+  - name: Shared Steps
+  - name: Suites
 
 servers:
   - url: https://api.qase.io/v1
@@ -69,7 +38,7 @@ servers:
 paths:
   /attachment:
     $ref: './paths/attachments.yaml'
-  /attachment/{code_or_hash}:
+  /attachment/{hash}:
     $ref: './paths/attachment.yaml'
   /case/{code}:
     $ref: './paths/cases.yaml'
@@ -107,7 +76,7 @@ paths:
     $ref: './paths/project_access.yaml'
   /result/{code}:
     $ref: './paths/results.yaml'
-  /result/{code}/{id_or_hash}:
+  /result/{code}/{hash}:
     $ref: './paths/result.yaml'
   /result/{code}/{id}/bulk:
     $ref: './paths/result_bulk.yaml'
@@ -131,10 +100,6 @@ paths:
     $ref: './paths/suites.yaml'
   /suite/{code}/{id}:
     $ref: './paths/suite.yaml'
-  /user:
-    $ref: './paths/users.yaml'
-  /user/{id}:
-    $ref: './paths/user.yaml'
 
 components:
   schemas:
@@ -181,7 +146,6 @@ components:
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
     TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
-    User: { $ref: './schemas/User.yaml' }
 
     AttachmentResponse: { $ref: './schemas/responses/Attachment.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentList.yaml' }
@@ -214,8 +178,6 @@ components:
     SuiteListResponse: { $ref: './schemas/responses/SuiteList.yaml' }
     TestCaseResponse: { $ref: './schemas/responses/TestCase.yaml' }
     TestCaseListResponse: { $ref: './schemas/responses/TestCaseList.yaml' }
-    UserResponse: { $ref: './schemas/responses/User.yaml' }
-    UserListResponse: { $ref: './schemas/responses/UserList.yaml' }
 
   securitySchemes:
     TokenAuth:
@@ -225,10 +187,8 @@ components:
 
   parameters:
     Code: { $ref: './parameters/project/Code.yaml' }
-    CodeOrHash: { $ref: './parameters/CodeOrHash.yaml' }
     Hash: { $ref: './parameters/Hash.yaml' }
     Id: { $ref: './parameters/Id.yaml' }
-    IdOrHash: { $ref: './parameters/IdOrHash.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }
 

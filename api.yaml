@@ -1,76 +1,6 @@
 openapi: 3.0.0
 info:
   title: Qase.io API
-  description: |
-    # Introduction
-
-    You can use our API to access [Qase.io](https://qase.io) API endpoints,
-    which allows to retrieve information about entities
-    stored in database and perform actions with them.
-    The API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer).
-
-    # API Rate limits
-
-    Your application can make up to 200 API requests per minute.
-
-    Once the limit is exceeded, clients receive an HTTP 429 with a Retry-After:
-    X header to indicate how long their timeout period is before they will be able to send requests again.
-    The timeout period is set to 60 seconds once the limit is exceeded.
-
-    # Authentication
-
-    To authorize, use this code:
-
-    ```shell
-    # With shell, you can just pass the correct header with each request
-    curl "https://api.qase.io/v1/api_endpoint"
-      -H "Token: api_token"
-      -H "Content-Type: application/json"
-    ```
-
-    Make sure to replace `api_token` with your API key.
-
-    Qase.io uses API tokens to authenticate requests. You can view an manage your API keys in
-    [API tokens pages](https://app.qase.io/user/api/token).
-
-    Your API keys has the same access rights as your role in the app,
-    so be sure to keep them secure! Do not share your secret
-    API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
-
-    Qase API expects for the API key to be included in all API requests
-    to the server in a header that looks like the following:
-
-    `Token: api_token`
-
-    You must replace `api_token` with your personal API key.
-
-    All API requests must be made over [HTTPS](http://en.wikipedia.org/wiki/HTTP_Secure).
-    Calls made over plain HTTP will fail. API requests without authentication will also fail.
-
-    # Access rights
-
-    Qase.io is using Role-based Access Control system to restrict some features usage
-    in Web interface and the same rules are applied to API methods.
-    In description for each method you will find a rule name,
-    that is required to perform an action through API.
-    If you don't have enough access rights, you will receive an error with `403` status code.
-
-    # Errors
-
-    Qase API uses the following error codes:
-
-    Code | Meaning
-    ---------- | -------
-    400 | Bad Request - Your request is invalid.
-    401 | Unauthorized - Your API key is wrong.
-    403 | Forbidden - Your role doesn't have enough permissions to perform this action
-    404 | Not Found - The resource could not be found.
-    405 | Method Not Allowed - You tried to access a resource with an invalid method.
-    406 | Not Acceptable - You requested a format that isn't json.
-    410 | Gone - The resource requested has been removed from our servers.
-    429 | Too Many Requests - You're performing too many requests! Slow down!
-    500 | Internal Server Error - We had a problem with our server. Try again later.
-    503 | Service Unavailable - We're temporarily offline for maintenance. Please try again later.
   termsOfService: 'https://qase.io/terms'
   version: 1.0.0
   contact:
@@ -81,838 +11,19 @@ info:
     name: Apache 2.0
     url: 'https://github.com/qase-tms/specs/blob/master/LICENSE'
 tags:
-  - name: attachments
-  - name: cases
-  - name: custom-fields
-  - name: environments
-  - name: defects
-  - name: plans
-  - name: projects
-  - name: results
-  - name: milestones
-  - name: runs
-  - name: search
-  - name: shared-steps
-  - name: suites
-  - name: users
-  - name: webhooks
-    description: |
-      # Introduction
-
-      Welcome to the [Qase.io](https://qase.io) Webhooks documentation! Webhooks is a way to notify your services about changes happened in Qase. A webhook consists of:
-
-      - An entity - the resource that generates the events (e.g. TestCase).
-      - One or more events (e.g. created).
-      - A URL - the endpoint where you want Qase to send the event payloads when a matching event happens.
-
-      This documentation describes the structure of events and their payloads.
-
-      # Event structure
-
-      Request example:
-
-      ```json
-      {
-          "event": "case.created",
-          "timestamp": 1570000000,
-          "payload": {}
-      }
-      ```
-
-      All requests that are produced by Qase are `POST` requests with data in `JSON` format with following data structure:
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      event | string | Event name
-      timestamp | integer | Time when event has been triggered
-      payload | array | An object with payload data related to event
-  - name: webhooks/Test case
-    description: |
-      ## Created
-
-      Payload example:
-
-      ```json
-      {
-           "id": 5,
-           "position": 1,
-           "title": "Test case",
-           "description": "Description for case",
-           "preconditions": "",
-           "postconditions": "",
-           "severity": "blocker",
-           "priority": "high",
-           "type": "functional",
-           "behavior": "position",
-           "is_automated": false,
-           "is_deprecated": false,
-           "milestone_id": null,
-           "suite_id": 1,
-           "revision": 1,
-           "custom_fields": [],
-           "attachments": [],
-           "steps": [],
-           "created": "2019-07-21T13:24:08.000000Z",
-           "updated": "2019-07-21T13:24:08.000000Z"
-      }
-      ```
-
-      This event is being sent when a new test case is created.
-
-      ### Event name
-
-      `case.created`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      title | String | Test case title
-      description  | string | Test case description
-      preconditions  | string | Test case preconditions
-      postconditions  | string | Test case postconditions
-      severity | string | Possible value: `undefined`, `blocked`, `critical`, `major`, `normal`, `minor`, `trivial`
-      priority | string | Possible value: `undefined`, `high`, `medium`, `low`
-      type | string | Possible value: `other`, `functional` `smoke`, `regression`, `security`, `usability`, `performance`, `acceptance`
-      behavior | string | Possible value: `undefined`, `positive` `negative`, `destructive`
-      suite_id | int | Suite ID (nullable)
-      milestone_id | int | Milestone_id (nullable)
-      is_automated | bool |
-      is_deprecated | bool |
-      revision | int | Test case version
-      steps | step | An array of test steps objects.
-      attachments | array | An array of attachments ids.
-      custom_fields | custom_field | An array of custom fields objects.
-
-      #### Step object
-
-      Parameter| Type | Description
-      --------- | ----------- | -----------
-      position | int | Step position
-      action  | string | Required field (if shared_step_id is not provided). Can't be empty.
-      expected_result  | string |
-      shared_hash  | id | A hash of shared step.
-      attachments | array | An array of attachments IDs.
-
-      #### Custom field object
-
-      Parameter| Type | Description
-      --------- | ----------- | -----------
-      field_id  | string | An ID of custom field. Required field.
-      value  | string | Custom field value. Required field.
-
-      ## Updated
-
-      Payload example:
-
-      ```json
-      {
-           "id": 5
-      }
-      ```
-
-      This event is being sent when a test case is updated. It returns only ID of test case and notifies that fields were updated.
-
-      ### Event name
-
-      `case.updated`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test case ID
-
-      ## Deleted
-
-      Payload example:
-
-      ```json
-      {
-           "id": 5
-      }
-      ```
-
-      This event is being sent when a test case is deleted.
-
-      ### Event name
-
-      `case.deleted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test case ID
-
-      ## Cloned
-
-      Payload example:
-
-      ```json
-      {
-           "id": 5,
-           "from_id": 1
-      }
-      ```
-
-      This event is being sent when a test case is cloned.
-
-      ### Event name
-
-      `case.cloned`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test case ID (clone)
-      from_id | int | Test case ID (original)
-  - name: webhooks/Defect
-    description: |
-      ## Created
-
-      Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "title": "Authorization",
-           "case_id": 1,
-           "step": 1,
-           "actual_result": "Something went wrong",
-           "attachments": [1,2,3]
-      }
-      ```
-
-      This event is being sent when a new defect is created.
-
-      ### Event name
-
-      `defect.created`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Defect ID
-      title | string | Defect title
-      case_id | int | Test case ID where error occured
-      step | int | Step where error occured
-      actual_result | string | A text description of defect
-      attachments | array | An array of attachments ids.
-
-      ## Updated
-
-      Payload example:
-
-      ```json
-      {
-           "id": 1
-      }
-      ```
-
-      This event is being sent when a defect is resolved.
-
-      ### Event name
-
-      `defect.resolved`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Defect ID
-
-      ## Deleted
-
-      Payload example:
-
-      ```json
-      {
-           "id": 1
-      }
-      ```
-
-      This event is being sent when a defect is deleted.
-
-      ### Event name
-
-      `defect.deleted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Defect ID
-  - name: webhooks/Custom field
-    description: |
-      ## Created
-
-      Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "title": "Text",
-           "isRequired": false,
-           "isFilterable": false,
-           "isVisible": false,
-           "default_value": "",
-           "value": null,
-           "type": "string"
-      }
-      ```
-
-      This event is being sent when a new custom field is created.
-
-      ### Event name
-
-      `custom_field.created`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Custom field ID
-      title | string | Custom field title
-      isRequired | boolean | A boolean value that indicates, that custom field should be filled on case create/update page.
-      isFilterable | boolean | A boolean value that indicates, that custom field will be shown in filters
-      isVisible | boolean | A boolean value that indicates, that custom field will be visible in preview and on test case page.
-      default_value | string | Default value for custom field
-      value | object | Available only for selectbox fields. An object with selectbox values.
-      type | string | Custom field type. Available values: `number`, `string`, `text`, `selectbox`, `checkbox`.
-
-      ## Updated
-
-      Payload example:
-
-      ```json
-      {
-           "id": 1
-      }
-      ```
-
-      This event is being sent when a custom field is updated.
-
-      ### Event name
-
-      `custom_field.updated`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Custom field ID
-
-      ## Deleted
-
-      Payload example:
-
-      ```json
-      {
-           "id": 1
-      }
-      ```
-
-      This event is being sent when a custom field is deleted.
-
-      ### Event name
-
-      `custom_field.deleted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Custom field ID
-  - name: webhooks/Milestone
-    description: |
-      ## Created
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "title": "Release 1.0",
-           "description": "First release of our app"
-      }
-      ```
-
-      This event is being sent when a new milestone is created.
-
-      ### Event name
-
-      `milestone.created`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Milestone ID
-      title | string | Milestone title
-      description  | string | Milestone description
-
-      ## Updated
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1
-      }
-      ```
-
-      This event is being sent when a milestone is updated.
-
-      ### Event name
-
-      `milestone.updated`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Milestone ID
-
-      ## Deleted
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1
-      }
-      ```
-
-      This event is being sent when a milestone is deleted.
-
-      ### Event name
-
-      `milestone.deleted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Milestone ID
-  - name: webhooks/Test plan
-    description: |
-      ## Created
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "title": "Test suite",
-           "description": "Authorization",
-           "cases": [1, 2, 3]
-      }
-      ```
-
-      This event is being sent when a new test plan is created.
-
-      ### Event name
-
-      `plan.created`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test plan ID
-      title | string | Test plan title
-      description  | string | Test plan description
-      cases  | array | An array with test case ids
-
-      ## Updated
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 5
-      }
-      ```
-
-      This event is being sent when a test plan is updated.
-
-      ### Event name
-
-      `plan.updated`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test plan ID
-      cases | array | An array with test case ids
-
-      ## Deleted
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "cases": [1, 2, 3]
-      }
-      ```
-
-      This event is being sent when a test plan is deleted.
-
-      ### Event name
-
-      `plan.deleted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test plan ID
-  - name: webhooks/Test run
-    description: |
-      ## Started
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "title": "Test run",
-           "description": "Regression",
-           "plan": 1,
-           "cases_count": 100,
-           "environment": null
-      }
-      ```
-
-      This event is being sent when a new test run is started.
-
-      ### Event name
-
-      `run.started`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test run ID
-      title | string | Test run title
-      description  | string | Test run description
-      plan_id | int | Test plan ID. Nullable.
-      cases_count | int | Amount of test cases in run
-      environment | string | Environment slug. Nullable.
-
-      ## Updated
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "cases_added": 100
-      }
-      ```
-
-      This event is being sent when a test plan is updated and new test cases were added.
-
-      ### Event name
-
-      `run.updated`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test run ID
-      cases_added | array | Amount of test cases added to the run
-
-      ## Aborted
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "cases": 40,
-           "passed": 10,
-           "untested": 10,
-           "failed": 10,
-           "blocked": 10,
-           "duration": 600
-      }
-      ```
-
-      This event is being sent when a test run is aborted.
-
-      ### Event name
-
-      `run.aborted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test run ID
-      cases | int | Amount of test cases in a run
-      passed | int | Amount of passed cases
-      failed | int | Amount of failed cases
-      untested | int | Amount of untested cases
-      blocked | int | Amount of blocked cases
-      duration | int | Test run duration in seconds
-
-      ## Completed
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "cases": 40,
-           "passed": 10,
-           "failed": 10,
-           "blocked": 10,
-           "duration": 600
-      }
-      ```
-
-      This event is being sent when a test run is successfully completed.
-
-      ### Event name
-
-      `run.completed`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test run ID
-      cases | int | Amount of test cases in a run
-      passed | int | Amount of passed cases
-      failed | int | Amount of failed cases
-      blocked | int | Amount of blocked cases
-      duration | int | Test run duration in seconds
-
-      ## Deleted
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1
-      }
-      ```
-
-      This event is being sent when a test run is deleted.
-
-      ### Event name
-
-      `run.deleted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test run ID
-
-      ## Report visibility changed
-
-      > Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "visible": true
-      }
-      ```
-
-      This event is being sent when a public report visibility has been changed.
-
-      ### Event name
-
-      `run.report_changed`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test run ID
-      visible | boolean | Shows if public report is available or not
-  - name: webhooks/Shared step
-    description: |
-      ## Created
-
-      Payload example:
-
-      ```json
-      {
-           "hash": "0223905c291bada23e6049d415385982af92d758",
-           "title": "Shared step",
-           "action": "Open web page",
-           "expected_result": "Web page is opened"
-      }
-      ```
-
-      This event is being sent when a new shared step is created.
-
-      ### Event name
-
-      `shared_step.created`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      hash | string | Shared step hash
-      title | string | Shared step title
-      action | string | Shared step action
-      expected_result | string | Shared step expected result
-
-      ## Updated
-
-      Payload example:
-
-      ```json
-      {
-           "hash": "0223905c291bada23e6049d415385982af92d758"
-      }
-      ```
-
-      This event is being sent when a shared step is updated.
-
-      ### Event name
-
-      `shared_step.updated`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | string | Shared step hash
-
-      ## Deleted
-
-      Payload example:
-
-      ```json
-      {
-           "hash": "0223905c291bada23e6049d415385982af92d758"
-      }
-      ```
-
-      This event is being sent when a shared_step is deleted.
-
-      ### Event name
-
-      `shared_step.deleted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      hash | string | Shared step hash
-  - name: webhooks/suite
-    description: |
-      ## Created
-
-      Payload example:
-
-      ```json
-      {
-           "id": 1,
-           "title": "Test suite",
-           "description": "Authorization",
-           "preconditions": "",
-           "parent_id": null
-      }
-      ```
-
-      This event is being sent when a new test suite is created.
-
-      ### Event name
-
-      `suite.created`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test suite ID
-      title | string | Test suite title
-      description  | string | Test suite description
-      preconditions  | string | Test suite preconditions
-      parent_id  | int | ID of parent test suite
-
-      ## Updated
-
-      Payload example:
-
-      ```json
-      {
-           "id": 5
-      }
-      ```
-
-      This event is being sent when a test suite is updated. It returns only ID of test suite and notifies that fields were updated.
-
-      ### Event name
-
-      `suite.updated`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test suite ID
-
-      ## Deleted
-
-      Payload example:
-
-      ```json
-      {
-           "id": 1
-      }
-      ```
-
-      This event is being sent when a test suite is deleted.
-
-      ### Event name
-
-      `suite.deleted`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test suite ID
-
-      ## Cloned
-
-      Payload example:
-
-      ```json
-      {
-           "id": 2,
-           "from_id": 1
-      }
-      ```
-
-      This event is being sent when a test suite is cloned.
-
-      ### Event name
-
-      `suite.cloned`
-
-      ### Payload fields
-
-      Parameter | Type | Description
-      --------- | ----------- | -----------
-      id | int | Test suite ID (clone)
-      from_id | int | Test suite ID (original)
+  - name: Attachments
+  - name: Cases
+  - name: Custom Fields
+  - name: Environments
+  - name: Defects
+  - name: Plans
+  - name: Projects
+  - name: Results
+  - name: Milestones
+  - name: Runs
+  - name: Search
+  - name: Shared Steps
+  - name: Suites
 servers:
   - url: 'https://api.qase.io/v1'
     description: The production API server.
@@ -921,7 +32,7 @@ paths:
     get:
       operationId: get-attachments
       tags:
-        - attachments
+        - Attachments
       summary: Get all attachments.
       description: |
         This method allows to retrieve attachments.
@@ -935,16 +46,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentListResponse'
-  '/attachment/{code_or_hash}':
+  '/attachment/{hash}':
     get:
       operationId: get-attachment
       tags:
-        - attachments
+        - Attachments
       summary: Get attachment by Hash.
       description: |
         This method allows to retrieve attachment by Hash.
       parameters:
-        - $ref: '#/components/parameters/CodeOrHash'
+        - $ref: '#/components/parameters/Hash'
       responses:
         '200':
           description: An attachments.
@@ -955,12 +66,12 @@ paths:
     delete:
       operationId: delete-attachment
       tags:
-        - attachments
+        - Attachments
       summary: Remove attachment by Hash.
       description: |
         This method allows to remove attachment by Hash.
       parameters:
-        - $ref: '#/components/parameters/CodeOrHash'
+        - $ref: '#/components/parameters/Hash'
       responses:
         '200':
           description: A result.
@@ -971,7 +82,7 @@ paths:
     post:
       operationId: upload-attachment
       tags:
-        - attachments
+        - Attachments
       summary: Upload attachment.
       description: |
         This method allows to upload attachment to Qase.
@@ -983,7 +94,7 @@ paths:
         If there is no free space left in your team account,
         you will receive an error with code 507 - Insufficient Storage.
       parameters:
-        - $ref: '#/components/parameters/CodeOrHash'
+        - $ref: '#/components/parameters/Hash'
       requestBody:
         content:
           multipart/form-data:
@@ -1006,7 +117,7 @@ paths:
     get:
       operationId: get-cases
       tags:
-        - cases
+        - Сases
       summary: Get all test cases.
       description: |
         This method allows to retrieve all test cases stored in selected project.
@@ -1070,7 +181,7 @@ paths:
     post:
       operationId: create-case
       tags:
-        - cases
+        - Сases
       summary: Create a new test case.
       description: |
         This method allows to create a new test case in selected project.
@@ -1093,7 +204,7 @@ paths:
     get:
       operationId: get-case
       tags:
-        - cases
+        - Cases
       summary: Get a specific test case.
       description: |
         This method allows to retrieve a specific test case.
@@ -1110,7 +221,7 @@ paths:
     delete:
       operationId: delete-case
       tags:
-        - cases
+        - Сases
       summary: Delete test case.
       description: |
         This method completely deletes a test case from repository.
@@ -1127,7 +238,7 @@ paths:
     patch:
       operationId: update-case
       tags:
-        - cases
+        - Сases
       summary: Update test case.
       description: |
         This method updates a test case.
@@ -1151,7 +262,7 @@ paths:
     get:
       operationId: get-custom-fields
       tags:
-        - custom-fields
+        - Custom Fields
       summary: Get all Custom Fields.
       description: |
         This method allows to retrieve and filter custom fields.
@@ -1193,7 +304,7 @@ paths:
     post:
       operationId: create-custom-field
       tags:
-        - custom-fields
+        - Custom Fields
       summary: Create new Custom Field.
       description: |
         This method allows to create custom field.
@@ -1214,7 +325,7 @@ paths:
     get:
       operationId: get-custom-field
       tags:
-        - custom-fields
+        - Сustom Fields
       summary: Get Custom Field by id.
       description: |
         This method allows to retrieve custom field.
@@ -1230,7 +341,7 @@ paths:
     delete:
       operationId: delete-custom-field
       tags:
-        - custom-fields
+        - Сustom Fields
       summary: Delete Custom Field by id.
       description: |
         This method allows to delete custom field.
@@ -1246,7 +357,7 @@ paths:
     patch:
       operationId: update-custom-field
       tags:
-        - custom-fields
+        - Сustom Fields
       summary: Update Custom Field by id.
       description: |
         This method allows to update custom field.
@@ -1269,7 +380,7 @@ paths:
     get:
       operationId: get-defects
       tags:
-        - defects
+        - Defects
       summary: Get all defects.
       description: |
         This method allows to retrieve all defects stored in selected project.
@@ -1300,7 +411,7 @@ paths:
     post:
       operationId: create-defect
       tags:
-        - defects
+        - Defects
       summary: Create a new defect.
       description: |
         This method allows to create a defect in selected project.
@@ -1323,7 +434,7 @@ paths:
     get:
       operationId: get-defect
       tags:
-        - defects
+        - Defects
       summary: Get a specific defect.
       description: |
         This method allows to retrieve a specific defect.
@@ -1340,7 +451,7 @@ paths:
     delete:
       operationId: delete-defect
       tags:
-        - defects
+        - Defects
       summary: Delete defect.
       description: |
         This method completely deletes a defect from repository.
@@ -1357,7 +468,7 @@ paths:
     patch:
       operationId: update-defect
       tags:
-        - defects
+        - Defects
       summary: Update defect.
       description: |
         This method updates a defect.
@@ -1381,7 +492,7 @@ paths:
     patch:
       operationId: resolve-defect
       tags:
-        - defects
+        - Defects
       summary: Resolve a specific defect.
       description: |
         This method allows to resolve a specific defect.
@@ -1399,7 +510,7 @@ paths:
     patch:
       operationId: update-defect-status
       tags:
-        - defects
+        - Defects
       summary: Update a specific defect status.
       description: |
         This method allows to update a specific defect status.
@@ -1423,7 +534,7 @@ paths:
     get:
       operationId: get-environments
       tags:
-        - environments
+        - Environments
       summary: Get all environments.
       description: |
         This method allows to retrieve all environments stored in selected project.
@@ -1441,7 +552,7 @@ paths:
     post:
       operationId: create-environment
       tags:
-        - environments
+        - Environments
       summary: Create a new environment.
       description: |
         This method allows to create an environment in selected project.
@@ -1464,7 +575,7 @@ paths:
     get:
       operationId: get-environment
       tags:
-        - environments
+        - Environments
       summary: Get a specific environment.
       description: |
         This method allows to retrieve a specific environment.
@@ -1481,7 +592,7 @@ paths:
     delete:
       operationId: delete-environment
       tags:
-        - environments
+        - Environments
       summary: Delete environment.
       description: |
         This method completely deletes an environment from repository.
@@ -1498,7 +609,7 @@ paths:
     patch:
       operationId: update-environment
       tags:
-        - environments
+        - Environments
       summary: Update environment.
       description: |
         This method updates an environment.
@@ -1522,7 +633,7 @@ paths:
     get:
       operationId: get-milestones
       tags:
-        - milestones
+        - Milestones
       summary: Get all milestones.
       description: |
         This method allows to retrieve all milestones stored in selected project.
@@ -1549,7 +660,7 @@ paths:
     post:
       operationId: create-milestone
       tags:
-        - milestones
+        - Milestones
       summary: Create a new milestone.
       description: |
         This method allows to create a milestone in selected project.
@@ -1572,7 +683,7 @@ paths:
     get:
       operationId: get-milestone
       tags:
-        - milestones
+        - Milestones
       summary: Get a specific milestone.
       description: |
         This method allows to retrieve a specific milestone.
@@ -1589,7 +700,7 @@ paths:
     delete:
       operationId: delete-milestone
       tags:
-        - milestones
+        - Milestones
       summary: Delete milestone.
       description: |
         This method completely deletes a milestone from repository.
@@ -1606,7 +717,7 @@ paths:
     patch:
       operationId: update-milestone
       tags:
-        - milestones
+        - Milestones
       summary: Update milestone.
       description: |
         This method updates a milestone.
@@ -1630,7 +741,7 @@ paths:
     get:
       operationId: get-plans
       tags:
-        - plans
+        - Plans
       summary: Get all plans.
       description: |
         This method allows to retrieve all plans stored in selected project.
@@ -1648,7 +759,7 @@ paths:
     post:
       operationId: create-plan
       tags:
-        - plans
+        - Plans
       summary: Create a new plan.
       description: |
         This method allows to create a plan in selected project.
@@ -1671,7 +782,7 @@ paths:
     get:
       operationId: get-plan
       tags:
-        - plans
+        - Plans
       summary: Get a specific plan.
       description: |
         This method allows to retrieve a specific plan.
@@ -1688,7 +799,7 @@ paths:
     delete:
       operationId: delete-plan
       tags:
-        - plans
+        - Plans
       summary: Delete plan.
       description: |
         This method completely deletes a plan from repository.
@@ -1705,7 +816,7 @@ paths:
     patch:
       operationId: update-plan
       tags:
-        - plans
+        - Plans
       summary: Update plan.
       description: |
         This method updates a plan.
@@ -1729,7 +840,7 @@ paths:
     get:
       operationId: get-projects
       tags:
-        - projects
+        - Projects
       summary: Get All Projects.
       description: |
         This method allows to retrieve all projects available
@@ -1748,7 +859,7 @@ paths:
     post:
       operationId: create-project
       tags:
-        - projects
+        - Projects
       summary: Create new project.
       description: |
         This method is used to create a new project through API.
@@ -1769,7 +880,7 @@ paths:
     get:
       operationId: get-project
       tags:
-        - projects
+        - Projects
       summary: Get Project by code.
       description: |
         This method allows to retrieve a specific project.
@@ -1785,7 +896,7 @@ paths:
     delete:
       operationId: delete-project
       tags:
-        - projects
+        - Projects
       summary: Delete Project by code.
       description: |
         This method allows to delete a specific project.
@@ -1802,7 +913,7 @@ paths:
     post:
       operationId: grant-access-to-project
       tags:
-        - projects
+        - Projects
       summary: Grant access to project by code.
       description: |
         This method allows to grant access to a specific project.
@@ -1824,7 +935,7 @@ paths:
     delete:
       operationId: revoke-access-to-project
       tags:
-        - projects
+        - Projects
       summary: Revoke access to project by code.
       description: |
         This method allows to revoke access to a specific project.
@@ -1847,7 +958,7 @@ paths:
     get:
       operationId: get-results
       tags:
-        - results
+        - Results
       summary: Get all test run results.
       description: |
         This method allows to retrieve all test run
@@ -1895,17 +1006,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResultListResponse'
-  '/result/{code}/{id_or_hash}':
+  '/result/{code}/{hash}':
     get:
       operationId: get-result
       tags:
-        - results
+        - Results
       summary: Get test run result by code.
       description: |
         This method allows to retrieve a specific test run result by Hash.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/IdOrHash'
+        - $ref: '#/components/parameters/Hash'
       responses:
         '200':
           description: A test run result.
@@ -1916,13 +1027,13 @@ paths:
     post:
       operationId: create-result
       tags:
-        - results
+        - Results
       summary: Create test run result.
       description: |
         This method allows to create test run result by Run Id.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/IdOrHash'
+        - $ref: '#/components/parameters/Hash'
       requestBody:
         required: true
         content:
@@ -1951,7 +1062,7 @@ paths:
     post:
       operationId: create-result-bulk
       tags:
-        - results
+        - Results
       summary: Bulk create test run result.
       description: |
         This method allows to create a lot of test run result at once.
@@ -1975,7 +1086,7 @@ paths:
     patch:
       operationId: update-result
       tags:
-        - results
+        - Results
       summary: Update test run result.
       description: |
         This method allows to update test run result.
@@ -1999,7 +1110,7 @@ paths:
     delete:
       operationId: delete-result
       tags:
-        - results
+        - Results
       summary: Delete test run result.
       description: |
         This method allows to delete test run result.
@@ -2018,7 +1129,7 @@ paths:
     get:
       operationId: get-runs
       tags:
-        - runs
+        - Runs
       summary: Get all runs.
       description: |
         This method allows to retrieve all runs stored in selected project.
@@ -2067,7 +1178,7 @@ paths:
     post:
       operationId: create-run
       tags:
-        - runs
+        - Runs
       summary: Create a new run.
       description: |
         This method allows to create a run in selected project.
@@ -2090,7 +1201,7 @@ paths:
     get:
       operationId: get-run
       tags:
-        - runs
+        - Runs
       summary: Get a specific run.
       description: |
         This method allows to retrieve a specific run.
@@ -2107,7 +1218,7 @@ paths:
     delete:
       operationId: delete-run
       tags:
-        - runs
+        - Runs
       summary: Delete run.
       description: |
         This method completely deletes a run from repository.
@@ -2125,7 +1236,7 @@ paths:
     patch:
       operationId: update-run-publicity
       tags:
-        - runs
+        - Runs
       summary: Update publicity of a specific run.
       description: |
         This method allows to update a publicity of specific run.
@@ -2149,7 +1260,7 @@ paths:
     post:
       operationId: complete-run
       tags:
-        - runs
+        - Runs
       summary: Complete a specific run.
       description: |
         This method allows to complete a specific run.
@@ -2167,7 +1278,7 @@ paths:
     get:
       operationId: search
       tags:
-        - search
+        - Search
       summary: Search entities by Qase Query Language (QQL).
       description: |
         This method allows to retrieve data sets for various
@@ -2197,7 +1308,7 @@ paths:
     get:
       operationId: get-shared-steps
       tags:
-        - shared-steps
+        - Shared Steps
       summary: Get all shared steps.
       description: |
         This method allows to retrieve all shared steps stored in selected project.
@@ -2224,7 +1335,7 @@ paths:
     post:
       operationId: create-shared-step
       tags:
-        - shared-steps
+        - Shared Steps
       summary: Create a new shared step.
       description: |
         This method allows to create a shared step in selected project.
@@ -2247,7 +1358,7 @@ paths:
     get:
       operationId: get-shared-step
       tags:
-        - shared-steps
+        - Shared Steps
       summary: Get a specific shared step.
       description: |
         This method allows to retrieve a specific shared step.
@@ -2264,7 +1375,7 @@ paths:
     delete:
       operationId: delete-shared-step
       tags:
-        - shared-steps
+        - Shared Steps
       summary: Delete shared step.
       description: |
         This method completely deletes a shared step from repository.
@@ -2281,7 +1392,7 @@ paths:
     patch:
       operationId: update-shared-step
       tags:
-        - shared-steps
+        - Shared Steps
       summary: Update shared step.
       description: |
         This method updates a shared step.
@@ -2305,7 +1416,7 @@ paths:
     get:
       operationId: get-suites
       tags:
-        - suites
+        - Suites
       summary: Get all test suites.
       description: |
         This method allows to retrieve all test suites stored in selected project..
@@ -2332,7 +1443,7 @@ paths:
     post:
       operationId: create-suite
       tags:
-        - suites
+        - Suites
       summary: Create a new test suite.
       description: |
         This method is used to create a new test suite through API.
@@ -2355,7 +1466,7 @@ paths:
     get:
       operationId: get-suite
       tags:
-        - suites
+        - Suites
       summary: Get a specific test suite.
       description: |
         This method allows to retrieve a specific test suite.
@@ -2372,7 +1483,7 @@ paths:
     delete:
       operationId: delete-suite
       tags:
-        - suites
+        - Suites
       summary: Delete test suite.
       description: |
         This method completely deletes a test suite with test cases from repository.
@@ -2394,7 +1505,7 @@ paths:
     patch:
       operationId: update-suite
       tags:
-        - suites
+        - Suites
       summary: Update test suite.
       description: |
         This method is used to update a test suite through API.
@@ -2414,41 +1525,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
-  /user:
-    get:
-      operationId: get-users
-      tags:
-        - users
-      summary: Get all users.
-      description: |
-        This method allows to retrieve all users.
-      parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
-      responses:
-        '200':
-          description: A list of all users.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserListResponse'
-  '/user/{id}':
-    get:
-      operationId: get-user
-      tags:
-        - users
-      summary: Get a specific user.
-      description: |
-        This method allows to retrieve a specific user.
-      parameters:
-        - $ref: '#/components/parameters/Id'
-      responses:
-        '200':
-          description: A user.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserResponse'
 components:
   schemas:
     Attachment:
@@ -3740,20 +2816,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attachment'
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        email:
-          type: string
-        title:
-          type: string
-        status:
-          type: integer
     AttachmentResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -4130,31 +3192,6 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/TestCase'
-    UserResponse:
-      allOf:
-        - $ref: '#/components/schemas/Response'
-        - type: object
-          properties:
-            result:
-              $ref: '#/components/schemas/User'
-    UserListResponse:
-      allOf:
-        - $ref: '#/components/schemas/Response'
-        - type: object
-          properties:
-            result:
-              type: object
-              properties:
-                total:
-                  type: integer
-                filtered:
-                  type: integer
-                count:
-                  type: integer
-                entities:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/User'
   securitySchemes:
     TokenAuth:
       type: apiKey
@@ -4170,13 +3207,6 @@ components:
         type: string
         minLength: 2
         maxLength: 10
-    CodeOrHash:
-      name: code_or_hash
-      in: path
-      description: Code or Hash.
-      required: true
-      schema:
-        type: string
     Hash:
       name: hash
       in: path
@@ -4191,15 +3221,6 @@ components:
       required: true
       schema:
         type: integer
-    IdOrHash:
-      name: id_or_hash
-      in: path
-      description: Id or Hash.
-      required: true
-      schema:
-        oneOf:
-          - type: string
-          - type: integer
     Limit:
       name: limit
       description: A number of entities in result set.

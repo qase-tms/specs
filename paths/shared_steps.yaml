@@ -1,6 +1,6 @@
 get:
   operationId: get-shared-steps
-  tags: [ shared-steps ]
+  tags: [ Shared Steps ]
   summary: Get all shared steps.
   description: |
     This method allows to retrieve all shared steps stored in selected project.
@@ -27,7 +27,7 @@ get:
 
 post:
   operationId: create-shared-step
-  tags: [ shared-steps ]
+  tags: [ Shared Steps ]
   summary: Create a new shared step.
   description: |
     This method allows to create a shared step in selected project.

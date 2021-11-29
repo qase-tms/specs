@@ -1,4 +1,0 @@
-# operationId: get-runs
-GET {{host}}/run/DEMO?filters[from_start_time]=1637321760&filters[to_start_time]=1637321770
-Token: {{token}}
-Content-Type: application/json

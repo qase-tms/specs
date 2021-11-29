@@ -1,6 +1,6 @@
 get:
   operationId: get-defect
-  tags: [ defects ]
+  tags: [ Defects ]
   summary: Get a specific defect.
   description: |
     This method allows to retrieve a specific defect.
@@ -17,7 +17,7 @@ get:
 
 delete:
   operationId: delete-defect
-  tags: [ defects ]
+  tags: [ Defects ]
   summary: Delete defect.
   description: |
     This method completely deletes a defect from repository.
@@ -34,7 +34,7 @@ delete:
 
 patch:
   operationId: update-defect
-  tags: [ defects ]
+  tags: [ Defects ]
   summary: Update defect.
   description: |
     This method updates a defect.

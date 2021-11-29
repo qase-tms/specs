@@ -1,11 +1,11 @@
 get:
   operationId: get-attachment
-  tags: [ attachments ]
+  tags: [ Attachments ]
   summary: Get attachment by Hash.
   description: |
     This method allows to retrieve attachment by Hash.
   parameters:
-    - $ref: '../parameters/CodeOrHash.yaml'
+    - $ref: '../parameters/Hash.yaml'
   responses:
     200:
       description: An attachments.
@@ -16,12 +16,12 @@ get:
 
 delete:
   operationId: delete-attachment
-  tags: [ attachments ]
+  tags: [ Attachments ]
   summary: Remove attachment by Hash.
   description: |
     This method allows to remove attachment by Hash.
   parameters:
-    - $ref: '../parameters/CodeOrHash.yaml'
+    - $ref: '../parameters/Hash.yaml'
   responses:
     200:
       description: A result.
@@ -32,7 +32,7 @@ delete:
 
 post:
   operationId: upload-attachment
-  tags: [ attachments ]
+  tags: [ Attachments ]
   summary: Upload attachment.
   description: |
     This method allows to upload attachment to Qase.
@@ -44,7 +44,7 @@ post:
     If there is no free space left in your team account,
     you will receive an error with code 507 - Insufficient Storage.
   parameters:
-    - $ref: '../parameters/CodeOrHash.yaml'
+    - $ref: '../parameters/Hash.yaml'
   requestBody:
     content:
       multipart/form-data:

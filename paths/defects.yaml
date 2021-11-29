@@ -1,6 +1,6 @@
 get:
   operationId: get-defects
-  tags: [ defects ]
+  tags: [ Defects ]
   summary: Get all defects.
   description: |
     This method allows to retrieve all defects stored in selected project.
@@ -31,7 +31,7 @@ get:
 
 post:
   operationId: create-defect
-  tags: [ defects ]
+  tags: [ Defects ]
   summary: Create a new defect.
   description: |
     This method allows to create a defect in selected project.

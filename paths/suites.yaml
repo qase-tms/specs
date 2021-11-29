@@ -1,6 +1,6 @@
 get:
   operationId: get-suites
-  tags: [ suites ]
+  tags: [ Suites ]
   summary: Get all test suites.
   description: |
     This method allows to retrieve all test suites stored in selected project..
@@ -28,7 +28,7 @@ get:
 
 post:
   operationId: create-suite
-  tags: [ suites ]
+  tags: [ Suites ]
   summary: Create a new test suite.
   description: |
     This method is used to create a new test suite through API.

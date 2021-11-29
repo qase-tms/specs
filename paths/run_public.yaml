@@ -1,6 +1,6 @@
 patch:
   operationId: update-run-publicity
-  tags: [ runs ]
+  tags: [ Runs ]
   summary: Update publicity of a specific run.
   description: |
     This method allows to update a publicity of specific run.

@@ -1,6 +1,6 @@
 get:
   operationId: get-environment
-  tags: [ environments ]
+  tags: [ Environments ]
   summary: Get a specific environment.
   description: |
     This method allows to retrieve a specific environment.
@@ -17,7 +17,7 @@ get:
 
 delete:
   operationId: delete-environment
-  tags: [ environments ]
+  tags: [ Environments ]
   summary: Delete environment.
   description: |
     This method completely deletes an environment from repository.
@@ -34,7 +34,7 @@ delete:
 
 patch:
   operationId: update-environment
-  tags: [ environments ]
+  tags: [ Environments ]
   summary: Update environment.
   description: |
     This method updates an environment.

@@ -24,8 +24,5 @@
     "@stoplight/spectral-cli": "^6.1.0",
     "ansi-regex": "^6.0.1",
     "redoc-cli": "^0.13.0"
-  },
-  "directories": {
-    "example": "examples"
   }
 }

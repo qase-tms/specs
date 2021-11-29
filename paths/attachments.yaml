@@ -1,6 +1,6 @@
 get:
   operationId: get-attachments
-  tags: [ attachments ]
+  tags: [ Attachments ]
   summary: Get all attachments.
   description: |
     This method allows to retrieve attachments.

@@ -1,6 +1,6 @@
 patch:
   operationId: resolve-defect
-  tags: [ defects ]
+  tags: [ Defects ]
   summary: Resolve a specific defect.
   description: |
     This method allows to resolve a specific defect.

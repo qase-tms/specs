@@ -1,6 +1,6 @@
 post:
   operationId: create-result-bulk
-  tags: [ results ]
+  tags: [ Results ]
   summary: Bulk create test run result.
   description: |
     This method allows to create a lot of test run result at once.

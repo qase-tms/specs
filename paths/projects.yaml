@@ -1,6 +1,6 @@
 get:
   operationId: get-projects
-  tags: [ projects ]
+  tags: [ Projects ]
   summary: Get All Projects.
   description: |
     This method allows to retrieve all projects available
@@ -19,7 +19,7 @@ get:
 
 post:
   operationId: create-project
-  tags: [ projects ]
+  tags: [ Projects ]
   summary: Create new project.
   description: |
     This method is used to create a new project through API.

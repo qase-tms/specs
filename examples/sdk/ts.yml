@@ -1,0 +1,13 @@
+allowUnicodeIdentifiers: false
+apiPackage: Api
+disallowAdditionalPropertiesIfNotPresent: false # true
+ensureUniqueParams: true
+enablePostProcessFile: true
+legacyDiscriminatorBehavior: true
+npmName: qaseio
+modelPackage: Model
+prependFormOrBodyParameters: false
+sortModelPropertiesByRequiredFlag: true
+sortParamsByRequiredFlag: true
+supportsES6: true
+withSeparateModelsAndApi: true

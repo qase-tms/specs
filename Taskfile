@@ -24,18 +24,21 @@ function latest() {
 
 function go() {
   rm -rf examples/sdk/go/*
-  swagger-codegen generate -i /specs/api.yaml -l go -o /sdk/go -D packageName=client
+  codegen generate -i /specs/api.yaml -g go -o /sdk/go -D packageName=client
   goimports -ungroup -local qase -w examples/sdk/go/
 }
 
 function php() {
   rm -rf examples/sdk/php/*
-  swagger-codegen generate -i /specs/api.yaml -l php -o /sdk/php
+  codegen generate -i /specs/api.yaml -g php -o /sdk/php -c /sdk/php.yml
+  # TODO:manual problem with execution from Taskfile, maybe bash problem
+  # find examples/sdk/php/**/*.php -print0 | xargs -0 sed -i '' -e 2,28d
+  # TODO:extend add formatting
 }
 
 function typescript() {
   rm -rf examples/sdk/ts/*
-  swagger-codegen generate -i /specs/api.yaml -l typescript-fetch -o /sdk/ts
+  codegen generate -i /specs/api.yaml -g typescript-fetch -o /sdk/ts
 }
 
 function ui() {
@@ -46,11 +49,11 @@ function ui() {
     swaggerapi/swagger-ui
 }
 
-swagger-codegen() {
+codegen() {
   docker run --rm -it \
     -v "$(pwd)"/api.yaml:/specs/api.yaml \
     -v "$(pwd)"/examples/sdk:/sdk \
-    swaggerapi/swagger-codegen-cli-v3 "${@}"
+    openapitools/openapi-generator-cli "${@}"
 }
 
 __default() { help; }

@@ -5,18 +5,10 @@ get:
   description: |
     This method allows to retrieve all test suites stored in selected project..
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
+    - $ref: '../parameters/filter/Suites.yaml'
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
-    - name: filters
-      in: query
-      style: deepObject
-      schema:
-        type: object
-        properties:
-          search:
-            description: Provide a string that will be used to search by name.
-            type: string
 
   responses:
     200:
@@ -33,7 +25,7 @@ post:
   description: |
     This method is used to create a new test suite through API.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
   requestBody:
     required: true
     content:

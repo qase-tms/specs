@@ -1,0 +1,25 @@
+name: filters
+in: query
+style: deepObject
+schema:
+  type: object
+  properties:
+    entity:
+      type: string
+      enum:
+        - case
+        - run
+        - defect
+    type:
+      type: string
+      enum:
+        - string
+        - text
+        - number
+        - checkbox
+        - selectbox
+        - radio
+        - multiselect
+        - url
+        - user
+        - datetime

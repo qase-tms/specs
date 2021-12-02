@@ -5,7 +5,7 @@ get:
   description: |
     This method allows to retrieve a specific test run result by Hash.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/IdOrHash.yaml'
   responses:
     200:
@@ -22,7 +22,7 @@ post:
   description: |
     This method allows to create test run result by Run Id.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/IdOrHash.yaml'
   requestBody:
     required: true

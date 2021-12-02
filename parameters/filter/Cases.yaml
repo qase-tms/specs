@@ -1,0 +1,46 @@
+name: filters
+in: query
+style: deepObject
+schema:
+  type: object
+  properties:
+    search:
+      description: Provide a string that will be used to search by name.
+      type: string
+    milestone_id:
+      description: ID of milestone.
+      type: integer
+    suite_id:
+      description: ID of test suite.
+      type: integer
+    severity:
+      description: |
+        A list of severity values separated by comma.
+        Possible values: undefined, blocker, critical,
+        major, normal, minor, trivial
+      type: string
+    priority:
+      description: |
+        A list of priority values separated by comma.
+        Possible values: undefined, high, medium, low
+      type: string
+    type:
+      description: |
+        A list of type values separated by comma.
+        Possible values: other, functional smoke, regression,
+        security, usability, performance, acceptance
+      type: string
+    behavior:
+      description: |
+        A list of behavior values separated by comma.
+        Possible values: undefined, positive negative, destructive
+      type: string
+    automation:
+      description: |
+        A list of values separated by comma.
+        Possible values: is-not-automated, automated to-be-automated
+      type: string
+    status:
+      description: |
+        A list of values separated by comma. Possible values: actual, draft deprecated
+      type: string

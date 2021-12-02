@@ -5,33 +5,10 @@ get:
   description: |
     This method allows to retrieve and filter custom fields.
   parameters:
+    - $ref: '../parameters/filter/CustomFields.yaml'
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
-    - name: filters
-      in: query
-      style: deepObject
-      schema:
-        type: object
-        properties:
-          entity:
-            type: string
-            enum:
-              - case
-              - run
-              - defect
-          type:
-            type: string
-            enum:
-              - string
-              - text
-              - number
-              - checkbox
-              - selectbox
-              - radio
-              - multiselect
-              - url
-              - user
-              - datetime
+
   responses:
     200:
       description: Custom Field list.

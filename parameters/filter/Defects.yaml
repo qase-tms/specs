@@ -1,0 +1,13 @@
+name: filters
+in: query
+style: deepObject
+schema:
+  type: object
+  properties:
+    status:
+      type: string
+      enum:
+        - open
+        - resolved
+        - in_progress
+        - invalid

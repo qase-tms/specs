@@ -5,7 +5,7 @@ post:
   description: |
     This method allows to create a lot of test run result at once.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   requestBody:
     required: true

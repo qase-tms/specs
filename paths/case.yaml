@@ -5,7 +5,7 @@ get:
   description: |
     This method allows to retrieve a specific test case.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   responses:
     200:
@@ -22,7 +22,7 @@ delete:
   description: |
     This method completely deletes a test case from repository.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   responses:
     200:
@@ -39,7 +39,7 @@ patch:
   description: |
     This method updates a test case.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   requestBody:
     required: true

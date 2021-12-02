@@ -5,7 +5,7 @@ get:
   description: |
     This method allows to retrieve a specific test suite.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   responses:
     200:
@@ -22,7 +22,7 @@ delete:
   description: |
     This method completely deletes a test suite with test cases from repository.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   requestBody:
     content:
@@ -44,7 +44,7 @@ patch:
   description: |
     This method is used to update a test suite through API.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   requestBody:
     required: true

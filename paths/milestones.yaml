@@ -5,18 +5,11 @@ get:
   description: |
     This method allows to retrieve all milestones stored in selected project.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
+    - $ref: '../parameters/filter/Milestones.yaml'
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
-    - name: filters
-      in: query
-      style: deepObject
-      schema:
-        type: object
-        properties:
-          search:
-            description: Provide a string that will be used to search by name.
-            type: string
+
   responses:
     200:
       description: A list of all milestones.
@@ -32,7 +25,7 @@ post:
   description: |
     This method allows to create a milestone in selected project.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
   requestBody:
     required: true
     content:

@@ -5,7 +5,7 @@ patch:
   description: |
     This method allows to update test run result.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
     - $ref: '../parameters/Hash.yaml'
   requestBody:
@@ -29,7 +29,7 @@ delete:
   description: |
     This method allows to delete test run result.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
     - $ref: '../parameters/Hash.yaml'
   responses:

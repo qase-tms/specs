@@ -1,0 +1,9 @@
+name: filters
+in: query
+style: deepObject
+schema:
+  type: object
+  properties:
+    search:
+      description: Provide a string that will be used to search by name.
+      type: string

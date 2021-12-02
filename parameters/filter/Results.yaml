@@ -1,0 +1,32 @@
+name: filters
+in: query
+style: deepObject
+schema:
+  type: object
+  properties:
+    status:
+      description: |
+        A single test run result status.
+        Possible values: in_progress, passed, failed, blocked, skipped, invalid.
+      type: string
+    run:
+      type: string
+      description: A list of run IDs separated by comma.
+    case_id:
+      type: string
+      description: A list of case IDs separated by comma.
+    member:
+      type: string
+      description: A list of member IDs separated by comma.
+    api:
+      type: boolean
+    from_end_time:
+      type: string
+      description: |
+        Will return all results created after provided datetime.
+        Allowed format: `Y-m-d H:i:s`.
+    to_end_time:
+      type: string
+      description: |
+        Will return all results created before provided datetime.
+        Allowed format: `Y-m-d H:i:s`.

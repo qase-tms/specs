@@ -5,7 +5,7 @@ patch:
   description: |
     This method allows to update a specific defect status.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   requestBody:
     required: true

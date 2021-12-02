@@ -5,7 +5,7 @@ get:
   description: |
     This method allows to retrieve all plans stored in selected project.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
   responses:
@@ -23,7 +23,7 @@ post:
   description: |
     This method allows to create a plan in selected project.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
   requestBody:
     required: true
     content:

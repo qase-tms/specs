@@ -1,0 +1,8 @@
+name: include
+in: query
+description: |
+  Add this param to include a list of test cases into response. Possible value: cases
+schema:
+  type: array
+  items:
+    type: string

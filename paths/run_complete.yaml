@@ -5,7 +5,7 @@ post:
   description: |
     This method allows to complete a specific run.
   parameters:
-    - $ref: '../parameters/project/Code.yaml'
+    - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   responses:
     200:

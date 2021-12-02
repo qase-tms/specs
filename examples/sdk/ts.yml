@@ -1,13 +1,21 @@
+apiPackage: api
+modelPackage: model
 allowUnicodeIdentifiers: false
-apiPackage: Api
 disallowAdditionalPropertiesIfNotPresent: false # true
-ensureUniqueParams: true
 enablePostProcessFile: true
+ensureUniqueParams: true
+enumNameSuffix: Enum
+enumPropertyNaming: UPPERCASE # PascalCase
 legacyDiscriminatorBehavior: true
 npmName: qaseio
-modelPackage: Model
+nullSafeAdditionalProps: false
+paramNaming: camelCase
 prependFormOrBodyParameters: false
+snapshot: false
 sortModelPropertiesByRequiredFlag: true
 sortParamsByRequiredFlag: true
 supportsES6: true
+useSingleRequestParameter: false
+withInterfaces: false
 withSeparateModelsAndApi: true
+withoutPrefixEnums: false

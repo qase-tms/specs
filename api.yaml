@@ -1013,54 +1013,9 @@ paths:
         This method allows to retrieve all test cases stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/FilterCases'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - name: filters
-          in: query
-          style: deepObject
-          schema:
-            type: object
-            properties:
-              search:
-                description: Provide a string that will be used to search by name.
-                type: string
-              milestone_id:
-                description: ID of milestone.
-                type: integer
-              suite_id:
-                description: ID of test suite.
-                type: integer
-              severity:
-                description: |
-                  A list of severity values separated by comma.
-                  Possible values: undefined, blocker, critical,
-                  major, normal, minor, trivial
-                type: string
-              priority:
-                description: |
-                  A list of priority values separated by comma.
-                  Possible values: undefined, high, medium, low
-                type: string
-              type:
-                description: |
-                  A list of type values separated by comma.
-                  Possible values: other, functional smoke, regression,
-                  security, usability, performance, acceptance
-                type: string
-              behavior:
-                description: |
-                  A list of behavior values separated by comma.
-                  Possible values: undefined, positive negative, destructive
-                type: string
-              automation:
-                description: |
-                  A list of values separated by comma.
-                  Possible values: is-not-automated, automated to-be-automated
-                type: string
-              status:
-                description: |
-                  A list of values separated by comma. Possible values: actual, draft deprecated
-                type: string
       responses:
         '200':
           description: A list of all projects.
@@ -1157,33 +1112,9 @@ paths:
       description: |
         This method allows to retrieve and filter custom fields.
       parameters:
+        - $ref: '#/components/parameters/FilterCustomFields'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - name: filters
-          in: query
-          style: deepObject
-          schema:
-            type: object
-            properties:
-              entity:
-                type: string
-                enum:
-                  - case
-                  - run
-                  - defect
-              type:
-                type: string
-                enum:
-                  - string
-                  - text
-                  - number
-                  - checkbox
-                  - selectbox
-                  - radio
-                  - multiselect
-                  - url
-                  - user
-                  - datetime
       responses:
         '200':
           description: Custom Field list.
@@ -1276,21 +1207,9 @@ paths:
         This method allows to retrieve all defects stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/FilterDefects'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - name: filters
-          in: query
-          style: deepObject
-          schema:
-            type: object
-            properties:
-              status:
-                type: string
-                enum:
-                  - open
-                  - resolved
-                  - in_progress
-                  - invalid
       responses:
         '200':
           description: A list of all defects.
@@ -1529,17 +1448,9 @@ paths:
         This method allows to retrieve all milestones stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/FilterMilestones'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - name: filters
-          in: query
-          style: deepObject
-          schema:
-            type: object
-            properties:
-              search:
-                description: Provide a string that will be used to search by name.
-                type: string
       responses:
         '200':
           description: A list of all milestones.
@@ -1855,40 +1766,9 @@ paths:
         results stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/FilterResults'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - name: filters
-          in: query
-          style: deepObject
-          schema:
-            type: object
-            properties:
-              status:
-                description: |
-                  A single test run result status.
-                  Possible values: in_progress, passed, failed, blocked, skipped, invalid.
-                type: string
-              run:
-                type: string
-                description: A list of run IDs separated by comma.
-              case_id:
-                type: string
-                description: A list of case IDs separated by comma.
-              member:
-                type: string
-                description: A list of member IDs separated by comma.
-              api:
-                type: boolean
-              from_end_time:
-                type: string
-                description: |
-                  Will return all results created after provided datetime.
-                  Allowed format: `Y-m-d H:i:s`.
-              to_end_time:
-                type: string
-                description: |
-                  Will return all results created before provided datetime.
-                  Allowed format: `Y-m-d H:i:s`.
       responses:
         '200':
           description: A list of all test run results.
@@ -2025,39 +1905,10 @@ paths:
         This method allows to retrieve all runs stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/FilterRuns'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - name: include
-          in: query
-          description: |
-            Add this param to include a list of test cases into response. Possible value: cases
-          schema:
-            type: array
-            items:
-              type: string
-        - name: filters
-          in: query
-          style: deepObject
-          schema:
-            type: object
-            properties:
-              search:
-                type: string
-              status:
-                description: |
-                  A list of status values separated by comma.
-                  Possible values: active, complete, abort.
-                type: string
-              milestone:
-                type: integer
-              environment:
-                type: integer
-              from_start_time:
-                type: integer
-                format: int64
-              to_start_time:
-                type: integer
-                format: int64
+        - $ref: '#/components/parameters/ExtendRuns'
       responses:
         '200':
           description: A list of all runs.
@@ -2204,17 +2055,9 @@ paths:
         This method allows to retrieve all shared steps stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/FilterSharedSteps'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - name: filters
-          in: query
-          style: deepObject
-          schema:
-            type: object
-            properties:
-              search:
-                description: Provide a string that will be used to search by name.
-                type: string
       responses:
         '200':
           description: A list of all shared steps.
@@ -2312,17 +2155,9 @@ paths:
         This method allows to retrieve all test suites stored in selected project..
       parameters:
         - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/FilterSuites'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
-        - name: filters
-          in: query
-          style: deepObject
-          schema:
-            type: object
-            properties:
-              search:
-                description: Provide a string that will be used to search by name.
-                type: string
       responses:
         '200':
           description: A list of all suites of project.
@@ -4178,6 +4013,189 @@ components:
       required: true
       schema:
         type: string
+    ExtendRuns:
+      name: include
+      in: query
+      description: |
+        Add this param to include a list of test cases into response. Possible value: cases
+      schema:
+        type: array
+        items:
+          type: string
+    FilterCases:
+      name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          search:
+            description: Provide a string that will be used to search by name.
+            type: string
+          milestone_id:
+            description: ID of milestone.
+            type: integer
+          suite_id:
+            description: ID of test suite.
+            type: integer
+          severity:
+            description: |
+              A list of severity values separated by comma.
+              Possible values: undefined, blocker, critical,
+              major, normal, minor, trivial
+            type: string
+          priority:
+            description: |
+              A list of priority values separated by comma.
+              Possible values: undefined, high, medium, low
+            type: string
+          type:
+            description: |
+              A list of type values separated by comma.
+              Possible values: other, functional smoke, regression,
+              security, usability, performance, acceptance
+            type: string
+          behavior:
+            description: |
+              A list of behavior values separated by comma.
+              Possible values: undefined, positive negative, destructive
+            type: string
+          automation:
+            description: |
+              A list of values separated by comma.
+              Possible values: is-not-automated, automated to-be-automated
+            type: string
+          status:
+            description: |
+              A list of values separated by comma. Possible values: actual, draft deprecated
+            type: string
+    FilterCustomFields:
+      name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          entity:
+            type: string
+            enum:
+              - case
+              - run
+              - defect
+          type:
+            type: string
+            enum:
+              - string
+              - text
+              - number
+              - checkbox
+              - selectbox
+              - radio
+              - multiselect
+              - url
+              - user
+              - datetime
+    FilterDefects:
+      name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          status:
+            type: string
+            enum:
+              - open
+              - resolved
+              - in_progress
+              - invalid
+    FilterMilestones:
+      name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          search:
+            description: Provide a string that will be used to search by name.
+            type: string
+    FilterResults:
+      name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          status:
+            description: |
+              A single test run result status.
+              Possible values: in_progress, passed, failed, blocked, skipped, invalid.
+            type: string
+          run:
+            type: string
+            description: A list of run IDs separated by comma.
+          case_id:
+            type: string
+            description: A list of case IDs separated by comma.
+          member:
+            type: string
+            description: A list of member IDs separated by comma.
+          api:
+            type: boolean
+          from_end_time:
+            type: string
+            description: |
+              Will return all results created after provided datetime.
+              Allowed format: `Y-m-d H:i:s`.
+          to_end_time:
+            type: string
+            description: |
+              Will return all results created before provided datetime.
+              Allowed format: `Y-m-d H:i:s`.
+    FilterRuns:
+      name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          search:
+            type: string
+          status:
+            description: |
+              A list of status values separated by comma.
+              Possible values: active, complete, abort.
+            type: string
+          milestone:
+            type: integer
+          environment:
+            type: integer
+          from_start_time:
+            type: integer
+            format: int64
+          to_start_time:
+            type: integer
+            format: int64
+    FilterSharedSteps:
+      name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          search:
+            description: Provide a string that will be used to search by name.
+            type: string
+    FilterSuites:
+      name: filters
+      in: query
+      style: deepObject
+      schema:
+        type: object
+        properties:
+          search:
+            description: Provide a string that will be used to search by name.
+            type: string
     Hash:
       name: hash
       in: path

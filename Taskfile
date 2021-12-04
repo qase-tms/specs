@@ -41,6 +41,11 @@ function typescript() {
   codegen generate -i /specs/api.yaml -g typescript-axios -o /sdk/ts -c /sdk/ts.yml
 }
 
+function tsf() {
+  rm -rf examples/sdk/tsf/*
+  codegen generate -i /specs/api.yaml -g typescript-fetch -o /sdk/tsfetch -c /sdk/tsfetch.yml
+}
+
 function ui() {
   docker run --rm -it \
     -e SWAGGER_JSON=/specs/api.yaml \

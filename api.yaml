@@ -4226,7 +4226,7 @@ components:
         type: integer
         default: 10
         minimum: 0
-        maximum: 25
+        maximum: 100
     Offset:
       name: offset
       description: How many entities should be skipped.

@@ -38,7 +38,7 @@ function php() {
 
 function typescript() {
   rm -rf examples/sdk/ts/*
-  codegen generate -i /specs/api.yaml -g typescript-fetch -o /sdk/ts
+  codegen generate -i /specs/api.yaml -g typescript-axios -t /sdk/ts-axios-template -o /sdk/ts -c /sdk/ts.yml
 }
 
 function ui() {

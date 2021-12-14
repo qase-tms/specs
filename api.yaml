@@ -57,7 +57,7 @@ paths:
       description: |
         This method allows to retrieve attachment by Hash.
       parameters:
-        - $ref: '#/components/parameters/CodeOrHash'
+        - $ref: '#/components/parameters/Hash'
       responses:
         '200':
           description: An attachments.
@@ -73,7 +73,7 @@ paths:
       description: |
         This method allows to remove attachment by Hash.
       parameters:
-        - $ref: '#/components/parameters/CodeOrHash'
+        - $ref: '#/components/parameters/Hash'
       responses:
         '200':
           description: A result.
@@ -96,7 +96,7 @@ paths:
         If there is no free space left in your team account,
         you will receive an error with code 507 - Insufficient Storage.
       parameters:
-        - $ref: '#/components/parameters/CodeOrHash'
+        - $ref: '#/components/parameters/Code'
       requestBody:
         content:
           multipart/form-data:

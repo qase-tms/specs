@@ -31,14 +31,13 @@ function go() {
 function php() {
   rm -rf examples/sdk/php/*
   codegen generate -i /specs/api.yaml -g php -o /sdk/php -c /sdk/php.yml
-  # TODO:manual problem with execution from Taskfile, maybe bash problem
-  # find examples/sdk/php/**/*.php -print0 | xargs -0 sed -i '' -e 2,28d
   # TODO:extend add formatting
 }
 
 function typescript() {
   rm -rf examples/sdk/ts/*
   codegen generate -i /specs/api.yaml -g typescript-axios -t /sdk/ts-axios-template -o /sdk/ts -c /sdk/ts.yml
+  # TODO:extend add formatting
 }
 
 function ui() {

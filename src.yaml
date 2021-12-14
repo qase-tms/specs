@@ -2,8 +2,7 @@ openapi: '3.0.0'
 
 info:
   title: Qase.io API
-  description:
-    $ref: ./markdown/description.md
+  description: Qase API Specification.
 
   termsOfService: https://qase.io/terms
   version: 1.0.0
@@ -32,33 +31,33 @@ tags:
   - name: shared-steps
   - name: suites
   - name: users
-  - name: webhooks
-    description:
-      $ref: ./markdown/webhooks.md
-  - name: webhooks/Test case
-    description:
-      $ref: ./markdown/webhooks.case.md
-  - name: webhooks/Defect
-    description:
-      $ref: ./markdown/webhooks.defect.md
-  - name: webhooks/Custom field
-    description:
-      $ref: ./markdown/webhooks.field.md
-  - name: webhooks/Milestone
-    description:
-      $ref: ./markdown/webhooks.milestone.md
-  - name: webhooks/Test plan
-    description:
-      $ref: ./markdown/webhooks.plan.md
-  - name: webhooks/Test run
-    description:
-      $ref: ./markdown/webhooks.run.md
-  - name: webhooks/Shared step
-    description:
-      $ref: ./markdown/webhooks.step.md
-  - name: webhooks/suite
-    description:
-      $ref: ./markdown/webhooks.suite.md
+#  - name: webhooks
+#    description:
+#      $ref: ./markdown/webhooks.md
+#  - name: webhooks/Test case
+#    description:
+#      $ref: ./markdown/webhooks.case.md
+#  - name: webhooks/Defect
+#    description:
+#      $ref: ./markdown/webhooks.defect.md
+#  - name: webhooks/Custom field
+#    description:
+#      $ref: ./markdown/webhooks.field.md
+#  - name: webhooks/Milestone
+#    description:
+#      $ref: ./markdown/webhooks.milestone.md
+#  - name: webhooks/Test plan
+#    description:
+#      $ref: ./markdown/webhooks.plan.md
+#  - name: webhooks/Test run
+#    description:
+#      $ref: ./markdown/webhooks.run.md
+#  - name: webhooks/Shared step
+#    description:
+#      $ref: ./markdown/webhooks.step.md
+#  - name: webhooks/suite
+#    description:
+#      $ref: ./markdown/webhooks.suite.md
 
 servers:
   - url: https://api.qase.io/v1

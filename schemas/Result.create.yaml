@@ -5,7 +5,7 @@ properties:
     format: int64
   case:
     type: object
-    description: Could be used insetad of case_id
+    description: Could be used instead of `case_id`.
     properties:
       title:
         type: string

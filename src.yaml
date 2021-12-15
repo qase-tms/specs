@@ -68,7 +68,7 @@ servers:
 paths:
   /attachment:
     $ref: './paths/attachments.yaml'
-  /attachment/{code_or_hash}:
+  /attachment/{code|hash}:
     $ref: './paths/attachment.yaml'
   /case/{code}:
     $ref: './paths/cases.yaml'
@@ -224,7 +224,6 @@ components:
 
   parameters:
     Code: { $ref: './parameters/Code.yaml' }
-    CodeOrHash: { $ref: './parameters/CodeOrHash.yaml' }
     ExtendRuns: { $ref: './parameters/extend/Runs.yaml' }
     FilterCases: { $ref: './parameters/filter/Cases.yaml' }
     FilterCustomFields: { $ref: './parameters/filter/CustomFields.yaml' }

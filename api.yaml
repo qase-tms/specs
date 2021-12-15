@@ -48,7 +48,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentListResponse'
-  '/attachment/{code_or_hash}':
+  '/attachment/{code|hash}':
     get:
       operationId: get-attachment
       tags:
@@ -3118,13 +3118,6 @@ components:
         type: string
         minLength: 2
         maxLength: 10
-    CodeOrHash:
-      name: code_or_hash
-      in: path
-      description: Code or Hash.
-      required: true
-      schema:
-        type: string
     ExtendRuns:
       name: include
       in: query

@@ -12,6 +12,7 @@ properties:
       suite_title:
         type: string
         nullable: true
+        description: Nested suites should be separated with `TAB` symbol.
       description:
         type: string
         nullable: true

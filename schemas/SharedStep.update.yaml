@@ -22,6 +22,4 @@ properties:
        data:
          type: string
        attachments:
-         type: array
-         items:
-            $ref: 'Attachment.hash.yaml'
+          $ref: 'Attachment.hash_list.yaml'

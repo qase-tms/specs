@@ -32,9 +32,7 @@ properties:
   status:
     type: integer
   attachments:
-    type: array
-    items:
-      type: string
+    $ref: 'Attachment.hash_list.yaml'
   steps:
     type: array
     items:
@@ -49,9 +47,7 @@ properties:
         position:
           type: integer
         attachments:
-          type: array
-          items:
-            type: string
+          $ref: 'Attachment.hash_list.yaml'
   custom_field:
     type: object
     description: A map of custom fields values (id => value)

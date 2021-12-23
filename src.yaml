@@ -140,6 +140,7 @@ components:
     Attachment: { $ref: './schemas/Attachment.yaml' }
     AttachmentGet: { $ref: './schemas/Attachment.get.yaml' }
     AttachmentHash: { $ref: './schemas/Attachment.hash.yaml' }
+    AttachmentHashList: { $ref: './schemas/Attachment.hash_list.yaml' }
     CustomField: { $ref: './schemas/CustomField.yaml' }
     CustomFieldCreate: { $ref: './schemas/CustomField.create.yaml' }
     CustomFieldUpdate: { $ref: './schemas/CustomField.update.yaml' }

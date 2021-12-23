@@ -1441,6 +1441,11 @@ components:
           format: uri
         hash:
           type: string
+    AttachmentHashList:
+      type: array
+      description: A list of Attachment hashes.
+      items:
+        type: string
     CustomField:
       type: object
       properties:
@@ -2369,10 +2374,6 @@ components:
           type: string
         data:
           type: string
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttachmentHash'
         steps:
           type: array
           items:
@@ -2387,9 +2388,7 @@ components:
               data:
                 type: string
               attachments:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AttachmentHash'
+                $ref: '#/components/schemas/AttachmentHashList'
     SharedStepUpdate:
       type: object
       properties:
@@ -2415,9 +2414,7 @@ components:
               data:
                 type: string
               attachments:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AttachmentHash'
+                $ref: '#/components/schemas/AttachmentHashList'
     Suite:
       type: object
       properties:
@@ -2591,9 +2588,7 @@ components:
         status:
           type: integer
         attachments:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/AttachmentHashList'
         steps:
           type: array
           items:
@@ -2608,9 +2603,7 @@ components:
               position:
                 type: integer
               attachments:
-                type: array
-                items:
-                  type: string
+                $ref: '#/components/schemas/AttachmentHashList'
         custom_field:
           type: object
           description: A map of custom fields values (id => value)
@@ -2653,9 +2646,7 @@ components:
         status:
           type: integer
         attachments:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/AttachmentHashList'
         steps:
           type: array
           items:
@@ -2669,6 +2660,8 @@ components:
                 type: string
               position:
                 type: integer
+              attachments:
+                $ref: '#/components/schemas/AttachmentHashList'
         custom_field:
           type: object
           description: A map of custom fields values (id => value)

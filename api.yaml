@@ -2590,6 +2590,10 @@ components:
           type: integer
         status:
           type: integer
+        attachments:
+          type: array
+          items:
+            type: string
         steps:
           type: array
           items:
@@ -2648,6 +2652,10 @@ components:
           type: integer
         status:
           type: integer
+        attachments:
+          type: array
+          items:
+            type: string
         steps:
           type: array
           items:

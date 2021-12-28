@@ -2666,6 +2666,10 @@ components:
                 type: integer
               attachments:
                 $ref: '#/components/schemas/AttachmentHashList'
+        tags:
+          type: array
+          items:
+            type: string
         custom_field:
           type: object
           description: A map of custom fields values (id => value)

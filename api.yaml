@@ -2056,7 +2056,7 @@ components:
           nullable: true
         param:
           type: array
-          maxLength: 1
+          maxItems: 1
           items:
             type: string
         steps:

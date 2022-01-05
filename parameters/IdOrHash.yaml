@@ -1,8 +1,0 @@
-name: id_or_hash
-in: path
-description: Id or Hash.
-required: true
-schema:
-  oneOf:
-    - type: string
-    - type: integer

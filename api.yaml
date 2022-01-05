@@ -888,7 +888,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResultListResponse'
-  '/result/{code}/{id_or_hash}':
+  '/result/{code}/{id|hash}':
     get:
       operationId: get-result
       tags:
@@ -898,7 +898,7 @@ paths:
         This method allows to retrieve a specific test run result by Hash.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/IdOrHash'
+        - $ref: '#/components/parameters/Hash'
       responses:
         '200':
           description: A test run result.
@@ -915,7 +915,7 @@ paths:
         This method allows to create test run result by Run Id.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/IdOrHash'
+        - $ref: '#/components/parameters/Id'
       requestBody:
         required: true
         content:
@@ -3347,15 +3347,6 @@ components:
       required: true
       schema:
         type: integer
-    IdOrHash:
-      name: id_or_hash
-      in: path
-      description: Id or Hash.
-      required: true
-      schema:
-        oneOf:
-          - type: string
-          - type: integer
     Limit:
       name: limit
       description: A number of entities in result set.

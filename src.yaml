@@ -106,7 +106,7 @@ paths:
     $ref: './paths/project_access.yaml'
   /result/{code}:
     $ref: './paths/results.yaml'
-  /result/{code}/{id_or_hash}:
+  /result/{code}/{id|hash}:
     $ref: './paths/result.yaml'
   /result/{code}/{id}/bulk:
     $ref: './paths/result_bulk.yaml'
@@ -236,7 +236,6 @@ components:
     FilterSuites: { $ref: './parameters/filter/Suites.yaml' }
     Hash: { $ref: './parameters/Hash.yaml' }
     Id: { $ref: './parameters/Id.yaml' }
-    IdOrHash: { $ref: './parameters/IdOrHash.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }
 

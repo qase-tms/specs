@@ -48,39 +48,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentListResponse'
-  '/attachment/{code|hash}':
-    get:
-      operationId: get-attachment
-      tags:
-        - attachments
-      summary: Get attachment by Hash.
-      description: |
-        This method allows to retrieve attachment by Hash.
-      parameters:
-        - $ref: '#/components/parameters/Hash'
-      responses:
-        '200':
-          description: An attachments.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AttachmentResponse'
-    delete:
-      operationId: delete-attachment
-      tags:
-        - attachments
-      summary: Remove attachment by Hash.
-      description: |
-        This method allows to remove attachment by Hash.
-      parameters:
-        - $ref: '#/components/parameters/Hash'
-      responses:
-        '200':
-          description: A result.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HashResponse'
+  '/attachment/{code}':
     post:
       operationId: upload-attachment
       tags:
@@ -115,6 +83,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentUploadsResponse'
+  '/attachment/{hash}':
+    get:
+      operationId: get-attachment
+      tags:
+        - attachments
+      summary: Get attachment by Hash.
+      description: |
+        This method allows to retrieve attachment by Hash.
+      parameters:
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: An attachments.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentResponse'
+    delete:
+      operationId: delete-attachment
+      tags:
+        - attachments
+      summary: Remove attachment by Hash.
+      description: |
+        This method allows to remove attachment by Hash.
+      parameters:
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: A result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HashResponse'
   '/case/{code}':
     get:
       operationId: get-cases
@@ -888,24 +889,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResultListResponse'
-  '/result/{code}/{id|hash}':
-    get:
-      operationId: get-result
-      tags:
-        - results
-      summary: Get test run result by code.
-      description: |
-        This method allows to retrieve a specific test run result by Hash.
-      parameters:
-        - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/Hash'
-      responses:
-        '200':
-          description: A test run result.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResultResponse'
+  '/result/{code}/{id}':
     post:
       operationId: create-result
       tags:
@@ -940,6 +924,24 @@ paths:
                             format: int64
                           hash:
                             type: string
+  '/result/{code}/{hash}':
+    get:
+      operationId: get-result
+      tags:
+        - results
+      summary: Get test run result by code.
+      description: |
+        This method allows to retrieve a specific test run result by Hash.
+      parameters:
+        - $ref: '#/components/parameters/Code'
+        - $ref: '#/components/parameters/Hash'
+      responses:
+        '200':
+          description: A test run result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultResponse'
   '/result/{code}/{id}/bulk':
     post:
       operationId: create-result-bulk

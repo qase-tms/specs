@@ -1,20 +1,3 @@
-get:
-  operationId: get-result
-  tags: [ results ]
-  summary: Get test run result by code.
-  description: |
-    This method allows to retrieve a specific test run result by Hash.
-  parameters:
-    - $ref: '../parameters/Code.yaml'
-    - $ref: '../parameters/Hash.yaml'
-  responses:
-    200:
-      description: A test run result.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/Result.yaml'
-
 post:
   operationId: create-result
   tags: [ results ]

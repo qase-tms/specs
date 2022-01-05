@@ -68,8 +68,12 @@ servers:
 paths:
   /attachment:
     $ref: './paths/attachments.yaml'
-  /attachment/{code|hash}:
-    $ref: './paths/attachment.yaml'
+
+  /attachment/{code}:
+    $ref: './paths/attachment.code.yaml'
+  /attachment/{hash}:
+    $ref: './paths/attachment.hash.yaml'
+
   /case/{code}:
     $ref: './paths/cases.yaml'
   /case/{code}/{id}:
@@ -106,8 +110,12 @@ paths:
     $ref: './paths/project_access.yaml'
   /result/{code}:
     $ref: './paths/results.yaml'
-  /result/{code}/{id|hash}:
-    $ref: './paths/result.yaml'
+
+  /result/{code}/{id}:
+    $ref: './paths/result.id.yaml'
+  /result/{code}/{hash}:
+    $ref: './paths/result.hash.yaml'
+
   /result/{code}/{id}/bulk:
     $ref: './paths/result_bulk.yaml'
   /result/{code}/{id}/{hash}:

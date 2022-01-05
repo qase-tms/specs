@@ -23,7 +23,7 @@
     "@apidevtools/swagger-cli": "^4.0.4",
     "@stoplight/spectral-cli": "^6.1.0",
     "ansi-regex": "^6.0.1",
-    "redoc-cli": "^0.13.0"
+    "redoc-cli": "^0.13.2"
   },
   "directories": {
     "example": "examples"

@@ -2368,12 +2368,19 @@ components:
       properties:
         title:
           type: string
+          maxLength: 255
         action:
           type: string
+          deprecated: true
+          description: 'Deprecated, use the `steps` property instead.'
         expected_result:
           type: string
+          deprecated: true
+          description: 'Deprecated, use the `steps` property instead.'
         data:
           type: string
+          deprecated: true
+          description: 'Deprecated, use the `steps` property instead.'
         steps:
           type: array
           items:
@@ -2389,17 +2396,28 @@ components:
                 type: string
               attachments:
                 $ref: '#/components/schemas/AttachmentHashList'
+            required:
+              - action
+      required:
+        - title
     SharedStepUpdate:
       type: object
       properties:
         title:
           type: string
+          maxLength: 255
         action:
           type: string
+          deprecated: true
+          description: 'Deprecated, use the `steps` property instead.'
         expected_result:
           type: string
+          deprecated: true
+          description: 'Deprecated, use the `steps` property instead.'
         data:
           type: string
+          deprecated: true
+          description: 'Deprecated, use the `steps` property instead.'
         steps:
           type: array
           items:
@@ -2415,6 +2433,10 @@ components:
                 type: string
               attachments:
                 $ref: '#/components/schemas/AttachmentHashList'
+            required:
+              - action
+      required:
+        - title
     Suite:
       type: object
       properties:

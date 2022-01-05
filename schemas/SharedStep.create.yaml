@@ -2,12 +2,19 @@ type: object
 properties:
   title:
     type: string
+    maxLength: 255
   action:
     type: string
+    deprecated: true
+    description: Deprecated, use the `steps` property instead.
   expected_result:
     type: string
+    deprecated: true
+    description: Deprecated, use the `steps` property instead.
   data:
     type: string
+    deprecated: true
+    description: Deprecated, use the `steps` property instead.
   steps:
    type: array
    items:
@@ -23,3 +30,5 @@ properties:
          type: string
        attachments:
           $ref: 'Attachment.hash_list.yaml'
+     required: [action]
+required: [title]

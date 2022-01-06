@@ -3281,7 +3281,7 @@ components:
       schema:
         type: integer
         default: 10
-        minimum: 0
+        minimum: 1
         maximum: 100
     Offset:
       name: offset

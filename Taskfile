@@ -67,10 +67,19 @@ function ui() {
 }
 
 codegen() {
+  # https://github.com/OpenAPITools/openapi-generator-cli
   docker run --rm -it \
     -v "$(pwd)"/api.yaml:/specs/api.yaml \
     -v "$(pwd)"/examples/sdk:/sdk \
-    openapitools/openapi-generator-cli "${@}"
+    openapitools/openapi-generator-cli:v5.3.1 "${@}"
+}
+
+alternative() {
+  # https://github.com/swagger-api/swagger-codegen
+  docker run --rm -it \
+    -v "$(pwd)"/api.yaml:/specs/api.yaml \
+    -v "$(pwd)"/examples/sdk:/sdk \
+    swaggerapi/swagger-codegen-cli-v3:3.0.31 "${@}"
 }
 
 __default() { help; }

@@ -30,34 +30,6 @@ tags:
   - name: search
   - name: shared-steps
   - name: suites
-  - name: users
-#  - name: webhooks
-#    description:
-#      $ref: ./markdown/webhooks.md
-#  - name: webhooks/Test case
-#    description:
-#      $ref: ./markdown/webhooks.case.md
-#  - name: webhooks/Defect
-#    description:
-#      $ref: ./markdown/webhooks.defect.md
-#  - name: webhooks/Custom field
-#    description:
-#      $ref: ./markdown/webhooks.field.md
-#  - name: webhooks/Milestone
-#    description:
-#      $ref: ./markdown/webhooks.milestone.md
-#  - name: webhooks/Test plan
-#    description:
-#      $ref: ./markdown/webhooks.plan.md
-#  - name: webhooks/Test run
-#    description:
-#      $ref: ./markdown/webhooks.run.md
-#  - name: webhooks/Shared step
-#    description:
-#      $ref: ./markdown/webhooks.step.md
-#  - name: webhooks/suite
-#    description:
-#      $ref: ./markdown/webhooks.suite.md
 
 servers:
   - url: https://api.qase.io/v1
@@ -68,12 +40,10 @@ servers:
 paths:
   /attachment:
     $ref: './paths/attachments.yaml'
-
   /attachment/{code}:
     $ref: './paths/attachment.code.yaml'
   /attachment/{hash}:
     $ref: './paths/attachment.hash.yaml'
-
   /case/{code}:
     $ref: './paths/cases.yaml'
   /case/{code}/{id}:
@@ -110,12 +80,10 @@ paths:
     $ref: './paths/project_access.yaml'
   /result/{code}:
     $ref: './paths/results.yaml'
-
   /result/{code}/{id}:
     $ref: './paths/result.id.yaml'
   /result/{code}/{hash}:
     $ref: './paths/result.hash.yaml'
-
   /result/{code}/{id}/bulk:
     $ref: './paths/result_bulk.yaml'
   /result/{code}/{id}/{hash}:
@@ -138,10 +106,6 @@ paths:
     $ref: './paths/suites.yaml'
   /suite/{code}/{id}:
     $ref: './paths/suite.yaml'
-  /user:
-    $ref: './paths/users.yaml'
-  /user/{id}:
-    $ref: './paths/user.yaml'
 
 components:
   schemas:
@@ -189,7 +153,6 @@ components:
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
     TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
-    User: { $ref: './schemas/User.yaml' }
 
     AttachmentResponse: { $ref: './schemas/responses/Attachment.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentList.yaml' }
@@ -222,8 +185,6 @@ components:
     SuiteListResponse: { $ref: './schemas/responses/SuiteList.yaml' }
     TestCaseResponse: { $ref: './schemas/responses/TestCase.yaml' }
     TestCaseListResponse: { $ref: './schemas/responses/TestCaseList.yaml' }
-    UserResponse: { $ref: './schemas/responses/User.yaml' }
-    UserListResponse: { $ref: './schemas/responses/UserList.yaml' }
 
   securitySchemes:
     TokenAuth:

@@ -1,6 +1,7 @@
 # Introduction
 
-Welcome to the [Qase.io](https://qase.io) Webhooks documentation! Webhooks is a way to notify your services about changes happened in Qase. A webhook consists of:
+Welcome to the [Qase.io](https://qase.io) Webhooks documentation! Webhooks is a way to notify your services about
+changes happened in Qase. A webhook consists of:
 
 - An entity - the resource that generates the events (e.g. TestCase).
 - One or more events (e.g. created).
@@ -22,8 +23,8 @@ Request example:
 
 All requests that are produced by Qase are `POST` requests with data in `JSON` format with following data structure:
 
-Parameter | Type | Description
---------- | ----------- | -----------
-event | string | Event name
-timestamp | integer | Time when event has been triggered
-payload | array | An object with payload data related to event
+| Parameter | Type    | Description                                  |
+|-----------|---------|----------------------------------------------|
+| event     | string  | Event name                                   |
+| timestamp | integer | Time when event has been triggered           |
+| payload   | array   | An object with payload data related to event |

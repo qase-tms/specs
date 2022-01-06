@@ -20,13 +20,13 @@ This event is being sent when a new test suite is created.
 
 ### Payload fields
 
-Parameter | Type | Description
---------- | ----------- | -----------
-id | int | Test suite ID
-title | string | Test suite title
-description  | string | Test suite description
-preconditions  | string | Test suite preconditions
-parent_id  | int | ID of parent test suite
+| Parameter     | Type   | Description              |
+|---------------|--------|--------------------------|
+| id            | int    | Test suite ID            |
+| title         | string | Test suite title         |
+| description   | string | Test suite description   |
+| preconditions | string | Test suite preconditions |
+| parent_id     | int    | ID of parent test suite  |
 
 ## Updated
 
@@ -46,9 +46,9 @@ This event is being sent when a test suite is updated. It returns only ID of tes
 
 ### Payload fields
 
-Parameter | Type | Description
---------- | ----------- | -----------
-id | int | Test suite ID
+| Parameter | Type | Description   |
+|-----------|------|---------------|
+| id        | int  | Test suite ID |
 
 ## Deleted
 
@@ -68,9 +68,9 @@ This event is being sent when a test suite is deleted.
 
 ### Payload fields
 
-Parameter | Type | Description
---------- | ----------- | -----------
-id | int | Test suite ID
+| Parameter | Type | Description   |
+|-----------|------|---------------|
+| id        | int  | Test suite ID |
 
 ## Cloned
 
@@ -91,7 +91,7 @@ This event is being sent when a test suite is cloned.
 
 ### Payload fields
 
-Parameter | Type | Description
---------- | ----------- | -----------
-id | int | Test suite ID (clone)
-from_id | int | Test suite ID (original)
+| Parameter | Type | Description              |
+|-----------|------|--------------------------|
+| id        | int  | Test suite ID (clone)    |
+| from_id   | int  | Test suite ID (original) |

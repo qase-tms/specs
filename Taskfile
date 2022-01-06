@@ -3,13 +3,29 @@
 set -o nounset
 set -o pipefail
 
+### shortcut
+
 function build() {
-  npm run test
+  npm run build
+}
+
+function preview() {
+  npm run preview
 }
 
 function publish() {
   npm run publish
+  local key=${1:-${README_TOKEN:-}}
+  if [ -n "${key}" ]; then
+    npx rdme openapi ./api.yaml --id=6172e1f931427d3f983e34ff --key="${key}"
+  fi
 }
+
+function validate() {
+  npm run validate
+}
+
+### npm
 
 function latest() {
   local packages=("${@}")
@@ -21,6 +37,8 @@ function latest() {
     npm install "${pkg}"@latest
   done
 }
+
+### codegen
 
 function go() {
   rm -rf examples/sdk/go/*

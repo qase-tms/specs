@@ -7,10 +7,9 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "swagger-cli bundle src.yaml -o api.yaml -t yaml",
-    "validate": "swagger-cli validate src.yaml && spectral lint api.yaml",
-    "test": "npm run build && npm run validate",
-    "preview": "npm run build && redoc-cli serve api.yaml",
-    "publish": "npm run build && redoc-cli bundle api.yaml -o docs/index.html"
+    "preview": "redoc-cli serve api.yaml",
+    "publish": "redoc-cli bundle api.yaml -o docs/index.html",
+    "validate": "swagger-cli validate src.yaml && spectral lint api.yaml"
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,7 @@
     "@apidevtools/swagger-cli": "^4.0.4",
     "@stoplight/spectral-cli": "^6.1.0",
     "ansi-regex": "^6.0.1",
+    "rdme": "^6.2.1",
     "redoc-cli": "^0.13.2"
   },
   "directories": {

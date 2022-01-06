@@ -54,7 +54,7 @@ function php() {
 
 function typescript() {
   rm -rf examples/sdk/ts/*
-  codegen generate -i /specs/api.yaml -g typescript-axios -t /sdk/ts-axios-template -o /sdk/ts -c /sdk/ts.yml
+  codegen generate -i /specs/api.yaml -g typescript-axios -t /sdk/templates/axios -o /sdk/ts -c /sdk/ts.yml
   # TODO:extend add formatting
 }
 

@@ -29,11 +29,11 @@ jobs:
 
       - uses: readmeio/github-readme-sync@v2
         with:
-          readme-oas-key: "${{ secrets.README_KEY }}"
+          readme-oas-key: ${{ secrets.README_KEY }}
           oas-file-path: ./api.yaml
 
       - uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_ICON: https://github.com/github.png?size=64
           SLACK_USERNAME: GitHub Actions
-          SLACK_WEBHOOK: "${{ secrets.SLACK_WEBHOOK }}"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

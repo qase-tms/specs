@@ -1,3 +1,6 @@
+# https://openapi-generator.tech/docs/generators/php/
+# ? https://openapi-generator.tech/docs/generators/php-dt/
+
 allowUnicodeIdentifiers: false
 apiPackage: Api # ~
 artifactVersion: 1.0.0 # ~

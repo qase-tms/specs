@@ -1,3 +1,8 @@
+# https://openapi-generator.tech/docs/generators/typescript-axios/
+# ? https://openapi-generator.tech/docs/generators/typescript/
+# ? https://openapi-generator.tech/docs/generators/typescript-fetch/
+# ? https://openapi-generator.tech/docs/generators/typescript-node/
+
 apiPackage: api
 modelPackage: model
 allowUnicodeIdentifiers: false

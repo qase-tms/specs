@@ -29,7 +29,7 @@ jobs:
 
       - uses: readmeio/github-readme-sync@v2
         with:
-          readme-oas-key: ${{ secrets.README_KEY }}
+          readme-oas-key: ${{ secrets.README_KEY }}:6172e1f931427d3f983e34ff
           oas-file-path: ./api.yaml
 
       - uses: rtCamp/action-slack-notify@v2

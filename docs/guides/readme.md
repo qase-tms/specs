@@ -59,6 +59,7 @@ Qase API uses the following error codes:
 | 404  | Not Found - The resource could not be found.                                             |
 | 405  | Method Not Allowed - You tried to access a resource with an invalid method.              |
 | 410  | Gone - The resource requested has been removed from our servers.                         |
+| 413  | Payload Too Large - Your bulk request is too large. Please see the limitations.          |
 | 422  | Unprocessable Entity - You have validation errors in some fields.                        |
 | 429  | Too Many Requests - You're performing too many requests! Slow down!                      |
 | 500  | Internal Server Error - We had a problem with our server. Try again later.               |

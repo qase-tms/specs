@@ -56,9 +56,10 @@ properties:
     type: string
     nullable: true
   param:
-    type: array
-    maxItems: 1
-    items:
+    type: object
+    maxProperties: 1
+    description: A map of parameters (name => value)
+    additionalProperties:
       type: string
   steps:
     type: array

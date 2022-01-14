@@ -5,6 +5,7 @@ get:
   description: |
     This method allows to retrieve all test run
     results stored in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/filter/Results.yaml'

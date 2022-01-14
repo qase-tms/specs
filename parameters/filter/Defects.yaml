@@ -1,6 +1,7 @@
 name: filters
 in: query
-style: deepObject
+style: form
+explode: true
 schema:
   type: object
   properties:

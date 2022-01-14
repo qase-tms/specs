@@ -4,6 +4,7 @@ get:
   summary: Get all defects.
   description: |
     This method allows to retrieve all defects stored in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/filter/Defects.yaml'
@@ -24,6 +25,7 @@ post:
   summary: Create a new defect.
   description: |
     This method allows to create a defect in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
   requestBody:
@@ -32,6 +34,7 @@ post:
       application/json:
         schema:
           $ref: '../schemas/Defect.create.yaml'
+
   responses:
     200:
       description: A result.

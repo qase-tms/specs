@@ -4,6 +4,7 @@ get:
   summary: Get all milestones.
   description: |
     This method allows to retrieve all milestones stored in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/filter/Milestones.yaml'
@@ -24,6 +25,7 @@ post:
   summary: Create a new milestone.
   description: |
     This method allows to create a milestone in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
   requestBody:
@@ -32,6 +34,7 @@ post:
       application/json:
         schema:
           $ref: '../schemas/Milestone.create.yaml'
+
   responses:
     200:
       description: A result.

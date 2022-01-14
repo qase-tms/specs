@@ -4,6 +4,7 @@ get:
   summary: Get all runs.
   description: |
     This method allows to retrieve all runs stored in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/filter/Runs.yaml'
@@ -25,6 +26,7 @@ post:
   summary: Create a new run.
   description: |
     This method allows to create a run in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
   requestBody:
@@ -33,6 +35,7 @@ post:
       application/json:
         schema:
           $ref: '../schemas/Run.create.yaml'
+
   responses:
     200:
       description: A result.

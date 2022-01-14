@@ -4,6 +4,7 @@ get:
   summary: Get all test cases.
   description: |
     This method allows to retrieve all test cases stored in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/filter/Cases.yaml'
@@ -24,6 +25,7 @@ post:
   summary: Create a new test case.
   description: |
     This method allows to create a new test case in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
   requestBody:
@@ -32,6 +34,7 @@ post:
       application/json:
         schema:
           $ref: '../schemas/TestCase.create.yaml'
+
   responses:
     200:
       description: A list of all projects.

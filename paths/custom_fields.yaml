@@ -4,6 +4,7 @@ get:
   summary: Get all Custom Fields.
   description: |
     This method allows to retrieve and filter custom fields.
+
   parameters:
     - $ref: '../parameters/filter/CustomFields.yaml'
     - $ref: '../parameters/pagination/Limit.yaml'
@@ -23,12 +24,14 @@ post:
   summary: Create new Custom Field.
   description: |
     This method allows to create custom field.
+
   requestBody:
     required: true
     content:
       application/json:
         schema:
           $ref: '../schemas/CustomField.create.yaml'
+
   responses:
     200:
       description: Created Custom Field id.

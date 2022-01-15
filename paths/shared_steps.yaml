@@ -4,6 +4,7 @@ get:
   summary: Get all shared steps.
   description: |
     This method allows to retrieve all shared steps stored in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/filter/SharedSteps.yaml'
@@ -24,6 +25,7 @@ post:
   summary: Create a new shared step.
   description: |
     This method allows to create a shared step in selected project.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
   requestBody:
@@ -32,6 +34,7 @@ post:
       application/json:
         schema:
           $ref: '../schemas/SharedStep.create.yaml'
+
   responses:
     200:
       description: A result.

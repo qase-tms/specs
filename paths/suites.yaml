@@ -4,6 +4,7 @@ get:
   summary: Get all test suites.
   description: |
     This method allows to retrieve all test suites stored in selected project..
+
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/filter/Suites.yaml'
@@ -24,6 +25,7 @@ post:
   summary: Create a new test suite.
   description: |
     This method is used to create a new test suite through API.
+
   parameters:
     - $ref: '../parameters/Code.yaml'
   requestBody:
@@ -32,6 +34,7 @@ post:
       application/json:
         schema:
           $ref: '../schemas/Suite.create.yaml'
+
   responses:
     200:
       description: A list of all projects.

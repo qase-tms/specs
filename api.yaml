@@ -3091,7 +3091,8 @@ components:
     FilterCases:
       name: filters
       in: query
-      style: deepObject
+      style: form
+      explode: true
       schema:
         type: object
         properties:
@@ -3138,7 +3139,8 @@ components:
     FilterCustomFields:
       name: filters
       in: query
-      style: deepObject
+      style: form
+      explode: true
       schema:
         type: object
         properties:
@@ -3164,7 +3166,8 @@ components:
     FilterDefects:
       name: filters
       in: query
-      style: deepObject
+      style: form
+      explode: true
       schema:
         type: object
         properties:
@@ -3178,7 +3181,8 @@ components:
     FilterMilestones:
       name: filters
       in: query
-      style: deepObject
+      style: form
+      explode: true
       schema:
         type: object
         properties:
@@ -3188,7 +3192,8 @@ components:
     FilterResults:
       name: filters
       in: query
-      style: deepObject
+      style: form
+      explode: true
       schema:
         type: object
         properties:
@@ -3221,7 +3226,8 @@ components:
     FilterRuns:
       name: filters
       in: query
-      style: deepObject
+      style: form
+      explode: true
       schema:
         type: object
         properties:
@@ -3245,7 +3251,8 @@ components:
     FilterSharedSteps:
       name: filters
       in: query
-      style: deepObject
+      style: form
+      explode: true
       schema:
         type: object
         properties:
@@ -3255,7 +3262,8 @@ components:
     FilterSuites:
       name: filters
       in: query
-      style: deepObject
+      style: form
+      explode: true
       schema:
         type: object
         properties:

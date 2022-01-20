@@ -1890,7 +1890,7 @@ components:
     ProjectAccess:
       type: object
       properties:
-        memeber_id:
+        member_id:
           type: integer
           format: int64
           description: Team member id title.

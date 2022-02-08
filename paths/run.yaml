@@ -7,6 +7,7 @@ get:
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
+    - $ref: '../parameters/extend/Runs.yaml'
   responses:
     200:
       description: A run.

@@ -1062,6 +1062,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Code'
         - $ref: '#/components/parameters/Id'
+        - $ref: '#/components/parameters/ExtendRuns'
       responses:
         '200':
           description: A run.
@@ -3085,9 +3086,7 @@ components:
       description: |
         Add this param to include a list of test cases into response. Possible value: cases
       schema:
-        type: array
-        items:
-          type: string
+        type: string
     FilterCases:
       name: filters
       in: query

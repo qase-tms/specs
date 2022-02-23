@@ -55,9 +55,19 @@ properties:
         items: {}
       - type: object
   created:
+    deprecated: true
+    description: Deprecated, use the `created_at` property instead.
     type: string
     format: date-time
   updated:
+    deprecated: true
+    description: Deprecated, use the `updated_at` property instead.
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  updated_at:
     type: string
     format: date-time
   tags:

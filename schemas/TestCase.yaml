@@ -61,17 +61,21 @@ properties:
     description: Deprecated, use the `created_at` property instead.
     type: string
     format: date-time
+    example: "2021-12-30T19:23:59.000000Z"
   updated:
     deprecated: true
     description: Deprecated, use the `updated_at` property instead.
     type: string
     format: date-time
+    example: "2021-12-30T19:23:59.000000Z"
   created_at:
     type: string
     format: date-time
+    example: "2021-12-30T19:23:59+00:00"
   updated_at:
     type: string
     format: date-time
+    example: "2021-12-30T19:23:59+00:00"
   tags:
     type: array
     items:

@@ -43,7 +43,6 @@ properties:
     deprecated: true
     description: Deprecated, use the `updated_at` property instead.
     type: string
-    format: date-time
     example: "2021-12-30 19:23:59"
   created_at:
     type: string

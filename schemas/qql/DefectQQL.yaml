@@ -18,11 +18,11 @@ properties:
   custom_fields:
     type: array
     items:
-      $ref: 'CustomFieldValue.yaml'
+      $ref: '../CustomFieldValue.yaml'
   attachments:
     type: array
     items:
-      $ref: 'Attachment.yaml'
+      $ref: '../Attachment.yaml'
   resolved:
     type: string
     format: date-time
@@ -38,7 +38,7 @@ properties:
   tags:
     type: array
     items:
-      $ref: './Tag.value.yaml'
+      $ref: '../Tag.value.yaml'
   created_at:
     type: string
     format: date-time
@@ -47,13 +47,3 @@ properties:
     type: string
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
-  created:
-    deprecated: true
-    description: Deprecated, use the `created_at` property instead.
-    type: string
-    example: "2021-12-30 19:23:59"
-  updated:
-    deprecated: true
-    description: Deprecated, use the `updated_at` property instead.
-    type: string
-    example: "2021-12-30 19:23:59"

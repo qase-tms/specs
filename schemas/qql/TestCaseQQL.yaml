@@ -40,17 +40,17 @@ properties:
   custom_fields:
     type: array
     items:
-      $ref: 'CustomFieldValue.yaml'
+      $ref: '../CustomFieldValue.yaml'
   attachments:
     type: array
     items:
-      $ref: 'Attachment.yaml'
+      $ref: '../Attachment.yaml'
   steps_type:
     type: string
   steps:
     type: array
     items:
-      $ref: 'TestStep.yaml'
+      $ref: '../TestStep.yaml'
   params:
     anyOf:
       - type: array
@@ -59,7 +59,7 @@ properties:
   tags:
     type: array
     items:
-      $ref: './Tag.value.yaml'
+      $ref: '../Tag.value.yaml'
   member_id:
     type: integer
     format: int64
@@ -74,18 +74,3 @@ properties:
     type: string
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
-  deleted:
-    deprecated: true
-    type: string
-    nullable: true
-    example: "2021-12-30T19:23:59.000000Z"
-  created:
-    deprecated: true
-    description: Deprecated, use the `created_at` property instead.
-    type: string
-    example: "2021-12-30T19:23:59.000000Z"
-  updated:
-    deprecated: true
-    description: Deprecated, use the `updated_at` property instead.
-    type: string
-    example: "2021-12-30T19:23:59.000000Z"

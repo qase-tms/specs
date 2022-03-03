@@ -18,9 +18,21 @@ properties:
     format: int64
     nullable: true
   created:
+    deprecated: true
+    description: Deprecated, use the `created_at` property instead.
     type: string
-    format: date-time
+    example: "2021-12-30 19:23:59"
   updated:
+    deprecated: true
+    description: Deprecated, use the `updated_at` property instead.
+    type: string
+    example: "2021-12-30 19:23:59"
+    nullable: true
+  created_at:
     type: string
     format: date-time
-    nullable: true
+    example: "2021-12-30T19:23:59+00:00"
+  updated_at:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"

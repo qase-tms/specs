@@ -35,9 +35,20 @@ properties:
   cases_count:
     type: integer
   created:
+    deprecated: true
+    description: Deprecated, use the `created_at` property instead.
     type: string
-    format: date-time
+    example: "2021-12-30 19:23:59"
   updated:
+    deprecated: true
+    description: Deprecated, use the `updated_at` property instead.
     type: string
-    nullable: true
+    example: "2021-12-30 19:23:59"
+  created_at:
+    type: string
     format: date-time
+    example: "2021-12-30T19:23:59+00:00"
+  updated_at:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"

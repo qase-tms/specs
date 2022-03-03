@@ -17,13 +17,3 @@ properties:
     type: string
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
-  created:
-    deprecated: true
-    description: Deprecated, use the `created_at` property instead.
-    type: string
-    example: "2021-12-30 19:23:59"
-  updated:
-    deprecated: true
-    description: Deprecated, use the `updated_at` property instead.
-    type: string
-    example: "2021-12-30 19:23:59"

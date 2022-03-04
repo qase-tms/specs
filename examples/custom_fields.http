@@ -1,4 +1,10 @@
 # operationId: get-custom-fields
+GET {{host}}/custom_field?type=url
+Token: {{token}}
+Content-Type: application/json
+###
+
+# operationId: get-custom-fields, legacy
 GET {{host}}/custom_field?filters[type]=url
 Token: {{token}}
 Content-Type: application/json

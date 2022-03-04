@@ -27,7 +27,7 @@ function validate() {
 
 ### npm
 
-function latest() {
+function update() {
   local packages=("${@}")
   if [ ${#packages[@]} = 0 ]; then
     IFS=' ' read -r -a packages <<<"$(npm ls --depth=0 --prod --json |

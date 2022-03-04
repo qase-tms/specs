@@ -2772,7 +2772,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attachment'
-    QqlDefect:
+    qql.Defect:
       type: object
       properties:
         id:
@@ -2822,7 +2822,7 @@ components:
           type: string
           format: date-time
           example: '2021-12-30T19:23:59+00:00'
-    QqlTestCase:
+    qql.TestCase:
       type: object
       properties:
         id:
@@ -2899,7 +2899,7 @@ components:
           type: string
           format: date-time
           example: '2021-12-30T19:23:59+00:00'
-    QqlPlan:
+    qql.Plan:
       type: object
       properties:
         id:
@@ -3214,12 +3214,12 @@ components:
                   type: array
                   items:
                     oneOf:
-                      - $ref: '#/components/schemas/QqlTestCase'
-                      - $ref: '#/components/schemas/QqlDefect'
                       - $ref: '#/components/schemas/Run'
                       - $ref: '#/components/schemas/Result'
-                      - $ref: '#/components/schemas/QqlPlan'
                       - $ref: '#/components/schemas/Requirement'
+                      - $ref: '#/components/schemas/qql.TestCase'
+                      - $ref: '#/components/schemas/qql.Defect'
+                      - $ref: '#/components/schemas/qql.Plan'
     SharedStepResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

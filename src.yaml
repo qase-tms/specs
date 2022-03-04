@@ -151,9 +151,9 @@ components:
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
     TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
-    QqlDefect: { $ref: './schemas/qql/DefectQQL.yaml' }
-    QqlTestCase: { $ref: './schemas/qql/TestCaseQQL.yaml' }
-    QqlPlan: { $ref: './schemas/qql/PlanQQL.yaml' }
+    qql.Defect: { $ref: './schemas/qql/Defect.yaml' }
+    qql.TestCase: { $ref: './schemas/qql/TestCase.yaml' }
+    qql.Plan: { $ref: './schemas/qql/Plan.yaml' }
 
     AttachmentResponse: { $ref: './schemas/responses/Attachment.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentList.yaml' }

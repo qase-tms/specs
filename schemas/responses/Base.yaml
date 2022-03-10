@@ -2,6 +2,3 @@ type: object
 properties:
   status:
     type: boolean
-
-  result:
-    type: object

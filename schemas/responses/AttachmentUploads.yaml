@@ -1,9 +1,8 @@
-type: object
-properties:
-  status:
-    type: boolean
-
-  result:
-    type: array
-    items:
-      $ref: '../Attachment.get.yaml'
+allOf:
+  - $ref: './Base.yaml'
+  - type: object
+    properties:
+      result:
+        type: array
+        items:
+          $ref: '../Attachment.get.yaml'

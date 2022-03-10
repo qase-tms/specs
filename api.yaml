@@ -2945,14 +2945,14 @@ components:
                   items:
                     $ref: '#/components/schemas/AttachmentGet'
     AttachmentUploadsResponse:
-      type: object
-      properties:
-        status:
-          type: boolean
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttachmentGet'
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: array
+              items:
+                $ref: '#/components/schemas/AttachmentGet'
     CustomFieldResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -3139,8 +3139,6 @@ components:
       properties:
         status:
           type: boolean
-        result:
-          type: object
     ResultResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

@@ -20,14 +20,11 @@
   },
   "dependencies": {
     "@apidevtools/swagger-cli": "^4.0.4",
-    "@stoplight/spectral-cli": "^6.2.1",
-    "rdme": "^6.5.0",
-    "redoc-cli": "^0.13.8"
+    "@stoplight/spectral-cli": "^6.3.0",
+    "rdme": "^7.0.0",
+    "redoc-cli": "^0.13.9"
   },
   "directories": {
     "example": "examples"
-  },
-  "devDependencies": {
-    "prismjs": "^1.27.0"
   }
 }

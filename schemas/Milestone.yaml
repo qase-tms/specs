@@ -7,6 +7,7 @@ properties:
     type: string
   description:
     type: string
+    nullable: true
   status:
     type: string
     enum:
@@ -14,8 +15,8 @@ properties:
       - active
   due_date:
     type: string
+    description: date in the 'Y-m-d H:i:s' format
     nullable: true
-    format: date-time
   created:
     deprecated: true
     description: Deprecated, use the `created_at` property instead.

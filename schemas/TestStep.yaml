@@ -14,8 +14,10 @@ properties:
     type: string
   expected_result:
     type: string
+    nullable: true
   data:
     type: string
+    nullable: true
   attachments:
     type: array
     items:

@@ -7,6 +7,7 @@ properties:
     type: string
   description:
     type: string
+    nullable: true
   cases_count:
     type: integer
   created_at:

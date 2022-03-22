@@ -6,6 +6,7 @@ properties:
   parent_id:
     type: integer
     format: int64
+    nullable: true
   member_id:
     type: integer
     format: int64
@@ -13,6 +14,7 @@ properties:
     type: string
   description:
     type: string
+    nullable: true
   status:
     type: string
     enum:

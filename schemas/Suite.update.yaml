@@ -1,0 +1,16 @@
+type: object
+properties:
+  title:
+    type: string
+    description: Test suite title.
+  description:
+    type: string
+    description: Test suite description.
+  preconditions:
+    type: string
+    description: Test suite preconditions
+  parent_id:
+    type: integer
+    format: int64
+    description: Parent suite ID
+    nullable: true

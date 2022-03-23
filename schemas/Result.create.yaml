@@ -92,3 +92,5 @@ properties:
           type: string
           nullable: true
       required: [position, status]
+required:
+  - status

@@ -1737,10 +1737,12 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         slug:
           type: string
         host:
           type: string
+          nullable: true
     EnvironmentCreate:
       type: object
       properties:
@@ -1780,6 +1782,7 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -1787,8 +1790,8 @@ components:
             - active
         due_date:
           type: string
+          description: 'date in the ''Y-m-d H:i:s'' format'
           nullable: true
-          format: date-time
         created:
           deprecated: true
           description: 'Deprecated, use the `created_at` property instead.'
@@ -1849,6 +1852,7 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         cases_count:
           type: integer
         created_at:
@@ -1988,8 +1992,10 @@ components:
           type: string
         comment:
           type: string
+          nullable: true
         stacktrace:
           type: string
+          nullable: true
         run_id:
           type: integer
           format: int64
@@ -1998,6 +2004,7 @@ components:
           format: int64
         steps:
           type: array
+          nullable: true
           items:
             type: object
             properties:
@@ -2018,7 +2025,7 @@ components:
           format: int64
         end_time:
           type: string
-          format: date-time
+          description: 'date in the ''Y-m-d H:i:s'' format'
           nullable: true
         attachments:
           type: array
@@ -2196,17 +2203,18 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         status:
           type: integer
         status_text:
           type: string
         start_time:
           type: string
-          format: date-time
+          description: 'date in the ''Y-m-d H:i:s'' format'
           nullable: true
         end_time:
           type: string
-          format: date-time
+          description: 'date in the ''Y-m-d H:i:s'' format'
           nullable: true
         public:
           type: boolean
@@ -2320,6 +2328,7 @@ components:
         parent_id:
           type: integer
           format: int64
+          nullable: true
         member_id:
           type: integer
           format: int64
@@ -2327,6 +2336,7 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         status:
           type: string
           enum:
@@ -2492,8 +2502,10 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         preconditions:
           type: string
+          nullable: true
         position:
           type: integer
         cases_count:
@@ -2567,10 +2579,13 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         preconditions:
           type: string
+          nullable: true
         postconditions:
           type: string
+          nullable: true
         severity:
           type: integer
         priority:
@@ -2605,6 +2620,7 @@ components:
             $ref: '#/components/schemas/Attachment'
         steps_type:
           type: string
+          nullable: true
         steps:
           type: array
           items:
@@ -2786,8 +2802,10 @@ components:
           type: string
         expected_result:
           type: string
+          nullable: true
         data:
           type: string
+          nullable: true
         attachments:
           type: array
           items:
@@ -2854,10 +2872,13 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         preconditions:
           type: string
+          nullable: true
         postconditions:
           type: string
+          nullable: true
         severity:
           type: integer
         priority:
@@ -2892,6 +2913,7 @@ components:
             $ref: '#/components/schemas/Attachment'
         steps_type:
           type: string
+          nullable: true
         steps:
           type: array
           items:
@@ -2929,6 +2951,7 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         cases_count:
           type: integer
         created_at:

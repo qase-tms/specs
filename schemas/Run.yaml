@@ -7,17 +7,18 @@ properties:
     type: string
   description:
     type: string
+    nullable: true
   status:
     type: integer
   status_text:
     type: string
   start_time:
     type: string
-    format: date-time
+    description: date in the 'Y-m-d H:i:s' format
     nullable: true
   end_time:
     type: string
-    format: date-time
+    description: date in the 'Y-m-d H:i:s' format
     nullable: true
   public:
     type: boolean

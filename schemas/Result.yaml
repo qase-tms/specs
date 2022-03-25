@@ -4,8 +4,10 @@ properties:
     type: string
   comment:
     type: string
+    nullable: true
   stacktrace:
     type: string
+    nullable: true
   run_id:
     type: integer
     format: int64
@@ -14,6 +16,7 @@ properties:
     format: int64
   steps:
     type: array
+    nullable: true
     items:
       type: object
       properties:
@@ -34,7 +37,7 @@ properties:
     format: int64
   end_time:
     type: string
-    format: date-time
+    description: date in the 'Y-m-d H:i:s' format
     nullable: true
   attachments:
     type: array

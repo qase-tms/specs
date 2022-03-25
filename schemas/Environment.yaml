@@ -7,7 +7,9 @@ properties:
     type: string
   description:
     type: string
+    nullable: true
   slug:
     type: string
   host:
     type: string
+    nullable: true

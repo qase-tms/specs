@@ -9,10 +9,13 @@ properties:
     type: string
   description:
     type: string
+    nullable: true
   preconditions:
     type: string
+    nullable: true
   postconditions:
     type: string
+    nullable: true
   severity:
     type: integer
   priority:
@@ -47,6 +50,7 @@ properties:
       $ref: 'Attachment.yaml'
   steps_type:
     type: string
+    nullable: true
   steps:
     type: array
     items:

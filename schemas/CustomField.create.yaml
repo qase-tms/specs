@@ -6,6 +6,11 @@ properties:
   value:
     type: array
     nullable: true
+    description: |
+      Required if type one of:
+      3 - selectbox;
+      5 - radio;
+      6 - multiselect;
     items:
       type: object
       properties:
@@ -62,4 +67,3 @@ required:
   - title
   - entity
   - type
-  - projects_codes

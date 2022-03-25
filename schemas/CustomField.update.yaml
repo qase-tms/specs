@@ -41,4 +41,3 @@ properties:
       type: string
 required:
   - title
-  - projects_codes

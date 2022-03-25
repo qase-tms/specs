@@ -51,7 +51,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '../schemas/Suite.create.yaml'
+          $ref: '../schemas/Suite.update.yaml'
   responses:
     200:
       description: A result of operation.

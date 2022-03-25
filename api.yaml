@@ -1356,7 +1356,22 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SuiteCreate'
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: Test suite title.
+                description:
+                  type: string
+                  description: Test suite description.
+                preconditions:
+                  type: string
+                  description: Test suite preconditions
+                parent_id:
+                  type: integer
+                  format: int64
+                  description: Parent suite ID
+                  nullable: true
       responses:
         '200':
           description: A result of operation.
@@ -1472,6 +1487,11 @@ components:
         value:
           type: array
           nullable: true
+          description: |
+            Required if type one of:
+            3 - selectbox;
+            5 - radio;
+            6 - multiselect;
           items:
             type: object
             properties:
@@ -1528,7 +1548,6 @@ components:
         - title
         - entity
         - type
-        - projects_codes
     CustomFieldUpdate:
       type: object
       properties:
@@ -1573,7 +1592,6 @@ components:
             type: string
       required:
         - title
-        - projects_codes
     CustomFieldValue:
       type: object
       properties:
@@ -2103,6 +2121,8 @@ components:
             required:
               - position
               - status
+      required:
+        - status
     ResultCreateBulk:
       type: object
       properties:

@@ -14,11 +14,13 @@ properties:
     type: string
   start_time:
     type: string
-    description: date in the 'Y-m-d H:i:s' format
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
     nullable: true
   end_time:
     type: string
-    description: date in the 'Y-m-d H:i:s' format
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
     nullable: true
   public:
     type: boolean

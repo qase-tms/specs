@@ -23,9 +23,10 @@ properties:
     type: array
     items:
       $ref: 'Attachment.yaml'
-  resolved:
+  resolved_at:
     type: string
     format: date-time
+    example: "2021-12-30T19:23:59+00:00"
     nullable: true
   project_id:
     type: integer

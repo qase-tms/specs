@@ -1356,22 +1356,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  description: Test suite title.
-                description:
-                  type: string
-                  description: Test suite description.
-                preconditions:
-                  type: string
-                  description: Test suite preconditions
-                parent_id:
-                  type: integer
-                  format: int64
-                  description: Parent suite ID
-                  nullable: true
+              $ref: '#/components/schemas/SuiteUpdate'
       responses:
         '200':
           description: A result of operation.
@@ -2557,6 +2542,23 @@ components:
           nullable: true
       required:
         - title
+    SuiteUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Test suite title.
+        description:
+          type: string
+          description: Test suite description.
+        preconditions:
+          type: string
+          description: Test suite preconditions
+        parent_id:
+          type: integer
+          format: int64
+          description: Parent suite ID
+          nullable: true
     SuiteDelete:
       type: object
       properties:

@@ -1626,9 +1626,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attachment'
-        resolved:
+        resolved_at:
           type: string
           format: date-time
+          example: '2021-12-30T19:23:59+00:00'
           nullable: true
         project_id:
           type: integer
@@ -1790,7 +1791,8 @@ components:
             - active
         due_date:
           type: string
-          description: 'date in the ''Y-m-d H:i:s'' format'
+          format: date-time
+          example: '2021-12-30T19:23:59+00:00'
           nullable: true
         created:
           deprecated: true
@@ -2025,7 +2027,8 @@ components:
           format: int64
         end_time:
           type: string
-          description: 'date in the ''Y-m-d H:i:s'' format'
+          format: date-time
+          example: '2021-12-30T19:23:59+00:00'
           nullable: true
         attachments:
           type: array
@@ -2210,11 +2213,13 @@ components:
           type: string
         start_time:
           type: string
-          description: 'date in the ''Y-m-d H:i:s'' format'
+          format: date-time
+          example: '2021-12-30T19:23:59+00:00'
           nullable: true
         end_time:
           type: string
-          description: 'date in the ''Y-m-d H:i:s'' format'
+          format: date-time
+          example: '2021-12-30T19:23:59+00:00'
           nullable: true
         public:
           type: boolean

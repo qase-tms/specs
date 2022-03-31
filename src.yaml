@@ -145,6 +145,7 @@ components:
     SharedStepUpdate: { $ref: './schemas/SharedStep.update.yaml' }
     Suite: { $ref: './schemas/Suite.yaml' }
     SuiteCreate: { $ref: './schemas/Suite.create.yaml' }
+    SuiteUpdate: { $ref: './schemas/Suite.update.yaml' }
     SuiteDelete: { $ref: './schemas/Suite.delete.yaml' }
     TagValue: { $ref: './schemas/Tag.value.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }

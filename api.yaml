@@ -2079,6 +2079,7 @@ components:
           nullable: true
         param:
           type: object
+          nullable: true
           maxProperties: 1
           description: A map of parameters (name => value)
           additionalProperties:

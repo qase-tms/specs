@@ -21,8 +21,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test suite is updated. It returns only ID of test suite and notifies that fields were updated.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test suite is updated. It returns only ID of test suite and notifies that fields were updated."
+}
+[/block]
 
 ### Event name
 
@@ -32,4 +36,4 @@ This event is being sent when a test suite is updated. It returns only ID of tes
 
 | Parameter | Type | Description   |
 |-----------|------|---------------|
-| id        | int  | Test suite ID |
+| id        | integer  | Test suite ID |

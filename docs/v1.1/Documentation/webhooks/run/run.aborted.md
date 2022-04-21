@@ -28,8 +28,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test run is aborted.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test run is aborted."
+}
+[/block]
 
 ### Event name
 
@@ -39,10 +43,11 @@ This event is being sent when a test run is aborted.
 
 | Parameter | Type | Description                   |
 |-----------|------|-------------------------------|
-| id        | int  | Test run ID                   |
-| cases     | int  | Amount of test cases in a run |
-| passed    | int  | Amount of passed cases        |
-| failed    | int  | Amount of failed cases        |
-| untested  | int  | Amount of untested cases      |
-| blocked   | int  | Amount of blocked cases       |
-| duration  | int  | Test run duration in seconds  |
+| id        | integer  | Test run ID                   |
+| cases     | integer  | Amount of test cases in a run |
+| passed    | integer  | Amount of passed cases        |
+| skiped    | integer  | Amount of skiped cases        |
+| failed    | integer  | Amount of failed cases        |
+| untested  | integer  | Amount of untested cases      |
+| blocked   | integer  | Amount of blocked cases       |
+| duration  | integer  | Test run duration in seconds  |

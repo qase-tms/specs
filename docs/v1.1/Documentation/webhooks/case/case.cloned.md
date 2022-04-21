@@ -22,8 +22,13 @@ Payload example:
   "project_code": "ID"
 }
 ```
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test case is cloned."
+}
+[/block]
 
-This event is being sent when a test case is cloned.
 
 ### Event name
 
@@ -33,5 +38,5 @@ This event is being sent when a test case is cloned.
 
 | Parameter | Type | Description             |
 |-----------|------|-------------------------|
-| id        | int  | Test case ID (clone)    |
-| from_id   | int  | Test case ID (original) |
+| id        | integer  | Test case ID (clone)    |
+| from_id   | integer  | Test case ID (original) |

@@ -13,16 +13,16 @@ Payload example:
 ```json
 {
   "event_name": "shared_step.created",
-  "timestamp": 1650540646,
+  "timestamp": 1650577292,
   "payload": {
-    "hash": "2563d587b756110934vea4185ce31b2b0dbf457c",
-    "title": "test",
+    "hash": "678ec0e6bf8ddeadfc241016f876923542a4761a",
+    "title": "fff",
     "steps": [
       {
-        "hash": "ed285acb6c7e575bce2576810c195ed8335e2812",
+        "hash": "40bf38b525073257aad38a51c5f5734f8b0f30b8",
         "action": "action",
-        "expected_result": "",
-        "data": "",
+        "expected_result": "expected",
+        "data": "data",
         "attachments": []
       }
     ]
@@ -31,8 +31,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a new shared step is created.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new shared step is created."
+}
+[/block]
 
 ### Event name
 
@@ -43,6 +47,5 @@ This event is being sent when a new shared step is created.
 | Parameter       | Type   | Description                 |
 |-----------------|--------|-----------------------------|
 | hash            | string | Shared step hash            |
-| title           | string | Shared step title           |
-| action          | string | Shared step action          |
-| expected_result | string | Shared step expected result |
+| steps     | array  | An array of steps|
+| data            | string | Shared step data            |

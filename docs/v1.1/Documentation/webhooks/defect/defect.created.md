@@ -25,8 +25,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a new defect is created.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new defect is created."
+}
+[/block]
 
 ### Event name
 
@@ -36,9 +40,8 @@ This event is being sent when a new defect is created.
 
 | Parameter     | Type   | Description                      |
 |---------------|--------|----------------------------------|
-| id            | int    | Defect ID                        |
+| id            | integer    | Defect ID                        |
 | title         | string | Defect title                     |
-| case_id       | int    | Test case ID where error occured |
-| step          | int    | Step where error occured         |
+| severity      | string    | Level of severity                |
 | actual_result | string | A text description of defect     |
 | attachments   | array  | An array of attachments ids.     |

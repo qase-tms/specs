@@ -25,8 +25,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a new test suite is created.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new test suite is created."
+}
+[/block]
 
 ### Event name
 
@@ -36,8 +40,8 @@ This event is being sent when a new test suite is created.
 
 | Parameter     | Type   | Description              |
 |---------------|--------|--------------------------|
-| id            | int    | Test suite ID            |
+| id            | integer    | Test suite ID            |
 | title         | string | Test suite title         |
 | description   | string | Test suite description   |
 | preconditions | string | Test suite preconditions |
-| parent_id     | int    | ID of parent test suite  |
+| parent_id     | integer    | ID of parent test suite  |

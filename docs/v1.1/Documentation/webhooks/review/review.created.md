@@ -21,8 +21,8 @@ Payload example:
     "case_id": 25,
     "project": "ID",
     "created_by": {
-      "email": "bib@bob.io",
-      "name": "Bib Bob"
+      "email": "bob@bar.io",
+      "name": "Bob Bar"
     },
     "created": "2022-04-21 09:47:38"
   },
@@ -30,8 +30,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a new test case review is created.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new test case review is created."
+}
+[/block]
 
 ### Event name
 
@@ -41,21 +45,19 @@ This event is being sent when a new test case review is created.
 
 | Parameter  | Type   | Description                                  |
 |------------|--------|----------------------------------------------|
-| id         | int    | Test case review ID                          |
-| title      | String | Test case title                              |
-| case_id    | int    | Test case ID                                 |
-| project    | String | Project code                                 |
-| type       | String | Possible value: `create`, `edit`             |
-| status     | String | Possible value: `open`, `merged`, `declined` |
-| created_by | User   | User object                                  |
-| created    | String | Test case review creation timestamp          |
+| id         | integer    | Test case review ID                          |
+| title      | string | Test case title                              |
+| case_id    | integer    | Test case ID                                 |
+| project    | string | Project code                                 |
+| created_by | object   | User object                                  |
+| created    | string | Test case review creation timestamp          |
 
 ### User object
 
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
-| email     | String | User email  |
-| name      | String | User name   |
+| email     | string | User email  |
+| name      | string | User name   |
 
 
 

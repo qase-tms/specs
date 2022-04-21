@@ -22,8 +22,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a public report visibility has been changed.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a public report visibility has been changed."
+}
+[/block]
 
 ### Event name
 
@@ -33,5 +37,5 @@ This event is being sent when a public report visibility has been changed.
 
 | Parameter | Type    | Description                                |
 |-----------|---------|--------------------------------------------|
-| id        | int     | Test run ID                                |
+| id        | integer     | Test run ID                                |
 | visible   | boolean | Shows if public report is available or not |

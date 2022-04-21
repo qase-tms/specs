@@ -74,8 +74,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a new test case is created.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new test case is created."
+}
+[/block]
 
 ### Event name
 
@@ -83,39 +87,40 @@ This event is being sent when a new test case is created.
 
 ### Payload fields
 
-| Parameter      | Type         | Description                                                                                                       |
+| Parameter      | Type         | Description                                                                      |
 |----------------|--------------|-------------------------------------------------------------------------------------------------------------------|
-| title          | String       | Test case title                                                                                                   |
+| id             | integer       | Test case title                                                                                                   |
+| title          | string       | Test case title                                                                                                   |
 | description    | string       | Test case description                                                                                             |
 | preconditions  | string       | Test case preconditions                                                                                           |
 | postconditions | string       | Test case postconditions                                                                                          |
-| severity       | string       | Possible value: `undefined`, `blocked`, `critical`, `major`, `normal`, `minor`, `trivial`                         |
-| priority       | string       | Possible value: `undefined`, `high`, `medium`, `low`                                                              |
-| type           | string       | Possible value: `other`, `functional` `smoke`, `regression`, `security`, `usability`, `performance`, `acceptance` |
-| behavior       | string       | Possible value: `undefined`, `positive` `negative`, `destructive`                                                 |
-| suite_id       | int          | Suite ID (nullable)                                                                                               |
-| milestone_id   | int          | Milestone_id (nullable)                                                                                           |
-| is_automated   | bool         |                                                                                                                   |
-| is_deprecated  | bool         |                                                                                                                   |
-| revision       | int          | Test case version                                                                                                 |
-| steps          | step         | An array of test steps objects.                                                                                   |
+| severity       | object       | An object of test case severity                         |
+| priority       | object       | An object of test case priority                                                          |
+| type           | object       | An object of test case type |
+| status           | object       | An object of test case status |
+| automation           | object       | An object of test case automation status |
+| behavior       | object       | An object of test case behavior                                                |
+| suite_id       | integer          | Suite ID (nullable)                                                                                               |
+| milestone_id   | integer          | Milestone_id (nullable)                                                                                           |
+| steps          | array         | An array of test steps objects.                                                                                   |
 | attachments    | array        | An array of attachments ids.                                                                                      |
-| custom_fields  | custom_field | An array of custom fields objects.                                                                                |
+| custom_fields  | array | An array of custom fields objects.                                                                                |
 
 #### Step object
 
 | Parameter       | Type   | Description                                                         |
 |-----------------|--------|---------------------------------------------------------------------|
-| position        | int    | Step position                                                       |
+| position        | integer    | Step position                                                       |
 | action          | string | Required field (if shared_step_id is not provided). Can't be empty. |
 | expected_result | string |                                                                     |
-| shared_hash     | id     | A hash of shared step.                                              |
+| shared     | boolean     | Actual status step                                             |
 | attachments     | array  | An array of attachments IDs.                                        |
 
 #### Custom field object
 
-| Parameter | Type   | Description                            |
-|-----------|--------|----------------------------------------|
-| field_id  | string | An ID of custom field. Required field. |
-| value     | string | Custom field value. Required field.    |
-
+| Parameter     | Type    | Description                                                                                         |
+|---------------|---------|-----------------------------------------------------------------------------------------------------|
+| id            | integer     | Custom field ID                                                                                     |
+| title         | string  | Custom field title                                                                                  |
+| value         | string  | Available only for selectbox fields. An object with selectbox values.                               |
+| type          | string  | Custom field type. Available values: `number`, `string`, `text`, `selectbox`, `checkbox`.           |

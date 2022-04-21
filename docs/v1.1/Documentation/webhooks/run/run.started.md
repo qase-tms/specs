@@ -18,7 +18,10 @@ Payload example:
     "id": 1,
     "title": "Test run 2022/04/21",
     "description": null,
-    "plan": null,
+     "plan": {
+      "id": 3,
+      "title": "d"
+    },
     "cases_count": 14,
     "environment": null
   },
@@ -26,8 +29,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a new test run is started.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new test run is started."
+}
+[/block]
 
 ### Event name
 
@@ -37,9 +44,9 @@ This event is being sent when a new test run is started.
 
 | Parameter   | Type   | Description                 |
 |-------------|--------|-----------------------------|
-| id          | int    | Test run ID                 |
+| id          | integer    | Test run ID                 |
 | title       | string | Test run title              |
 | description | string | Test run description        |
-| plan_id     | int    | Test plan ID. Nullable.     |
-| cases_count | int    | Amount of test cases in run |
+| plan        | object | Test plan ID and title.     |
+| cases_count | integer    | Amount of test cases in run |
 | environment | string | Environment slug. Nullable. |

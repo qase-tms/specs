@@ -25,8 +25,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test case reviewer is removed.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test case reviewer is removed."
+}
+[/block]
 
 ### Event name
 
@@ -36,5 +40,5 @@ This event is being sent when a test case reviewer is removed.
 
 | Parameter | Type | Description         |
 |-----------|------|---------------------|
-| id        | int  | Test case review ID |
-| reviewer  | User | User object         |
+| id        | integer  | Test case review ID |
+| reviewer  | object | User object         |

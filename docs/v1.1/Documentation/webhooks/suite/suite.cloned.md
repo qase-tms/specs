@@ -22,8 +22,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test suite is cloned.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test suite is cloned."
+}
+[/block]
 
 ### Event name
 
@@ -33,5 +37,5 @@ This event is being sent when a test suite is cloned.
 
 | Parameter | Type | Description              |
 |-----------|------|--------------------------|
-| id        | int  | Test suite ID (clone)    |
-| from_id   | int  | Test suite ID (original) |
+| id        | integer  | Test suite ID (clone)    |
+| from_id   | integer  | Test suite ID (original) |

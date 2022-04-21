@@ -22,8 +22,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test plan is updated and new test cases were added.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test plan is updated and new test cases were added."
+}
+[/block]
 
 ### Event name
 
@@ -33,5 +37,5 @@ This event is being sent when a test plan is updated and new test cases were add
 
 | Parameter   | Type  | Description                           |
 |-------------|-------|---------------------------------------|
-| id          | int   | Test run ID                           |
-| cases_added | array | Amount of test cases added to the run |
+| id          | integer   | Test run ID                       |
+| cases_count | integer    | Amount of test cases in run      |

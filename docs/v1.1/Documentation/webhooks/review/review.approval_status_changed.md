@@ -18,16 +18,20 @@ Payload example:
     "id": 2,
     "status": "approved",
     "updated_by": {
-      "email": "apetrov@qase.io",
-      "name": "Alexey Petrov"
+      "email": "bob@bar.io",
+      "name": "Bob Bar"
     }
   },
   "team_member_id": 48,
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test case review approval status is changed.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test case review approval status is changed."
+}
+[/block]
 
 ### Event name
 
@@ -37,6 +41,6 @@ This event is being sent when a test case review approval status is changed.
 
 | Parameter  | Type   | Description                                                 |
 |------------|--------|-------------------------------------------------------------|
-| id         | int    | Test case review ID                                         |
-| status     | String | Possible value: `unapproved`, `approved`, `request changes` |
-| updated_by | User   | User object                                                 |
+| id         | integer    | Test case review ID                                         |
+| status     | string | Possible value: `unapproved`, `approved`, `request changes` |
+| updated_by | object   | User object                                                 |

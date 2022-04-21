@@ -52,8 +52,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test case review is deleted.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test case review is deleted."
+}
+[/block]
 
 ### Event name
 
@@ -61,7 +65,13 @@ This event is being sent when a test case review is deleted.
 
 ### Payload fields
 
-| Parameter  | Type | Description         |
-|------------|------|---------------------|
-| id         | int  | Test case review ID |
-| deleted_by | User | User object         |
+| Parameter  | Type   | Description                         |
+|------------|--------|-------------------------------------|
+| id         | integer    | Test case review ID                 |
+| title      | string | Test case title                     |
+| case_id    | integer    | Test case ID                        |
+| project    | string | Project code                        |
+| data       | objeact | Test case review object             |
+| updated_by | object   | User object                         |
+| approves   | array  | Approve objects array               |
+| updated    | string | Test case review update timestamp   |

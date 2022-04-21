@@ -17,16 +17,20 @@ Payload example:
   "payload": {
     "id": 1,
     "deleted_by": {
-      "email": "bib@bob.io",
-      "name": "Bib Bob"
+      "email": "bob@bar.io",
+      "name": "Bob Bar"
     }
   },
   "team_member_id": 40,
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test case review is deleted.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test case review is deleted."
+}
+[/block]
 
 ### Event name
 
@@ -36,5 +40,5 @@ This event is being sent when a test case review is deleted.
 
 | Parameter  | Type | Description         |
 |------------|------|---------------------|
-| id         | int  | Test case review ID |
-| deleted_by | User | User object         |
+| id         | integer  | Test case review ID |
+| deleted_by | object | User object         |

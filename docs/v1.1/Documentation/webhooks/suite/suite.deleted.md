@@ -21,8 +21,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test suite is deleted.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test suite is deleted."
+}
+[/block]
 
 ### Event name
 
@@ -32,4 +36,4 @@ This event is being sent when a test suite is deleted.
 
 | Parameter | Type | Description   |
 |-----------|------|---------------|
-| id        | int  | Test suite ID |
+| id        | integer  | Test suite ID |

@@ -21,8 +21,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a defect is deleted.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a defect is deleted."
+}
+[/block]
 
 ### Event name
 
@@ -32,5 +36,5 @@ This event is being sent when a defect is deleted.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| id        | int  | Defect ID   |
+| id        | integer  | Defect ID   |
 

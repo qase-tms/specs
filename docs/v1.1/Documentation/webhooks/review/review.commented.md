@@ -16,18 +16,22 @@ Payload example:
   "timestamp": 1650534928,
   "payload": {
     "id": 2,
-    "comment": "c",
+    "comment": "comment",
     "commented_by": {
-      "email": "bib@bob.io",
-      "name": "Bib Bob"
+      "email": "bob@bar.io",
+      "name": "Bob Bar"
     }
   },
   "team_member_id": 40,
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test case review is commented.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test case review is commented."
+}
+[/block]
 
 ### Event name
 
@@ -35,10 +39,11 @@ This event is being sent when a test case review is commented.
 
 ### Payload fields
 
-| Parameter    | Type | Description         |
-|--------------|------|---------------------|
-| id           | int  | Test case review ID |
-| commented_by | User | User object         |
+| Parameter    | Type    | Description            |
+|--------------|---------|------------------------|
+| id           | integer     | Test case review ID    |
+| comment      | string  | Comment in test review |
+| commented_by | object    | User object            |
 
 
 

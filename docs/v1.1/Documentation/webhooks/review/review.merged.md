@@ -17,16 +17,20 @@ Payload example:
   "payload": {
     "id": 2,
     "merged_by": {
-      "email": "apetrov@qase.io",
-      "name": "Alexey Petrov"
+      "email": "bob@bar.io",
+      "name": "Bob Bar"
     }
   },
   "team_member_id": 48,
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test case review is merged.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test case review is merged."
+}
+[/block]
 
 ### Event name
 
@@ -36,5 +40,5 @@ This event is being sent when a test case review is merged.
 
 | Parameter | Type | Description         |
 |-----------|------|---------------------|
-| id        | int  | Test case review ID |
-| merged_by | User | User object         |
+| id        | integer  | Test case review ID |
+| merged_by | object | User object         |

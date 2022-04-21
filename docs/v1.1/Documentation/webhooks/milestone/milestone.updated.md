@@ -21,8 +21,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a milestone is updated.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a milestone is updated."
+}
+[/block]
 
 ### Event name
 
@@ -32,4 +36,4 @@ This event is being sent when a milestone is updated.
 
 | Parameter | Type | Description  |
 |-----------|------|--------------|
-| id        | int  | Milestone ID |
+| id        | integer  | Milestone ID |

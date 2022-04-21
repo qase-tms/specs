@@ -49,6 +49,6 @@ All requests that are produced by Qase are `POST` requests with data in `JSON` f
 |----------------|---------|----------------------------------------------|
 | event_name     | string  | Event name                                   |
 | timestamp      | integer | Time when event has been triggered           |
-| payload        | array   | An object with payload data related to event |
+| payload        | object  | An object with payload data related to event |
 | team_member_id | integer | Action initiator                             |
 | project_code   | string  | Project code where the event takes place     |

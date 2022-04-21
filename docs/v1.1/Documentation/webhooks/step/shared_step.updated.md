@@ -21,8 +21,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a shared step is updated.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a shared step is updated."
+}
+[/block]
 
 ### Event name
 

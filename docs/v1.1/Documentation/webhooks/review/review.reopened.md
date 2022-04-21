@@ -44,8 +44,8 @@ Payload example:
     },
     "approves": [],
     "updated_by": {
-      "email": "bib@bob.io",
-      "name": "Bib Bob"
+      "email": "bob@bar.io",
+      "name": "Bob Bar"
     },
     "updated": "2022-04-21 09:54:09"
   },
@@ -53,8 +53,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a test case review is reopened.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test case review is reopened."
+}
+[/block]
 
 ### Event name
 
@@ -64,11 +68,11 @@ This event is being sent when a test case review is reopened.
 
 | Parameter  | Type   | Description                         |
 |------------|--------|-------------------------------------|
-| id         | int    | Test case review ID                 |
-| title      | String | Test case title                     |
-| case_id    | int    | Test case ID                        |
-| project    | String | Project code                        |
-| data       | Object | Test case review object             |
-| updated_by | User   | User object                         |
-| approves   | Array  | Approve objects array               |
-| created    | String | Test case review creation timestamp |
+| id         | integer    | Test case review ID                 |
+| title      | string | Test case title                     |
+| case_id    | integer    | Test case ID                        |
+| project    | string | Project code                        |
+| data       | object | Test case review object             |
+| updated_by | object   | User object                         |
+| approves   | array  | Approve objects array               |
+| updated    | string | Test case review update timestamp   |

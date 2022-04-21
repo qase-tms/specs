@@ -21,8 +21,12 @@ Payload example:
   "project_code": "ID"
 }
 ```
-
-This event is being sent when a shared_step is deleted.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a shared_step is deleted."
+}
+[/block]
 
 ### Event name
 

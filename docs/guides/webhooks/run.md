@@ -1,32 +1,15 @@
-# Test Run webhooks
-
-| Navigate |
-| - |
-| [run.started](#created) |
-| [run.updated](#updated) |
-| [run.aborted](#aborted) |
-| [run.completed](#completed) |
-| [run.deleted](#deleted) |
-| [run.report_changed](#report_changed) |
-
 ## Started
 
 Payload example:
 
 ```json
 {
-  "event_name": "run.started",
-  "timestamp": 1650540069,
-  "payload": {
     "id": 1,
-    "title": "Test run 2022/04/21",
-    "description": null,
-    "plan": null,
-    "cases_count": 14,
+    "title": "Test run",
+    "description": "Regression",
+    "plan": 1,
+    "cases_count": 100,
     "environment": null
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
 }
 ```
 
@@ -53,14 +36,8 @@ Payload example:
 
 ```json
 {
-  "event_name": "run.updated",
-  "timestamp": 1650540114,
-  "payload": {
     "id": 1,
-    "cases_added": 14
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+    "cases_added": 100
 }
 ```
 
@@ -83,20 +60,13 @@ Payload example:
 
 ```json
 {
-  "event_name": "run.aborted",
-  "timestamp": 1650540148,
-  "payload": {
     "id": 1,
-    "cases": 14,
-    "passed": 0,
-    "untested": 14,
-    "failed": 0,
-    "blocked": 0,
-    "skipped": 0,
-    "duration": 0
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+    "cases": 40,
+    "passed": 10,
+    "untested": 10,
+    "failed": 10,
+    "blocked": 10,
+    "duration": 600
 }
 ```
 
@@ -124,18 +94,12 @@ Payload example:
 
 ```json
 {
-  "event_name": "run.completed",
-  "timestamp": 1650540194,
-  "payload": {
-    "id": 2,
-    "cases": 14,
-    "passed": 0,
-    "failed": 0,
-    "blocked": 0,
-    "duration": 0
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+    "id": 1,
+    "cases": 40,
+    "passed": 10,
+    "failed": 10,
+    "blocked": 10,
+    "duration": 600
 }
 ```
 
@@ -162,13 +126,7 @@ Payload example:
 
 ```json
 {
-  "event_name": "run.deleted",
-  "timestamp": 1650540289,
-  "payload": {
     "id": 1
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
 }
 ```
 
@@ -190,14 +148,8 @@ Payload example:
 
 ```json
 {
-  "event_name": "run.report_changed",
-  "timestamp": 1650540222,
-  "payload": {
-    "id": 2,
+    "id": 1,
     "visible": true
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
 }
 ```
 

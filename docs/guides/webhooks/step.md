@@ -1,34 +1,13 @@
-# Shared step webhooks
-
-| Navigate |
-| - |
-| [shared_step.created](#created) |
-| [shared_step.updated](#updated) |
-| [shared_step.deleted](#deleted) |
-
 ## Created
 
 Payload example:
 
 ```json
 {
-  "event_name": "shared_step.created",
-  "timestamp": 1650540646,
-  "payload": {
-    "hash": "2563d587b756110934vea4185ce31b2b0dbf457c",
-    "title": "eede",
-    "steps": [
-      {
-        "hash": "ed285acb6c7e575bce2576810c195ed8335e2812",
-        "action": "ede",
-        "expected_result": "",
-        "data": "",
-        "attachments": []
-      }
-    ]
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+    "hash": "0223905c291bada23e6049d415385982af92d758",
+    "title": "Shared step",
+    "action": "Open web page",
+    "expected_result": "Web page is opened"
 }
 ```
 
@@ -53,13 +32,7 @@ Payload example:
 
 ```json
 {
-  "event_name": "shared_step.updated",
-  "timestamp": 1650540693,
-  "payload": {
-    "hash": "2563d597b756810934dea4185ce31b2b0dbf377c"
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+    "hash": "0223905c291bada23e6049d415385982af92d758"
 }
 ```
 
@@ -81,13 +54,7 @@ Payload example:
 
 ```json
 {
-  "event_name": "shared_step.deleted",
-  "timestamp": 1650540719,
-  "payload": {
-    "hash": "2563d587b856810934dea4185ce31b9b0dbf352c"
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+    "hash": "0223905c291bada23e6049d415385982af92d758"
 }
 ```
 

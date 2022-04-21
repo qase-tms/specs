@@ -1,0 +1,40 @@
+---
+title: "Test review webhooks"
+excerpt: "Reviewer removed event"
+slug: "review.reviewer_removed"
+createdAt: "2022-04-21T21:00:00.000Z"
+hidden: false
+---
+
+## Reviewer removed
+
+Payload example:
+
+```json
+{
+  "event_name": "review.reviewer_removed",
+  "timestamp": 1650534974,
+  "payload": {
+    "id": 2,
+    "reviewer": {
+      "email": "bib@bob.io",
+      "name": "Bib Bob"
+    }
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
+}
+```
+
+This event is being sent when a test case reviewer is removed.
+
+### Event name
+
+`review.reviewer_removed`
+
+### Payload fields
+
+| Parameter | Type | Description         |
+|-----------|------|---------------------|
+| id        | int  | Test case review ID |
+| reviewer  | User | User object         |

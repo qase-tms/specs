@@ -1,29 +1,77 @@
+---
+title: "Test case webhooks"
+excerpt: "Created event"
+slug: "case.created"
+createdAt: "2022-04-21T21:00:00.000Z"
+hidden: false
+---
+
 ## Created
 
 Payload example:
 
 ```json
 {
-    "id": 5,
-    "position": 1,
-    "title": "Test case",
-    "description": "Description for case",
-    "preconditions": "",
-    "postconditions": "",
-    "severity": "blocker",
-    "priority": "high",
-    "type": "functional",
-    "behavior": "position",
-    "is_automated": false,
-    "is_deprecated": false,
+  "event_name": "case.created",
+  "timestamp": 1650530190,
+  "payload": {
+    "id": 1610,
+    "title": "Example test case",
+    "description": "Description test case",
+    "preconditions": "something",
+    "postconditions": "something",
+    "priority": {
+      "id": 2,
+      "title": "Medium",
+      "icon": "genderless",
+      "color": "medium"
+    },
+    "severity": {
+      "id": 4,
+      "title": "Normal",
+      "icon": "genderless",
+      "color": "normal"
+    },
+    "behavior": {
+      "id": 2,
+      "title": "Positive"
+    },
+    "type": {
+      "id": 8,
+      "title": "Functional"
+    },
+    "automation": {
+      "id": 1,
+      "title": "To be automated"
+    },
+    "status": {
+      "id": 0,
+      "title": "Actual"
+    },
+    "suite_id": 12,
     "milestone_id": null,
-    "suite_id": 1,
-    "revision": 1,
-    "custom_fields": [],
+    "steps": [
+      {
+        "position": 1,
+        "action": "simple action",
+        "expected_result": "expected result",
+        "data": "input data",
+        "attachments": [],
+        "shared": false
+      }
+    ],
     "attachments": [],
-    "steps": [],
-    "created": "2019-07-21T13:24:08.000000Z",
-    "updated": "2019-07-21T13:24:08.000000Z"
+    "custom_fields": [
+      {
+        "id": 174,
+        "title": "Test Number",
+        "type": "number",
+        "value": "1"
+      }
+    ]
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -71,71 +119,3 @@ This event is being sent when a new test case is created.
 | field_id  | string | An ID of custom field. Required field. |
 | value     | string | Custom field value. Required field.    |
 
-## Updated
-
-Payload example:
-
-```json
-{
-    "id": 5
-}
-```
-
-This event is being sent when a test case is updated. It returns only ID of test case and notifies that fields were
-updated.
-
-### Event name
-
-`case.updated`
-
-### Payload fields
-
-| Parameter | Type | Description  |
-|-----------|------|--------------|
-| id        | int  | Test case ID |
-
-## Deleted
-
-Payload example:
-
-```json
-{
-    "id": 5
-}
-```
-
-This event is being sent when a test case is deleted.
-
-### Event name
-
-`case.deleted`
-
-### Payload fields
-
-| Parameter | Type | Description  |
-|-----------|------|--------------|
-| id        | int  | Test case ID |
-
-## Cloned
-
-Payload example:
-
-```json
-{
-    "id": 5,
-    "from_id": 1
-}
-```
-
-This event is being sent when a test case is cloned.
-
-### Event name
-
-`case.cloned`
-
-### Payload fields
-
-| Parameter | Type | Description             |
-|-----------|------|-------------------------|
-| id        | int  | Test case ID (clone)    |
-| from_id   | int  | Test case ID (original) |

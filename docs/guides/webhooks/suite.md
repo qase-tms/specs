@@ -1,30 +1,14 @@
-# Test Suite webhooks
-
-| Navigate |
-| - |
-| [suite.created](#created) |
-| [suite.updated](#updated) |
-| [suite.deleted](#deleted) |
-| [suite.cloned](#cloned) |
-
-
 ## Created
 
 Payload example:
 
 ```json
 {
-  "event_name": "suite.created",
-  "timestamp": 1650540917,
-  "payload": {
-    "id": 312,
-    "title": "d",
-    "description": null,
-    "preconditions": null,
-    "parent_id": null
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+     "id": 1,
+     "title": "Test suite",
+     "description": "Authorization",
+     "preconditions": "",
+     "parent_id": null
 }
 ```
 
@@ -50,13 +34,7 @@ Payload example:
 
 ```json
 {
-  "event_name": "suite.updated",
-  "timestamp": 1650540955,
-  "payload": {
-    "id": 11
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+     "id": 5
 }
 ```
 
@@ -78,13 +56,7 @@ Payload example:
 
 ```json
 {
-  "event_name": "suite.deleted",
-  "timestamp": 1650540989,
-  "payload": {
-    "id": 313
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+     "id": 1
 }
 ```
 
@@ -106,14 +78,8 @@ Payload example:
 
 ```json
 {
-  "event_name": "suite.cloned",
-  "timestamp": 1650541053,
-  "payload": {
-    "id": 314,
-    "from_id": 13
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+     "id": 2,
+     "from_id": 1
 }
 ```
 

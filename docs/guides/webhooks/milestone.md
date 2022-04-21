@@ -1,26 +1,12 @@
-# Milestone webhooks
-
-| Navigate |
-| - |
-| [milestone.created](#created) |
-| [milestone.updated](#updated) |
-| [milestone.deleted](#deleted) |
-
 ## Created
 
 Payload example:
 
 ```json
 {
-  "event_name": "milestone.created",
-  "timestamp": 1650533865,
-  "payload": {
-    "id": 70673,
-    "title": "example",
-    "description": "description"
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
+    "id": 1,
+    "title": "Release 1.0",
+    "description": "First release of our app"
 }
 ```
 
@@ -44,13 +30,7 @@ Payload example:
 
 ```json
 {
-  "event_name": "milestone.updated",
-  "timestamp": 1650533896,
-  "payload": {
     "id": 1
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
 }
 ```
 
@@ -72,13 +52,7 @@ Payload example:
 
 ```json
 {
-  "event_name": "milestone.deleted",
-  "timestamp": 1650533914,
-  "payload": {
     "id": 1
-  },
-  "team_member_id": 40,
-  "project_code": "ID"
 }
 ```
 

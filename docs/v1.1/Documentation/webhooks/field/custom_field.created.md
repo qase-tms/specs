@@ -1,17 +1,32 @@
+---
+title: "Custom field webhooks"
+excerpt: "Created event"
+slug: "custom_field.created"
+createdAt: "2022-04-21T21:00:00.000Z"
+hidden: false
+---
+
 ## Created
 
 Payload example:
 
 ```json
 {
-    "id": 1,
-    "title": "Text",
+  "event_name": "custom_field.created",
+  "timestamp": 1650533521,
+  "payload": {
+    "id": 208,
+    "title": "test",
     "isRequired": false,
     "isFilterable": false,
-    "isVisible": false,
-    "default_value": "",
-    "value": null,
-    "type": "string"
+    "isVisible": true,
+    "default_value": "5",
+    "value": "[]",
+    "type": "number",
+    "entity": "case"
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -33,47 +48,3 @@ This event is being sent when a new custom field is created.
 | default_value | string  | Default value for custom field                                                                      |
 | value         | object  | Available only for selectbox fields. An object with selectbox values.                               |
 | type          | string  | Custom field type. Available values: `number`, `string`, `text`, `selectbox`, `checkbox`.           |
-
-## Updated
-
-Payload example:
-
-```json
-{
-    "id": 1
-}
-```
-
-This event is being sent when a custom field is updated.
-
-### Event name
-
-`custom_field.updated`
-
-### Payload fields
-
-| Parameter | Type | Description     |
-|-----------|------|-----------------|
-| id        | int  | Custom field ID |
-
-## Deleted
-
-Payload example:
-
-```json
-{
-    "id": 1
-}
-```
-
-This event is being sent when a custom field is deleted.
-
-### Event name
-
-`custom_field.deleted`
-
-### Payload fields
-
-| Parameter | Type | Description     |
-|-----------|------|-----------------|
-| id        | int  | Custom field ID |

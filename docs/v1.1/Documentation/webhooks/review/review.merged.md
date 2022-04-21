@@ -1,0 +1,40 @@
+---
+title: "Test review webhooks"
+excerpt: "Merged event"
+slug: "review.merged"
+createdAt: "2022-04-21T21:00:00.000Z"
+hidden: false
+---
+
+## Merged
+
+Payload example:
+
+```json
+{
+  "event_name": "review.merged",
+  "timestamp": 1650544276,
+  "payload": {
+    "id": 2,
+    "merged_by": {
+      "email": "apetrov@qase.io",
+      "name": "Alexey Petrov"
+    }
+  },
+  "team_member_id": 48,
+  "project_code": "ID"
+}
+```
+
+This event is being sent when a test case review is merged.
+
+### Event name
+
+`review.merged`
+
+### Payload fields
+
+| Parameter | Type | Description         |
+|-----------|------|---------------------|
+| id        | int  | Test case review ID |
+| merged_by | User | User object         |

@@ -1,29 +1,96 @@
+# Test Case webhooks
+
+| Navigate |
+| :-: |
+| [case.created](#created) |
+| [case.updated](#updated) |
+| [case.deleted](#deleted) |
+| [case.cloned](#cloned) |
+
+[block:link]
+{
+  "data": {
+    "h-0": "Webhooks",
+    "0-0": "case.created",
+    "1-0": "case.updated",
+    "2-0": "case.deleted",
+    "3-0": "case.cloned",
+    "0-1": "#created",
+    "1-1": "#updated",
+    "2-1": "#deleted",
+    "3-1": "#cloned"
+  },
+  "cols": 2,
+  "rows": 5
+}
+[/block]
+
 ## Created
 
 Payload example:
 
 ```json
 {
-    "id": 5,
-    "position": 1,
-    "title": "Test case",
-    "description": "Description for case",
-    "preconditions": "",
-    "postconditions": "",
-    "severity": "blocker",
-    "priority": "high",
-    "type": "functional",
-    "behavior": "position",
-    "is_automated": false,
-    "is_deprecated": false,
+  "event_name": "case.created",
+  "timestamp": 1650530190,
+  "payload": {
+    "id": 1610,
+    "title": "Example test case",
+    "description": "Description test case",
+    "preconditions": "something",
+    "postconditions": "something",
+    "priority": {
+      "id": 2,
+      "title": "Medium",
+      "icon": "genderless",
+      "color": "medium"
+    },
+    "severity": {
+      "id": 4,
+      "title": "Normal",
+      "icon": "genderless",
+      "color": "normal"
+    },
+    "behavior": {
+      "id": 2,
+      "title": "Positive"
+    },
+    "type": {
+      "id": 8,
+      "title": "Functional"
+    },
+    "automation": {
+      "id": 1,
+      "title": "To be automated"
+    },
+    "status": {
+      "id": 0,
+      "title": "Actual"
+    },
+    "suite_id": 12,
     "milestone_id": null,
-    "suite_id": 1,
-    "revision": 1,
-    "custom_fields": [],
+    "steps": [
+      {
+        "position": 1,
+        "action": "simple action",
+        "expected_result": "expected result",
+        "data": "input data",
+        "attachments": [],
+        "shared": false
+      }
+    ],
     "attachments": [],
-    "steps": [],
-    "created": "2019-07-21T13:24:08.000000Z",
-    "updated": "2019-07-21T13:24:08.000000Z"
+    "custom_fields": [
+      {
+        "id": 174,
+        "title": "Test Number",
+        "type": "number",
+        "value": "1"
+      }
+    ]
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -77,7 +144,13 @@ Payload example:
 
 ```json
 {
-    "id": 5
+  "event_name": "case.updated",
+  "timestamp": 1650530630,
+  "payload": {
+    "id": 1610
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -100,7 +173,13 @@ Payload example:
 
 ```json
 {
-    "id": 5
+  "event_name": "case.deleted",
+  "timestamp": 1650530938,
+  "payload": {
+    "id": 1611
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -122,8 +201,14 @@ Payload example:
 
 ```json
 {
-    "id": 5,
-    "from_id": 1
+  "event_name": "case.cloned",
+  "timestamp": 1650530878,
+  "payload": {
+    "id": 1611,
+    "from_id": 1610
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 

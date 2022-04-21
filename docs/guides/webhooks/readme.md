@@ -15,16 +15,27 @@ Request example:
 
 ```json
 {
-    "event": "case.created",
-    "timestamp": 1570000000,
-    "payload": {}
+  "event_name": "run.started",
+  "timestamp": 1650540069,
+  "payload": {
+    "id": 1,
+    "title": "Test run 2022/04/21",
+    "description": null,
+    "plan": null,
+    "cases_count": 14,
+    "environment": null
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
 All requests that are produced by Qase are `POST` requests with data in `JSON` format with following data structure:
 
-| Parameter | Type    | Description                                  |
-|-----------|---------|----------------------------------------------|
-| event     | string  | Event name                                   |
-| timestamp | integer | Time when event has been triggered           |
-| payload   | array   | An object with payload data related to event |
+| Parameter      | Type    | Description                                  |
+|----------------|---------|----------------------------------------------|
+| event_name     | string  | Event name                                   |
+| timestamp      | integer | Time when event has been triggered           |
+| payload        | array   | An object with payload data related to event |
+| team_member_id | integer | Action initiator                             |
+| project_code   | string  | Project code where the event takes place     |

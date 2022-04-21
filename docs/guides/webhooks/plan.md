@@ -1,17 +1,30 @@
+# Test Plan webhooks
+
+| Navigate |
+| - |
+| [plan.created](#created) |
+| [plan.updated](#updated) |
+| [plan.deleted](#deleted) |
+
+
 ## Created
 
 Payload example:
 
 ```json
 {
-    "id": 1,
-    "title": "Test suite",
-    "description": "Authorization",
-    "cases": [
-        1,
-        2,
-        3
-    ]
+  "event_name": "plan.created",
+  "timestamp": 1650534130,
+  "payload": {
+    "id": 2,
+    "title": "dd",
+    "description": "d",
+    "cases": {
+      "1033": 0
+    }
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -36,7 +49,16 @@ Payload example:
 
 ```json
 {
-    "id": 5
+  "event_name": "plan.updated",
+  "timestamp": 1650534183,
+  "payload": {
+    "id": 2,
+    "cases": {
+      "1033": 0
+    }
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -59,12 +81,13 @@ Payload example:
 
 ```json
 {
-    "id": 1,
-    "cases": [
-        1,
-        2,
-        3
-    ]
+  "event_name": "plan.deleted",
+  "timestamp": 1650534261,
+  "payload": {
+    "id": 59884
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 

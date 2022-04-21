@@ -1,17 +1,32 @@
+# Custom Field webhooks
+
+| Navigate |
+| - |
+| [custom_field.created](#created) |
+| [custom_field.updated](#updated) |
+| [custom_field.deleted](#deleted) |
+
 ## Created
 
 Payload example:
 
 ```json
 {
-    "id": 1,
-    "title": "Text",
+  "event_name": "custom_field.created",
+  "timestamp": 1650533521,
+  "payload": {
+    "id": 208,
+    "title": "test",
     "isRequired": false,
     "isFilterable": false,
-    "isVisible": false,
-    "default_value": "",
-    "value": null,
-    "type": "string"
+    "isVisible": true,
+    "default_value": "5",
+    "value": "[]",
+    "type": "number",
+    "entity": "case"
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -40,7 +55,21 @@ Payload example:
 
 ```json
 {
-    "id": 1
+  "event_name": "custom_field.updated",
+  "timestamp": 1650533629,
+  "payload": {
+    "id": 208,
+    "title": "test e",
+    "isRequired": false,
+    "isFilterable": false,
+    "isVisible": true,
+    "default_value": "5",
+    "value": "[]",
+    "type": "number",
+    "entity": "case"
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 
@@ -62,7 +91,21 @@ Payload example:
 
 ```json
 {
-    "id": 1
+  "event_name": "custom_field.deleted",
+  "timestamp": 1650533655,
+  "payload": {
+    "id": 208,
+    "title": "test e",
+    "isRequired": false,
+    "isFilterable": false,
+    "isVisible": true,
+    "default_value": "5",
+    "value": "[]",
+    "type": "number",
+    "entity": "case"
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: "Defect webhooks"
+title: "Defect"
 excerpt: "This page contains information about events called in the entity Defect"
 slug: "defect"
 createdAt: "2022-04-21T21:00:00.000Z"

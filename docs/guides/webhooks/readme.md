@@ -1,6 +1,6 @@
 ---
-title: "Webhooks from Qase"
-excerpt: "This page will help you get started use webhooks Qase."
+title: "Webhooks"
+excerpt: "This page will help you get started use webhooks Qase"
 slug: "webhooks"
 createdAt: "2022-04-21T21:00:00.000Z"
 hidden: false

@@ -1,5 +1,5 @@
 ---
-title: "Shared Step webhooks"
+title: "Shared Step"
 excerpt: "This page contains information about events called in the entity Shared Step"
 slug: "shared_step"
 createdAt: "2022-04-21T21:00:00.000Z"

@@ -1,5 +1,5 @@
 ---
-title: "Test Case webhooks"
+title: "Test Case"
 excerpt: "This page contains information about events called in the entity Test Case"
 slug: "case"
 createdAt: "2022-04-21T21:00:00.000Z"

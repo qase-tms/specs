@@ -1,18 +1,36 @@
-## Created
+---
+title: "Test Suite webhooks"
+excerpt: "This page contains information about events called in the entity Test Suite"
+slug: "suite"
+createdAt: "2022-04-21T21:00:00.000Z"
+hidden: false
+---
+
+## Created Test Suite
 
 Payload example:
 
 ```json
 {
-     "id": 1,
-     "title": "Test suite",
-     "description": "Authorization",
-     "preconditions": "",
-     "parent_id": null
+  "event_name": "suite.created",
+  "timestamp": 1650540917,
+  "payload": {
+    "id": 312,
+    "title": "d",
+    "description": null,
+    "preconditions": null,
+    "parent_id": null
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
-
-This event is being sent when a new test suite is created.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new test suite is created."
+}
+[/block]
 
 ### Event name
 
@@ -22,68 +40,34 @@ This event is being sent when a new test suite is created.
 
 | Parameter     | Type   | Description              |
 |---------------|--------|--------------------------|
-| id            | int    | Test suite ID            |
+| id            | integer    | Test suite ID            |
 | title         | string | Test suite title         |
 | description   | string | Test suite description   |
 | preconditions | string | Test suite preconditions |
-| parent_id     | int    | ID of parent test suite  |
+| parent_id     | integer    | ID of parent test suite  |
 
-## Updated
-
-Payload example:
-
-```json
-{
-     "id": 5
-}
-```
-
-This event is being sent when a test suite is updated. It returns only ID of test suite and notifies that fields were updated.
-
-### Event name
-
-`suite.updated`
-
-### Payload fields
-
-| Parameter | Type | Description   |
-|-----------|------|---------------|
-| id        | int  | Test suite ID |
-
-## Deleted
+## Cloned Test Suite
 
 Payload example:
 
 ```json
 {
-     "id": 1
+  "event_name": "suite.cloned",
+  "timestamp": 1650541053,
+  "payload": {
+    "id": 314,
+    "from_id": 13
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
-
-This event is being sent when a test suite is deleted.
-
-### Event name
-
-`suite.deleted`
-
-### Payload fields
-
-| Parameter | Type | Description   |
-|-----------|------|---------------|
-| id        | int  | Test suite ID |
-
-## Cloned
-
-Payload example:
-
-```json
+[block:callout]
 {
-     "id": 2,
-     "from_id": 1
+  "type": "info",
+  "body": "This event is being sent when a test suite is cloned."
 }
-```
-
-This event is being sent when a test suite is cloned.
+[/block]
 
 ### Event name
 
@@ -93,5 +77,69 @@ This event is being sent when a test suite is cloned.
 
 | Parameter | Type | Description              |
 |-----------|------|--------------------------|
-| id        | int  | Test suite ID (clone)    |
-| from_id   | int  | Test suite ID (original) |
+| id        | integer  | Test suite ID (clone)    |
+| from_id   | integer  | Test suite ID (original) |
+
+## Deleted Test Suite
+
+Payload example:
+
+```json
+{
+  "event_name": "suite.deleted",
+  "timestamp": 1650540989,
+  "payload": {
+    "id": 313
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
+}
+```
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test suite is deleted."
+}
+[/block]
+
+### Event name
+
+`suite.deleted`
+
+### Payload fields
+
+| Parameter | Type | Description   |
+|-----------|------|---------------|
+| id        | integer  | Test suite ID |
+
+## Updated Test Suite
+
+Payload example:
+
+```json
+{
+  "event_name": "suite.updated",
+  "timestamp": 1650540955,
+  "payload": {
+    "id": 11
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
+}
+```
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test suite is updated. It returns only ID of test suite and notifies that fields were updated."
+}
+[/block]
+
+### Event name
+
+`suite.updated`
+
+### Payload fields
+
+| Parameter | Type | Description   |
+|-----------|------|---------------|
+| id        | integer  | Test suite ID |

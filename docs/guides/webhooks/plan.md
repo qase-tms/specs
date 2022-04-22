@@ -1,21 +1,37 @@
-## Created
+---
+title: "Test Plan"
+excerpt: "This page contains information about events called in the entity Test Plan"
+slug: "plan"
+createdAt: "2022-04-21T21:00:00.000Z"
+hidden: false
+---
+
+## Created Test Plan
 
 Payload example:
 
 ```json
 {
-    "id": 1,
-    "title": "Test suite",
-    "description": "Authorization",
-    "cases": [
-        1,
-        2,
-        3
-    ]
+  "event_name": "plan.created",
+  "timestamp": 1650534130,
+  "payload": {
+    "id": 2,
+    "title": "dd",
+    "description": "d",
+    "cases": {
+      "1033": 0
+    }
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
-
-This event is being sent when a new test plan is created.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new test plan is created."
+}
+[/block]
 
 ### Event name
 
@@ -25,50 +41,32 @@ This event is being sent when a new test plan is created.
 
 | Parameter   | Type   | Description                 |
 |-------------|--------|-----------------------------|
-| id          | int    | Test plan ID                |
+| id          | integer    | Test plan ID                |
 | title       | string | Test plan title             |
 | description | string | Test plan description       |
-| cases       | array  | An array with test case ids |
+| cases       | object  | An object with test case ids |
 
-## Updated
-
-Payload example:
-
-```json
-{
-    "id": 5
-}
-```
-
-This event is being sent when a test plan is updated.
-
-### Event name
-
-`plan.updated`
-
-### Payload fields
-
-| Parameter | Type  | Description                 |
-|-----------|-------|-----------------------------|
-| id        | int   | Test plan ID                |
-| cases     | array | An array with test case ids |
-
-## Deleted
+## Deleted Test Plan
 
 Payload example:
 
 ```json
 {
-    "id": 1,
-    "cases": [
-        1,
-        2,
-        3
-    ]
+  "event_name": "plan.deleted",
+  "timestamp": 1650534261,
+  "payload": {
+    "id": 59884
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
-
-This event is being sent when a test plan is deleted.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test plan is deleted."
+}
+[/block]
 
 ### Event name
 
@@ -78,4 +76,40 @@ This event is being sent when a test plan is deleted.
 
 | Parameter | Type | Description  |
 |-----------|------|--------------|
-| id        | int  | Test plan ID |
+| id        | integer  | Test plan ID |
+
+## Updated Test Plan
+
+Payload example:
+
+```json
+{
+  "event_name": "plan.updated",
+  "timestamp": 1650534183,
+  "payload": {
+    "id": 2,
+    "cases": {
+      "1033": 0
+    }
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
+}
+```
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a test plan is updated."
+}
+[/block]
+
+### Event name
+
+`plan.updated`
+
+### Payload fields
+
+| Parameter | Type  | Description                 |
+|-----------|-------|-----------------------------|
+| id        | integer   | Test plan ID                |
+| cases     | object | An object with test case ids |

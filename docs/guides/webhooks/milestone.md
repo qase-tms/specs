@@ -1,16 +1,34 @@
-## Created
+---
+title: "Milestone"
+excerpt: "This page contains information about events called in the entity Milestone"
+slug: "milestone"
+createdAt: "2022-04-21T21:00:00.000Z"
+hidden: false
+---
+
+## Created Milestone
 
 Payload example:
 
 ```json
 {
-    "id": 1,
-    "title": "Release 1.0",
-    "description": "First release of our app"
+  "event_name": "milestone.created",
+  "timestamp": 1650533865,
+  "payload": {
+    "id": 70673,
+    "title": "example",
+    "description": "description"
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
-
-This event is being sent when a new milestone is created.
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a new milestone is created."
+}
+[/block]
 
 ### Event name
 
@@ -20,43 +38,31 @@ This event is being sent when a new milestone is created.
 
 | Parameter   | Type   | Description           |
 |-------------|--------|-----------------------|
-| id          | int    | Milestone ID          |
+| id          | integer    | Milestone ID          |
 | title       | string | Milestone title       |
 | description | string | Milestone description |
 
-## Updated
+## Deleted Milestone
 
 Payload example:
 
 ```json
 {
+  "event_name": "milestone.deleted",
+  "timestamp": 1650533914,
+  "payload": {
     "id": 1
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
 }
 ```
-
-This event is being sent when a milestone is updated.
-
-### Event name
-
-`milestone.updated`
-
-### Payload fields
-
-| Parameter | Type | Description  |
-|-----------|------|--------------|
-| id        | int  | Milestone ID |
-
-## Deleted
-
-Payload example:
-
-```json
+[block:callout]
 {
-    "id": 1
+  "type": "info",
+  "body": "This event is being sent when a milestone is deleted."
 }
-```
-
-This event is being sent when a milestone is deleted.
+[/block]
 
 ### Event name
 
@@ -66,4 +72,36 @@ This event is being sent when a milestone is deleted.
 
 | Parameter | Type | Description  |
 |-----------|------|--------------|
-| id        | int  | Milestone ID |
+| id        | integer  | Milestone ID |
+
+## Updated Milestone
+
+Payload example:
+
+```json
+{
+  "event_name": "milestone.updated",
+  "timestamp": 1650533896,
+  "payload": {
+    "id": 1
+  },
+  "team_member_id": 40,
+  "project_code": "ID"
+}
+```
+[block:callout]
+{
+  "type": "info",
+  "body": "This event is being sent when a milestone is updated."
+}
+[/block]
+
+### Event name
+
+`milestone.updated`
+
+### Payload fields
+
+| Parameter | Type | Description  |
+|-----------|------|--------------|
+| id        | integer  | Milestone ID |

@@ -2301,6 +2301,11 @@ components:
           type: array
           items:
             type: string
+        custom_field:
+          type: object
+          description: A map of custom fields values (id => value)
+          additionalProperties:
+            type: string
       required:
         - title
     RunPublic:

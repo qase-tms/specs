@@ -1,6 +1,6 @@
 name: include
 in: query
 description: |
-  Add this param to include a list of test cases into response. Possible value: cases
+  Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects
 schema:
   type: string

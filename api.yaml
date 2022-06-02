@@ -1440,6 +1440,8 @@ components:
           type: boolean
         is_filterable:
           type: boolean
+        is_enabled_for_all_projects:
+          type: boolean
         created:
           deprecated: true
           description: 'Deprecated, use the `created_at` property instead.'
@@ -1525,6 +1527,8 @@ components:
           type: boolean
         is_required:
           type: boolean
+        is_enabled_for_all_projects:
+          type: boolean
         projects_codes:
           type: array
           items:
@@ -1570,6 +1574,8 @@ components:
         is_visible:
           type: boolean
         is_required:
+          type: boolean
+        is_enabled_for_all_projects:
           type: boolean
         projects_codes:
           type: array

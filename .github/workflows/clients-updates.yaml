@@ -1,0 +1,68 @@
+name: generate-client
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  generate_js_client:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Commit and push changes
+        uses: qase-tms/github-action-push-to-another-repository@main
+        with:
+          target-repo-owner: 'qase-tms'
+          target-repo-name: 'qase-javascript'
+          target-repo-path: 'qase-javascript'
+          source-repo-path: 'specs'
+          build-command: './Taskfile typescript'
+          source-copy-dir: ./specs/examples/sdk/ts/*
+          target-copy-dir: ./qase-javascript/qaseio/src
+          commit-message: '[Automatically] update clients specs'
+          git-username: 'Qase Bot'
+          git-email: 'bot@qase.io'
+          base-pr-branch: 'master'
+          pr-title: 'Specs were updated'
+          pr-body: "This PR is auto-generated [from](https://github.com/apetrosyan1613/specs). Please review the specs [changes](https://github.com/apetrosyan1613/specs/commit/${{ github.sha }}) before the merging"
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+  generate_php_client:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Commit and push changes
+        uses: qase-tms/github-action-push-to-another-repository@main
+        with:
+          target-repo-owner: 'qase-tms'
+          target-repo-name: 'qase-php-client'
+          target-repo-path: 'qase-php-client'
+          source-repo-path: 'specs'
+          build-command: './Taskfile php'
+          source-copy-dir: ./specs/examples/sdk/php/*
+          target-copy-dir: ./qase-php-client
+          commit-message: '[Automatically] update clients specs'
+          git-username: 'Qase Bot'
+          git-email: 'bot@qase.io'
+          base-pr-branch: 'main'
+          pr-title: "Specs were updated"
+          pr-body: "This PR is auto-generated [from](https://github.com/apetrosyan1613/specs). Please review the specs [changes](https://github.com/apetrosyan1613/specs/commit/${{ github.sha }}) before the merging"
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+  generate_python_client:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Commit and push changes
+        uses: qase-tms/github-action-push-to-another-repository@main
+        with:
+          target-repo-owner: 'qase-tms'
+          target-repo-name: 'qase-python'
+          target-repo-path: 'qase-python'
+          source-repo-path: 'specs'
+          build-command: './Taskfile python'
+          source-copy-dir: ./specs/examples/sdk/python/*
+          target-copy-dir: ./qase-python/qaseio/
+          commit-message: '[Automatically] update clients specs'
+          git-username: 'Qase Bot'
+          git-email: 'bot@qase.io'
+          base-pr-branch: 'master'
+          pr-title: 'Specs were updated'
+          pr-body: "This PR is auto-generated [from](https://github.com/apetrosyan1613/specs). Please review the specs [changes](https://github.com/apetrosyan1613/specs/commit/${{ github.sha }}) before the merging"
+          token: ${{ secrets.API_TOKEN_GITHUB }}

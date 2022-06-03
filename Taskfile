@@ -48,12 +48,16 @@ function go() {
 
 function php() {
   rm -rf examples/sdk/php/*
+  mkdir examples/sdk/php
+  cp examples/sdk/php-openapi-generator-ignore examples/sdk/php/.openapi-generator-ignore
   openapi generate -i /specs/api.yaml -g php -o /sdk/php -c /sdk/php.yml
   # TODO:extend add formatting
 }
 
 function typescript() {
   rm -rf examples/sdk/ts/*
+  mkdir examples/sdk/ts
+  cp examples/sdk/ts-openapi-generator-ignore examples/sdk/ts/.openapi-generator-ignore
   openapi generate -i /specs/api.yaml -g typescript-axios -t /sdk/templates/axios -o /sdk/ts -c /sdk/ts.yml
   # TODO:extend add formatting
 }
@@ -71,7 +75,7 @@ openapi() {
   docker run --rm -it \
     -v "$(pwd)"/api.yaml:/specs/api.yaml \
     -v "$(pwd)"/examples/sdk:/sdk \
-    openapitools/openapi-generator-cli:v5.3.1 "${@}"
+    openapitools/openapi-generator-cli:v6.0.0 "${@}"
 }
 
 swagger() {

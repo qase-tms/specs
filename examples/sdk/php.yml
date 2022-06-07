@@ -3,7 +3,6 @@
 
 allowUnicodeIdentifiers: false
 apiPackage: Api # ~
-artifactVersion: 1.0.0 # ~
 disallowAdditionalPropertiesIfNotPresent: false # true
 ensureUniqueParams: true
 hideGenerationTimestamp: true

@@ -49,8 +49,9 @@ function go() {
 function php() {
   rm -rf examples/sdk/php/*
   mkdir examples/sdk/php
-  cp examples/sdk/php-openapi-generator-ignore examples/sdk/php/.openapi-generator-ignore
-  openapi generate -i /specs/api.yaml -g php -o /sdk/php -c /sdk/php.yml
+  cp examples/sdk/php-openapi-generator-ignore examples/sdk/php/.openapi-generator-ignore 
+  version=$(cat VERSION)
+  openapi generate -i /specs/api.yaml -g php -o /sdk/php -c /sdk/php.yml --additional-properties=packageName=qaseio,artifactVersion=${version}
   # TODO:extend add formatting
 }
 
@@ -58,7 +59,8 @@ function typescript() {
   rm -rf examples/sdk/ts/*
   mkdir examples/sdk/ts
   cp examples/sdk/ts-openapi-generator-ignore examples/sdk/ts/.openapi-generator-ignore
-  openapi generate -i /specs/api.yaml -g typescript-axios -t /sdk/templates/axios -o /sdk/ts -c /sdk/ts.yml
+  version=$(cat VERSION)
+  openapi generate -i /specs/api.yaml -g typescript-axios -t /sdk/templates/axios -o /sdk/ts -c /sdk/ts.yml --additional-properties=npmName=qaseio,npmVersion=${version}
   # TODO:extend add formatting
 }
 

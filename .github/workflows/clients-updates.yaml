@@ -24,7 +24,7 @@ jobs:
           git-email: 'apetrosyan@qase.io'
           base-pr-branch: 'master'
           pr-title: 'Specs were updated'
-          pr-body: "This PR is auto-generated [from](https://github.com/apetrosyan1613/specs). Please review the specs [changes](https://github.com/apetrosyan1613/specs/commit/${{ github.sha }}) before merging"
+          pr-body: "This PR is auto-generated [from](https://github.com/qase-tms/specs). Please review the specs [changes](https://github.com/qase-tms/specs/commit/${{ github.sha }}) before merging"
           token: ${{ secrets.API_TOKEN_GITHUB }}
   generate_php_client:
     runs-on: ubuntu-latest
@@ -44,7 +44,7 @@ jobs:
           git-email: 'apetrosyan@qase.io'
           base-pr-branch: 'main'
           pr-title: "Specs were updated"
-          pr-body: "This PR is auto-generated [from](https://github.com/apetrosyan1613/specs). Please review the specs [changes](https://github.com/apetrosyan1613/specs/commit/${{ github.sha }}) before merging"
+          pr-body: "This PR is auto-generated [from](https://github.com/qase-tms/specs). Please review the specs [changes](https://github.com/qase-tms/specs/commit/${{ github.sha }}) before merging"
           token: ${{ secrets.API_TOKEN_GITHUB }}
   generate_python_client:
     runs-on: ubuntu-latest
@@ -64,5 +64,5 @@ jobs:
           git-email: 'apetrosyan@qase.io'
           base-pr-branch: 'master'
           pr-title: 'Specs were updated'
-          pr-body: "This PR is auto-generated [from](https://github.com/apetrosyan1613/specs). Please review the specs [changes](https://github.com/apetrosyan1613/specs/commit/${{ github.sha }}) before merging"
+          pr-body: "This PR is auto-generated [from](https://github.com/qase-tms/specs). Please review the specs [changes](https://github.com/qase-tms/specs/commit/${{ github.sha }}) before merging"
           token: ${{ secrets.API_TOKEN_GITHUB }}

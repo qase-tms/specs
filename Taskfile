@@ -47,16 +47,16 @@ function go() {
 }
 
 function php() {
-  rm -rf examples/sdk/php/*
+  rm -rf examples/sdk/php
   mkdir examples/sdk/php
   cp examples/sdk/php-openapi-generator-ignore examples/sdk/php/.openapi-generator-ignore 
   version=$(cat VERSION)
-  openapi generate -i /specs/api.yaml -g php -o /sdk/php -c /sdk/php.yml --additional-properties=packageName=qaseio,artifactVersion=${version}
+  openapi generate -i /specs/api.yaml -g php -o /sdk/php -c /sdk/php.yml --additional-properties=artifactVersion=${version}
   # TODO:extend add formatting
 }
 
 function typescript() {
-  rm -rf examples/sdk/ts/*
+  rm -rf examples/sdk/ts
   mkdir examples/sdk/ts
   cp examples/sdk/ts-openapi-generator-ignore examples/sdk/ts/.openapi-generator-ignore
   version=$(cat VERSION)
@@ -65,7 +65,7 @@ function typescript() {
 }
 
 function python() {
-  rm -rf examples/sdk/python/*
+  rm -rf examples/sdk/python
   mkdir examples/sdk/python
   cp examples/sdk/python-openapi-generator-ignore examples/sdk/python/.openapi-generator-ignore
   version=$(cat VERSION)

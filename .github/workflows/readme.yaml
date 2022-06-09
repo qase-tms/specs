@@ -22,8 +22,8 @@ jobs:
         run: echo ::set-output name=modified::$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)
       - if: steps.git-check.outputs.modified == 'true'
         run: |
-          git config --global user.name 'Kamil Samigullin'
-          git config --global user.email 'kamil@samigullin.info'
+          git config --local user.name 'octocat'
+          git config --local user.email 'octocat@github.com'
           git add -A
           git commit -m '[build] add publishing artifacts'
           git push

@@ -35,6 +35,8 @@ properties:
     type: boolean
   is_required:
     type: boolean
+  is_enabled_for_all_projects:
+    type: boolean
   projects_codes:
     type: array
     items:

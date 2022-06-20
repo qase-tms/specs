@@ -28,10 +28,9 @@ jobs:
           git commit -m '[build] add publishing artifacts'
           git push
 
-      - uses: readmeio/github-readme-sync@v2
+      - uses: readmeio/rdme@7.2.2
         with:
-          readme-oas-key: ${{ secrets.README_KEY }}:6172e1f931427d3f983e34ff
-          oas-file-path: ./api.yaml
+          rdme: openapi /api.yaml --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff
 
       - uses: rtCamp/action-slack-notify@v2
         env:

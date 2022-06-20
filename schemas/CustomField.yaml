@@ -25,7 +25,7 @@ properties:
   is_filterable:
     type: boolean
   is_enabled_for_all_projects:
-      type: boolean
+    type: boolean
   created:
     deprecated: true
     description: Deprecated, use the `created_at` property instead.

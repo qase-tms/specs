@@ -8,11 +8,41 @@ get:
     - $ref: '../parameters/Hash.yaml'
   responses:
     200:
-      description: An attachments.
+      description: Single attachment.
       content:
         application/json:
           schema:
             $ref: '../schemas/responses/Attachment.yaml'
+    400:
+      description: Bad Request.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    401:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    403:
+      description: Forbidden.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    404:
+      description: Not Found.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    500:
+      description: Internal Error.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
 
 delete:
   operationId: delete-attachment
@@ -29,3 +59,33 @@ delete:
         application/json:
           schema:
             $ref: '../schemas/responses/Hash.yaml'
+    400:
+      description: Bad Request.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    401:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    403:
+      description: Forbidden.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    404:
+      description: Not Found.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    500:
+      description: Internal Error.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'

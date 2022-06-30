@@ -31,3 +31,33 @@ post:
         application/json:
           schema:
             $ref: '../schemas/responses/AttachmentUploads.yaml'
+    400:
+      description: Bad Request.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    401:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    403:
+      description: Forbidden.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    500:
+      description: Internal Error.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'
+    507:
+      description: Insufficient Storage.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ErrorMessage.yaml'

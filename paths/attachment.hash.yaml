@@ -14,35 +14,13 @@ get:
           schema:
             $ref: '../schemas/responses/Attachment.yaml'
     400:
-      description: Bad Request.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage400.yaml'
     401:
-      description: Unauthorized.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage401.yaml'
     403:
-      description: Forbidden.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
-    404:
-      description: Not Found.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage403.yaml'
     500:
-      description: Internal Error.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage500.yaml'
 
 delete:
   operationId: delete-attachment
@@ -60,32 +38,10 @@ delete:
           schema:
             $ref: '../schemas/responses/Hash.yaml'
     400:
-      description: Bad Request.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage400.yaml'
     401:
-      description: Unauthorized.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage401.yaml'
     403:
-      description: Forbidden.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
-    404:
-      description: Not Found.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage403.yaml'
     500:
-      description: Internal Error.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage500.yaml'

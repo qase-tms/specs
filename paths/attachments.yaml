@@ -15,20 +15,8 @@ get:
           schema:
             $ref: '../schemas/responses/AttachmentList.yaml'
     401:
-      description: Unauthorized.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage401.yaml'
     403:
-      description: Forbidden.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage403.yaml'
     500:
-      description: Internal Error.
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/responses/ErrorMessage.yaml'
+      $ref: '../schemas/responses/ErrorMessage500.yaml'

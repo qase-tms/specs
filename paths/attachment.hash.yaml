@@ -14,13 +14,13 @@ get:
           schema:
             $ref: '../schemas/responses/Attachment.yaml'
     400:
-      $ref: '../schemas/responses/ErrorMessage400.yaml'
+      $ref: '../schemas/responses/ErrorShort400.yaml'
     401:
-      $ref: '../schemas/responses/ErrorMessage401.yaml'
+      $ref: '../schemas/responses/ErrorShort401.yaml'
     403:
-      $ref: '../schemas/responses/ErrorMessage403.yaml'
-    500:
-      $ref: '../schemas/responses/ErrorMessage500.yaml'
+      $ref: '../schemas/responses/ErrorShort403.yaml'
+    404:
+      $ref: '../schemas/responses/ErrorShort404.yaml'
 
 delete:
   operationId: delete-attachment
@@ -38,10 +38,10 @@ delete:
           schema:
             $ref: '../schemas/responses/Hash.yaml'
     400:
-      $ref: '../schemas/responses/ErrorMessage400.yaml'
+      $ref: '../schemas/responses/ErrorShort400.yaml'
     401:
-      $ref: '../schemas/responses/ErrorMessage401.yaml'
+      $ref: '../schemas/responses/ErrorShort401.yaml'
     403:
-      $ref: '../schemas/responses/ErrorMessage403.yaml'
-    500:
-      $ref: '../schemas/responses/ErrorMessage500.yaml'
+      $ref: '../schemas/responses/ErrorShort403.yaml'
+    404:
+      $ref: '../schemas/responses/ErrorShort404.yaml'

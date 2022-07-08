@@ -1,0 +1,11 @@
+type: object
+properties:
+  errorFields:
+    type: array
+    items:
+      type: object
+      properties:
+        field:
+          type: string
+        error:
+          type: string

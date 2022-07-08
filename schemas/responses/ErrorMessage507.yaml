@@ -1,7 +1,0 @@
-description: Insufficient Storage.
-content:
-  application/json:
-    schema:
-      allOf:
-      - $ref: './Base.yaml'
-      - $ref: './BaseError.yaml'

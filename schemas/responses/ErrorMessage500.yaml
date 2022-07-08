@@ -1,7 +1,0 @@
-description: Internal Error.
-content:
-  application/json:
-    schema:
-      allOf:
-      - $ref: './Base.yaml'
-      - $ref: './BaseError.yaml'

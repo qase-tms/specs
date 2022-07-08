@@ -1,0 +1,14 @@
+description: Unprocessable Entity. An array of errors with properties as a key.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string

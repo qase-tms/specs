@@ -14,6 +14,16 @@ get:
         application/json:
           schema:
             $ref: '../schemas/responses/Environment.yaml'
+    400:
+      $ref: '../schemas/responses/ErrorShort400.yaml'
+    401:
+      $ref: '../schemas/responses/ErrorShort401.yaml'
+    403:
+      $ref: '../schemas/responses/ErrorShort403.yaml'
+    404:
+      $ref: '../schemas/responses/ErrorShort404.yaml'
+    429:
+      $ref: '../schemas/responses/ErrorShort429.yaml'
 
 delete:
   operationId: delete-environment
@@ -31,6 +41,16 @@ delete:
         application/json:
           schema:
             $ref: '../schemas/responses/Id.yaml'
+    400:
+      $ref: '../schemas/responses/ErrorShort400.yaml'
+    401:
+      $ref: '../schemas/responses/ErrorShort401.yaml'
+    403:
+      $ref: '../schemas/responses/ErrorShort403.yaml'
+    404:
+      $ref: '../schemas/responses/ErrorShort404.yaml'
+    429:
+      $ref: '../schemas/responses/ErrorShort429.yaml'
 
 patch:
   operationId: update-environment
@@ -54,3 +74,13 @@ patch:
         application/json:
           schema:
             $ref: '../schemas/responses/Id.yaml'
+    400:
+      $ref: '../schemas/responses/ErrorShort400.yaml'
+    401:
+      $ref: '../schemas/responses/ErrorShort401.yaml'
+    403:
+      $ref: '../schemas/responses/ErrorShort403.yaml'
+    404:
+      $ref: '../schemas/responses/ErrorShort404.yaml'
+    429:
+      $ref: '../schemas/responses/ErrorShort429.yaml'

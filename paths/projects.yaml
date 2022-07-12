@@ -17,13 +17,13 @@ get:
           schema:
             $ref: '../schemas/responses/ProjectList.yaml'
     400:
-      $ref: '../schemas/responses/ErrorShort400.yaml'
+      $ref: '../schemas/responses/errors/ErrorShort400.yaml'
     401:
-      $ref: '../schemas/responses/ErrorShort401.yaml'
+      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
     403:
-      $ref: '../schemas/responses/ErrorShort403.yaml'
+      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
     429:
-      $ref: '../schemas/responses/ErrorShort429.yaml'
+      $ref: '../schemas/responses/errors/ErrorShort429.yaml'
 
 post:
   operationId: create-project
@@ -45,10 +45,10 @@ post:
           schema:
             $ref: '../schemas/responses/ProjectCode.yaml'
     400:
-      $ref: '../schemas/responses/ErrorLarge400.yaml'
+      $ref: '../schemas/responses/errors/Error400.yaml'
     401:
-      $ref: '../schemas/responses/ErrorShort401.yaml'
+      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
     403:
-      $ref: '../schemas/responses/ErrorShort403.yaml'
+      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
     429:
-      $ref: '../schemas/responses/ErrorShort429.yaml'
+      $ref: '../schemas/responses/errors/ErrorShort429.yaml'

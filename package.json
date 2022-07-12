@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "@apidevtools/swagger-cli": "^4.0.4",
-    "@stoplight/spectral-cli": "^6.3.0",
-    "rdme": "^7.1.1",
-    "redoc-cli": "^0.13.10"
+    "@stoplight/spectral-cli": "^6.4.1",
+    "rdme": "^7.3.0",
+    "redoc-cli": "^0.13.16"
   },
   "directories": {
     "example": "examples"

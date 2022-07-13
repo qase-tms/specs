@@ -1,2 +1,5 @@
 # https://openapi-generator.tech/docs/generators/python/
 # ? https://openapi-generator.tech/docs/generators/python-experimental/
+
+packageName: qaseio # ~
+packageUrl: https://github.com/qase-tms/qase-python # ~

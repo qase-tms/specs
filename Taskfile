@@ -69,7 +69,7 @@ function python() {
   mkdir examples/sdk/python
   cp examples/sdk/python-openapi-generator-ignore examples/sdk/python/.openapi-generator-ignore
   version=$(cat VERSION)
-  openapi generate -i /specs/api.yaml -g python -o /sdk/python  --additional-properties=packageName=qaseio,packageVersion=${version},packageUrl=https://github.com/qase-tms/qase-python
+  openapi generate -i /specs/api.yaml -g python -o /sdk/python -c /sdk/python.yml  --additional-properties=packageVersion=${version}
   # TODO:extend add formatting
 }
 

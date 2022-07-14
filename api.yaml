@@ -94,7 +94,7 @@ paths:
         - $ref: '#/components/parameters/Hash'
       responses:
         '200':
-          description: An attachments.
+          description: Single attachment.
           content:
             application/json:
               schema:
@@ -949,6 +949,10 @@ paths:
       summary: Bulk create test run result.
       description: |
         This method allows to create a lot of test run result at once.
+
+        If you try to send more than 2,000 results in a single bulk request, you will receive an error with code 413 - Payload Too Large.
+
+        If there is no free space left in your team account, when attempting to upload an attachment, e.g., through reporters, you will receive an error with code 507 - Insufficient Storage.
       parameters:
         - $ref: '#/components/parameters/Code'
         - $ref: '#/components/parameters/Id'
@@ -1266,7 +1270,7 @@ paths:
         - suites
       summary: Get all test suites.
       description: |
-        This method allows to retrieve all test suites stored in selected project..
+        This method allows to retrieve all test suites stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
         - $ref: '#/components/parameters/FilterSuites'

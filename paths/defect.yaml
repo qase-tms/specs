@@ -14,16 +14,6 @@ get:
         application/json:
           schema:
             $ref: '../schemas/responses/Defect.yaml'
-    400:
-      $ref: '../schemas/responses/errors/ErrorShort400.yaml'
-    401:
-      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
-    403:
-      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
-    404:
-      $ref: '../schemas/responses/errors/ErrorShort404.yaml'
-    429:
-      $ref: '../schemas/responses/errors/ErrorShort429.yaml'
 
 delete:
   operationId: delete-defect
@@ -41,16 +31,6 @@ delete:
         application/json:
           schema:
             $ref: '../schemas/responses/Id.yaml'
-    400:
-      $ref: '../schemas/responses/errors/Error400.yaml'
-    401:
-      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
-    403:
-      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
-    404:
-      $ref: '../schemas/responses/errors/ErrorShort404.yaml'
-    429:
-      $ref: '../schemas/responses/errors/ErrorShort429.yaml'
 
 patch:
   operationId: update-defect
@@ -74,13 +54,3 @@ patch:
         application/json:
           schema:
             $ref: '../schemas/responses/Id.yaml'
-    400:
-      $ref: '../schemas/responses/errors/ErrorShort400.yaml'
-    401:
-      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
-    403:
-      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
-    404:
-      $ref: '../schemas/responses/errors/ErrorShort404.yaml'
-    429:
-      $ref: '../schemas/responses/errors/ErrorShort429.yaml'

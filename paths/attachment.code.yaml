@@ -31,11 +31,3 @@ post:
         application/json:
           schema:
             $ref: '../schemas/responses/AttachmentUploads.yaml'
-    400:
-      $ref: '../schemas/responses/errors/ErrorShort400.yaml'
-    401:
-      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
-    403:
-      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
-    404:
-      $ref: '../schemas/responses/errors/ErrorShort404.yaml'

@@ -15,16 +15,6 @@ get:
         application/json:
           schema:
             $ref: '../schemas/responses/EnvironmentList.yaml'
-    400:
-      $ref: '../schemas/responses/errors/ErrorShort400.yaml'
-    401:
-      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
-    403:
-      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
-    404:
-      $ref: '../schemas/responses/errors/ErrorShort404.yaml'
-    429:
-      $ref: '../schemas/responses/errors/ErrorShort429.yaml'
 
 post:
   operationId: create-environment
@@ -47,15 +37,3 @@ post:
         application/json:
           schema:
             $ref: '../schemas/responses/Id.yaml'
-    400:
-      $ref: '../schemas/responses/errors/Error400.yaml'
-    401:
-      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
-    403:
-      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
-    404:
-      $ref: '../schemas/responses/errors/ErrorShort404.yaml'
-    422:
-      $ref: '../schemas/responses/errors/ErrorShort422.yaml'
-    429:
-      $ref: '../schemas/responses/errors/ErrorShort429.yaml'

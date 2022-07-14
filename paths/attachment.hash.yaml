@@ -13,14 +13,6 @@ get:
         application/json:
           schema:
             $ref: '../schemas/responses/Attachment.yaml'
-    400:
-      $ref: '../schemas/responses/errors/ErrorShort400.yaml'
-    401:
-      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
-    403:
-      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
-    404:
-      $ref: '../schemas/responses/errors/ErrorShort404.yaml'
 
 delete:
   operationId: delete-attachment
@@ -37,11 +29,3 @@ delete:
         application/json:
           schema:
             $ref: '../schemas/responses/Hash.yaml'
-    400:
-      $ref: '../schemas/responses/errors/ErrorShort400.yaml'
-    401:
-      $ref: '../schemas/responses/errors/ErrorShort401.yaml'
-    403:
-      $ref: '../schemas/responses/errors/ErrorShort403.yaml'
-    404:
-      $ref: '../schemas/responses/errors/ErrorShort404.yaml'

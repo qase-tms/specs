@@ -8,7 +8,7 @@ get:
     - $ref: '../parameters/Hash.yaml'
   responses:
     200:
-      description: An attachments.
+      description: Single attachment.
       content:
         application/json:
           schema:

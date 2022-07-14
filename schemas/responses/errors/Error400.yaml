@@ -1,0 +1,8 @@
+description: Bad Request.
+content:
+  application/json:
+    schema:
+      allOf:
+        - $ref: '../Base.yaml'
+        - $ref: '../BaseError.yaml'
+        - $ref: '../BaseErrorField.yaml'

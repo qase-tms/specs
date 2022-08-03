@@ -16,7 +16,7 @@ patch:
           $ref: '../schemas/Result.update.yaml'
   responses:
     200:
-      description: A result
+      description: A result.
       content:
         application/json:
           schema:
@@ -46,7 +46,7 @@ delete:
     - $ref: '../parameters/Hash.yaml'
   responses:
     200:
-      description: A result
+      description: A result.
       content:
         application/json:
           schema:

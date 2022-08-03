@@ -19,7 +19,7 @@ post:
           $ref: '../schemas/Result.create_bulk.yaml'
   responses:
     200:
-      description: A result
+      description: A result.
       content:
         application/json:
           schema:

@@ -24,7 +24,7 @@ get:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 delete:
   operationId: delete-run
@@ -51,4 +51,4 @@ delete:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

@@ -35,4 +35,4 @@ get:
     403:
       description: Forbidden.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

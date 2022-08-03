@@ -31,4 +31,4 @@ patch:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

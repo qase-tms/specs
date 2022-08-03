@@ -24,7 +24,7 @@ get:
     403:
       description: Forbidden.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 post:
   operationId: create-custom-field
@@ -56,4 +56,4 @@ post:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

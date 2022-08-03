@@ -25,7 +25,7 @@ get:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 delete:
   operationId: delete-case
@@ -54,7 +54,7 @@ delete:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 patch:
   operationId: update-case
@@ -89,4 +89,4 @@ patch:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

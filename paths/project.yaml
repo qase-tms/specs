@@ -13,6 +13,16 @@ get:
         application/json:
           schema:
             $ref: '../schemas/responses/Project.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    429:
+      description: Too Many Request.
 
 delete:
   operationId: delete-project
@@ -29,3 +39,13 @@ delete:
         application/json:
           schema:
             $ref: '../schemas/responses/Base.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    429:
+      description: Too Many Request.

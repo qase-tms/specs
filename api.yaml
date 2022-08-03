@@ -58,7 +58,7 @@ paths:
         '413':
           description: Payload Too Large.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/attachment/{code}':
     post:
       operationId: upload-attachment
@@ -105,7 +105,7 @@ paths:
         '413':
           description: Payload Too Large.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/attachment/{hash}':
     get:
       operationId: get-attachment
@@ -132,7 +132,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-attachment
       tags:
@@ -158,7 +158,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/case/{code}':
     get:
       operationId: get-cases
@@ -174,7 +174,7 @@ paths:
         - $ref: '#/components/parameters/Offset'
       responses:
         '200':
-          description: A list of all projects.
+          description: A list of all cases.
           content:
             application/json:
               schema:
@@ -188,7 +188,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-case
       tags:
@@ -206,7 +206,7 @@ paths:
               $ref: '#/components/schemas/TestCaseCreate'
       responses:
         '200':
-          description: A list of all projects.
+          description: A result.
           content:
             application/json:
               schema:
@@ -222,7 +222,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/case/{code}/{id}':
     get:
       operationId: get-case
@@ -252,7 +252,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-case
       tags:
@@ -281,7 +281,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     patch:
       operationId: update-case
       tags:
@@ -316,7 +316,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   /custom_field:
     get:
       operationId: get-custom-fields
@@ -343,7 +343,7 @@ paths:
         '403':
           description: Forbidden.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-custom-field
       tags:
@@ -373,7 +373,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/custom_field/{id}':
     get:
       operationId: get-custom-field
@@ -400,7 +400,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-custom-field
       tags:
@@ -426,7 +426,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     patch:
       operationId: update-custom-field
       tags:
@@ -460,7 +460,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/defect/{code}':
     get:
       operationId: get-defects
@@ -490,7 +490,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-defect
       tags:
@@ -524,7 +524,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/defect/{code}/{id}':
     get:
       operationId: get-defect
@@ -552,7 +552,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-defect
       tags:
@@ -579,7 +579,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     patch:
       operationId: update-defect
       tags:
@@ -614,7 +614,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/defect/{code}/resolve/{id}':
     patch:
       operationId: resolve-defect
@@ -644,7 +644,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/defect/{code}/status/{id}':
     patch:
       operationId: update-defect-status
@@ -680,7 +680,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/environment/{code}':
     get:
       operationId: get-environments
@@ -709,7 +709,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-environment
       tags:
@@ -743,7 +743,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/environment/{code}/{id}':
     get:
       operationId: get-environment
@@ -771,7 +771,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-environment
       tags:
@@ -798,7 +798,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     patch:
       operationId: update-environment
       tags:
@@ -831,7 +831,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/milestone/{code}':
     get:
       operationId: get-milestones
@@ -861,7 +861,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-milestone
       tags:
@@ -895,7 +895,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/milestone/{code}/{id}':
     get:
       operationId: get-milestone
@@ -923,7 +923,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-milestone
       tags:
@@ -950,7 +950,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     patch:
       operationId: update-milestone
       tags:
@@ -985,7 +985,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/plan/{code}':
     get:
       operationId: get-plans
@@ -1014,7 +1014,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-plan
       tags:
@@ -1048,7 +1048,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/plan/{code}/{id}':
     get:
       operationId: get-plan
@@ -1076,7 +1076,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-plan
       tags:
@@ -1103,7 +1103,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     patch:
       operationId: update-plan
       tags:
@@ -1138,7 +1138,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   /project:
     get:
       operationId: get-projects
@@ -1166,7 +1166,7 @@ paths:
         '403':
           description: Forbidden.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-project
       tags:
@@ -1196,7 +1196,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/project/{code}':
     get:
       operationId: get-project
@@ -1223,7 +1223,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-project
       tags:
@@ -1249,7 +1249,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/project/{code}/access':
     post:
       operationId: grant-access-to-project
@@ -1284,7 +1284,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: revoke-access-to-project
       tags:
@@ -1318,7 +1318,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/result/{code}':
     get:
       operationId: get-results
@@ -1349,7 +1349,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/result/{code}/{id}':
     post:
       operationId: create-result
@@ -1369,7 +1369,7 @@ paths:
               $ref: '#/components/schemas/ResultCreate'
       responses:
         '200':
-          description: A result
+          description: A result.
           content:
             application/json:
               schema:
@@ -1396,7 +1396,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/result/{code}/{hash}':
     get:
       operationId: get-result
@@ -1424,7 +1424,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/result/{code}/{id}/bulk':
     post:
       operationId: create-result-bulk
@@ -1448,7 +1448,7 @@ paths:
               $ref: '#/components/schemas/ResultCreateBulk'
       responses:
         '200':
-          description: A result
+          description: A result.
           content:
             application/json:
               schema:
@@ -1466,7 +1466,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/result/{code}/{id}/{hash}':
     patch:
       operationId: update-result
@@ -1487,7 +1487,7 @@ paths:
               $ref: '#/components/schemas/ResultUpdate'
       responses:
         '200':
-          description: A result
+          description: A result.
           content:
             application/json:
               schema:
@@ -1503,7 +1503,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-result
       tags:
@@ -1517,7 +1517,7 @@ paths:
         - $ref: '#/components/parameters/Hash'
       responses:
         '200':
-          description: A result
+          description: A result.
           content:
             application/json:
               schema:
@@ -1531,7 +1531,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/run/{code}':
     get:
       operationId: get-runs
@@ -1562,7 +1562,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-run
       tags:
@@ -1596,7 +1596,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/run/{code}/{id}':
     get:
       operationId: get-run
@@ -1625,7 +1625,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-run
       tags:
@@ -1652,7 +1652,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/run/{code}/{id}/public':
     patch:
       operationId: update-run-publicity
@@ -1686,7 +1686,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/run/{code}/{id}/complete':
     post:
       operationId: complete-run
@@ -1716,7 +1716,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   /search:
     get:
       operationId: search
@@ -1754,7 +1754,7 @@ paths:
         '403':
           description: Forbidden.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/shared_step/{code}':
     get:
       operationId: get-shared-steps
@@ -1784,7 +1784,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-shared-step
       tags:
@@ -1818,7 +1818,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/shared_step/{code}/{hash}':
     get:
       operationId: get-shared-step
@@ -1846,7 +1846,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-shared-step
       tags:
@@ -1873,7 +1873,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     patch:
       operationId: update-shared-step
       tags:
@@ -1906,7 +1906,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/suite/{code}':
     get:
       operationId: get-suites
@@ -1936,7 +1936,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     post:
       operationId: create-suite
       tags:
@@ -1954,7 +1954,7 @@ paths:
               $ref: '#/components/schemas/SuiteCreate'
       responses:
         '200':
-          description: A list of all projects.
+          description: A result.
           content:
             application/json:
               schema:
@@ -1970,7 +1970,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
   '/suite/{code}/{id}':
     get:
       operationId: get-suite
@@ -1998,7 +1998,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     delete:
       operationId: delete-suite
       tags:
@@ -2030,7 +2030,7 @@ paths:
         '404':
           description: Not Found.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
     patch:
       operationId: update-suite
       tags:
@@ -2065,7 +2065,7 @@ paths:
         '422':
           description: Unprocessable Entity.
         '429':
-          description: Too Many Request.
+          description: Too Many Requests.
 components:
   schemas:
     Attachment:

@@ -47,6 +47,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '413':
+          description: Payload Too Large.
+        '429':
+          description: Too Many Request.
   '/attachment/{code}':
     post:
       operationId: upload-attachment
@@ -82,6 +94,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentUploadsResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '413':
+          description: Payload Too Large.
+        '429':
+          description: Too Many Request.
   '/attachment/{hash}':
     get:
       operationId: get-attachment
@@ -99,6 +123,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AttachmentResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-attachment
       tags:
@@ -115,6 +149,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HashResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/case/{code}':
     get:
       operationId: get-cases
@@ -135,6 +179,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TestCaseListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-case
       tags:
@@ -157,6 +211,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/case/{code}/{id}':
     get:
       operationId: get-case
@@ -175,6 +241,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TestCaseResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-case
       tags:
@@ -192,6 +270,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
     patch:
       operationId: update-case
       tags:
@@ -215,6 +305,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   /custom_field:
     get:
       operationId: get-custom-fields
@@ -234,6 +336,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomFieldsResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-custom-field
       tags:
@@ -254,6 +364,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/custom_field/{id}':
     get:
       operationId: get-custom-field
@@ -271,6 +391,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomFieldResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-custom-field
       tags:
@@ -287,6 +417,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     patch:
       operationId: update-custom-field
       tags:
@@ -309,6 +449,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/defect/{code}':
     get:
       operationId: get-defects
@@ -329,6 +481,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DefectListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-defect
       tags:
@@ -351,6 +513,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/defect/{code}/{id}':
     get:
       operationId: get-defect
@@ -369,6 +543,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DefectResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-defect
       tags:
@@ -386,6 +570,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     patch:
       operationId: update-defect
       tags:
@@ -409,6 +603,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/defect/{code}/resolve/{id}':
     patch:
       operationId: resolve-defect
@@ -427,6 +633,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/defect/{code}/status/{id}':
     patch:
       operationId: update-defect-status
@@ -451,6 +669,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/environment/{code}':
     get:
       operationId: get-environments
@@ -470,6 +700,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EnvironmentListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-environment
       tags:
@@ -492,6 +732,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/environment/{code}/{id}':
     get:
       operationId: get-environment
@@ -510,6 +762,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EnvironmentResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-environment
       tags:
@@ -527,6 +789,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     patch:
       operationId: update-environment
       tags:
@@ -550,6 +822,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/milestone/{code}':
     get:
       operationId: get-milestones
@@ -570,6 +852,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MilestoneListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-milestone
       tags:
@@ -592,6 +884,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/milestone/{code}/{id}':
     get:
       operationId: get-milestone
@@ -610,6 +914,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MilestoneResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-milestone
       tags:
@@ -627,6 +941,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     patch:
       operationId: update-milestone
       tags:
@@ -650,6 +974,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/plan/{code}':
     get:
       operationId: get-plans
@@ -669,6 +1005,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PlanListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-plan
       tags:
@@ -691,6 +1037,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/plan/{code}/{id}':
     get:
       operationId: get-plan
@@ -709,6 +1067,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PlanResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-plan
       tags:
@@ -726,6 +1094,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     patch:
       operationId: update-plan
       tags:
@@ -749,6 +1127,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   /project:
     get:
       operationId: get-projects
@@ -769,6 +1159,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-project
       tags:
@@ -789,6 +1187,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectCodeResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/project/{code}':
     get:
       operationId: get-project
@@ -806,6 +1214,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-project
       tags:
@@ -822,6 +1240,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/project/{code}/access':
     post:
       operationId: grant-access-to-project
@@ -845,6 +1273,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: revoke-access-to-project
       tags:
@@ -867,6 +1307,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/result/{code}':
     get:
       operationId: get-results
@@ -888,6 +1340,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResultListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/result/{code}/{id}':
     post:
       operationId: create-result
@@ -923,6 +1385,18 @@ paths:
                             format: int64
                           hash:
                             type: string
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/result/{code}/{hash}':
     get:
       operationId: get-result
@@ -941,6 +1415,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResultResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/result/{code}/{id}/bulk':
     post:
       operationId: create-result-bulk
@@ -969,6 +1453,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '413':
+          description: Payload Too Large.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/result/{code}/{id}/{hash}':
     patch:
       operationId: update-result
@@ -994,6 +1492,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HashResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-result
       tags:
@@ -1012,6 +1522,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HashResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/run/{code}':
     get:
       operationId: get-runs
@@ -1033,6 +1553,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RunListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-run
       tags:
@@ -1055,6 +1585,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/run/{code}/{id}':
     get:
       operationId: get-run
@@ -1074,6 +1616,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RunResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-run
       tags:
@@ -1091,6 +1643,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/run/{code}/{id}/public':
     patch:
       operationId: update-run-publicity
@@ -1115,6 +1677,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RunPublicResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/run/{code}/{id}/complete':
     post:
       operationId: complete-run
@@ -1133,6 +1705,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   /search:
     get:
       operationId: search
@@ -1163,6 +1747,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SearchResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '429':
+          description: Too Many Request.
   '/shared_step/{code}':
     get:
       operationId: get-shared-steps
@@ -1183,6 +1775,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SharedStepListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-shared-step
       tags:
@@ -1205,6 +1807,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HashResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/shared_step/{code}/{hash}':
     get:
       operationId: get-shared-step
@@ -1223,6 +1837,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SharedStepResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-shared-step
       tags:
@@ -1240,6 +1864,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HashResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     patch:
       operationId: update-shared-step
       tags:
@@ -1263,6 +1897,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HashResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
   '/suite/{code}':
     get:
       operationId: get-suites
@@ -1283,6 +1927,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SuiteListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     post:
       operationId: create-suite
       tags:
@@ -1305,6 +1959,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
   '/suite/{code}/{id}':
     get:
       operationId: get-suite
@@ -1323,6 +1989,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SuiteResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     delete:
       operationId: delete-suite
       tags:
@@ -1345,6 +2021,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Request.
     patch:
       operationId: update-suite
       tags:
@@ -1368,6 +2054,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '422':
+          description: Unprocessable Entity.
+        '429':
+          description: Too Many Request.
 components:
   schemas:
     Attachment:

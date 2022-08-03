@@ -22,7 +22,7 @@ get:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 delete:
   operationId: delete-custom-field
@@ -48,7 +48,7 @@ delete:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 patch:
   operationId: update-custom-field
@@ -82,4 +82,4 @@ patch:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

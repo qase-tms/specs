@@ -42,4 +42,4 @@ post:
     413:
       description: Payload Too Large.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

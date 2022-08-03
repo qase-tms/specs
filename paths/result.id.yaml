@@ -15,7 +15,7 @@ post:
           $ref: '../schemas/Result.create.yaml'
   responses:
     200:
-      description: A result
+      description: A result.
       content:
         application/json:
           schema:
@@ -31,4 +31,4 @@ post:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

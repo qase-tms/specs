@@ -16,7 +16,7 @@ patch:
           $ref: '../schemas/Result.update.yaml'
   responses:
     200:
-      description: A result
+      description: A result.
       content:
         application/json:
           schema:
@@ -32,7 +32,7 @@ patch:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 delete:
   operationId: delete-result
@@ -46,7 +46,7 @@ delete:
     - $ref: '../parameters/Hash.yaml'
   responses:
     200:
-      description: A result
+      description: A result.
       content:
         application/json:
           schema:
@@ -60,4 +60,4 @@ delete:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

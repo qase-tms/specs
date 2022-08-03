@@ -27,7 +27,7 @@ get:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 post:
   operationId: create-suite
@@ -47,7 +47,7 @@ post:
 
   responses:
     200:
-      description: A list of all projects.
+      description: A result.
       content:
         application/json:
           schema:
@@ -63,4 +63,4 @@ post:
     422:
       description: Unprocessable Entity.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

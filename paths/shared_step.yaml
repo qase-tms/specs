@@ -23,7 +23,7 @@ get:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 delete:
   operationId: delete-shared-step
@@ -50,7 +50,7 @@ delete:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.
 
 patch:
   operationId: update-shared-step
@@ -83,4 +83,4 @@ patch:
     404:
       description: Not Found.
     429:
-      description: Too Many Request.
+      description: Too Many Requests.

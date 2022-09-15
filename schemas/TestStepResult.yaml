@@ -1,0 +1,14 @@
+type: object
+properties:
+  status:
+    type: integer
+  position:
+    type: integer
+  attachments:
+    type: array
+    items:
+      $ref: 'Attachment.yaml'
+  steps:
+    type: array
+    items:
+      $ref: 'TestStepResult.yaml'

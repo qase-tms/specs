@@ -66,32 +66,6 @@ properties:
     type: array
     nullable: true
     items:
-      type: object
-      properties:
-        position:
-          type: integer
-        status:
-          type: string
-          enum:
-            - passed
-            - failed
-            - blocked
-        comment:
-          type: string
-          nullable: true
-        attachments:
-          type: array
-          nullable: true
-          items:
-            type: string
-        action:
-          type: string
-        expected_result:
-          type: string
-          nullable: true
-        data:
-          type: string
-          nullable: true
-      required: [position, status]
+      $ref: 'TestStepResult.create.yaml'
 required:
   - status

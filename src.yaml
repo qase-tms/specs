@@ -143,6 +143,8 @@ components:
     SharedStep: { $ref: './schemas/SharedStep.yaml' }
     SharedStepCreate: { $ref: './schemas/SharedStep.create.yaml' }
     SharedStepUpdate: { $ref: './schemas/SharedStep.update.yaml' }
+    SharedStepContentCreate: { $ref: './schemas/SharedStepContent.create.yaml' }
+    SharedStepContent: { $ref: './schemas/SharedStepContent.yaml' }
     Suite: { $ref: './schemas/Suite.yaml' }
     SuiteCreate: { $ref: './schemas/Suite.create.yaml' }
     SuiteUpdate: { $ref: './schemas/Suite.update.yaml' }
@@ -152,6 +154,9 @@ components:
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
     TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
+    TestStepCreate: { $ref: './schemas/TestStep.create.yaml' }
+    TestStepResultCreate: { $ref: './schemas/TestStepResult.create.yaml' }
+    TestStepResult: { $ref: './schemas/TestStepResult.yaml' }
     qql.Defect: { $ref: './schemas/qql/Defect.yaml' }
     qql.TestCase: { $ref: './schemas/qql/TestCase.yaml' }
     qql.Plan: { $ref: './schemas/qql/Plan.yaml' }

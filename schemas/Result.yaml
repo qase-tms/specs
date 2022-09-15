@@ -18,16 +18,7 @@ properties:
     type: array
     nullable: true
     items:
-      type: object
-      properties:
-        status:
-          type: integer
-        position:
-          type: integer
-        attachments:
-          type: array
-          items:
-            $ref: 'Attachment.yaml'
+      $ref: 'TestStepResult.yaml'
   status:
     type: string
   is_api_result:

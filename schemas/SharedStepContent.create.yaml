@@ -10,8 +10,4 @@ properties:
     type: string
   attachments:
     $ref: 'Attachment.hash_list.yaml'
-  steps:
-    type: array
-    items:
-      $ref: 'SharedStepContent.create.yaml'
 required: [action]

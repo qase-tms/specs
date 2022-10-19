@@ -3116,10 +3116,6 @@ components:
           type: string
         attachments:
           $ref: '#/components/schemas/AttachmentHashList'
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/SharedStepContentCreate'
       required:
         - action
     SharedStepContent:
@@ -3137,10 +3133,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AttachmentHash'
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/SharedStepContent'
     Suite:
       type: object
       properties:

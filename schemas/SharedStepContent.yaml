@@ -12,7 +12,3 @@ properties:
     type: array
     items:
       $ref: 'Attachment.hash.yaml'
-  steps:
-    type: array
-    items:
-      $ref: 'SharedStepContent.yaml'

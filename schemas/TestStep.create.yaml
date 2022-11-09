@@ -1,0 +1,16 @@
+type: object
+properties:
+  action:
+    type: string
+  expected_result:
+    type: string
+  data:
+    type: string
+  position:
+    type: integer
+  attachments:
+    $ref: 'Attachment.hash_list.yaml'
+  steps:
+    type: array
+    items:
+      $ref: 'TestStep.create.yaml'

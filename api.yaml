@@ -2701,16 +2701,7 @@ components:
           type: array
           nullable: true
           items:
-            type: object
-            properties:
-              status:
-                type: integer
-              position:
-                type: integer
-              attachments:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Attachment'
+            $ref: '#/components/schemas/TestStepResult'
         status:
           type: string
         is_api_result:
@@ -2796,35 +2787,7 @@ components:
           type: array
           nullable: true
           items:
-            type: object
-            properties:
-              position:
-                type: integer
-              status:
-                type: string
-                enum:
-                  - passed
-                  - failed
-                  - blocked
-              comment:
-                type: string
-                nullable: true
-              attachments:
-                type: array
-                nullable: true
-                items:
-                  type: string
-              action:
-                type: string
-              expected_result:
-                type: string
-                nullable: true
-              data:
-                type: string
-                nullable: true
-            required:
-              - position
-              - status
+            $ref: '#/components/schemas/TestStepResultCreate'
       required:
         - status
     ResultCreateBulk:
@@ -2872,24 +2835,7 @@ components:
           type: array
           nullable: true
           items:
-            type: object
-            properties:
-              position:
-                type: integer
-              status:
-                type: string
-                enum:
-                  - passed
-                  - failed
-                  - blocked
-              comment:
-                type: string
-                nullable: true
-              attachments:
-                type: array
-                nullable: true
-                items:
-                  type: string
+            $ref: '#/components/schemas/TestStepResultCreate'
     Run:
       type: object
       properties:
@@ -3081,20 +3027,7 @@ components:
         steps:
           type: array
           items:
-            type: object
-            properties:
-              data:
-                type: string
-              hash:
-                type: string
-              action:
-                type: string
-              expected_result:
-                type: string
-              attachments:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AttachmentHash'
+            $ref: '#/components/schemas/SharedStepContent'
         data:
           type: string
         cases:
@@ -3143,20 +3076,7 @@ components:
         steps:
           type: array
           items:
-            type: object
-            properties:
-              hash:
-                type: string
-              action:
-                type: string
-              expected_result:
-                type: string
-              data:
-                type: string
-              attachments:
-                $ref: '#/components/schemas/AttachmentHashList'
-            required:
-              - action
+            $ref: '#/components/schemas/SharedStepContentCreate'
       required:
         - title
     SharedStepUpdate:
@@ -3180,22 +3100,39 @@ components:
         steps:
           type: array
           items:
-            type: object
-            properties:
-              hash:
-                type: string
-              action:
-                type: string
-              expected_result:
-                type: string
-              data:
-                type: string
-              attachments:
-                $ref: '#/components/schemas/AttachmentHashList'
-            required:
-              - action
+            $ref: '#/components/schemas/SharedStepContentCreate'
       required:
         - title
+    SharedStepContentCreate:
+      type: object
+      properties:
+        hash:
+          type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+        data:
+          type: string
+        attachments:
+          $ref: '#/components/schemas/AttachmentHashList'
+      required:
+        - action
+    SharedStepContent:
+      type: object
+      properties:
+        data:
+          type: string
+        hash:
+          type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachmentHash'
     Suite:
       type: object
       properties:
@@ -3423,18 +3360,7 @@ components:
         steps:
           type: array
           items:
-            type: object
-            properties:
-              action:
-                type: string
-              expected_result:
-                type: string
-              data:
-                type: string
-              position:
-                type: integer
-              attachments:
-                $ref: '#/components/schemas/AttachmentHashList'
+            $ref: '#/components/schemas/TestStepCreate'
         tags:
           type: array
           items:
@@ -3485,18 +3411,7 @@ components:
         steps:
           type: array
           items:
-            type: object
-            properties:
-              action:
-                type: string
-              expected_result:
-                type: string
-              data:
-                type: string
-              position:
-                type: integer
-              attachments:
-                $ref: '#/components/schemas/AttachmentHashList'
+            $ref: '#/components/schemas/TestStepCreate'
         tags:
           type: array
           items:
@@ -3531,6 +3446,76 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attachment'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestStep'
+    TestStepCreate:
+      type: object
+      properties:
+        action:
+          type: string
+        expected_result:
+          type: string
+        data:
+          type: string
+        position:
+          type: integer
+        attachments:
+          $ref: '#/components/schemas/AttachmentHashList'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestStepCreate'
+    TestStepResultCreate:
+      type: object
+      properties:
+        position:
+          type: integer
+        status:
+          type: string
+          enum:
+            - passed
+            - failed
+            - blocked
+        comment:
+          type: string
+          nullable: true
+        attachments:
+          type: array
+          nullable: true
+          items:
+            type: string
+        action:
+          type: string
+        expected_result:
+          type: string
+          nullable: true
+        data:
+          type: string
+          nullable: true
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestStepResultCreate'
+      required:
+        - position
+        - status
+    TestStepResult:
+      type: object
+      properties:
+        status:
+          type: integer
+        position:
+          type: integer
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestStepResult'
     qql.Defect:
       type: object
       properties:

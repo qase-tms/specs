@@ -1,35 +1,31 @@
 type: object
 properties:
+  position:
+    type: integer
   status:
     type: string
     enum:
-      - in_progress
       - passed
       - failed
       - blocked
-      - skipped
-  time_ms:
-    type: integer
-    format: int64
-    nullable: true
-    minimum: 0
-    maximum: 31536000000
-  defect:
-    type: boolean
+  comment:
+    type: string
     nullable: true
   attachments:
     type: array
     nullable: true
     items:
       type: string
-  stacktrace:
+  action:
+    type: string
+  expected_result:
     type: string
     nullable: true
-  comment:
+  data:
     type: string
     nullable: true
   steps:
     type: array
-    nullable: true
     items:
       $ref: 'TestStepResult.create.yaml'
+required: [position, status]

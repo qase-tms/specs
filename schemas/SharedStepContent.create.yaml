@@ -1,0 +1,13 @@
+type: object
+properties:
+  hash:
+    type: string
+  action:
+    type: string
+  expected_result:
+    type: string
+  data:
+    type: string
+  attachments:
+    $ref: 'Attachment.hash_list.yaml'
+required: [action]

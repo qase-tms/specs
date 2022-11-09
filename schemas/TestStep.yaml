@@ -22,3 +22,7 @@ properties:
     type: array
     items:
       $ref: 'Attachment.yaml'
+  steps:
+    type: array
+    items:
+      $ref: 'TestStep.yaml'

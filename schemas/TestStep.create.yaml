@@ -12,5 +12,6 @@ properties:
     $ref: 'Attachment.hash_list.yaml'
   steps:
     type: array
+    description: 'Nested steps may be passed here. Use same structure for them.'
     items:
-      $ref: 'TestStep.create.yaml'
+      type: object

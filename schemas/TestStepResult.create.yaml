@@ -26,6 +26,7 @@ properties:
     nullable: true
   steps:
     type: array
+    description: 'Nested steps results may be passed here. Use same structure for them.'
     items:
-      $ref: 'TestStepResult.create.yaml'
+      type: object
 required: [position, status]

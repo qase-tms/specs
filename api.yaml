@@ -3448,8 +3448,9 @@ components:
             $ref: '#/components/schemas/Attachment'
         steps:
           type: array
+          description: Nested steps will be here. The same structure is used for them.
           items:
-            $ref: '#/components/schemas/TestStep'
+            type: object
     TestStepCreate:
       type: object
       properties:
@@ -3465,8 +3466,9 @@ components:
           $ref: '#/components/schemas/AttachmentHashList'
         steps:
           type: array
+          description: Nested steps may be passed here. Use same structure for them.
           items:
-            $ref: '#/components/schemas/TestStepCreate'
+            type: object
     TestStepResultCreate:
       type: object
       properties:
@@ -3496,8 +3498,9 @@ components:
           nullable: true
         steps:
           type: array
+          description: Nested steps results may be passed here. Use same structure for them.
           items:
-            $ref: '#/components/schemas/TestStepResultCreate'
+            type: object
       required:
         - position
         - status
@@ -3514,8 +3517,9 @@ components:
             $ref: '#/components/schemas/Attachment'
         steps:
           type: array
+          description: Nested steps results will be here. The same structure is used for them for them.
           items:
-            $ref: '#/components/schemas/TestStepResult'
+            type: object
     qql.Defect:
       type: object
       properties:

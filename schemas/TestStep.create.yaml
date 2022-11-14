@@ -8,6 +8,7 @@ properties:
     type: string
   position:
     type: integer
+    deprecated: true
   attachments:
     $ref: 'Attachment.hash_list.yaml'
   steps:

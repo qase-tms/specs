@@ -10,6 +10,7 @@ properties:
     nullable: true
   position:
     type: integer
+    deprecated: true
   action:
     type: string
   expected_result:

@@ -4,6 +4,7 @@ properties:
     type: integer
   position:
     type: integer
+    deprecated: true
   attachments:
     type: array
     items:

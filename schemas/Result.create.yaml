@@ -58,10 +58,10 @@ properties:
   param:
     type: object
     nullable: true
-    maxProperties: 1
     description: A map of parameters (name => value)
     additionalProperties:
       type: string
+      nullable: false
   steps:
     type: array
     nullable: true

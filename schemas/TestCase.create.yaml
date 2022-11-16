@@ -41,6 +41,14 @@ properties:
     type: array
     items:
       type: string
+  params:
+    type: object
+    nullable: true
+    additionalProperties:
+      type: array
+      items:
+        type: string
+      nullable: false
   custom_field:
     type: object
     description: A map of custom fields values (id => value)

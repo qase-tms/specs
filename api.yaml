@@ -2779,10 +2779,10 @@ components:
         param:
           type: object
           nullable: true
-          maxProperties: 1
           description: A map of parameters (name => value)
           additionalProperties:
             type: string
+            nullable: false
         steps:
           type: array
           nullable: true
@@ -3365,6 +3365,14 @@ components:
           type: array
           items:
             type: string
+        params:
+          type: object
+          nullable: true
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: false
         custom_field:
           type: object
           description: A map of custom fields values (id => value)
@@ -3416,6 +3424,14 @@ components:
           type: array
           items:
             type: string
+        params:
+          type: object
+          nullable: true
+          additionalProperties:
+            type: array
+            items:
+              type: string
+            nullable: false
         custom_field:
           type: object
           description: A map of custom fields values (id => value)

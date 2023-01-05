@@ -28,9 +28,6 @@ properties:
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
     nullable: true
-  project_id:
-    type: integer
-    format: int64
   member_id:
     type: integer
     format: int64

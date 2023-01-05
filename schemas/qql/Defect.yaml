@@ -27,9 +27,6 @@ properties:
     type: string
     format: date-time
     nullable: true
-  project_id:
-    type: integer
-    format: int64
   member_id:
     type: integer
     format: int64

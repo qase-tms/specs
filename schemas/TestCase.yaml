@@ -67,9 +67,6 @@ properties:
   member_id:
     type: integer
     format: int64
-  project_id:
-    type: integer
-    format: int64
   created_at:
     type: string
     format: date-time

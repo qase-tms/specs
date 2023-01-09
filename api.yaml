@@ -2324,9 +2324,6 @@ components:
           format: date-time
           example: '2021-12-30T19:23:59+00:00'
           nullable: true
-        project_id:
-          type: integer
-          format: int64
         member_id:
           type: integer
           format: int64
@@ -3295,9 +3292,6 @@ components:
         member_id:
           type: integer
           format: int64
-        project_id:
-          type: integer
-          format: int64
         created_at:
           type: string
           format: date-time
@@ -3569,9 +3563,6 @@ components:
           type: string
           format: date-time
           nullable: true
-        project_id:
-          type: integer
-          format: int64
         member_id:
           type: integer
           format: int64
@@ -3657,9 +3648,6 @@ components:
           items:
             $ref: '#/components/schemas/TagValue'
         member_id:
-          type: integer
-          format: int64
-        project_id:
           type: integer
           format: int64
         created_at:

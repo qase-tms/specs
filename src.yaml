@@ -42,6 +42,10 @@ paths:
     $ref: './paths/attachment.code.yaml'
   /attachment/{hash}:
     $ref: './paths/attachment.hash.yaml'
+  /author:
+    $ref: './paths/authors.yaml'
+  /author/{id}:
+    $ref: './paths/author.yaml'
   /case/{code}:
     $ref: './paths/cases.yaml'
   /case/{code}/{id}:
@@ -111,6 +115,7 @@ components:
     AttachmentGet: { $ref: './schemas/Attachment.get.yaml' }
     AttachmentHash: { $ref: './schemas/Attachment.hash.yaml' }
     AttachmentHashList: { $ref: './schemas/Attachment.hash_list.yaml' }
+    Author: { $ref: './schemas/Author.yaml' }
     CustomField: { $ref: './schemas/CustomField.yaml' }
     CustomFieldCreate: { $ref: './schemas/CustomField.create.yaml' }
     CustomFieldUpdate: { $ref: './schemas/CustomField.update.yaml' }
@@ -164,6 +169,8 @@ components:
     AttachmentResponse: { $ref: './schemas/responses/Attachment.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentList.yaml' }
     AttachmentUploadsResponse: { $ref: './schemas/responses/AttachmentUploads.yaml' }
+    AuthorResponse: { $ref: './schemas/responses/Author.yaml' }
+    AuthorListResponse: { $ref: './schemas/responses/AuthorList.yaml' }
     CustomFieldResponse: { $ref: './schemas/responses/CustomField.yaml' }
     CustomFieldsResponse: { $ref: './schemas/responses/CustomFieldList.yaml' }
     DefectResponse: { $ref: './schemas/responses/Defect.yaml' }
@@ -202,6 +209,7 @@ components:
   parameters:
     Code: { $ref: './parameters/Code.yaml' }
     ExtendRuns: { $ref: './parameters/extend/Runs.yaml' }
+    FilterAuthors: { $ref: './parameters/filter/Authors.yaml' }
     FilterCases: { $ref: './parameters/filter/Cases.yaml' }
     FilterCustomFields: { $ref: './parameters/filter/CustomFields.yaml' }
     FilterDefects: { $ref: './parameters/filter/Defects.yaml' }

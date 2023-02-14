@@ -67,6 +67,11 @@ properties:
   member_id:
     type: integer
     format: int64
+    deprecated: true
+    description: Deprecated, use `author_id` instead.
+  author_id:
+    type: integer
+    format: int64
   created_at:
     type: string
     format: date-time

@@ -159,6 +159,62 @@ paths:
           description: Not Found.
         '429':
           description: Too Many Requests.
+  /author:
+    get:
+      operationId: get-authors
+      tags:
+        - authors
+      summary: Get all authors.
+      description: |
+        This method allows to retrieve all authors in selected project.
+      parameters:
+        - $ref: '#/components/parameters/FilterAuthors'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Author list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorListResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Requests.
+  '/author/{id}':
+    get:
+      operationId: get-author
+      tags:
+        - authors
+      summary: Get a specific author.
+      description: |
+        This method allows to retrieve a specific author.
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: An author.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorResponse'
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Not Found.
+        '429':
+          description: Too Many Requests.
   '/case/{code}':
     get:
       operationId: get-cases
@@ -2115,6 +2171,20 @@ components:
       description: A list of Attachment hashes.
       items:
         type: string
+    Author:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        entity_type:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        is_active:
+          type: boolean
     CustomField:
       type: object
       properties:
@@ -2325,6 +2395,11 @@ components:
           example: '2021-12-30T19:23:59+00:00'
           nullable: true
         member_id:
+          type: integer
+          format: int64
+          deprecated: true
+          description: 'Deprecated, use `author_id` instead.'
+        author_id:
           type: integer
           format: int64
         external_data:
@@ -3292,6 +3367,11 @@ components:
         member_id:
           type: integer
           format: int64
+          deprecated: true
+          description: 'Deprecated, use `author_id` instead.'
+        author_id:
+          type: integer
+          format: int64
         created_at:
           type: string
           format: date-time
@@ -3566,6 +3646,11 @@ components:
         member_id:
           type: integer
           format: int64
+          deprecated: true
+          description: 'Deprecated, use `author_id` instead.'
+        author_id:
+          type: integer
+          format: int64
         external_data:
           type: string
         tags:
@@ -3650,6 +3735,11 @@ components:
         member_id:
           type: integer
           format: int64
+          deprecated: true
+          description: 'Deprecated, use `author_id` instead.'
+        author_id:
+          type: integer
+          format: int64
         created_at:
           type: string
           format: date-time
@@ -3713,6 +3803,31 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/AttachmentGet'
+    AuthorResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              $ref: '#/components/schemas/Author'
+    AuthorListResponse:
+      allOf:
+        - $ref: '#/components/schemas/Response'
+        - type: object
+          properties:
+            result:
+              type: object
+              properties:
+                total:
+                  type: integer
+                filtered:
+                  type: integer
+                count:
+                  type: integer
+                entities:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Author'
     CustomFieldResponse:
       allOf:
         - $ref: '#/components/schemas/Response'
@@ -4075,6 +4190,22 @@ components:
         Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects
       schema:
         type: string
+    FilterAuthors:
+      name: filters
+      in: query
+      style: form
+      explode: true
+      schema:
+        type: object
+        properties:
+          search:
+            description: Provide a string that will be used to search by name.
+            type: string
+          type:
+            type: string
+            enum:
+              - app
+              - user
     FilterCases:
       name: filters
       in: query

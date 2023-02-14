@@ -1,0 +1,15 @@
+name: filters
+in: query
+style: form
+explode: true
+schema:
+  type: object
+  properties:
+    search:
+      description: Provide a string that will be used to search by name.
+      type: string
+    type:
+      type: string
+      enum:
+        - app
+        - user

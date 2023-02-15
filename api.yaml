@@ -13,6 +13,7 @@ info:
     url: 'https://github.com/qase-tms/specs/blob/master/LICENSE'
 tags:
   - name: attachments
+  - name: authors
   - name: cases
   - name: custom-fields
   - name: environments

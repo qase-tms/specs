@@ -18,6 +18,7 @@ info:
 
 tags:
   - name: attachments
+  - name: author
   - name: cases
   - name: custom-fields
   - name: environments

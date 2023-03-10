@@ -5,7 +5,18 @@ get:
   description: |
     This method allows to retrieve all authors in selected project.
   parameters:
-    - $ref: '../parameters/filter/Authors.yaml'
+    - in: query
+      name: search
+      schema:
+        type: string
+      description: Provide a string that will be used to search by name.
+    - in: query
+      name: type
+      schema:
+        type: string
+        enum:
+          - app
+          - user
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
   responses:

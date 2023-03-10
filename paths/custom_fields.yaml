@@ -6,7 +6,29 @@ get:
     This method allows to retrieve and filter custom fields.
 
   parameters:
-    - $ref: '../parameters/filter/CustomFields.yaml'
+    - in: query
+      name: entity
+      schema:
+        type: string
+        enum:
+          - case
+          - run
+          - defect
+    - in: query
+      name: type
+      schema:
+        type: string
+        enum:
+          - string
+          - text
+          - number
+          - checkbox
+          - selectbox
+          - radio
+          - multiselect
+          - url
+          - user
+          - datetime
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
 

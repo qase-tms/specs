@@ -7,7 +7,11 @@ get:
 
   parameters:
     - $ref: '../parameters/Code.yaml'
-    - $ref: '../parameters/filter/Suites.yaml'
+    - in: query
+      name: search
+      description: Provide a string that will be used to search by name.
+      schema:
+        type: string
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
 

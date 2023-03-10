@@ -7,7 +7,15 @@ get:
 
   parameters:
     - $ref: '../parameters/Code.yaml'
-    - $ref: '../parameters/filter/Defects.yaml'
+    - in: query
+      name: status
+      schema:
+        type: string
+        enum:
+          - open
+          - resolved
+          - in_progress
+          - invalid
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
 

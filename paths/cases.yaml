@@ -6,8 +6,65 @@ get:
     This method allows to retrieve all test cases stored in selected project.
 
   parameters:
+    - in: query
+      name: search
+      description: Provide a string that will be used to search by name.
+      schema:
+        type: string
+    - in: query
+      name: milestone_id
+      description: ID of milestone.
+      schema:
+        type: integer
+    - in: query
+      name: suite_id
+      description: ID of test suite.
+      schema:
+        type: integer
+    - in: query
+      name: severity
+      description: |
+        A list of severity values separated by comma.
+        Possible values: undefined, blocker, critical,
+        major, normal, minor, trivial
+      schema:
+        type: string
+    - in: query
+      name: priority
+      description: |
+        A list of priority values separated by comma.
+        Possible values: undefined, high, medium, low
+      schema:
+        type: string
+    - in: query
+      name: type
+      description: |
+        A list of type values separated by comma.
+        Possible values: other, functional smoke, regression,
+        security, usability, performance, acceptance
+      schema:
+        type: string
+    - in: query
+      name: behavior
+      description: |
+        A list of behavior values separated by comma.
+        Possible values: undefined, positive negative, destructive
+      schema:
+        type: string
+    - in: query
+      name: automation
+      description: |
+        A list of values separated by comma.
+        Possible values: is-not-automated, automated to-be-automated
+      schema:
+        type: string
+    - in: query
+      name: status
+      description: |
+        A list of values separated by comma. Possible values: actual, draft deprecated
+      schema:
+        type: string
     - $ref: '../parameters/Code.yaml'
-    - $ref: '../parameters/filter/Cases.yaml'
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
 

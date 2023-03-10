@@ -169,7 +169,18 @@ paths:
       description: |
         This method allows to retrieve all authors in selected project.
       parameters:
-        - $ref: '#/components/parameters/FilterAuthors'
+        - in: query
+          name: search
+          schema:
+            type: string
+          description: Provide a string that will be used to search by name.
+        - in: query
+          name: type
+          schema:
+            type: string
+            enum:
+              - app
+              - user
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
       responses:
@@ -225,8 +236,65 @@ paths:
       description: |
         This method allows to retrieve all test cases stored in selected project.
       parameters:
+        - in: query
+          name: search
+          description: Provide a string that will be used to search by name.
+          schema:
+            type: string
+        - in: query
+          name: milestone_id
+          description: ID of milestone.
+          schema:
+            type: integer
+        - in: query
+          name: suite_id
+          description: ID of test suite.
+          schema:
+            type: integer
+        - in: query
+          name: severity
+          description: |
+            A list of severity values separated by comma.
+            Possible values: undefined, blocker, critical,
+            major, normal, minor, trivial
+          schema:
+            type: string
+        - in: query
+          name: priority
+          description: |
+            A list of priority values separated by comma.
+            Possible values: undefined, high, medium, low
+          schema:
+            type: string
+        - in: query
+          name: type
+          description: |
+            A list of type values separated by comma.
+            Possible values: other, functional smoke, regression,
+            security, usability, performance, acceptance
+          schema:
+            type: string
+        - in: query
+          name: behavior
+          description: |
+            A list of behavior values separated by comma.
+            Possible values: undefined, positive negative, destructive
+          schema:
+            type: string
+        - in: query
+          name: automation
+          description: |
+            A list of values separated by comma.
+            Possible values: is-not-automated, automated to-be-automated
+          schema:
+            type: string
+        - in: query
+          name: status
+          description: |
+            A list of values separated by comma. Possible values: actual, draft deprecated
+          schema:
+            type: string
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/FilterCases'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
       responses:
@@ -383,7 +451,29 @@ paths:
       description: |
         This method allows to retrieve and filter custom fields.
       parameters:
-        - $ref: '#/components/parameters/FilterCustomFields'
+        - in: query
+          name: entity
+          schema:
+            type: string
+            enum:
+              - case
+              - run
+              - defect
+        - in: query
+          name: type
+          schema:
+            type: string
+            enum:
+              - string
+              - text
+              - number
+              - checkbox
+              - selectbox
+              - radio
+              - multiselect
+              - url
+              - user
+              - datetime
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
       responses:
@@ -528,7 +618,15 @@ paths:
         This method allows to retrieve all defects stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/FilterDefects'
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum:
+              - open
+              - resolved
+              - in_progress
+              - invalid
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
       responses:
@@ -899,7 +997,11 @@ paths:
         This method allows to retrieve all milestones stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/FilterMilestones'
+        - in: query
+          name: search
+          description: Provide a string that will be used to search by name.
+          schema:
+            type: string
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
       responses:
@@ -1387,7 +1489,46 @@ paths:
         results stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/FilterResults'
+        - in: query
+          name: status
+          description: |
+            A single test run result status.
+            Possible values: in_progress, passed, failed, blocked, skipped, invalid.
+          schema:
+            type: string
+        - in: query
+          name: run
+          schema:
+            type: string
+          description: A list of run IDs separated by comma.
+        - in: query
+          name: case_id
+          schema:
+            type: string
+          description: A list of case IDs separated by comma.
+        - in: query
+          name: member
+          schema:
+            type: string
+          description: A list of member IDs separated by comma.
+        - in: query
+          name: api
+          schema:
+            type: boolean
+        - in: query
+          name: from_end_time
+          schema:
+            type: string
+          description: |
+            Will return all results created after provided datetime.
+            Allowed format: `Y-m-d H:i:s`.
+        - in: query
+          name: to_end_time
+          schema:
+            type: string
+          description: |
+            Will return all results created before provided datetime.
+            Allowed format: `Y-m-d H:i:s`.
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
       responses:
@@ -1599,7 +1740,35 @@ paths:
         This method allows to retrieve all runs stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/FilterRuns'
+        - in: query
+          name: search
+          schema:
+            type: string
+        - in: query
+          name: status
+          description: |
+            A list of status values separated by comma.
+            Possible values: active, complete, abort.
+          schema:
+            type: string
+        - in: query
+          name: milestone
+          schema:
+            type: integer
+        - in: query
+          name: environment
+          schema:
+            type: integer
+        - in: query
+          name: from_start_time
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: to_start_time
+          schema:
+            type: integer
+            format: int64
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
         - $ref: '#/components/parameters/ExtendRuns'
@@ -1822,7 +1991,11 @@ paths:
         This method allows to retrieve all shared steps stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/FilterSharedSteps'
+        - in: query
+          name: search
+          description: Provide a string that will be used to search by name.
+          schema:
+            type: string
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
       responses:
@@ -1974,7 +2147,11 @@ paths:
         This method allows to retrieve all test suites stored in selected project.
       parameters:
         - $ref: '#/components/parameters/Code'
-        - $ref: '#/components/parameters/FilterSuites'
+        - in: query
+          name: search
+          description: Provide a string that will be used to search by name.
+          schema:
+            type: string
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
       responses:
@@ -4191,204 +4368,6 @@ components:
         Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects
       schema:
         type: string
-    FilterAuthors:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          search:
-            description: Provide a string that will be used to search by name.
-            type: string
-          type:
-            type: string
-            enum:
-              - app
-              - user
-    FilterCases:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          search:
-            description: Provide a string that will be used to search by name.
-            type: string
-          milestone_id:
-            description: ID of milestone.
-            type: integer
-          suite_id:
-            description: ID of test suite.
-            type: integer
-          severity:
-            description: |
-              A list of severity values separated by comma.
-              Possible values: undefined, blocker, critical,
-              major, normal, minor, trivial
-            type: string
-          priority:
-            description: |
-              A list of priority values separated by comma.
-              Possible values: undefined, high, medium, low
-            type: string
-          type:
-            description: |
-              A list of type values separated by comma.
-              Possible values: other, functional smoke, regression,
-              security, usability, performance, acceptance
-            type: string
-          behavior:
-            description: |
-              A list of behavior values separated by comma.
-              Possible values: undefined, positive negative, destructive
-            type: string
-          automation:
-            description: |
-              A list of values separated by comma.
-              Possible values: is-not-automated, automated to-be-automated
-            type: string
-          status:
-            description: |
-              A list of values separated by comma. Possible values: actual, draft deprecated
-            type: string
-    FilterCustomFields:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          entity:
-            type: string
-            enum:
-              - case
-              - run
-              - defect
-          type:
-            type: string
-            enum:
-              - string
-              - text
-              - number
-              - checkbox
-              - selectbox
-              - radio
-              - multiselect
-              - url
-              - user
-              - datetime
-    FilterDefects:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          status:
-            type: string
-            enum:
-              - open
-              - resolved
-              - in_progress
-              - invalid
-    FilterMilestones:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          search:
-            description: Provide a string that will be used to search by name.
-            type: string
-    FilterResults:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          status:
-            description: |
-              A single test run result status.
-              Possible values: in_progress, passed, failed, blocked, skipped, invalid.
-            type: string
-          run:
-            type: string
-            description: A list of run IDs separated by comma.
-          case_id:
-            type: string
-            description: A list of case IDs separated by comma.
-          member:
-            type: string
-            description: A list of member IDs separated by comma.
-          api:
-            type: boolean
-          from_end_time:
-            type: string
-            description: |
-              Will return all results created after provided datetime.
-              Allowed format: `Y-m-d H:i:s`.
-          to_end_time:
-            type: string
-            description: |
-              Will return all results created before provided datetime.
-              Allowed format: `Y-m-d H:i:s`.
-    FilterRuns:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          search:
-            type: string
-          status:
-            description: |
-              A list of status values separated by comma.
-              Possible values: active, complete, abort.
-            type: string
-          milestone:
-            type: integer
-          environment:
-            type: integer
-          from_start_time:
-            type: integer
-            format: int64
-          to_start_time:
-            type: integer
-            format: int64
-    FilterSharedSteps:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          search:
-            description: Provide a string that will be used to search by name.
-            type: string
-    FilterSuites:
-      name: filters
-      in: query
-      style: form
-      explode: true
-      schema:
-        type: object
-        properties:
-          search:
-            description: Provide a string that will be used to search by name.
-            type: string
     Hash:
       name: hash
       in: path

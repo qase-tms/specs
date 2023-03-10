@@ -210,15 +210,6 @@ components:
   parameters:
     Code: { $ref: './parameters/Code.yaml' }
     ExtendRuns: { $ref: './parameters/extend/Runs.yaml' }
-    FilterAuthors: { $ref: './parameters/filter/Authors.yaml' }
-    FilterCases: { $ref: './parameters/filter/Cases.yaml' }
-    FilterCustomFields: { $ref: './parameters/filter/CustomFields.yaml' }
-    FilterDefects: { $ref: './parameters/filter/Defects.yaml' }
-    FilterMilestones: { $ref: './parameters/filter/Milestones.yaml' }
-    FilterResults: { $ref: './parameters/filter/Results.yaml' }
-    FilterRuns: { $ref: './parameters/filter/Runs.yaml' }
-    FilterSharedSteps: { $ref: './parameters/filter/SharedSteps.yaml' }
-    FilterSuites: { $ref: './parameters/filter/Suites.yaml' }
     Hash: { $ref: './parameters/Hash.yaml' }
     Id: { $ref: './parameters/Id.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }

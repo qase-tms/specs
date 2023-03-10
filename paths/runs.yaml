@@ -7,7 +7,35 @@ get:
 
   parameters:
     - $ref: '../parameters/Code.yaml'
-    - $ref: '../parameters/filter/Runs.yaml'
+    - in: query
+      name: search
+      schema:
+        type: string
+    - in: query
+      name: status
+      description: |
+        A list of status values separated by comma.
+        Possible values: active, complete, abort.
+      schema:
+        type: string
+    - in: query
+      name: milestone
+      schema:
+        type: integer
+    - in: query
+      name: environment
+      schema:
+        type: integer
+    - in: query
+      name: from_start_time
+      schema:
+        type: integer
+        format: int64
+    - in: query
+      name: to_start_time
+      schema:
+        type: integer
+        format: int64
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
     - $ref: '../parameters/extend/Runs.yaml'

@@ -8,7 +8,46 @@ get:
 
   parameters:
     - $ref: '../parameters/Code.yaml'
-    - $ref: '../parameters/filter/Results.yaml'
+    - in: query
+      name: status
+      description: |
+        A single test run result status.
+        Possible values: in_progress, passed, failed, blocked, skipped, invalid.
+      schema:
+        type: string
+    - in: query
+      name: run
+      schema:
+        type: string
+      description: A list of run IDs separated by comma.
+    - in: query
+      name: case_id
+      schema:
+        type: string
+      description: A list of case IDs separated by comma.
+    - in: query
+      name: member
+      schema:
+        type: string
+      description: A list of member IDs separated by comma.
+    - in: query
+      name: api
+      schema:
+        type: boolean
+    - in: query
+      name: from_end_time
+      schema:
+        type: string
+      description: |
+        Will return all results created after provided datetime.
+        Allowed format: `Y-m-d H:i:s`.
+    - in: query
+      name: to_end_time
+      schema:
+        type: string
+      description: |
+        Will return all results created before provided datetime.
+        Allowed format: `Y-m-d H:i:s`.
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
 

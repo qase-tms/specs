@@ -69,7 +69,7 @@ function python() {
   mkdir examples/sdk/python
   cp examples/sdk/python-openapi-generator-ignore examples/sdk/python/.openapi-generator-ignore
 #  version=$(cat VERSION)
-  openapi generate -i /specs/api.yaml -g python -o /sdk/python  --additional-properties=packageName=qaseio,packageVersion=3.0.0,packageUrl=https://github.com/qase-tms/qase-python
+  openapi generate -i /specs/api.yaml -g python -o /sdk/python  --additional-properties=packageName=qaseio,packageUrl=https://github.com/qase-tms/qase-python
   # TODO:extend add formatting
 }
 
@@ -86,7 +86,7 @@ openapi() {
   docker run --rm -i \
     -v "$(pwd)"/api.yaml:/specs/api.yaml \
     -v "$(pwd)"/examples/sdk:/sdk \
-    openapitools/openapi-generator-cli:v6.0.1 "${@}"
+    openapitools/openapi-generator-cli:v6.3.0 "${@}"
 }
 
 swagger() {

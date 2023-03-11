@@ -10,4 +10,18 @@
 .private.hosts
 http-client.private.env.json
 
-.idea
+# Editor specific files
+.idea/
+.vscode/
+.buildpath/
+.project/
+.settings/
+nbproject/
+
+# Environment config
+.env
+frpc.ini
+
+# OS specific files
+.DS_Store
+Thumbs.db

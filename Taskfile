@@ -86,7 +86,7 @@ openapi() {
   docker run --rm -i \
     -v "$(pwd)"/api.yaml:/specs/api.yaml \
     -v "$(pwd)"/examples/sdk:/sdk \
-    openapitools/openapi-generator-cli:v6.3.0 "${@}"
+    openapitools/openapi-generator-cli:v6.4.0 "${@}"
 }
 
 swagger() {
@@ -94,7 +94,7 @@ swagger() {
   docker run --rm -it \
     -v "$(pwd)"/api.yaml:/specs/api.yaml \
     -v "$(pwd)"/examples/sdk:/sdk \
-    swaggerapi/swagger-codegen-cli-v3:3.0.31 "${@}"
+    swaggerapi/swagger-codegen-cli-v3:3.0.41 "${@}"
 }
 
 __default() { help; }

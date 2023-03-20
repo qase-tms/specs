@@ -2987,6 +2987,12 @@ components:
             description:
               type: string
               nullable: true
+            preconditions:
+              type: string
+              nullable: true
+            postconditions:
+              type: string
+              nullable: true
             layer:
               type: string
             severity:

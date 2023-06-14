@@ -54,5 +54,11 @@ properties:
     description: A map of custom fields values (id => value)
     additionalProperties:
       type: string
+  created_at:
+    type: string
+    format: date-time
+  updated_at:
+    type: string
+    format: date-time
 
 required: [title]

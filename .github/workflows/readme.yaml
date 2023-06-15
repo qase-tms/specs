@@ -10,9 +10,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with: { node-version: 16, cache: npm }
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with: { node-version: 18, cache: npm }
 
       - run: npm ci
       - run: npm run build
@@ -22,13 +22,13 @@ jobs:
         run: echo ::set-output name=modified::$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)
       - if: steps.git-check.outputs.modified == 'true'
         run: |
-          git config --local user.name 'Kirill Ivliev'
-          git config --local user.email '1ivliev@mail.ru'
+          git config --local user.name 'Nikita Fedorov'
+          git config --local user.email 'nik333r@gmail.com'
           git add -A
           git commit -m '[build] add publishing artifacts'
           git push
 
-      - uses: readmeio/rdme@7.3.0
+      - uses: readmeio/rdme@v8
         with:
           rdme: openapi ./api.yaml --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff
 

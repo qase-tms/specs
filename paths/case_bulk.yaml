@@ -1,7 +1,7 @@
 post:
   operationId: bulk
   tags: [ cases ]
-  summary: Create a new test cases.
+  summary: Create test cases in bulk.
   description: |
     This method allows to bulk create new test cases in a project.
 

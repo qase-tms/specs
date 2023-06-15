@@ -20,12 +20,18 @@ post:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              ids:
-                type: array
-                items:
-                  type: integer
+            allOf:
+              - $ref: '../schemas/responses/Base.yaml'
+              - type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      ids:
+                        type: array
+                        items:
+                          type: integer
+
     400:
       description: Bad Request.
     401:

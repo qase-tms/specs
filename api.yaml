@@ -477,12 +477,17 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  ids:
-                    type: array
-                    items:
-                      type: integer
+                allOf:
+                  - $ref: '#/components/schemas/Response'
+                  - type: object
+                    properties:
+                      result:
+                        type: object
+                        properties:
+                          ids:
+                            type: array
+                            items:
+                              type: integer
         '400':
           description: Bad Request.
         '401':
@@ -3269,6 +3274,12 @@ components:
           description: A map of custom fields values (id => value)
           additionalProperties:
             type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
       required:
         - title
     RunPublic:
@@ -3689,6 +3700,12 @@ components:
           description: A map of custom fields values (id => value)
           additionalProperties:
             type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
       required:
         - title
     TestCaseUpdate:

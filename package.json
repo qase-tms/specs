@@ -7,8 +7,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "swagger-cli bundle src.yaml -o api.yaml -t yaml",
-    "preview": "redoc-cli serve api.yaml",
-    "publish": "redoc-cli bundle api.yaml -o docs/index.html",
     "validate": "swagger-cli validate src.yaml && spectral lint api.yaml"
   },
   "repository": {

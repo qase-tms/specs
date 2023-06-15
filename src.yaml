@@ -51,6 +51,8 @@ paths:
     $ref: './paths/cases.yaml'
   /case/{code}/{id}:
     $ref: './paths/case.yaml'
+  /case/{code}/bulk:
+    $ref: './paths/case_bulk.yaml'
   /custom_field:
     $ref: './paths/custom_fields.yaml'
   /custom_field/{id}:

@@ -1,0 +1,14 @@
+type: object
+properties:
+  cases:
+    type: array
+    items:
+      allOf:
+        - $ref: 'TestCase.create.yaml'
+        - type: object
+          properties:
+            id:
+              type: integer
+              nullable: true
+required:
+  - cases

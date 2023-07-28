@@ -35,6 +35,8 @@ properties:
       - blocked
       - skipped
       - invalid
+  start_time:
+    type: string
   time:
     type: integer
     format: int64

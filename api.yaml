@@ -447,7 +447,7 @@ paths:
       operationId: bulk
       tags:
         - cases
-      summary: Create a new test cases.
+      summary: Create test cases in bulk.
       description: |
         This method allows to bulk create new test cases in a project.
       parameters:
@@ -3276,10 +3276,8 @@ components:
             type: string
         start_time:
           type: string
-          format: date-time
         end_time:
           type: string
-          format: date-time
       required:
         - title
     RunPublic:
@@ -3702,10 +3700,8 @@ components:
             type: string
         created_at:
           type: string
-          format: date-time
         updated_at:
           type: string
-          format: date-time
       required:
         - title
     TestCaseUpdate:

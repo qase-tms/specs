@@ -35,6 +35,10 @@ properties:
       - blocked
       - skipped
       - invalid
+  start_time:
+    type: integer
+    minimum: 0
+    nullable: true
   time:
     type: integer
     format: int64

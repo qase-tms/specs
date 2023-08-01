@@ -2380,7 +2380,7 @@ paths:
         content:
           application/json:
             schema:
-              title: CreateResultsPublicRequest
+              title: CreateResultsRequestV2
               properties:
                 results:
                   type: array

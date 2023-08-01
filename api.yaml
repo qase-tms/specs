@@ -2358,6 +2358,86 @@ paths:
           description: Unprocessable Entity.
         '429':
           description: Too Many Requests.
+  '/{project_code}/run/{run_id}/results':
+    post:
+      operationId: create-results-new
+      tags:
+        - result
+      parameters:
+        - name: project_code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: run_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              title: CreateResultsPublicRequest
+              properties:
+                results:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      title:
+                        type: string
+                      signature:
+                        type: string
+                      testops_id:
+                        type: integer
+                        format: int64
+                        nullable: true
+                      case_id:
+                        type: integer
+                        format: int64
+                        nullable: true
+                      suite_id:
+                        type: integer
+                        format: int64
+                        nullable: true
+                      execution:
+                        $ref: '#/components/schemas/ResultExecution'
+                      fields:
+                        type: object
+                        additionalProperties:
+                          type: string
+                      attachments:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ResultAttachment'
+                      steps:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ResultStep'
+                      params:
+                        type: object
+                        additionalProperties:
+                          type: string
+                      author:
+                        type: string
+                      relations:
+                        $ref: '#/components/schemas/ResultRelations'
+                      muted:
+                        type: boolean
+                      message:
+                        type: string
+                      created_at:
+                        type: number
+                        format: double
+                        nullable: true
+      responses:
+        '200':
+          description: OK
 components:
   schemas:
     Attachment:
@@ -4023,6 +4103,112 @@ components:
           type: string
           format: date-time
           example: '2021-12-30T19:23:59+00:00'
+    ResultStep:
+      type: object
+      properties:
+        id:
+          type: string
+        step_type:
+          type: string
+        data:
+          title: ResultStepData
+          type: object
+          properties:
+            action:
+              type: string
+            expected_result:
+              type: string
+        parent_id:
+          type: string
+        execution:
+          $ref: '#/components/schemas/ResultStepExecution'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultAttachment'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultStep'
+    ResultAttachment:
+      type: object
+      properties:
+        id:
+          type: string
+        file_name:
+          type: string
+        mime_type:
+          type: string
+        file_path:
+          type: string
+        content:
+          type: string
+        size:
+          type: integer
+    ResultExecution:
+      type: object
+      properties:
+        start_time:
+          type: number
+          format: double
+          nullable: true
+        end_time:
+          type: number
+          format: double
+          nullable: true
+        status:
+          type: string
+        duration:
+          type: integer
+          format: int64
+          nullable: true
+        stacktrace:
+          type: string
+        thread:
+          type: string
+    ResultStepExecution:
+      type: object
+      properties:
+        start_time:
+          type: number
+          format: double
+          nullable: true
+        end_time:
+          type: number
+          format: double
+          nullable: true
+        status:
+          type: string
+        duration:
+          type: integer
+          format: int64
+          nullable: true
+    ResultRelations:
+      type: object
+      title: Relation
+      nullable: true
+      properties:
+        suite:
+          type: object
+          title: RelationSuite
+          nullable: true
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                title: RelationSuiteItem
+                properties:
+                  title:
+                    type: string
+                  public_id:
+                    type: integer
+                    format: int64
+                    nullable: true
+                required:
+                  - title
+          required:
+            - data
     AttachmentResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

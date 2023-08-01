@@ -112,6 +112,10 @@ paths:
   /suite/{code}/{id}:
     $ref: './paths/suite.yaml'
 
+  # new results api
+  /{project_code}/run/{run_id}/results:
+    $ref: './paths/v2/results_bulk.yaml'
+
 components:
   schemas:
     Attachment: { $ref: './schemas/Attachment.yaml' }
@@ -168,6 +172,13 @@ components:
     qql.Defect: { $ref: './schemas/qql/Defect.yaml' }
     qql.TestCase: { $ref: './schemas/qql/TestCase.yaml' }
     qql.Plan: { $ref: './schemas/qql/Plan.yaml' }
+
+    # new results api
+    ResultStep: { $ref: './schemas/v2/ResultStep.yaml' }
+    ResultAttachment: { $ref: './schemas/v2/ResultAttachment.yaml' }
+    ResultExecution: { $ref: './schemas/v2/ResultExecution.yaml' }
+    ResultStepExecution: { $ref: './schemas/v2/ResultStepExecution.yaml' }
+    ResultRelations: { $ref: './schemas/v2/ResultRelations.yaml' }
 
     AttachmentResponse: { $ref: './schemas/responses/Attachment.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentList.yaml' }

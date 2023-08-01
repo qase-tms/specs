@@ -1,0 +1,50 @@
+type: object
+properties:
+  id:
+    type: string
+  title:
+    type: string
+  signature:
+    type: string
+  testops_id:
+    type: integer
+    format: int64
+    nullable: true
+  case_id:
+    type: integer
+    format: int64
+    nullable: true
+  suite_id:
+    type: integer
+    format: int64
+    nullable: true
+  execution:
+    $ref: './ResultExecution.yaml'
+  fields:
+    type: object
+    additionalProperties:
+      type: string
+  attachments:
+    type: array
+    items:
+      $ref: './ResultAttachment.yaml'
+  steps:  
+    type: array
+    items:
+      $ref: './ResultStep.yaml'
+  params:
+    type: object
+    additionalProperties:
+      type: string
+  author:
+    type: string
+  relations:
+    $ref: './ResultRelations.yaml'
+  muted:
+    type: boolean
+  message:
+    type: string
+  created_at:
+    type: number
+    format: double
+    nullable: true

@@ -2360,7 +2360,7 @@ paths:
           description: Too Many Requests.
   '/{project_code}/run/{run_id}/results':
     post:
-      operationId: create-results-new
+      operationId: create-results-v2
       tags:
         - result
       parameters:

@@ -1,5 +1,5 @@
 post:
-  operationId: create-results-new
+  operationId: create-results-v2
   tags:
     - result
   parameters:

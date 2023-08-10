@@ -1,0 +1,16 @@
+type: object
+properties:
+  start_time:
+    type: number
+    format: double
+    nullable: true
+  end_time:
+    type: number
+    format: double
+    nullable: true
+  status:
+    type: string
+  duration:
+    type: integer
+    format: int64
+    nullable: true

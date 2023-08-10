@@ -1,0 +1,25 @@
+type: object
+title: Relation
+nullable: true
+properties:
+  suite:
+    type: object
+    title: RelationSuite
+    nullable: true
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+          title: RelationSuiteItem
+          properties:
+            title:
+              type: string
+            public_id:
+              type: integer
+              format: int64
+              nullable: true
+          required:
+            - title
+    required:
+      - data

@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+  file_name:
+    type: string
+  mime_type:
+    type: string
+  file_path:
+    type: string
+  content:
+    type: string
+  size:
+    type: integer

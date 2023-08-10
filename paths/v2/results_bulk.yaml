@@ -1,0 +1,30 @@
+post:
+  operationId: create-results-v2
+  tags:
+    - result
+  parameters:
+    - name: project_code
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: run_id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          title: CreateResultsRequestV2
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '../../schemas/v2/ResultCreate.yaml'
+  responses:
+    "200":
+      description: OK

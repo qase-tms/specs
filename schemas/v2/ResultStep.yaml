@@ -1,0 +1,26 @@
+type: object
+properties:
+  id:
+    type: string
+  step_type:
+    type: string
+  data:
+    title: ResultStepData
+    type: object
+    properties:
+      action:
+        type: string
+      expected_result:
+        type: string
+  parent_id:
+    type: string
+  execution:
+    $ref: './ResultStepExecution.yaml'
+  attachments:
+    type: array
+    items:
+      $ref: './ResultAttachment.yaml'
+  steps:  
+    type: array
+    items:
+      $ref: './ResultStep.yaml'

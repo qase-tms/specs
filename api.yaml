@@ -3186,6 +3186,10 @@ components:
           nullable: true
           items:
             $ref: '#/components/schemas/TestStepResultCreate'
+        author_id:
+          type: integer
+          format: int64
+          nullable: true
       required:
         - status
     ResultCreateBulk:

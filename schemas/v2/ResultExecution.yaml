@@ -10,6 +10,13 @@ properties:
     nullable: true
   status:
     type: string
+    enum:
+      - in_progress
+      - passed
+      - failed
+      - blocked
+      - skipped
+      - invalid
   duration:
     type: integer
     format: int64

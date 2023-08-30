@@ -77,5 +77,9 @@ properties:
     nullable: true
     items:
       $ref: 'TestStepResult.create.yaml'
+  author_id:
+    type: integer
+    format: int64
+    nullable: true
 required:
   - status

@@ -3135,6 +3135,8 @@ components:
               type: string
             severity:
               type: string
+            priority:
+              type: string
         status:
           type: string
           enum:

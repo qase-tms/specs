@@ -2360,6 +2360,11 @@ paths:
           description: Too Many Requests.
   '/{project_code}/run/{run_id}/results':
     post:
+      summary: (Beta) Bulk create test run result.
+      description: |
+        This method allows to create a lot of test run result at once.
+
+        If there is no free space left in your team account, when attempting to upload an attachment, e.g., through reporters, you will receive an error with code 507 - Insufficient Storage.
       operationId: create-results-v2
       tags:
         - result
@@ -2394,14 +2399,6 @@ paths:
                       signature:
                         type: string
                       testops_id:
-                        type: integer
-                        format: int64
-                        nullable: true
-                      case_id:
-                        type: integer
-                        format: int64
-                        nullable: true
-                      suite_id:
                         type: integer
                         format: int64
                         nullable: true

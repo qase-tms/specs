@@ -10,14 +10,6 @@ properties:
     type: integer
     format: int64
     nullable: true
-  case_id:
-    type: integer
-    format: int64
-    nullable: true
-  suite_id:
-    type: integer
-    format: int64
-    nullable: true
   execution:
     $ref: './ResultExecution.yaml'
   fields:

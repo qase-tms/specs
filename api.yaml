@@ -294,6 +294,38 @@ paths:
             A list of values separated by comma. Possible values: actual, draft deprecated
           schema:
             type: string
+        - in: query
+          name: 'external_issues[type]'
+          description: |
+            An integration type.
+          schema:
+            type: string
+            enum:
+              - asana
+              - azure-devops
+              - clickup-app
+              - github-app
+              - gitlab-app
+              - jira-cloud
+              - jira-server
+              - linear
+              - monday
+              - redmine-app
+              - trello-app
+              - youtrack-app
+        - in: query
+          name: 'external_issues[ids]'
+          description: A list of issue IDs.
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: include
+          description: |
+            A list of entities to include in response separated by comma. Possible values: external_issues.
+          schema:
+            type: string
         - $ref: '#/components/parameters/Code'
         - $ref: '#/components/parameters/Limit'
         - $ref: '#/components/parameters/Offset'
@@ -3728,6 +3760,22 @@ components:
           description: 'Deprecated, use the `updated_at` property instead.'
           type: string
           example: '2021-12-30T19:23:59.000000Z'
+        external_issues:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              issues:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    link:
+                      type: string
     TestCaseCreate:
       type: object
       properties:

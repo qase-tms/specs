@@ -1,0 +1,13 @@
+type: object
+properties:
+  type:
+    type: string
+  issues:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        link:
+          type: string

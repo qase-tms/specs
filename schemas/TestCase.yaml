@@ -95,3 +95,7 @@ properties:
     description: Deprecated, use the `updated_at` property instead.
     type: string
     example: "2021-12-30T19:23:59.000000Z"
+  external_issues:
+    type: array
+    items:
+      $ref: './ExternalIssue.yaml'

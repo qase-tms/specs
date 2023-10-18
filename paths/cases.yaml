@@ -64,6 +64,38 @@ get:
         A list of values separated by comma. Possible values: actual, draft deprecated
       schema:
         type: string
+    - in: query
+      name: external_issues[type]
+      description: | 
+        An integration type.
+      schema:
+        type: string
+        enum:
+          - asana
+          - azure-devops
+          - clickup-app
+          - github-app
+          - gitlab-app
+          - jira-cloud
+          - jira-server
+          - linear
+          - monday
+          - redmine-app
+          - trello-app
+          - youtrack-app
+    - in: query
+      name: external_issues[ids]
+      description: A list of issue IDs.
+      schema:
+          type: array
+          items:
+            type: string
+    - in: query
+      name: include
+      description: |
+          A list of entities to include in response separated by comma. Possible values: external_issues.
+      schema:
+          type: string
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'

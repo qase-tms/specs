@@ -15,3 +15,8 @@ allOf:
                 - $ref: '../qql/TestCase.yaml'
                 - $ref: '../qql/Defect.yaml'
                 - $ref: '../qql/Plan.yaml'
+          total:
+            type: integer
+        required:
+          - entities
+          - total

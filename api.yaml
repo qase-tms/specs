@@ -4536,6 +4536,11 @@ components:
                       - $ref: '#/components/schemas/qql.TestCase'
                       - $ref: '#/components/schemas/qql.Defect'
                       - $ref: '#/components/schemas/qql.Plan'
+                total:
+                  type: integer
+              required:
+                - entities
+                - total
     SharedStepResponse:
       allOf:
         - $ref: '#/components/schemas/Response'

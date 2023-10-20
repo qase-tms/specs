@@ -53,6 +53,10 @@ paths:
     $ref: './paths/case.yaml'
   /case/{code}/bulk:
     $ref: './paths/case_bulk.yaml'
+  /case/{code}/external-issue/attach:
+    $ref: './paths/case_attach_external_issue.yaml'
+  /case/{code}/external-issue/detach:
+    $ref: './paths/case_detach_external_issue.yaml'
   /custom_field:
     $ref: './paths/custom_fields.yaml'
   /custom_field/{id}:

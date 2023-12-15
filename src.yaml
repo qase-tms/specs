@@ -168,6 +168,7 @@ components:
     TagValue: { $ref: './schemas/Tag.value.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
+    TestCaseExternalIssues: { $ref: './schemas/TestCase.external_issues.yaml' }
     TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
     TestStepCreate: { $ref: './schemas/TestStep.create.yaml' }
@@ -183,6 +184,7 @@ components:
     ResultExecution: { $ref: './schemas/v2/ResultExecution.yaml' }
     ResultStepExecution: { $ref: './schemas/v2/ResultStepExecution.yaml' }
     ResultRelations: { $ref: './schemas/v2/ResultRelations.yaml' }
+    ResultStatus: { $ref: './schemas/v2/ResultStatus.yaml' }
 
     AttachmentResponse: { $ref: './schemas/responses/Attachment.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentList.yaml' }

@@ -9,7 +9,7 @@ properties:
     format: double
     nullable: true
   status:
-    type: string
+    $ref: './ResultStatus.yaml'
   duration:
     type: integer
     format: int64

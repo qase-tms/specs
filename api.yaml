@@ -3474,6 +3474,10 @@ components:
           type: integer
           format: int64
           minimum: 1
+        author_id:
+          type: integer
+          format: int64
+          minimum: 1
         tags:
           type: array
           items:

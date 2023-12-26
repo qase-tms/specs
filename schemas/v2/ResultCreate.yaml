@@ -2,6 +2,7 @@ type: object
 properties:
   id:
     type: string
+    description: If passed, used as an idempotency key
   title:
     type: string
   signature:
@@ -40,3 +41,6 @@ properties:
     type: number
     format: double
     nullable: true
+required:
+  - title
+  - execution

@@ -1,0 +1,21 @@
+{
+  "name": "testops-api-specs",
+  "author": "Qase Team",
+  "version": "1.0.0",
+  "description": "Qase TestOps API Specification.",
+  "homepage": "https://developers.qase.io",
+  "license": "Apache-2.0",
+  "scripts": {
+    "validate": "spectral lint api.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qase-tms/specs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qase-tms/specs/issues"
+  },
+  "dependencies": {
+    "@stoplight/spectral-cli": "^6.11.0"
+  }
+}

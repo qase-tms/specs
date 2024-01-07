@@ -1,8 +1,8 @@
 openapi: '3.0.0'
 
 info:
-  title: Qase.io API
-  description: Qase API Specification.
+  title: Qase.io TestOps API
+  description: Qase TestOps API Specification.
 
   termsOfService: https://qase.io/terms
   version: 1.0.0

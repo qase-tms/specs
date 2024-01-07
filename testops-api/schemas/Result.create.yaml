@@ -30,13 +30,7 @@ properties:
         type: string
   status:
     type: string
-    enum:
-      - in_progress
-      - passed
-      - failed
-      - blocked
-      - skipped
-      - invalid
+    description: Can have the following values `passed`, `failed`, `blocked`, `skipped`, `invalid` + custom statuses
   start_time:
     type: integer
     minimum: 0

@@ -22,5 +22,6 @@ properties:
       $ref: './ResultAttachment.yaml'
   steps:  
     type: array
+    description: 'Nested steps will be here. The same structure is used for them.'
     items:
-      $ref: './ResultStep.yaml'
+      type: object

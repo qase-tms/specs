@@ -10,9 +10,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with: { node-version: 18, cache: npm }
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: 18
+          cache: npm
+          cache-dependency-path: testops-api/package-lock.json
 
       - run: npm ci --omit=optional -f
       - run: npm run build

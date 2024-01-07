@@ -19,7 +19,7 @@ jobs:
 
       - uses: readmeio/rdme@v8
         with:
-          rdme: openapi ./api.yaml --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff
+          rdme: openapi ./testops-api/api.yaml --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff
 
       - uses: rtCamp/action-slack-notify@v2
         env:

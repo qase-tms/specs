@@ -1,4 +1,0 @@
-# operationId: search
-GET {{host}}/search?query=title~"project"
-Token: {{token}}
-Content-Type: application/json

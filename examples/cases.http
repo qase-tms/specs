@@ -1,9 +1,0 @@
-# operationId: get-cases
-GET {{host}}/case/DEMO?limit=10&offset=0&severity=major
-Token: {{token}}
-###
-
-# operationId: get-cases, legacy
-GET {{host}}/case/DEMO?limit=10&offset=0&filters[severity]=major
-Token: {{token}}
-###

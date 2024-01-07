@@ -9,11 +9,13 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Sync Readme docs
         uses: readmeio/rdme@v8
+        working-directory: ./testops-api
         with:
-          rdme: openapi ./testops-api/src.yaml --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff
+          rdme: openapi src.yaml --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff

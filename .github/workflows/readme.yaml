@@ -10,12 +10,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: readmeio/rdme@v8
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync Readme docs
+        uses: readmeio/rdme@v8
         with:
           rdme: openapi ./testops-api/src.yaml --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff
-
-      - uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_ICON: https://github.com/github.png?size=64
-          SLACK_USERNAME: GitHub Actions
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

@@ -1,0 +1,19 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  title:
+    type: string
+  slug:
+    type: string
+  color:
+    type: string
+    nullable: true
+  icon:
+    type: string
+    nullable: true
+  is_default:
+    type: boolean
+  read_only:
+    type: boolean

@@ -61,6 +61,8 @@ paths:
     $ref: './paths/custom_fields.yaml'
   /custom_field/{id}:
     $ref: './paths/custom_field.yaml'
+  /system_field:
+    $ref: './paths/system_fields.yaml'
   /defect/{code}:
     $ref: './paths/defects.yaml'
   /defect/{code}/{id}:

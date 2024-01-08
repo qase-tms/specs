@@ -1,0 +1,22 @@
+type: object
+properties:
+  title:
+    type: string
+  slug:
+    type: string
+  default_value:
+    type: string
+    nullable: true
+  is_required:
+    type: boolean
+  entity:
+    type: integer
+    format: int64
+  type:
+    type: integer
+    format: int64
+  options:
+    type: array
+    nullable: true
+    items:
+      $ref: './SystemFieldOption.yaml'

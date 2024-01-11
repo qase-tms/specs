@@ -29,22 +29,34 @@ properties:
     properties:
       total:
         type: integer
+      statuses:
+        type: object
+        additionalProperties:
+          type: integer
       untested:
         type: integer
+        deprecated: true
       passed:
         type: integer
+        deprecated: true
       failed:
         type: integer
+        deprecated: true
       blocked:
         type: integer
+        deprecated: true
       skipped:
         type: integer
+        deprecated: true
       retest:
         type: integer
+        deprecated: true
       in_progress:
         type: integer
+        deprecated: true
       invalid:
         type: integer
+        deprecated: true
   time_spent:
     type: integer
     format: int64

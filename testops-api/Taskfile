@@ -10,11 +10,11 @@ function validate() {
 }
 
 ### codegen
-
 function go() {
-  rm -rf sdk/go/*
+  rm -rf sdk/go
+  mkdir sdk/go
   openapi generate -i /specs/src.yaml -g go -o sdk/go -c sdk/go.yml
-  goimports -ungroup -local qase -w sdk/go/
+  goimports -local qase -w sdk/go/
 }
 
 function php() {

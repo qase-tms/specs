@@ -1,8 +1,7 @@
 post:
   operationId: case-detach-external-issue
   tags: [ cases ]
-  summary: Detach the external issues from the test cases.
-
+  summary: Detach the external issues from the test cases
   parameters:
     - $ref: '../parameters/Code.yaml'
   requestBody:

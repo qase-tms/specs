@@ -1,7 +1,7 @@
 get:
   operationId: get-result
   tags: [ results ]
-  summary: Get test run result by code.
+  summary: Get test run result by code
   description: |
     This method allows to retrieve a specific test run result by Hash.
   parameters:

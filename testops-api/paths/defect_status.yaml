@@ -1,7 +1,7 @@
 patch:
   operationId: update-defect-status
   tags: [ defects ]
-  summary: Update a specific defect status.
+  summary: Update a specific defect status
   description: |
     This method allows to update a specific defect status.
   parameters:

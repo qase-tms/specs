@@ -1,7 +1,7 @@
 get:
   operationId: get-attachment
   tags: [ attachments ]
-  summary: Get attachment by Hash.
+  summary: Get attachment by Hash
   description: |
     This method allows to retrieve attachment by Hash.
   parameters:
@@ -27,7 +27,7 @@ get:
 delete:
   operationId: delete-attachment
   tags: [ attachments ]
-  summary: Remove attachment by Hash.
+  summary: Remove attachment by Hash
   description: |
     This method allows to remove attachment by Hash.
   parameters:

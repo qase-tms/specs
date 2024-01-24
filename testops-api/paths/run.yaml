@@ -1,7 +1,7 @@
 get:
   operationId: get-run
   tags: [ runs ]
-  summary: Get a specific run.
+  summary: Get a specific run
   description: |
     This method allows to retrieve a specific run.
   parameters:
@@ -29,7 +29,7 @@ get:
 delete:
   operationId: delete-run
   tags: [ runs ]
-  summary: Delete run.
+  summary: Delete run
   description: |
     This method completely deletes a run from repository.
   parameters:

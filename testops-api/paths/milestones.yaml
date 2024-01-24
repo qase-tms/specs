@@ -1,7 +1,7 @@
 get:
   operationId: get-milestones
   tags: [ milestones ]
-  summary: Get all milestones.
+  summary: Get all milestones
   description: |
     This method allows to retrieve all milestones stored in selected project.
 
@@ -36,7 +36,7 @@ get:
 post:
   operationId: create-milestone
   tags: [ milestones ]
-  summary: Create a new milestone.
+  summary: Create a new milestone
   description: |
     This method allows to create a milestone in selected project.
 

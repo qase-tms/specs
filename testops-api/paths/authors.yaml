@@ -1,7 +1,7 @@
 get:
   operationId: get-authors
   tags: [ authors ]
-  summary: Get all authors.
+  summary: Get all authors
   description: |
     This method allows to retrieve all authors in selected project.
   parameters:

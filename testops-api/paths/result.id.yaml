@@ -1,7 +1,7 @@
 post:
   operationId: create-result
   tags: [ results ]
-  summary: Create test run result.
+  summary: Create test run result
   description: |
     This method allows to create test run result by Run Id.
   parameters:

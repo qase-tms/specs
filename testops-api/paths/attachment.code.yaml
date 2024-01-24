@@ -1,7 +1,7 @@
 post:
   operationId: upload-attachment
   tags: [ attachments ]
-  summary: Upload attachment.
+  summary: Upload attachment
   description: |
     This method allows to upload attachment to Qase.
     Max upload size:

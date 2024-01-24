@@ -1,7 +1,7 @@
 post:
   operationId: complete-run
   tags: [ runs ]
-  summary: Complete a specific run.
+  summary: Complete a specific run
   description: |
     This method allows to complete a specific run.
   parameters:

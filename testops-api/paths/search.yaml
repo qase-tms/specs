@@ -1,7 +1,7 @@
 get:
   operationId: search
   tags: [ search ]
-  summary: Search entities by Qase Query Language (QQL).
+  summary: Search entities by Qase Query Language (QQL)
   description: |
     This method allows to retrieve data sets for various
     entities using expressions with conditions.

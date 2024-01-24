@@ -1,7 +1,7 @@
 get:
   operationId: get-suite
   tags: [ suites ]
-  summary: Get a specific test suite.
+  summary: Get a specific test suite
   description: |
     This method allows to retrieve a specific test suite.
   parameters:
@@ -28,7 +28,7 @@ get:
 delete:
   operationId: delete-suite
   tags: [ suites ]
-  summary: Delete test suite.
+  summary: Delete test suite
   description: |
     This method completely deletes a test suite with test cases from repository.
   parameters:
@@ -60,7 +60,7 @@ delete:
 patch:
   operationId: update-suite
   tags: [ suites ]
-  summary: Update test suite.
+  summary: Update test suite
   description: |
     This method is used to update a test suite through API.
   parameters:

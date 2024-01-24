@@ -1,7 +1,7 @@
 get:
   operationId: get-milestone
   tags: [ milestones ]
-  summary: Get a specific milestone.
+  summary: Get a specific milestone
   description: |
     This method allows to retrieve a specific milestone.
   parameters:
@@ -28,7 +28,7 @@ get:
 delete:
   operationId: delete-milestone
   tags: [ milestones ]
-  summary: Delete milestone.
+  summary: Delete milestone
   description: |
     This method completely deletes a milestone from repository.
   parameters:
@@ -55,7 +55,7 @@ delete:
 patch:
   operationId: update-milestone
   tags: [ milestones ]
-  summary: Update milestone.
+  summary: Update milestone
   description: |
     This method updates a milestone.
   parameters:

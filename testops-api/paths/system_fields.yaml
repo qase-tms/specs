@@ -1,7 +1,7 @@
 get:
   operationId: get-system-fields
   tags: [ system-fields ]
-  summary: Get all System Fields.
+  summary: Get all System Fields
   description: |
     This method allows to retrieve all system fields.
 

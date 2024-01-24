@@ -1,7 +1,7 @@
 get:
   operationId: get-custom-fields
   tags: [ custom-fields ]
-  summary: Get all Custom Fields.
+  summary: Get all Custom Fields
   description: |
     This method allows to retrieve and filter custom fields.
 
@@ -51,7 +51,7 @@ get:
 post:
   operationId: create-custom-field
   tags: [ custom-fields ]
-  summary: Create new Custom Field.
+  summary: Create new Custom Field
   description: |
     This method allows to create custom field.
 

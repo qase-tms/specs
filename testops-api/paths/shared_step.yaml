@@ -1,7 +1,7 @@
 get:
   operationId: get-shared-step
   tags: [ shared-steps ]
-  summary: Get a specific shared step.
+  summary: Get a specific shared step
   description: |
     This method allows to retrieve a specific shared step.
   parameters:
@@ -28,7 +28,7 @@ get:
 delete:
   operationId: delete-shared-step
   tags: [ shared-steps ]
-  summary: Delete shared step.
+  summary: Delete shared step
   description: |
     This method completely deletes a shared step from repository.
   parameters:
@@ -55,7 +55,7 @@ delete:
 patch:
   operationId: update-shared-step
   tags: [ shared-steps ]
-  summary: Update shared step.
+  summary: Update shared step
   description: |
     This method updates a shared step.
   parameters:

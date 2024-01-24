@@ -1,7 +1,7 @@
 get:
   operationId: get-environments
   tags: [ environments ]
-  summary: Get all environments.
+  summary: Get all environments
   description: |
     This method allows to retrieve all environments stored in selected project.
   parameters:
@@ -29,7 +29,7 @@ get:
 post:
   operationId: create-environment
   tags: [ environments ]
-  summary: Create a new environment.
+  summary: Create a new environment
   description: |
     This method allows to create an environment in selected project.
   parameters:

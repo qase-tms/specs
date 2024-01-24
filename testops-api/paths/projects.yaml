@@ -1,7 +1,7 @@
 get:
   operationId: get-projects
   tags: [ projects ]
-  summary: Get All Projects.
+  summary: Get All Projects
   description: |
     This method allows to retrieve all projects available
     for your account. You can limit and offset params
@@ -28,7 +28,7 @@ get:
 post:
   operationId: create-project
   tags: [ projects ]
-  summary: Create new project.
+  summary: Create new project
   description: |
     This method is used to create a new project through API.
   requestBody:

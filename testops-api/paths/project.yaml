@@ -1,7 +1,7 @@
 get:
   operationId: get-project
   tags: [ projects ]
-  summary: Get Project by code.
+  summary: Get Project by code
   description: |
     This method allows to retrieve a specific project.
   parameters:
@@ -27,7 +27,7 @@ get:
 delete:
   operationId: delete-project
   tags: [ projects ]
-  summary: Delete Project by code.
+  summary: Delete Project by code
   description: |
     This method allows to delete a specific project.
   parameters:

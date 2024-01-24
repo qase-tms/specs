@@ -1,7 +1,7 @@
 get:
   operationId: get-plans
   tags: [ plans ]
-  summary: Get all plans.
+  summary: Get all plans
   description: |
     This method allows to retrieve all plans stored in selected project.
   parameters:
@@ -29,7 +29,7 @@ get:
 post:
   operationId: create-plan
   tags: [ plans ]
-  summary: Create a new plan.
+  summary: Create a new plan
   description: |
     This method allows to create a plan in selected project.
   parameters:

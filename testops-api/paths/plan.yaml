@@ -1,7 +1,7 @@
 get:
   operationId: get-plan
   tags: [ plans ]
-  summary: Get a specific plan.
+  summary: Get a specific plan
   description: |
     This method allows to retrieve a specific plan.
   parameters:
@@ -28,7 +28,7 @@ get:
 delete:
   operationId: delete-plan
   tags: [ plans ]
-  summary: Delete plan.
+  summary: Delete plan
   description: |
     This method completely deletes a plan from repository.
   parameters:
@@ -55,7 +55,7 @@ delete:
 patch:
   operationId: update-plan
   tags: [ plans ]
-  summary: Update plan.
+  summary: Update plan
   description: |
     This method updates a plan.
   parameters:

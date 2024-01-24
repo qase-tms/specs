@@ -1,8 +1,7 @@
 post:
   operationId: case-attach-external-issue
   tags: [ cases ]
-  summary: Attach the external issues to the test cases.
-
+  summary: Attach the external issues to the test cases
   parameters:
     - $ref: '../parameters/Code.yaml'
   requestBody:

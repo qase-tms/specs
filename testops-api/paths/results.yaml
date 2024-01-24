@@ -1,7 +1,7 @@
 get:
   operationId: get-results
   tags: [ results ]
-  summary: Get all test run results.
+  summary: Get all test run results
   description: |
     This method allows to retrieve all test run
     results stored in selected project.

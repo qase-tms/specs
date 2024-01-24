@@ -1,7 +1,7 @@
 get:
   operationId: get-case
   tags: [ cases ]
-  summary: Get a specific test case.
+  summary: Get a specific test case
   description: |
     This method allows to retrieve a specific test case.
   parameters:
@@ -30,7 +30,7 @@ get:
 delete:
   operationId: delete-case
   tags: [ cases ]
-  summary: Delete test case.
+  summary: Delete test case
   description: |
     This method completely deletes a test case from repository.
   parameters:
@@ -59,7 +59,7 @@ delete:
 patch:
   operationId: update-case
   tags: [ cases ]
-  summary: Update test case.
+  summary: Update test case
   description: |
     This method updates a test case.
   parameters:

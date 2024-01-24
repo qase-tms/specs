@@ -1,7 +1,7 @@
 post:
   operationId: grant-access-to-project
   tags: [ projects ]
-  summary: Grant access to project by code.
+  summary: Grant access to project by code
   description: |
     This method allows to grant access to a specific project.
   parameters:
@@ -35,7 +35,7 @@ post:
 delete:
   operationId: revoke-access-to-project
   tags: [ projects ]
-  summary: Revoke access to project by code.
+  summary: Revoke access to project by code
   description: |
     This method allows to revoke access to a specific project.
   parameters:

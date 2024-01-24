@@ -1,7 +1,7 @@
 get:
   operationId: get-author
   tags: [ authors ]
-  summary: Get a specific author.
+  summary: Get a specific author
   description: |
     This method allows to retrieve a specific author.
   parameters:

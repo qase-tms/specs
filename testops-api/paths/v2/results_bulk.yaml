@@ -1,7 +1,7 @@
 post:
-  summary: (Beta) Bulk create test run result.
+  summary: (Beta) Bulk create test run result
   description: |
-    This method allows to create a lot of test run result at once.
+    This method allows to create several test run results at once.
     
     If there is no free space left in your team account, when attempting to upload an attachment, e.g., through reporters, you will receive an error with code 507 - Insufficient Storage.
   operationId: create-results-v2

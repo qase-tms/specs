@@ -33,94 +33,99 @@ tags:
   - name: suites
 
 servers:
-  - url: https://api.qase.io/v1
+  - url: https://api.qase.io
     description: The production API server.
 
 paths:
-  /attachment:
+  /v1/attachment:
     $ref: './paths/attachments.yaml'
-  /attachment/{code}:
+  /v1/attachment/{code}:
     $ref: './paths/attachment.code.yaml'
-  /attachment/{hash}:
+  /v1/attachment/{hash}:
     $ref: './paths/attachment.hash.yaml'
-  /author:
+  /v1/author:
     $ref: './paths/authors.yaml'
-  /author/{id}:
+  /v1/author/{id}:
     $ref: './paths/author.yaml'
-  /case/{code}:
+  /v1/case/{code}:
     $ref: './paths/cases.yaml'
-  /case/{code}/{id}:
+  /v1/case/{code}/{id}:
     $ref: './paths/case.yaml'
-  /case/{code}/bulk:
+  /v1/case/{code}/bulk:
     $ref: './paths/case_bulk.yaml'
-  /case/{code}/external-issue/attach:
+  /v1/case/{code}/external-issue/attach:
     $ref: './paths/case_attach_external_issue.yaml'
-  /case/{code}/external-issue/detach:
+  /v1/case/{code}/external-issue/detach:
     $ref: './paths/case_detach_external_issue.yaml'
-  /custom_field:
+  /v1/custom_field:
     $ref: './paths/custom_fields.yaml'
-  /custom_field/{id}:
+  /v1/custom_field/{id}:
     $ref: './paths/custom_field.yaml'
-  /system_field:
+  /v1/system_field:
     $ref: './paths/system_fields.yaml'
-  /defect/{code}:
+  /v1/defect/{code}:
     $ref: './paths/defects.yaml'
-  /defect/{code}/{id}:
+  /v1/defect/{code}/{id}:
     $ref: './paths/defect.yaml'
-  /defect/{code}/resolve/{id}:
+  /v1/defect/{code}/resolve/{id}:
     $ref: './paths/defect_resolve.yaml'
-  /defect/{code}/status/{id}:
+  /v1/defect/{code}/status/{id}:
     $ref: './paths/defect_status.yaml'
-  /environment/{code}:
+  /v1/environment/{code}:
     $ref: './paths/environments.yaml'
-  /environment/{code}/{id}:
+  /v1/environment/{code}/{id}:
     $ref: './paths/environment.yaml'
-  /milestone/{code}:
+  /v1/milestone/{code}:
     $ref: './paths/milestones.yaml'
-  /milestone/{code}/{id}:
+  /v1/milestone/{code}/{id}:
     $ref: './paths/milestone.yaml'
-  /plan/{code}:
+  /v1/plan/{code}:
     $ref: './paths/plans.yaml'
-  /plan/{code}/{id}:
+  /v1/plan/{code}/{id}:
     $ref: './paths/plan.yaml'
-  /project:
+  /v1/project:
     $ref: './paths/projects.yaml'
-  /project/{code}:
+  /v1/project/{code}:
     $ref: './paths/project.yaml'
-  /project/{code}/access:
+  /v1/project/{code}/access:
     $ref: './paths/project_access.yaml'
-  /result/{code}:
+  /v1/result/{code}:
     $ref: './paths/results.yaml'
-  /result/{code}/{id}:
+  /v1/result/{code}/{id}:
     $ref: './paths/result.id.yaml'
-  /result/{code}/{hash}:
+  /v1/result/{code}/{hash}:
     $ref: './paths/result.hash.yaml'
-  /result/{code}/{id}/bulk:
+  /v1/result/{code}/{id}/bulk:
     $ref: './paths/result_bulk.yaml'
-  /result/{code}/{id}/{hash}:
+  /v1/result/{code}/{id}/{hash}:
     $ref: './paths/result_id_hash.yaml'
-  /run/{code}:
+  /v1/run/{code}:
     $ref: './paths/runs.yaml'
-  /run/{code}/{id}:
+  /v1/run/{code}/{id}:
     $ref: './paths/run.yaml'
-  /run/{code}/{id}/public:
+  /v1/run/{code}/{id}/public:
     $ref: './paths/run_public.yaml'
-  /run/{code}/{id}/complete:
+  /v1/run/{code}/{id}/complete:
     $ref: './paths/run_complete.yaml'
-  /search:
+  /v1/search:
     $ref: './paths/search.yaml'
-  /shared_step/{code}:
+  /v1/shared_step/{code}:
     $ref: './paths/shared_steps.yaml'
-  /shared_step/{code}/{hash}:
+  /v1/shared_step/{code}/{hash}:
     $ref: './paths/shared_step.yaml'
-  /suite/{code}:
+  /v1/suite/{code}:
     $ref: './paths/suites.yaml'
-  /suite/{code}/{id}:
+  /v1/suite/{code}/{id}:
     $ref: './paths/suite.yaml'
 
   # new results api
-  /{project_code}/run/{run_id}/results:
+  /v1/{project_code}/run/{run_id}/results:
     $ref: './paths/v2/results_bulk.yaml'
+
+  /v2/{project_code}/run/{run_id}/result:
+    servers:
+      - url: https://api.qase.io/v2
+    $ref: './paths/v2/result.yaml'
 
 components:
   schemas:

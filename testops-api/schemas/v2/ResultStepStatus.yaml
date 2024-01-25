@@ -1,0 +1,6 @@
+type: string
+enum:
+  - passed
+  - failed
+  - blocked
+  - skipped

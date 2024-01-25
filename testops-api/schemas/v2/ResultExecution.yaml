@@ -9,7 +9,8 @@ properties:
     format: double
     nullable: true
   status:
-    $ref: './ResultStatus.yaml'
+    type: string
+    description: Can have the following values passed, failed, blocked, skipped, invalid + custom statuses
   duration:
     type: integer
     format: int64

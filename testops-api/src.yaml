@@ -119,7 +119,7 @@ paths:
     $ref: './paths/suite.yaml'
 
   # new results api
-  /v1/{project_code}/run/{run_id}/results:
+  /v2/{project_code}/run/{run_id}/results:
     $ref: './paths/v2/results_bulk.yaml'
 
   /v2/{project_code}/run/{run_id}/result:
@@ -191,7 +191,8 @@ components:
     ResultExecution: { $ref: './schemas/v2/ResultExecution.yaml' }
     ResultStepExecution: { $ref: './schemas/v2/ResultStepExecution.yaml' }
     ResultRelations: { $ref: './schemas/v2/ResultRelations.yaml' }
-    ResultStatus: { $ref: './schemas/v2/ResultStatus.yaml' }
+    ResultStepStatus: { $ref: './schemas/v2/ResultStepStatus.yaml' }
+    ResultStepsType: { $ref: './schemas/v2/ResultStepsType.yaml' }
 
     AttachmentResponse: { $ref: './schemas/responses/Attachment.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentList.yaml' }

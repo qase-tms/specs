@@ -9,8 +9,16 @@ properties:
     format: double
     nullable: true
   status:
-    $ref: './ResultStatus.yaml'
+    $ref: './ResultStepStatus.yaml'
   duration:
     type: integer
     format: int64
     nullable: true
+  comment:
+    type: string
+  attachments:
+    type: array
+    items:
+      $ref: './ResultAttachment.yaml'
+required:
+  - status

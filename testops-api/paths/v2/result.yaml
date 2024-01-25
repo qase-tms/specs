@@ -1,12 +1,12 @@
 post:
-  summary: (Beta) Create test run result
+  summary: (Beta) Create test run result v2
   description: |
     This method allows to create single test run result.
     
     If there is no free space left in your team account, when attempting to upload an attachment, e.g., through reporters, you will receive an error with code 507 - Insufficient Storage.
   operationId: create-result-v2
   tags:
-    - result
+    - results
   parameters:
     - name: project_code
       in: path

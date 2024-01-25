@@ -123,8 +123,6 @@ paths:
     $ref: './paths/v2/results_bulk.yaml'
 
   /v2/{project_code}/run/{run_id}/result:
-    servers:
-      - url: https://api.qase.io/v2
     $ref: './paths/v2/result.yaml'
 
 components:

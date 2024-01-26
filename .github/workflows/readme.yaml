@@ -13,7 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Sync Readme docs
+      - name: Sync Readme docs for v1
         uses: readmeio/rdme@v8
         with:
           rdme: openapi ./src_v1.yaml --version=v1.0.0 --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff --workingDirectory=./testops-api
+
+      - name: Sync Readme docs for v2
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./src_v2.yaml --version=v2.0.0 --key=${{ secrets.README_KEY }} --id=65b3b5175f1e14007198cbc8 --workingDirectory=./testops-api

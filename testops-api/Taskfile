@@ -13,29 +13,51 @@ function validate() {
 function go() {
   rm -rf sdk/go
   mkdir sdk/go
-  openapi generate -i /specs/src.yaml -g go -o sdk/go -c sdk/go.yml
-  goimports -local qase -w sdk/go/
+
+  openapi generate -i /specs/src_v1.yaml -g go -o sdk/go/v1 -c sdk/go.yml
+  goimports -local qase -w sdk/go/v1/
+
+  openapi generate -i /specs/src_v2.yaml -g go -o sdk/go/v2 -c sdk/go.yml
+  goimports -local qase -w sdk/go/v2/
 }
 
 function php() {
   rm -rf sdk/php
   mkdir sdk/php
-  cp sdk/templates/php-openapi-generator-ignore sdk/php/.openapi-generator-ignore
-  openapi generate -i /specs/src.yaml -g php -o sdk/php -c sdk/php.yml
+
+  mkdir sdk/php/v1
+  cp sdk/templates/php-openapi-generator-ignore sdk/php/v1/.openapi-generator-ignore
+  openapi generate -i /specs/src_v1.yaml -g php -o sdk/php/v1 -c sdk/php.yml
+
+  mkdir sdk/php/v2
+  cp sdk/templates/php-openapi-generator-ignore sdk/php/v2/.openapi-generator-ignore
+  openapi generate -i /specs/src_v2.yaml -g php -o sdk/php/v2 -c sdk/php.yml
 }
 
 function typescript() {
   rm -rf sdk/ts
   mkdir sdk/ts
-  cp sdk/templates/ts-openapi-generator-ignore sdk/ts/.openapi-generator-ignore
-  openapi generate -i /specs/src.yaml -g typescript-axios -t /sdk/templates/axios -o /sdk/ts -c /sdk/ts.yml --additional-properties=npmName=qaseio
+
+  mkdir sdk/ts/v1
+  cp sdk/templates/ts-openapi-generator-ignore sdk/ts/v1/.openapi-generator-ignore
+  openapi generate -i /specs/src_v1.yaml -g typescript-axios -t /sdk/templates/axios -o /sdk/ts/v1 -c /sdk/ts.yml --additional-properties=npmName=qaseio
+
+  mkdir sdk/ts/v2
+  cp sdk/templates/ts-openapi-generator-ignore sdk/ts/v2/.openapi-generator-ignore
+  openapi generate -i /specs/src_v2.yaml -g typescript-axios -t /sdk/templates/axios -o /sdk/ts/v2 -c /sdk/ts.yml --additional-properties=npmName=qaseio
 }
 
 function python() {
   rm -rf sdk/python
   mkdir sdk/python
-  cp sdk/templates/python-openapi-generator-ignore sdk/python/.openapi-generator-ignore
-  openapi generate -i /specs/src.yaml -g python -o sdk/python --additional-properties=packageName=qaseio,packageUrl=https://github.com/qase-tms/qase-python
+
+  mkdir sdk/python/v1
+  cp sdk/templates/python-openapi-generator-ignore sdk/python/v1/.openapi-generator-ignore
+  openapi generate -i /specs/src_v1.yaml -g python -o sdk/python/v1 --additional-properties=packageName=qaseio,packageUrl=https://github.com/qase-tms/qase-python
+
+  mkdir sdk/python/v2
+  cp sdk/templates/python-openapi-generator-ignore sdk/python/v2/.openapi-generator-ignore
+  openapi generate -i /specs/src_v2.yaml -g python -o sdk/python/v2 --additional-properties=packageName=qaseio,packageUrl=https://github.com/qase-tms/qase-python
 }
 
 openapi() {
@@ -44,7 +66,8 @@ openapi() {
     -v "$(pwd)"/paths:/specs/paths \
     -v "$(pwd)"/schemas:/specs/schemas \
     -v "$(pwd)"/parameters:/specs/parameters \
-    -v "$(pwd)"/src.yaml:/specs/src.yaml \
+    -v "$(pwd)"/src_v1.yaml:/specs/src_v1.yaml \
+    -v "$(pwd)"/src_v2.yaml:/specs/src_v2.yaml \
     -v "$(pwd)"/sdk:/sdk \
     openapitools/openapi-generator-cli:v6.4.0 "${@}"
 }

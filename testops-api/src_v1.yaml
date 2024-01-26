@@ -1,8 +1,8 @@
 openapi: '3.0.0'
 
 info:
-  title: Qase.io TestOps API
-  description: Qase TestOps API Specification.
+  title: Qase.io TestOps API v1
+  description: Qase TestOps API v1 Specification.
 
   termsOfService: https://qase.io/terms
   version: 1.0.0
@@ -33,97 +33,94 @@ tags:
   - name: suites
 
 servers:
-  - url: https://api.qase.io
+  - url: https://api.qase.io/v1
     description: The production API server.
 
 paths:
-  /v1/attachment:
+  /attachment:
     $ref: './paths/attachments.yaml'
-  /v1/attachment/{code}:
+  /attachment/{code}:
     $ref: './paths/attachment.code.yaml'
-  /v1/attachment/{hash}:
+  /attachment/{hash}:
     $ref: './paths/attachment.hash.yaml'
-  /v1/author:
+  /author:
     $ref: './paths/authors.yaml'
-  /v1/author/{id}:
+  /author/{id}:
     $ref: './paths/author.yaml'
-  /v1/case/{code}:
+  /case/{code}:
     $ref: './paths/cases.yaml'
-  /v1/case/{code}/{id}:
+  /case/{code}/{id}:
     $ref: './paths/case.yaml'
-  /v1/case/{code}/bulk:
+  /case/{code}/bulk:
     $ref: './paths/case_bulk.yaml'
-  /v1/case/{code}/external-issue/attach:
+  /case/{code}/external-issue/attach:
     $ref: './paths/case_attach_external_issue.yaml'
-  /v1/case/{code}/external-issue/detach:
+  /case/{code}/external-issue/detach:
     $ref: './paths/case_detach_external_issue.yaml'
-  /v1/custom_field:
+  /custom_field:
     $ref: './paths/custom_fields.yaml'
-  /v1/custom_field/{id}:
+  /custom_field/{id}:
     $ref: './paths/custom_field.yaml'
-  /v1/system_field:
+  /system_field:
     $ref: './paths/system_fields.yaml'
-  /v1/defect/{code}:
+  /defect/{code}:
     $ref: './paths/defects.yaml'
-  /v1/defect/{code}/{id}:
+  /defect/{code}/{id}:
     $ref: './paths/defect.yaml'
-  /v1/defect/{code}/resolve/{id}:
+  /defect/{code}/resolve/{id}:
     $ref: './paths/defect_resolve.yaml'
-  /v1/defect/{code}/status/{id}:
+  /defect/{code}/status/{id}:
     $ref: './paths/defect_status.yaml'
-  /v1/environment/{code}:
+  /environment/{code}:
     $ref: './paths/environments.yaml'
-  /v1/environment/{code}/{id}:
+  /environment/{code}/{id}:
     $ref: './paths/environment.yaml'
-  /v1/milestone/{code}:
+  /milestone/{code}:
     $ref: './paths/milestones.yaml'
-  /v1/milestone/{code}/{id}:
+  /milestone/{code}/{id}:
     $ref: './paths/milestone.yaml'
-  /v1/plan/{code}:
+  /plan/{code}:
     $ref: './paths/plans.yaml'
-  /v1/plan/{code}/{id}:
+  /plan/{code}/{id}:
     $ref: './paths/plan.yaml'
-  /v1/project:
+  /project:
     $ref: './paths/projects.yaml'
-  /v1/project/{code}:
+  /project/{code}:
     $ref: './paths/project.yaml'
-  /v1/project/{code}/access:
+  /project/{code}/access:
     $ref: './paths/project_access.yaml'
-  /v1/result/{code}:
+  /result/{code}:
     $ref: './paths/results.yaml'
-  /v1/result/{code}/{id}:
+  /result/{code}/{id}:
     $ref: './paths/result.id.yaml'
-  /v1/result/{code}/{hash}:
+  /result/{code}/{hash}:
     $ref: './paths/result.hash.yaml'
-  /v1/result/{code}/{id}/bulk:
+  /result/{code}/{id}/bulk:
     $ref: './paths/result_bulk.yaml'
-  /v1/result/{code}/{id}/{hash}:
+  /result/{code}/{id}/{hash}:
     $ref: './paths/result_id_hash.yaml'
-  /v1/run/{code}:
+  /run/{code}:
     $ref: './paths/runs.yaml'
-  /v1/run/{code}/{id}:
+  /run/{code}/{id}:
     $ref: './paths/run.yaml'
-  /v1/run/{code}/{id}/public:
+  /run/{code}/{id}/public:
     $ref: './paths/run_public.yaml'
-  /v1/run/{code}/{id}/complete:
+  /run/{code}/{id}/complete:
     $ref: './paths/run_complete.yaml'
-  /v1/search:
+  /search:
     $ref: './paths/search.yaml'
-  /v1/shared_step/{code}:
+  /shared_step/{code}:
     $ref: './paths/shared_steps.yaml'
-  /v1/shared_step/{code}/{hash}:
+  /shared_step/{code}/{hash}:
     $ref: './paths/shared_step.yaml'
-  /v1/suite/{code}:
+  /suite/{code}:
     $ref: './paths/suites.yaml'
-  /v1/suite/{code}/{id}:
+  /suite/{code}/{id}:
     $ref: './paths/suite.yaml'
 
   # new results api
-  /v1/{project_code}/run/{run_id}/results:
+  /{project_code}/run/{run_id}/results:
     $ref: './paths/v2/results_bulk.yaml'
-
-  /v2/{project_code}/run/{run_id}/result:
-    $ref: './paths/v2/result.yaml'
 
 components:
   schemas:

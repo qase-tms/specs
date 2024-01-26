@@ -16,4 +16,4 @@ jobs:
       - name: Sync Readme docs
         uses: readmeio/rdme@v8
         with:
-          rdme: openapi ./src.yaml --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff --workingDirectory=./testops-api
+          rdme: openapi ./src_v1.yaml --version=v1.0.0 --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff --workingDirectory=./testops-api

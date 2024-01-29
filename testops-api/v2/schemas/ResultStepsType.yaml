@@ -1,0 +1,5 @@
+nullable: true
+type: string
+enum:
+  - classic
+  - gherkin

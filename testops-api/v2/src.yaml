@@ -1,0 +1,61 @@
+openapi: '3.0.0'
+
+info:
+  title: Qase.io TestOps API v2
+  description: Qase TestOps API v2 Specification.
+
+  termsOfService: https://qase.io/terms
+  version: 2.0.0
+
+  contact:
+    name: Qase.io
+    url: https://qase.io
+    email: support@qase.io
+
+  license:
+    name: Apache 2.0
+    url: https://github.com/qase-tms/specs/blob/master/LICENSE
+
+tags:
+  - name: attachments
+  - name: authors
+  - name: cases
+  - name: custom-fields
+  - name: environments
+  - name: defects
+  - name: plans
+  - name: projects
+  - name: results
+  - name: milestones
+  - name: runs
+  - name: search
+  - name: shared-steps
+  - name: suites
+
+servers:
+  - url: https://api.qase.io/v2
+    description: The production API server.
+
+paths:
+  /{project_code}/run/{run_id}/result:
+    $ref: './paths/result.yaml'
+  /{project_code}/run/{run_id}/results:
+    $ref: './paths/results_bulk.yaml'
+
+components:
+  schemas:
+    ResultStep: { $ref: './schemas/ResultStep.yaml' }
+    ResultAttachment: { $ref: './schemas/ResultAttachment.yaml' }
+    ResultExecution: { $ref: './schemas/ResultExecution.yaml' }
+    ResultStepExecution: { $ref: './schemas/ResultStepExecution.yaml' }
+    ResultRelations: { $ref: './schemas/ResultRelations.yaml' }
+    ResultStatus: { $ref: './schemas/ResultStatus.yaml' }
+
+  securitySchemes:
+    TokenAuth:
+      type: apiKey
+      in: header
+      name: Token
+
+security:
+  - TokenAuth: []

@@ -1,0 +1,10 @@
+type: object
+properties:
+  title:
+    type: string
+    maxLength: 255
+  group_id:
+    type: integer
+required:
+  - title
+  - group_id

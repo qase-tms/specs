@@ -1,0 +1,25 @@
+type: object
+properties:
+  data:
+    title: ResultStepData
+    type: object
+    properties:
+      action:
+        type: string
+      expected_result:
+        type: string
+      input_data:
+        type: string
+      attachments:
+        type: array
+        items:
+          $ref: './ResultAttachment.yaml'
+    required:
+      - action
+  execution:
+    $ref: './ResultStepExecution.yaml'
+  steps:
+    type: array
+    description: 'Nested steps will be here. The same structure is used for them.'
+    items:
+      type: object

@@ -2,6 +2,7 @@
 
 set -o nounset
 set -o pipefail
+set -o errexit
 
 ### shortcut
 
@@ -14,46 +15,48 @@ function validate() {
 function go() {
   local version=${1:-v1}
 
-  rm -rf ${version}/sdk/go/*
-  openapi generate -i /specs/src.yaml -g go -o sdk/go -c sdk/go.yml
-  goimports -ungroup -local qase -w ${version}/sdk/go/
+  rm -rf "${version}/sdk/go/*"
+  openapi generate -i /specs/src.yaml -g go -o sdk/go -c /sdk/go.yml "${version}"
+  goimports -local qase -w "${version}/sdk/go/"
 }
 
 function php() {
   local version=${1:-v1}
 
-  rm -rf ${version}/sdk/php
-  mkdir ${version}/sdk/php
-  cp ${version}/sdk/templates/php-openapi-generator-ignore ${version}/sdk/php/.openapi-generator-ignore
-  openapi generate -i /specs/src.yaml -g php -o sdk/php -c sdk/php.yml
+  rm -rf "${version}/sdk/php"
+  mkdir "${version}/sdk/php"
+  cp "${version}/sdk/templates/php-openapi-generator-ignore" "${version}/sdk/php/.openapi-generator-ignore"
+  openapi generate -i /specs/src.yaml -g php -o sdk/php -c sdk/php.yml "${version}"
 }
 
 function typescript() {
   local version=${1:-v1}
 
-  rm -rf ${version}/sdk/ts
-  mkdir ${version}/sdk/ts
-  cp ${version}/sdk/templates/ts-openapi-generator-ignore ${version}/sdk/ts/.openapi-generator-ignore
-  openapi generate -i /specs/src.yaml -g typescript-axios -t sdk/templates/axios -o sdk/ts -c sdk/ts.yml --additional-properties=npmName=qaseio
+  rm -rf "${version}/sdk/ts"
+  mkdir "${version}/sdk/ts"
+  cp "${version}/sdk/templates/ts-openapi-generator-ignore" "${version}/sdk/ts/.openapi-generator-ignore"
+  openapi generate -i /specs/src.yaml -g typescript-axios -t sdk/templates/axios -o sdk/ts -c sdk/ts.yml --additional-properties=npmName=qaseio "${version}"
 }
 
 function python() {
   local version=${1:-v1}
 
-  rm -rf ${version}/sdk/python
-  mkdir -p ${version}/sdk/python
-  cp ${version}/sdk/templates/python-openapi-generator-ignore ${version}/sdk/python/.openapi-generator-ignore
-  # Pass the version as an additional argument to openapi
-  openapi generate -i /specs/src.yaml -g python -t sdk/templates -o sdk/python --additional-properties=packageName=qaseio ${version}
+  rm -rf "${version}/sdk/python"
+  mkdir -p "${version}/sdk/python"
+  cp "${version}/sdk/templates/python-openapi-generator-ignore" "${version}/sdk/python/.openapi-generator-ignore"
+  openapi generate -i /specs/src.yaml -g python -t sdk/templates -o sdk/python --additional-properties=packageName=qaseio "${version}"
 }
 
 function openapi() {
-  # Extract version from the arguments; assume it's the last one for simplicity
   local version=${@: -1}  # Get the last argument
   local args=("${@}")  # Copy the arguments array
   unset args[-1]  # Remove the last element (version) from args
 
-  # Use version-specific paths
+  if [[ "$version" != "v1" && "$version" != "v2" ]]; then
+    echo "Error: Invalid version. Only 'v1' or 'v2' are accepted."
+    return 1
+  fi
+
   docker run --rm -i \
     -v "$(pwd)/${version}/paths:/specs/paths" \
     -v "$(pwd)/${version}/schemas:/specs/schemas" \

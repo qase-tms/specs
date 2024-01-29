@@ -27,10 +27,11 @@ This command uses npm to run the validation process on the OpenAPI spec file.
 
 ## Generate SDKs
 
-To generate programming-language-specific SDK:
+To generate a programming-language-specific SDK, run one of the following commands, 
+replacing `<language>` with `go`, `php`, `typescript`, or `python`, and `<version>` with `v1` or `v2`:
 
 ```bash
-./Taskfile.sh go|php|typescript|python
+./Taskfile.sh <language> <version>
 ```
 
 This command cleans the existing Go/PHP/Typescript/Python SDK directory, generates a new Go SDK based on the OpenAPI spec, 

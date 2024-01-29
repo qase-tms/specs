@@ -16,9 +16,9 @@ jobs:
       - name: Sync Readme docs for v1
         uses: readmeio/rdme@v8
         with:
-          rdme: openapi ./v1/src.yaml --version=v1.0.0 --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff --workingDirectory=./testops-api/v1
+          rdme: openapi ./src.yaml --version=v1.0.0 --key=${{ secrets.README_KEY }} --id=6172e1f931427d3f983e34ff --workingDirectory=./testops-api/v1
 
       - name: Sync Readme docs for v2
         uses: readmeio/rdme@v8
         with:
-          rdme: openapi ./v2/src.yaml --version=v2.0.0 --key=${{ secrets.README_KEY }} --id=65b3b5175f1e14007198cbc8 --workingDirectory=./testops-api/v2
+          rdme: openapi ./src.yaml --version=v2.0.0 --key=${{ secrets.README_KEY }} --id=65b3b5175f1e14007198cbc8 --workingDirectory=./testops-api/v2

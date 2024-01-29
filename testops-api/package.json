@@ -6,7 +6,7 @@
   "homepage": "https://developers.qase.io",
   "license": "Apache-2.0",
   "scripts": {
-    "validate": "spectral lint api.yaml"
+    "validate": "spectral lint v1/api.yaml"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,8 @@
     "url": "https://github.com/qase-tms/specs/issues"
   },
   "dependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "@redocly/cli": "^1.6.0",
     "@stoplight/spectral-cli": "^6.11.0"
   }
 }

@@ -1,0 +1,22 @@
+allOf:
+  - $ref: './BaseResponse.yaml'
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          entities:
+            type: array
+            items:
+              oneOf:
+                - $ref: '../Run.yaml'
+                - $ref: '../Result.yaml'
+                - $ref: '../Requirement.yaml'
+                - $ref: '../qql/TestCaseQuery.yaml'
+                - $ref: '../qql/DefectQuery.yaml'
+                - $ref: '../qql/PlanQuery.yaml'
+          total:
+            type: integer
+        required:
+          - entities
+          - total

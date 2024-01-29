@@ -1,0 +1,24 @@
+type: object
+properties:
+  start_time:
+    type: number
+    format: double
+    nullable: true
+  end_time:
+    type: number
+    format: double
+    nullable: true
+  status:
+    $ref: './ResultStepStatus.yaml'
+  duration:
+    type: integer
+    format: int64
+    nullable: true
+  comment:
+    type: string
+  attachments:
+    type: array
+    items:
+      $ref: './ResultAttachment.yaml'
+required:
+  - status

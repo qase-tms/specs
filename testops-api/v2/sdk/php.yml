@@ -1,0 +1,17 @@
+# https://openapi-generator.tech/docs/generators/php/
+# ? https://openapi-generator.tech/docs/generators/php-dt/
+
+allowUnicodeIdentifiers: false
+apiPackage: Api # ~
+disallowAdditionalPropertiesIfNotPresent: false # true
+ensureUniqueParams: true
+hideGenerationTimestamp: true
+invokerPackage: Qase\Client # ~
+legacyDiscriminatorBehavior: true
+modelPackage: Model # ~
+packageName: ~
+prependFormOrBodyParameters: false
+sortModelPropertiesByRequiredFlag: true
+sortParamsByRequiredFlag: true
+srcBasePath: src # ~
+variableNamingConvention: camelCase # snake_case

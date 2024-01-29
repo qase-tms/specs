@@ -1,0 +1,14 @@
+type: object
+properties:
+  hash:
+    type: string
+  filename:
+    type: string
+  mime:
+    type: string
+  extension:
+    type: string
+  url:
+    type: string
+  team:
+    type: string

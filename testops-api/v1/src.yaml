@@ -181,8 +181,8 @@ components:
     qql.TestCase: { $ref: './schemas/qql/TestCaseQuery.yaml' }
     qql.Plan: { $ref: './schemas/qql/PlanQuery.yaml' }
     Configuration: { $ref: './schemas/Configuration.yaml' }
-    ConfigurationCreate: { $ref: './schemas/ConfigurationCreate.yaml' }
-    ConfigurationGroupCreate: { $ref: './schemas/ConfigurationGroupCreate.yaml' }
+    ConfigurationCreate: { $ref: './schemas/Configuration.create.yaml' }
+    ConfigurationGroupCreate: { $ref: './schemas/ConfigurationGroup.create.yaml' }
 
     AttachmentResponse: { $ref: './schemas/responses/AttachmentResponse.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentListResponse.yaml' }

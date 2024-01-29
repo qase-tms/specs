@@ -1,0 +1,52 @@
+type: object
+properties:
+  title:
+    type: string
+    maxLength: 255
+  description:
+    type: string
+    maxLength: 10000
+  include_all_cases:
+    type: boolean
+  cases:
+    type: array
+    items:
+      type: integer
+      format: int64
+  is_autotest:
+    type: boolean
+  environment_id:
+    type: integer
+    format: int64
+    minimum: 1
+  milestone_id:
+    type: integer
+    format: int64
+    minimum: 1
+  plan_id:
+    type: integer
+    format: int64
+    minimum: 1
+  author_id:
+    type: integer
+    format: int64
+    minimum: 1
+  tags:
+    type: array
+    items:
+      type: string
+  configurations:
+    type: array
+    items:
+      type: integer
+      format: int64
+  custom_field:
+    type: object
+    description: A map of custom fields values (id => value)
+    additionalProperties:
+      type: string
+  start_time:
+    type: string
+  end_time:
+    type: string
+required: [title]

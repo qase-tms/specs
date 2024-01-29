@@ -1,0 +1,237 @@
+openapi: '3.0.0'
+
+info:
+  title: Qase.io TestOps API
+  description: Qase TestOps API Specification.
+
+  termsOfService: https://qase.io/terms
+  version: 1.0.0
+
+  contact:
+    name: Qase.io
+    url: https://qase.io
+    email: support@qase.io
+
+  license:
+    name: Apache 2.0
+    url: https://github.com/qase-tms/specs/blob/master/LICENSE
+
+tags:
+  - name: attachments
+  - name: authors
+  - name: cases
+  - name: custom-fields
+  - name: configuration
+  - name: environments
+  - name: defects
+  - name: plans
+  - name: projects
+  - name: results
+  - name: milestones
+  - name: runs
+  - name: search
+  - name: shared-steps
+  - name: suites
+
+servers:
+  - url: https://api.qase.io/v1
+    description: The production API server.
+
+paths:
+  /attachment:
+    $ref: './paths/attachments.yaml'
+  /attachment/{code}:
+    $ref: './paths/attachment.code.yaml'
+  /attachment/{hash}:
+    $ref: './paths/attachment.hash.yaml'
+  /author:
+    $ref: './paths/authors.yaml'
+  /author/{id}:
+    $ref: './paths/author.yaml'
+  /case/{code}:
+    $ref: './paths/cases.yaml'
+  /case/{code}/{id}:
+    $ref: './paths/case.yaml'
+  /case/{code}/bulk:
+    $ref: './paths/case_bulk.yaml'
+  /case/{code}/external-issue/attach:
+    $ref: './paths/case_attach_external_issue.yaml'
+  /case/{code}/external-issue/detach:
+    $ref: './paths/case_detach_external_issue.yaml'
+  /custom_field:
+    $ref: './paths/custom_fields.yaml'
+  /custom_field/{id}:
+    $ref: './paths/custom_field.yaml'
+  /system_field:
+    $ref: './paths/system_fields.yaml'
+  /defect/{code}:
+    $ref: './paths/defects.yaml'
+  /defect/{code}/{id}:
+    $ref: './paths/defect.yaml'
+  /defect/{code}/resolve/{id}:
+    $ref: './paths/defect_resolve.yaml'
+  /defect/{code}/status/{id}:
+    $ref: './paths/defect_status.yaml'
+  /environment/{code}:
+    $ref: './paths/environments.yaml'
+  /environment/{code}/{id}:
+    $ref: './paths/environment.yaml'
+  /milestone/{code}:
+    $ref: './paths/milestones.yaml'
+  /milestone/{code}/{id}:
+    $ref: './paths/milestone.yaml'
+  /plan/{code}:
+    $ref: './paths/plans.yaml'
+  /plan/{code}/{id}:
+    $ref: './paths/plan.yaml'
+  /project:
+    $ref: './paths/projects.yaml'
+  /project/{code}:
+    $ref: './paths/project.yaml'
+  /project/{code}/access:
+    $ref: './paths/project_access.yaml'
+  /result/{code}:
+    $ref: './paths/results.yaml'
+  /result/{code}/{id}:
+    $ref: './paths/result.id.yaml'
+  /result/{code}/{hash}:
+    $ref: './paths/result.hash.yaml'
+  /result/{code}/{id}/bulk:
+    $ref: './paths/result_bulk.yaml'
+  /result/{code}/{id}/{hash}:
+    $ref: './paths/result_id_hash.yaml'
+  /run/{code}:
+    $ref: './paths/runs.yaml'
+  /run/{code}/{id}:
+    $ref: './paths/run.yaml'
+  /run/{code}/{id}/public:
+    $ref: './paths/run_public.yaml'
+  /run/{code}/{id}/complete:
+    $ref: './paths/run_complete.yaml'
+  /search:
+    $ref: './paths/search.yaml'
+  /shared_step/{code}:
+    $ref: './paths/shared_steps.yaml'
+  /shared_step/{code}/{hash}:
+    $ref: './paths/shared_step.yaml'
+  /suite/{code}:
+    $ref: './paths/suites.yaml'
+  /suite/{code}/{id}:
+    $ref: './paths/suite.yaml'
+  /configuration/{code}:
+    $ref: './paths/configurations.yaml'
+  /configuration/{code}/group:
+    $ref: './paths/configuration.group.yaml'
+
+components:
+  schemas:
+    Attachment: { $ref: './schemas/Attachment.yaml' }
+    AttachmentGet: { $ref: './schemas/Attachment.get.yaml' }
+    AttachmentHash: { $ref: './schemas/Attachment.hash.yaml' }
+    AttachmentHashList: { $ref: './schemas/Attachment.hash_list.yaml' }
+    Author: { $ref: './schemas/Author.yaml' }
+    CustomField: { $ref: './schemas/CustomField.yaml' }
+    CustomFieldCreate: { $ref: './schemas/CustomField.create.yaml' }
+    CustomFieldUpdate: { $ref: './schemas/CustomField.update.yaml' }
+    CustomFieldValue: { $ref: './schemas/CustomFieldValue.yaml' }
+    Defect: { $ref: './schemas/Defect.yaml' }
+    DefectCreate: { $ref: './schemas/Defect.create.yaml' }
+    DefectStatus: { $ref: './schemas/Defect.status.yaml' }
+    DefectUpdate: { $ref: './schemas/Defect.update.yaml' }
+    Environment: { $ref: './schemas/Environment.yaml' }
+    EnvironmentCreate: { $ref: './schemas/Environment.create.yaml' }
+    EnvironmentUpdate: { $ref: './schemas/Environment.update.yaml' }
+    Milestone: { $ref: './schemas/Milestone.yaml' }
+    MilestoneCreate: { $ref: './schemas/Milestone.create.yaml' }
+    MilestoneUpdate: { $ref: './schemas/Milestone.update.yaml' }
+    Plan: { $ref: './schemas/Plan.yaml' }
+    PlanCreate: { $ref: './schemas/Plan.create.yaml' }
+    PlanDetailed: { $ref: './schemas/Plan.detailed.yaml' }
+    PlanUpdate: { $ref: './schemas/Plan.update.yaml' }
+    Project: { $ref: './schemas/Project.yaml' }
+    ProjectAccess: { $ref: './schemas/Project.access.yaml' }
+    ProjectCreate: { $ref: './schemas/Project.create.yaml' }
+    Result: { $ref: './schemas/Result.yaml' }
+    ResultCreate: { $ref: './schemas/Result.create.yaml' }
+    ResultCreateBulk: { $ref: './schemas/Result.create_bulk.yaml' }
+    ResultUpdate: { $ref: './schemas/Result.update.yaml' }
+    Run: { $ref: './schemas/Run.yaml' }
+    RunCreate: { $ref: './schemas/Run.create.yaml' }
+    RunPublic: { $ref: './schemas/Run.public.yaml' }
+    Requirement: { $ref: './schemas/Requirement.yaml' }
+    SharedStep: { $ref: './schemas/SharedStep.yaml' }
+    SharedStepCreate: { $ref: './schemas/SharedStep.create.yaml' }
+    SharedStepUpdate: { $ref: './schemas/SharedStep.update.yaml' }
+    SharedStepContentCreate: { $ref: './schemas/SharedStepContent.create.yaml' }
+    SharedStepContent: { $ref: './schemas/SharedStepContent.yaml' }
+    Suite: { $ref: './schemas/Suite.yaml' }
+    SuiteCreate: { $ref: './schemas/Suite.create.yaml' }
+    SuiteUpdate: { $ref: './schemas/Suite.update.yaml' }
+    SuiteDelete: { $ref: './schemas/Suite.delete.yaml' }
+    TagValue: { $ref: './schemas/Tag.value.yaml' }
+    TestCase: { $ref: './schemas/TestCase.yaml' }
+    TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
+    TestCaseExternalIssues: { $ref: './schemas/TestCase.external_issues.yaml' }
+    TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
+    TestStep: { $ref: './schemas/TestStep.yaml' }
+    TestStepCreate: { $ref: './schemas/TestStep.create.yaml' }
+    TestStepResultCreate: { $ref: './schemas/TestStepResult.create.yaml' }
+    TestStepResult: { $ref: './schemas/TestStepResult.yaml' }
+    qql.Defect: { $ref: './schemas/qql/DefectQuery.yaml' }
+    qql.TestCase: { $ref: './schemas/qql/TestCaseQuery.yaml' }
+    qql.Plan: { $ref: './schemas/qql/PlanQuery.yaml' }
+    Configuration: { $ref: './schemas/Configuration.yaml' }
+    ConfigurationCreate: { $ref: './schemas/ConfigurationCreate.yaml' }
+    ConfigurationGroupCreate: { $ref: './schemas/ConfigurationGroupCreate.yaml' }
+
+    AttachmentResponse: { $ref: './schemas/responses/AttachmentResponse.yaml' }
+    AttachmentListResponse: { $ref: './schemas/responses/AttachmentListResponse.yaml' }
+    AttachmentUploadsResponse: { $ref: './schemas/responses/AttachmentUploadsResponse.yaml' }
+    AuthorResponse: { $ref: './schemas/responses/AuthorResponse.yaml' }
+    AuthorListResponse: { $ref: './schemas/responses/AuthorListResponse.yaml' }
+    CustomFieldResponse: { $ref: './schemas/responses/CustomFieldResponse.yaml' }
+    CustomFieldsResponse: { $ref: './schemas/responses/CustomFieldListResponse.yaml' }
+    DefectResponse: { $ref: './schemas/responses/DefectResponse.yaml' }
+    DefectListResponse: { $ref: './schemas/responses/DefectListResponse.yaml' }
+    EnvironmentResponse: { $ref: './schemas/responses/EnvironmentResponse.yaml' }
+    EnvironmentListResponse: { $ref: './schemas/responses/EnvironmentListResponse.yaml' }
+    IdResponse: { $ref: './schemas/responses/IdResponse.yaml' }
+    HashResponse: { $ref: './schemas/responses/HashResponse.yaml' }
+    MilestoneResponse: { $ref: './schemas/responses/MilestoneResponse.yaml' }
+    MilestoneListResponse: { $ref: './schemas/responses/MilestoneListResponse.yaml' }
+    PlanResponse: { $ref: './schemas/responses/PlanResponse.yaml' }
+    PlanListResponse: { $ref: './schemas/responses/PlanListResponse.yaml' }
+    ProjectResponse: { $ref: './schemas/responses/ProjectResponse.yaml' }
+    ProjectCodeResponse: { $ref: './schemas/responses/ProjectCodeResponse.yaml' }
+    ProjectListResponse: { $ref: './schemas/responses/ProjectListResponse.yaml' }
+    Response: { $ref: './schemas/responses/BaseResponse.yaml' }
+    ResultResponse: { $ref: './schemas/responses/ResultResponse.yaml' }
+    ResultListResponse: { $ref: './schemas/responses/ResultListResponse.yaml' }
+    RunResponse: { $ref: './schemas/responses/RunResponse.yaml' }
+    RunListResponse: { $ref: './schemas/responses/RunListResponse.yaml' }
+    RunPublicResponse: { $ref: './schemas/responses/RunPublicResponse.yaml' }
+    SearchResponse: { $ref: './schemas/responses/SearchResponse.yaml' }
+    SharedStepResponse: { $ref: './schemas/responses/SharedStepResponse.yaml' }
+    SharedStepListResponse: { $ref: './schemas/responses/SharedStepListResponse.yaml' }
+    SuiteResponse: { $ref: './schemas/responses/SuiteResponse.yaml' }
+    SuiteListResponse: { $ref: './schemas/responses/SuiteListResponse.yaml' }
+    TestCaseResponse: { $ref: './schemas/responses/TestCaseResponse.yaml' }
+    TestCaseListResponse: { $ref: './schemas/responses/TestCaseListResponse.yaml' }
+    ConfigurationListResponse: { $ref: './schemas/responses/ConfigurationListResponse.yaml' }
+
+  securitySchemes:
+    TokenAuth:
+      type: apiKey
+      in: header
+      name: Token
+
+  parameters:
+    Code: { $ref: './parameters/Code.yaml' }
+    ExtendRuns: { $ref: './parameters/extend/Runs.yaml' }
+    Hash: { $ref: './parameters/Hash.yaml' }
+    Id: { $ref: './parameters/Id.yaml' }
+    Limit: { $ref: './parameters/pagination/Limit.yaml' }
+    Offset: { $ref: './parameters/pagination/Offset.yaml' }
+
+security:
+  - TokenAuth: []

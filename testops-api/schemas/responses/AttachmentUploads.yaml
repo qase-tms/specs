@@ -1,8 +1,0 @@
-allOf:
-  - $ref: './Base.yaml'
-  - type: object
-    properties:
-      result:
-        type: array
-        items:
-          $ref: '../Attachment.get.yaml'

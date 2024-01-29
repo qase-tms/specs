@@ -1,6 +1,6 @@
 # unnecessary for tracking
 /.scratch
-/node_modules
+node_modules
 
 # code coverage and quality reports
 *.out
@@ -25,3 +25,6 @@ frpc.ini
 # OS specific files
 .DS_Store
 Thumbs.db
+
+# Store only source files in repo
+api.yaml

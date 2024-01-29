@@ -12,41 +12,55 @@ function validate() {
 ### codegen
 
 function go() {
-  rm -rf sdk/go/*
+  local version=${1:-v1}
+
+  rm -rf ${version}/sdk/go/*
   openapi generate -i /specs/src.yaml -g go -o sdk/go -c sdk/go.yml
-  goimports -ungroup -local qase -w sdk/go/
+  goimports -ungroup -local qase -w ${version}/sdk/go/
 }
 
 function php() {
-  rm -rf sdk/php
-  mkdir sdk/php
-  cp sdk/templates/php-openapi-generator-ignore sdk/php/.openapi-generator-ignore
+  local version=${1:-v1}
+
+  rm -rf ${version}/sdk/php
+  mkdir ${version}/sdk/php
+  cp ${version}/sdk/templates/php-openapi-generator-ignore ${version}/sdk/php/.openapi-generator-ignore
   openapi generate -i /specs/src.yaml -g php -o sdk/php -c sdk/php.yml
 }
 
 function typescript() {
-  rm -rf sdk/ts
-  mkdir sdk/ts
-  cp sdk/templates/ts-openapi-generator-ignore sdk/ts/.openapi-generator-ignore
-  openapi generate -i /specs/src.yaml -g typescript-axios -t /sdk/templates/axios -o /sdk/ts -c /sdk/ts.yml --additional-properties=npmName=qaseio
+  local version=${1:-v1}
+
+  rm -rf ${version}/sdk/ts
+  mkdir ${version}/sdk/ts
+  cp ${version}/sdk/templates/ts-openapi-generator-ignore ${version}/sdk/ts/.openapi-generator-ignore
+  openapi generate -i /specs/src.yaml -g typescript-axios -t sdk/templates/axios -o sdk/ts -c sdk/ts.yml --additional-properties=npmName=qaseio
 }
 
 function python() {
-  rm -rf sdk/python
-  mkdir sdk/python
-  cp sdk/templates/python-openapi-generator-ignore sdk/python/.openapi-generator-ignore
-  openapi generate -i /specs/src.yaml -g python -o sdk/python --additional-properties=packageName=qaseio,packageUrl=https://github.com/qase-tms/qase-python
+  local version=${1:-v1}
+
+  rm -rf ${version}/sdk/python
+  mkdir -p ${version}/sdk/python
+  cp ${version}/sdk/templates/python-openapi-generator-ignore ${version}/sdk/python/.openapi-generator-ignore
+  # Pass the version as an additional argument to openapi
+  openapi generate -i /specs/src.yaml -g python -t sdk/templates -o sdk/python --additional-properties=packageName=qaseio ${version}
 }
 
-openapi() {
-  # https://github.com/OpenAPITools/openapi-generator-cli
+function openapi() {
+  # Extract version from the arguments; assume it's the last one for simplicity
+  local version=${@: -1}  # Get the last argument
+  local args=("${@}")  # Copy the arguments array
+  unset args[-1]  # Remove the last element (version) from args
+
+  # Use version-specific paths
   docker run --rm -i \
-    -v "$(pwd)"/paths:/specs/paths \
-    -v "$(pwd)"/schemas:/specs/schemas \
-    -v "$(pwd)"/parameters:/specs/parameters \
-    -v "$(pwd)"/src.yaml:/specs/src.yaml \
-    -v "$(pwd)"/sdk:/sdk \
-    openapitools/openapi-generator-cli:v6.4.0 "${@}"
+    -v "$(pwd)/${version}/paths:/specs/paths" \
+    -v "$(pwd)/${version}/schemas:/specs/schemas" \
+    -v "$(pwd)/${version}/parameters:/specs/parameters" \
+    -v "$(pwd)/${version}/src.yaml:/specs/src.yaml" \
+    -v "$(pwd)/${version}/sdk:/sdk" \
+    openapitools/openapi-generator-cli:v7.2.0 "${args[@]}"
 }
 
 __default() { help; }

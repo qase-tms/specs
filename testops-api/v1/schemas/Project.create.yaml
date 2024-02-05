@@ -24,4 +24,9 @@ properties:
     type: string
     description: Team group hash. Required if access param is set to group.
 
+  settings:
+    type: object
+    description: Additional project settings.
+    additionalProperties: true
+
 required: [title, code]

@@ -9,6 +9,7 @@ properties:
       - passed
       - failed
       - blocked
+      - skipped
   comment:
     type: string
     nullable: true

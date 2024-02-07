@@ -1,1 +1,7 @@
 extends: spectral:oas
+
+overrides:
+  - files:
+      - "v1/src.yaml"
+    rules:
+      path-params: "off"

@@ -39,6 +39,7 @@ properties:
     type: boolean
   message:
     type: string
+    nullable: true
   created_at:
     type: number
     format: double

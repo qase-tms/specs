@@ -17,7 +17,9 @@ properties:
     nullable: true
   stacktrace:
     type: string
+    nullable: true
   thread:
     type: string
+    nullable: true
 required:
   - status

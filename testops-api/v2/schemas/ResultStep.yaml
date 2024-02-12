@@ -13,7 +13,7 @@ properties:
       attachments:
         type: array
         items:
-          $ref: './ResultAttachment.yaml'
+          type: string
     required:
       - action
   execution:

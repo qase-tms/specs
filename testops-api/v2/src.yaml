@@ -45,7 +45,6 @@ paths:
 components:
   schemas:
     ResultStep: { $ref: './schemas/ResultStep.yaml' }
-    ResultAttachment: { $ref: './schemas/ResultAttachment.yaml' }
     ResultExecution: { $ref: './schemas/ResultExecution.yaml' }
     ResultStepExecution: { $ref: './schemas/ResultStepExecution.yaml' }
     ResultRelations: { $ref: './schemas/ResultRelations.yaml' }

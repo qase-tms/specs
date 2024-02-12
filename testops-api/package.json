@@ -6,7 +6,7 @@
   "homepage": "https://developers.qase.io",
   "license": "Apache-2.0",
   "scripts": {
-    "validate": "spectral lint v1/api.yaml"
+    "validate": "spectral lint --fail-severity=error --display-only-failures v1/src.yaml v2/src.yaml"
   },
   "repository": {
     "type": "git",

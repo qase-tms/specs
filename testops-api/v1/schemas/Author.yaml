@@ -1,10 +1,18 @@
 type: object
 properties:
   id:
+    deprecated: true
+    description: 'Deprecated, use the `entity_id` property instead.'
+    type: integer
+    format: int64
+  author_id:
     type: integer
     format: int64
   entity_type:
     type: string
+  entity_id:
+    type: integer
+    format: int64
   email:
     type: string
   name:

@@ -2,6 +2,7 @@ type: object
 properties:
   hash:
     type: string
+    deprecated: true
   shared_step_hash:
     type: string
     nullable: true

@@ -4,6 +4,7 @@ properties:
     type: string
   hash:
     type: string
+    deprecated: true
   action:
     type: string
   expected_result:

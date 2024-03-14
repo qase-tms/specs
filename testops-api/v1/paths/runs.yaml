@@ -15,7 +15,7 @@ get:
       name: status
       description: |
         A list of status values separated by comma.
-        Possible values: active, complete, abort.
+        Possible values: in_progress, passed, failed, aborted, active (deprecated), complete (deprecated), abort (deprecated).
       schema:
         type: string
     - in: query

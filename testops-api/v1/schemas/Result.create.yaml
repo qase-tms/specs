@@ -24,10 +24,13 @@ properties:
         nullable: true
       layer:
         type: string
+        description: Slug of the layer. You can get it in System Field settings.
       severity:
         type: string
+        description: Slug of the severity. You can get it in System Field settings.
       priority:
         type: string
+        description: Slug of the priority. You can get it in System Field settings.
   status:
     type: string
     description: Can have the following values `passed`, `failed`, `blocked`, `skipped`, `invalid` + custom statuses

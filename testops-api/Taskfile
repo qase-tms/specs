@@ -35,7 +35,7 @@ function typescript() {
   rm -rf "${version}/sdk/ts"
   mkdir "${version}/sdk/ts"
   cp "${version}/sdk/templates/ts-openapi-generator-ignore" "${version}/sdk/ts/.openapi-generator-ignore"
-  openapi generate -i /specs/src.yaml -g typescript-axios -t sdk/templates/axios -o sdk/ts -c sdk/ts.yml --additional-properties=npmName=qaseio "${version}"
+  openapi generate -i /specs/src.yaml -g typescript-axios -t sdk/templates/axios -o sdk/ts -c sdk/ts.yml --inline-schema-options REFACTOR_ALLOF_INLINE_SCHEMAS=true --additional-properties=npmName=qaseio "${version}"
 }
 
 function python() {
@@ -50,8 +50,8 @@ function python() {
 function openapi() {
   local version=${@: -1}  # Get the last argument
   local args=("${@}")  # Copy the arguments array
-  unset args[-1]  # Remove the last element (version) from args
-
+  unset 'args[${#args[@]}-1]'  # Remove the last element (version) from args
+ 
   if [[ "$version" != "v1" && "$version" != "v2" ]]; then
     echo "Error: Invalid version. Only 'v1' or 'v2' are accepted."
     return 1
@@ -63,7 +63,7 @@ function openapi() {
     -v "$(pwd)/${version}/parameters:/specs/parameters" \
     -v "$(pwd)/${version}/src.yaml:/specs/src.yaml" \
     -v "$(pwd)/${version}/sdk:/sdk" \
-    openapitools/openapi-generator-cli:v7.2.0 "${args[@]}"
+    openapitools/openapi-generator-cli:v7.4.0 "${args[@]}"
 }
 
 __default() { help; }

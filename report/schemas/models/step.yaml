@@ -1,0 +1,39 @@
+type: object
+properties:
+  id:
+    type: string
+  step_type:
+    type: string
+  data:
+    type: object
+    properties:
+      action:
+        type: string
+      expected_result:
+        type: string
+        nullable: true
+  parent_id:
+    type: string
+    nullable: true
+  execution:
+    type: object
+    properties:
+      status:
+        type: string
+      start_time:
+        type: number
+        nullable: true
+      duration:
+        type: number
+        nullable: true
+      end_time:
+        type: number
+        nullable: true
+  attachments:
+    type: array
+    items:
+      $ref: "./attachment.yaml"
+  steps:
+    type: array
+    items:
+      $ref: "./step.yaml"

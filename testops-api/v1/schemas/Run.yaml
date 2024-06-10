@@ -94,3 +94,6 @@ properties:
     items:
       type: integer
       format: int64
+  plan_id:
+    type: integer
+    format: int64

@@ -1,0 +1,19 @@
+type: object
+properties:
+  content:
+    type: string
+    nullable: true
+  file_name:
+    type: string
+    nullable: true
+  file_path:
+    type: string
+    nullable: true
+  mime_type:
+    type: string
+    nullable: true
+  size:
+    type: number
+    nullable: true
+  id:
+    type: string

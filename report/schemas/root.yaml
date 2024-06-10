@@ -1,0 +1,91 @@
+type: object
+properties:
+  title:
+    type: string
+    description: title of the report 
+  execution:
+    type: object
+    properties:
+      start_time:
+        type: number
+        description: start time of the report
+      end_time:
+        type: number
+        description: end time of the report
+      duration:
+        type: number
+        description: duration of the report
+      cumulative_duration:
+        description: Cumulative duration of all tests in the report
+        type: number
+  stats:
+    type: object
+    properties:
+      total:
+        type: number
+        description: total number of tests in the report
+      passed:
+        type: number
+        description: number of passed tests in the report
+      failed:
+        type: number
+        description: number of failed tests in the report
+      skipped:
+        type: number
+        description: number of skipped tests in the report
+      broken:
+        type: number
+        description: number of broken tests in the report
+      muted:
+        type: number
+        description: number of muted tests in the report
+  results:
+    type: array
+    description: list of results in the report
+    items:
+      type: object
+      properties:
+        duration:
+          type: number
+          description: duration of the test
+        id:
+          type: string
+          description: id of the test
+        status:
+          type: string
+          description: status of the test
+        thread:
+          type: string
+          nullable: true
+          description: thread of the test
+        title:
+          type: string
+          description: title of the test
+  threads:
+    type: array
+    description: list of threads in the report
+    nullable: true
+    items:
+      type: string
+  suites:
+    type: array
+    description: list of suites in the report
+    nullable: true
+    items:
+      type: string
+  environment:
+    type: string
+    description: environment of the report
+    nullable: true
+  host_data:
+    type: array
+    description: list of host data in the report. Like hostname, os, version etc.
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: name of the host data
+        value:
+          type: string
+          description: value of the host data

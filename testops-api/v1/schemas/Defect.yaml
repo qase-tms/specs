@@ -38,6 +38,15 @@ properties:
     format: int64
   external_data:
     type: string
+  runs:
+    type: array
+    items:
+      type: integer
+      format: int64
+  results:
+    type: array
+    items:
+      type: string
   tags:
     type: array
     items:

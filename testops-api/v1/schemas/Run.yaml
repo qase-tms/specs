@@ -97,3 +97,4 @@ properties:
   plan_id:
     type: integer
     format: int64
+    nullable: true

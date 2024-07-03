@@ -19,6 +19,9 @@ properties:
     type: integer
     format: int64
     minimum: 1
+  environment_slug:
+    type: string
+    maxLength: 255
   milestone_id:
     type: integer
     format: int64

@@ -6,6 +6,20 @@ get:
     This method allows to retrieve all environments stored in selected project.
   parameters:
     - $ref: '../parameters/Code.yaml'
+    - in: query
+      name: search
+      description: |
+        A search string.
+        Will return all environments with titles containing provided string.
+      schema:
+        type: string
+    - in: query
+      name: slug
+      schema:
+        type: string
+      description: |
+        A search string. 
+        Will return all environments with slugs equal to provided string.
     - $ref: '../parameters/pagination/Limit.yaml'
     - $ref: '../parameters/pagination/Offset.yaml'
   responses:

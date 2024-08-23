@@ -71,6 +71,16 @@ properties:
     additionalProperties:
       type: string
       nullable: false
+  param_groups:
+    type: array
+    description: A list of parameter groups
+    nullable: true
+    items:
+      type: array
+      description: A list of parameters in group
+      items:
+        type: string
+        description: A name of the parameter
   steps:
     type: array
     nullable: true

@@ -3,8 +3,14 @@ properties:
   id:
     type: integer
     format: int64
+  author_id:
+    type: integer
+    format: int64
   entity_type:
     type: string
+  entity_id:
+    type: integer
+    format: int64
   email:
     type: string
   name:

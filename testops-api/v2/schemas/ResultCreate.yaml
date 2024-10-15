@@ -31,6 +31,16 @@ properties:
     type: object
     additionalProperties:
       type: string
+  param_groups:
+    type: array
+    description: List parameter groups by name only. Add their values in the 'params' field
+    nullable: true
+    items:
+      type: array
+      description: A list of parameters in group
+      items:
+        type: string
+        description: A name of the parameter
   author:
     type: string
   relations:

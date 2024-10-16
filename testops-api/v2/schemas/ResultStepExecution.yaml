@@ -2,16 +2,19 @@ type: object
 properties:
   start_time:
     type: number
+    description: Unix epoch time in seconds (whole part) and milliseconds (fractional part).
     format: double
     nullable: true
   end_time:
     type: number
+    description: Unix epoch time in seconds (whole part) and milliseconds (fractional part).
     format: double
     nullable: true
   status:
     $ref: './ResultStepStatus.yaml'
   duration:
     type: integer
+    description: Duration of the test step execution in milliseconds.
     format: int64
     nullable: true
   comment:

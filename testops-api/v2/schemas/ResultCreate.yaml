@@ -50,10 +50,9 @@ properties:
   message:
     type: string
     nullable: true
-  created_at:
-    type: number
-    format: double
-    nullable: true
+  defect:
+    type: boolean
+    description: If true and the result is failed, the defect associated with the result will be created
 required:
   - title
   - execution

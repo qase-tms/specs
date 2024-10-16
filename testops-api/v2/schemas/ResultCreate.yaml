@@ -41,8 +41,6 @@ properties:
       items:
         type: string
         description: A name of the parameter
-  author:
-    type: string
   relations:
     $ref: './ResultRelations.yaml'
   muted:

@@ -111,6 +111,8 @@ get:
       description: Bad Request.
     401:
       description: Unauthorized.
+    402:
+      description: Payment Required.
     403:
       description: Forbidden.
     404:

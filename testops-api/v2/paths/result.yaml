@@ -1,5 +1,5 @@
 post:
-  summary: (Beta) Create test run result
+  summary: Create test run result
   description: |
     This method allows to create single test run result.
     

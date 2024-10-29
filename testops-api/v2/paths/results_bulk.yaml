@@ -1,5 +1,5 @@
 post:
-  summary: (Beta) Bulk create test run result
+  summary: Bulk create test run result
   description: |
     This method allows to create several test run results at once.
     

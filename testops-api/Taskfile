@@ -38,13 +38,22 @@ function typescript() {
   openapi generate -i /specs/src.yaml -g typescript-axios -t sdk/templates/axios -o sdk/ts -c sdk/ts.yml --inline-schema-options REFACTOR_ALLOF_INLINE_SCHEMAS=true --additional-properties=npmName=qaseio "${version}"
 }
 
+function java() {
+  local version=${1:-v1}
+
+  rm -rf "${version}/sdk/java"
+  mkdir -p "${version}/sdk/java"
+  cp "${version}/sdk/templates/java-openapi-generator-ignore" "${version}/sdk/python/.openapi-generator-ignore"
+  openapi generate -i /specs/src.yaml -g java -t sdk/templates -o sdk/java --additional-properties=apiPackage=io.qase.client.${version}.api --additional-properties=modelPackage=io.qase.client.${version}.models "${version}"
+}
+
 function python() {
   local version=${1:-v1}
 
   rm -rf "${version}/sdk/python"
   mkdir -p "${version}/sdk/python"
   cp "${version}/sdk/templates/python-openapi-generator-ignore" "${version}/sdk/python/.openapi-generator-ignore"
-  openapi generate -i /specs/src.yaml -g python -t sdk/templates -o sdk/python --additional-properties=packageName=qaseio "${version}"
+  openapi generate -i /specs/src.yaml -g python -t sdk/templates -o sdk/python --additional-properties=packageName=qase.api_client_${version} "${version}"
 }
 
 function openapi() {

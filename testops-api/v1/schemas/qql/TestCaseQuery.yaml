@@ -3,6 +3,9 @@ properties:
   id:
     type: integer
     format: int64
+  test_case_id:
+    type: integer
+    format: int64
   position:
     type: integer
   title:

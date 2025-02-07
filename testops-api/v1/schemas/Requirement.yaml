@@ -3,6 +3,9 @@ properties:
   id:
     type: integer
     format: int64
+  requirement_id:
+    type: integer
+    format: int64
   parent_id:
     type: integer
     format: int64

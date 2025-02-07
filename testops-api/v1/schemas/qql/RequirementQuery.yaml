@@ -1,0 +1,48 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  requirement_id:
+    type: integer
+    format: int64
+  parent_id:
+    type: integer
+    format: int64
+    nullable: true
+  member_id:
+    type: integer
+    format: int64
+  title:
+    type: string
+  description:
+    type: string
+    nullable: true
+  status:
+    type: string
+    enum:
+      - valid
+      - draft
+      - review
+      - rework
+      - finish
+      - implemented
+      - not-testable
+      - obsolete
+  type:
+    type: string
+    enum:
+      - epic
+      - user-story
+      - feature
+  created_at:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
+  updated_at:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
+    nullable: true
+required:
+  - requirement_id

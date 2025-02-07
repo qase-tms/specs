@@ -83,3 +83,5 @@ properties:
     type: string
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
+required:
+  - test_case_id

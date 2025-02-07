@@ -1,0 +1,41 @@
+type: object
+properties:
+  hash:
+    type: string
+  result_hash:
+    type: string
+  comment:
+    type: string
+    nullable: true
+  stacktrace:
+    type: string
+    nullable: true
+  run_id:
+    type: integer
+    format: int64
+  case_id:
+    type: integer
+    format: int64
+  steps:
+    type: array
+    nullable: true
+    items:
+      $ref: '../TestStepResult.yaml'
+  status:
+    type: string
+  is_api_result:
+    type: boolean
+  time_spent_ms:
+    type: integer
+    format: int64
+  end_time:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
+    nullable: true
+  attachments:
+    type: array
+    items:
+      $ref: '../Attachment.yaml'
+required:
+  - result_hash

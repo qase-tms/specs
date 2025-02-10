@@ -2,7 +2,7 @@ post:
   summary: Create test run result
   description: |
     This method allows to create single test run result.
-    
+
     If there is no free space left in your team account, when attempting to upload an attachment, e.g., through reporters, you will receive an error with code 507 - Insufficient Storage.
   operationId: create-result-v2
   tags:
@@ -24,7 +24,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/ResultCreate.yaml'
+          $ref: "../schemas/ResultCreate.yaml"
   responses:
     "202":
       description: OK
@@ -38,9 +38,3 @@ post:
       description: Not Found
     "422":
       description: Unprocessable Entity
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '../schemas/responses/BaseErrorResponse.yaml'
-              - $ref: '../schemas/responses/BaseErrorFieldResponse.yaml'

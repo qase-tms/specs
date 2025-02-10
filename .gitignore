@@ -28,3 +28,6 @@ Thumbs.db
 
 # Store only source files in repo
 api.yaml
+
+# Generated files
+**/sdk/*

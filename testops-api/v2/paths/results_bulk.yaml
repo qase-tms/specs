@@ -43,9 +43,3 @@ post:
       description: Not Found
     "422":
       description: Unprocessable Entity
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '../schemas/responses/BaseErrorResponse.yaml'
-              - $ref: '../schemas/responses/BaseErrorFieldResponse.yaml'

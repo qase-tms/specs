@@ -87,11 +87,11 @@ properties:
   custom_fields:
     type: array
     items:
-      $ref: './CustomFieldValue.yaml'
+      $ref: './../CustomFieldValue.yaml'
   tags:
     type: array
     items:
-      $ref: './Tag.value.yaml'
+      $ref: './../Tag.value.yaml'
   cases:
     type: array
     items:
@@ -101,3 +101,5 @@ properties:
     type: integer
     format: int64
     nullable: true
+required:
+  - run_id

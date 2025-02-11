@@ -44,3 +44,5 @@ properties:
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
     nullable: true
+required:
+  - requirement_id

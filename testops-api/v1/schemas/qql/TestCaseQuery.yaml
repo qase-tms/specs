@@ -3,6 +3,9 @@ properties:
   id:
     type: integer
     format: int64
+  test_case_id:
+    type: integer
+    format: int64
   position:
     type: integer
   title:
@@ -80,3 +83,5 @@ properties:
     type: string
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
+required:
+  - test_case_id

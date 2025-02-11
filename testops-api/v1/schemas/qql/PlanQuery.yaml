@@ -3,6 +3,9 @@ properties:
   id:
     type: integer
     format: int64
+  plan_id:
+    type: integer
+    format: int64
   title:
     type: string
   description:
@@ -18,3 +21,5 @@ properties:
     type: string
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
+required:
+  - plan_id

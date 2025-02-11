@@ -20,7 +20,7 @@ properties:
     type: array
     nullable: true
     items:
-      $ref: 'TestStepResult.yaml'
+      $ref: '../TestStepResult.yaml'
   status:
     type: string
   is_api_result:
@@ -36,4 +36,6 @@ properties:
   attachments:
     type: array
     items:
-      $ref: 'Attachment.yaml'
+      $ref: '../Attachment.yaml'
+required:
+  - result_hash

@@ -83,5 +83,9 @@ properties:
     type: string
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
+  updated_by:
+    type: integer
+    description: "Author ID of the last update."
+    format: int64
 required:
   - test_case_id

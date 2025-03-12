@@ -5,6 +5,12 @@ get:
   description: |
     This method allows to retrieve a specific test case.
   parameters:
+    - in: query
+      name: include
+      description: |
+          A list of entities to include in response separated by comma. Possible values: external_issues.
+      schema:
+          type: string
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
   responses:

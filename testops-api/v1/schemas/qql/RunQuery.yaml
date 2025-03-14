@@ -64,6 +64,10 @@ properties:
     type: integer
     format: int64
     description: Time in ms.
+  elapsed_time:
+    type: integer
+    format: int64
+    description: Time in ms.
   environment:
     type: object
     properties:

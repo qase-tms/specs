@@ -11,6 +11,14 @@ properties:
     type: integer
     format: int64
     nullable: true
+    description: ID of the test case. Cannot be specified together with testopd_ids.
+  testops_ids:
+    type: array
+    items:
+      type: integer
+      format: int64
+    nullable: true
+    description: IDs of the test cases. Cannot be specified together with testopd_id.
   execution:
     $ref: './ResultExecution.yaml'
   fields:

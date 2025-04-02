@@ -76,6 +76,9 @@ properties:
   defect:
     type: boolean
     description: If true and the result is failed, the defect associated with the result will be created
+  update_assignee:
+    type: boolean
+    description: If true, assignee will be updated with executor
 required:
   - title
   - execution

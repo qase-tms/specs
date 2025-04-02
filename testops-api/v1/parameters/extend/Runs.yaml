@@ -1,6 +1,6 @@
 name: include
 in: query
 description: |
-  Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, defects
+  Include a list of related entities IDs into response. Should be separated by comma. Possible values: cases, assignees, defects. The order of assignees is same as cases.
 schema:
   type: string

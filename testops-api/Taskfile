@@ -44,7 +44,7 @@ function java() {
   rm -rf "${version}/sdk/java"
   mkdir -p "${version}/sdk/java"
   cp "${version}/sdk/templates/java-openapi-generator-ignore" "${version}/sdk/python/.openapi-generator-ignore"
-  openapi generate -i /specs/src.yaml -g java -t sdk/templates -o sdk/java --additional-properties=apiPackage=io.qase.client.${version}.api --additional-properties=modelPackage=io.qase.client.${version}.models "${version}"
+  openapi generate -i /specs/src.yaml -g java -t sdk/templates -c /sdk/java.yml -o sdk/java --additional-properties=apiPackage=io.qase.client.${version}.api --additional-properties=modelPackage=io.qase.client.${version}.models "${version}"
 }
 
 function python() {

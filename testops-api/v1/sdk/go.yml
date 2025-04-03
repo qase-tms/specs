@@ -1,3 +1,4 @@
 # https://openapi-generator.tech/docs/generators/go/
 
 generateInterfaces: false
+packageName: api_v1_client

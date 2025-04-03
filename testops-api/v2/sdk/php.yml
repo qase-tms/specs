@@ -6,7 +6,7 @@ apiPackage: Api # ~
 disallowAdditionalPropertiesIfNotPresent: false # true
 ensureUniqueParams: true
 hideGenerationTimestamp: true
-invokerPackage: Qase\Client # ~
+invokerPackage: Qase\APIClientV2 # ~
 legacyDiscriminatorBehavior: true
 modelPackage: Model # ~
 packageName: ~

@@ -33,6 +33,10 @@ properties:
     format: date-time
     example: "2021-12-30T19:23:59+00:00"
     nullable: true
+  author_id:
+    type: integer
+    format: int64
+    nullable: true
   attachments:
     type: array
     items:

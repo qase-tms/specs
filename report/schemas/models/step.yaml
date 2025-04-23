@@ -12,6 +12,9 @@ properties:
       expected_result:
         type: string
         nullable: true
+      input_data:
+        type: string
+        nullable: true  
   parent_id:
     type: string
     nullable: true
@@ -29,10 +32,10 @@ properties:
       end_time:
         type: number
         nullable: true
-  attachments:
-    type: array
-    items:
-      $ref: "./attachment.yaml"
+      attachments:
+        type: array
+        items:
+          $ref: "./attachment.yaml"  
   steps:
     type: array
     items:

@@ -4,9 +4,6 @@ properties:
     type: array
     items:
       $ref: "./models/attachment.yaml"
-  author:
-    type: string
-    nullable: true
   execution:
     type: object
     properties:
@@ -56,6 +53,13 @@ properties:
         value:
           type: string
           nullable: true
+  param_groups:
+    type: array
+    nullable: true
+    items:
+      type: array
+      items:
+        type: string
   relations:
     type: object
     nullable: true
@@ -71,11 +75,8 @@ properties:
                 title:
                   type: string
                 public_id:
-                  type: object
-                  properties:
-  run_id:
-    type: number
-    nullable: true
+                  type: number
+                  nullable: true
   signature:
     type: string
     nullable: true
@@ -86,5 +87,10 @@ properties:
   testops_id:
     type: number
     nullable: true
+  testops_ids:
+    type: array
+    nullable: true
+    items:
+      type: number
   title:
     type: string

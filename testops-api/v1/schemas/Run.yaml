@@ -101,6 +101,12 @@ properties:
     items:
       type: integer
       format: int64
+  assignees:
+    type: array
+    items:
+      type: integer
+      format: int64
+      nullable: true
   plan_id:
     type: integer
     format: int64

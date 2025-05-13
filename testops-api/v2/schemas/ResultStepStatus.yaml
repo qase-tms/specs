@@ -4,3 +4,4 @@ enum:
   - failed
   - blocked
   - skipped
+  - in_progress

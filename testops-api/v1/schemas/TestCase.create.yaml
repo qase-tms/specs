@@ -21,8 +21,6 @@ properties:
     type: integer
   is_flaky:
     type: integer
-  author_id:
-    type: integer
   suite_id:
     type: integer
     format: int64

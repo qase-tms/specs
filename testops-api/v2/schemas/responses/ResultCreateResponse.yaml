@@ -1,0 +1,14 @@
+
+allOf:
+  - $ref: "./BaseResponse.yaml"
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          case_id:
+            type: integer
+            format: int64
+            nullable: true
+          hash:
+            type: string

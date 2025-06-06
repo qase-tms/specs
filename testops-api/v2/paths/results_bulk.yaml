@@ -33,6 +33,10 @@ post:
   responses:
     "202":
       description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/responses/ResultCreateBulkResponse.yaml"
     "400":
       description: Bad Request
     "401":

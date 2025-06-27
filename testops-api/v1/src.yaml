@@ -102,6 +102,8 @@ paths:
     $ref: './paths/result_id_hash.yaml'
   /run/{code}:
     $ref: './paths/runs.yaml'
+  /run/{code}/external-issue:
+    $ref: './paths/runs_external_issue.yaml'
   /run/{code}/{id}:
     $ref: './paths/run.yaml'
   /run/{code}/{id}/public:

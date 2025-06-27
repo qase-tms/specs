@@ -1,0 +1,39 @@
+post:
+  operationId: run-update-external-issue
+  tags: [ runs ]
+  summary: Update external issues for runs
+  description: |
+    This method allows you to update links between test runs and external issues (such as Jira tickets).
+
+    You can use this endpoint to:
+    - Link test runs to external issues by providing the external issue identifier (e.g., "PROJ-1234")
+    - Update existing links by providing a new external issue identifier
+    - Remove existing links by setting the external_issue field to null
+
+    **Important**: Each test run can have only one link with an external issue. If a test run already has an external issue link, providing a new external_issue value will replace the existing link.
+
+    The endpoint supports both Jira Cloud and Jira Server integrations. Each request can update multiple test run links in a single operation.
+
+  parameters:
+    - $ref: '../parameters/Code.yaml'
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Run.external_issues.yaml'
+
+  responses:
+    200:
+      description: OK.
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    429:
+      description: Too Many Requests.

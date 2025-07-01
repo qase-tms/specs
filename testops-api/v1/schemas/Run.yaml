@@ -105,3 +105,8 @@ properties:
     type: integer
     format: int64
     nullable: true
+  configurations:
+    type: array
+    items:
+      type: integer
+      format: int64

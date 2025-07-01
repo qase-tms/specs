@@ -26,6 +26,39 @@ get:
     429:
       description: Too Many Requests.
 
+patch:
+  operationId: update-run
+  tags: [ runs ]
+  summary: Update a specific run
+  description: |
+    This method allows to update a specific run.
+  parameters:
+    - $ref: '../parameters/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Run.update.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/BaseResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    429:
+      description: Too Many Requests.
+
 delete:
   operationId: delete-run
   tags: [ runs ]

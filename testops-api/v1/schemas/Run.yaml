@@ -110,3 +110,14 @@ properties:
     items:
       type: integer
       format: int64
+  external_issue:
+    type: object
+    nullable: true
+    properties:
+      id:
+        type: string
+      type:
+        type: string
+      link:
+        type: string
+        format: uri

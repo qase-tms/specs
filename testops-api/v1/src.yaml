@@ -30,6 +30,7 @@ tags:
   - name: milestones
   - name: runs
   - name: search
+  - name: shared-parameters
   - name: shared-steps
   - name: suites
 
@@ -112,6 +113,10 @@ paths:
     $ref: './paths/run_complete.yaml'
   /search:
     $ref: './paths/search.yaml'
+  /shared_parameter:
+    $ref: './paths/shared_parameters.yaml'
+  /shared_parameter/{id}:
+    $ref: './paths/shared_parameter.yaml'
   /shared_step/{code}:
     $ref: './paths/shared_steps.yaml'
   /shared_step/{code}/{hash}:
@@ -161,6 +166,9 @@ components:
     RunCreate: { $ref: './schemas/Run.create.yaml' }
     RunPublic: { $ref: './schemas/Run.public.yaml' }
     Requirement: { $ref: './schemas/Requirement.yaml' }
+    SharedParameter: { $ref: './schemas/SharedParameter.yaml' }
+    SharedParameterCreate: { $ref: './schemas/SharedParameter.create.yaml' }
+    SharedParameterUpdate: { $ref: './schemas/SharedParameter.update.yaml' }
     SharedStep: { $ref: './schemas/SharedStep.yaml' }
     SharedStepCreate: { $ref: './schemas/SharedStep.create.yaml' }
     SharedStepUpdate: { $ref: './schemas/SharedStep.update.yaml' }
@@ -213,6 +221,8 @@ components:
     RunListResponse: { $ref: './schemas/responses/RunListResponse.yaml' }
     RunPublicResponse: { $ref: './schemas/responses/RunPublicResponse.yaml' }
     SearchResponse: { $ref: './schemas/responses/SearchResponse.yaml' }
+    SharedParameterResponse: { $ref: './schemas/responses/SharedParameterResponse.yaml' }
+    SharedParameterListResponse: { $ref: './schemas/responses/SharedParameterListResponse.yaml' }
     SharedStepResponse: { $ref: './schemas/responses/SharedStepResponse.yaml' }
     SharedStepListResponse: { $ref: './schemas/responses/SharedStepListResponse.yaml' }
     SuiteResponse: { $ref: './schemas/responses/SuiteResponse.yaml' }
@@ -234,6 +244,7 @@ components:
     Id: { $ref: './parameters/Id.yaml' }
     Limit: { $ref: './parameters/pagination/Limit.yaml' }
     Offset: { $ref: './parameters/pagination/Offset.yaml' }
+    Uuid: { $ref: './parameters/Uuid.yaml' }
 
 security:
   - TokenAuth: []

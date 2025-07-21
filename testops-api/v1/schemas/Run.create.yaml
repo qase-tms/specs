@@ -52,4 +52,19 @@ properties:
     type: string
   end_time:
     type: string
+  
+  is_cloud:
+    type: boolean
+    description: Indicates if the run is created for the Test Cases produced by AIDEN
+  cloud_run_config:
+    type: object
+    description: Configuration for the cloud run, if applicable
+    properties:
+      browser:
+        type: string
+        description: The browser to be used for the cloud run
+        enum : 
+         - "chromium"
+         - "firefox"
+         - "webkit"
 required: [title]

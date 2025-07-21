@@ -44,8 +44,9 @@ go install golang.org/x/tools/cmd/goimports@latest
 ```
 
 ## Custom OpenAPI Generator
-The `openapi` function in the Taskfile uses Docker to run the `openapitools/openapi-generator-cli` tool, 
-which is a versatile tool to generate client libraries, server stubs, and API documentation from 
+
+The `openapi` function in the Taskfile uses Docker to run the `openapitools/openapi-generator-cli` tool,
+which is a versatile tool to generate client libraries, server stubs, and API documentation from
 OpenAPI Specification definitions.
 
 ## Notes

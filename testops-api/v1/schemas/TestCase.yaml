@@ -56,10 +56,16 @@ properties:
     items:
       $ref: 'TestStep.yaml'
   params:
+    deprecated: true
+    description: Deprecated, use `parameters` instead.
     anyOf:
       - type: array
         items: {}
       - type: object
+  parameters:
+    type: array
+    items:
+      $ref: 'Parameter.yaml'
   tags:
     type: array
     items:

@@ -1,0 +1,7 @@
+type: object
+properties:
+  shared_id:
+    type: string
+    format: uuid
+required:
+  - shared_id 

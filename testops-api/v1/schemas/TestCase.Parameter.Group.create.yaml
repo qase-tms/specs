@@ -1,0 +1,9 @@
+type: object
+properties:
+  items:
+    type: array
+    minItems: 2
+    items:
+      $ref: 'TestCase.Parameter.Single.create.yaml'
+required:
+  - items 

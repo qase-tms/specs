@@ -1,0 +1,10 @@
+allOf:
+  - $ref: 'ParameterBase.yaml'
+  - type: object
+    description: Group parameter
+    properties:
+      type:
+        type: string
+        enum: [group]
+      items:
+        minItems: 2 

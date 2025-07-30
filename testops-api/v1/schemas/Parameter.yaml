@@ -1,0 +1,3 @@
+oneOf:
+  - $ref: 'ParameterSingle.yaml'
+  - $ref: 'ParameterGroup.yaml'

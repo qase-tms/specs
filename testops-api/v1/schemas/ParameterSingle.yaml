@@ -1,0 +1,11 @@
+allOf:
+  - $ref: 'ParameterBase.yaml'
+  - type: object
+    description: Single parameter
+    properties:
+      type:
+        type: string
+        enum: [single]
+      items:
+        minItems: 1
+        maxItems: 1 

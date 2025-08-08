@@ -1,5 +1,5 @@
 allOf:
-  - $ref: 'ParameterBase.yaml'
+  - $ref: 'TestCaseParameterBase.yaml'
   - type: object
     description: Single parameter
     properties:
@@ -8,4 +8,4 @@ allOf:
         enum: [single]
       items:
         minItems: 1
-        maxItems: 1 
+        maxItems: 1

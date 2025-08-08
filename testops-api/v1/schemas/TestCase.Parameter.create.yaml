@@ -1,4 +1,4 @@
 oneOf:
-  - $ref: 'TestCase.Parameter.Shared.create.yaml'
-  - $ref: 'TestCase.Parameter.Single.create.yaml'
-  - $ref: 'TestCase.Parameter.Group.create.yaml' 
+  - $ref: 'Parameter.Shared.yaml'
+  - $ref: 'Parameter.Single.yaml'
+  - $ref: 'Parameter.Group.yaml'

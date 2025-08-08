@@ -9,7 +9,7 @@ properties:
   items:
     type: array
     items:
-      $ref: 'ParameterItem.yaml'
+      $ref: 'Parameter.Single.yaml'
 required:
   - type
-  - items 
+  - items

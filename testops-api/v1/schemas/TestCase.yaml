@@ -65,7 +65,7 @@ properties:
   parameters:
     type: array
     items:
-      $ref: 'Parameter.yaml'
+      $ref: 'TestCaseParameter.yaml'
   tags:
     type: array
     items:

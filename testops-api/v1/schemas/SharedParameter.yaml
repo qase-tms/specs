@@ -16,11 +16,7 @@ properties:
   is_enabled_for_all_projects:
     type: boolean
   parameters:
-    type: object
-    additionalProperties:
-      type: array
-      items:
-        type: string
+    $ref: 'SharedParameter.Parameter.yaml'
 required:
   - id
   - title

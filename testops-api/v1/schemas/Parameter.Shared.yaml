@@ -1,7 +1,8 @@
 type: object
+description: Shared parameter
 properties:
   shared_id:
     type: string
     format: uuid
 required:
-  - shared_id 
+  - shared_id

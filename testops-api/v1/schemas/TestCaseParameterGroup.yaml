@@ -1,5 +1,5 @@
 allOf:
-  - $ref: 'ParameterBase.yaml'
+  - $ref: 'TestCaseParameterBase.yaml'
   - type: object
     description: Group parameter
     properties:
@@ -7,4 +7,4 @@ allOf:
         type: string
         enum: [group]
       items:
-        minItems: 2 
+        minItems: 2

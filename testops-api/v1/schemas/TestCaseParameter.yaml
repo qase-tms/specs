@@ -1,0 +1,3 @@
+oneOf:
+  - $ref: 'TestCaseParameterSingle.yaml'
+  - $ref: 'TestCaseParameterGroup.yaml'

@@ -55,7 +55,7 @@ patch:
 delete:
   operationId: delete-shared-parameter
   tags: [ shared-parameters ]
-  summary: Delete shared parameter
+  summary: Delete shared parameter along with all its usages in test cases and reviews.
   parameters:
     - $ref: '../parameters/Uuid.yaml'
   responses:

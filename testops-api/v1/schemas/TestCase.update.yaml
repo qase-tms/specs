@@ -44,6 +44,8 @@ properties:
   params:
     type: object
     nullable: true
+    deprecated: true
+    description: Deprecated, use `parameters` instead.
     additionalProperties:
       type: array
       items:

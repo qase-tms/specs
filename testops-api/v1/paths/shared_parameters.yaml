@@ -43,6 +43,7 @@ get:
 post:
   operationId: create-shared-parameter
   tags: [ shared-parameters ]
+  summary: Create a new shared parameter
   requestBody:
     required: true
     content:

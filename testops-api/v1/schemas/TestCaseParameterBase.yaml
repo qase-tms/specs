@@ -1,0 +1,15 @@
+type: object
+properties:
+  shared_id:
+    type: string
+    format: uuid
+    nullable: true
+  type:
+    type: string
+  items:
+    type: array
+    items:
+      $ref: 'Parameter.Single.yaml'
+required:
+  - type
+  - items

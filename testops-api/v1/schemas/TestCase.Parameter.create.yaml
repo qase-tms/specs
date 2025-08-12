@@ -1,0 +1,4 @@
+oneOf:
+  - $ref: 'Parameter.Shared.yaml'
+  - $ref: 'Parameter.Single.yaml'
+  - $ref: 'Parameter.Group.yaml'

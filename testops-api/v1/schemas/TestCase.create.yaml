@@ -44,11 +44,18 @@ properties:
   params:
     type: object
     nullable: true
+    deprecated: true
+    description: Deprecated, use `parameters` instead.
     additionalProperties:
       type: array
       items:
         type: string
       nullable: false
+  parameters:
+    type: array
+    nullable: true
+    items:
+      $ref: 'TestCase.Parameter.create.yaml'
   custom_field:
     type: object
     description: A map of custom fields values (id => value)
@@ -59,4 +66,4 @@ properties:
   updated_at:
     type: string
 
-required: [title]
+required: [ title ]

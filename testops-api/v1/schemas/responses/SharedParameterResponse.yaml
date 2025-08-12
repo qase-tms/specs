@@ -1,0 +1,6 @@
+allOf:
+  - $ref: './BaseResponse.yaml'
+  - type: object
+    properties:
+      result:
+        $ref: '../SharedParameter.yaml'

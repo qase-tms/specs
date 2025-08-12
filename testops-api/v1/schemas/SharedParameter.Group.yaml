@@ -1,0 +1,5 @@
+type: array
+description: Group parameter
+minItems: 2
+items:
+  $ref: 'Parameter.Single.yaml'

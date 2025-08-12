@@ -1,0 +1,26 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  title:
+    type: string
+    maxLength: 255
+  type:
+    type: string
+    enum: [single, group]
+  project_codes:
+    type: array
+    items:
+      type: string
+  is_enabled_for_all_projects:
+    type: boolean
+  parameters:
+    $ref: 'SharedParameter.Parameter.yaml'
+required:
+  - id
+  - title
+  - type
+  - project_codes
+  - is_enabled_for_all_projects
+  - parameters

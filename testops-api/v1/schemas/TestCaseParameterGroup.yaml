@@ -7,4 +7,9 @@ allOf:
         type: string
         enum: [group]
       items:
+        type: array
+        items:
+          $ref: 'Parameter.Single.yaml'
         minItems: 2
+    required:
+      - items

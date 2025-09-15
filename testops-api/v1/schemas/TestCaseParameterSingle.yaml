@@ -6,6 +6,7 @@ allOf:
       type:
         type: string
         enum: [single]
-      items:
-        minItems: 1
-        maxItems: 1
+      item:
+        $ref: 'Parameter.Single.yaml'
+    required:
+      - item

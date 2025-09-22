@@ -129,6 +129,10 @@ paths:
     $ref: './paths/configurations.yaml'
   /configuration/{code}/group:
     $ref: './paths/configuration.group.yaml'
+  /user:
+    $ref: './paths/users.yaml'
+  /user/{id}:
+    $ref: './paths/user.yaml'
 
 components:
   schemas:
@@ -193,6 +197,7 @@ components:
     Configuration: { $ref: './schemas/Configuration.yaml' }
     ConfigurationCreate: { $ref: './schemas/Configuration.create.yaml' }
     ConfigurationGroupCreate: { $ref: './schemas/ConfigurationGroup.create.yaml' }
+    User: { $ref: './schemas/User.yaml' }
 
     AttachmentResponse: { $ref: './schemas/responses/AttachmentResponse.yaml' }
     AttachmentListResponse: { $ref: './schemas/responses/AttachmentListResponse.yaml' }
@@ -230,6 +235,8 @@ components:
     TestCaseResponse: { $ref: './schemas/responses/TestCaseResponse.yaml' }
     TestCaseListResponse: { $ref: './schemas/responses/TestCaseListResponse.yaml' }
     ConfigurationListResponse: { $ref: './schemas/responses/ConfigurationListResponse.yaml' }
+    UserResponse: { $ref: './schemas/responses/UserResponse.yaml' }
+    UserListResponse: { $ref: './schemas/responses/UserListResponse.yaml' }
 
   securitySchemes:
     TokenAuth:

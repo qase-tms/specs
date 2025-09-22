@@ -12,7 +12,7 @@ ensureUniqueParams: true
 enumNameSuffix: Enum
 enumPropertyNaming: UPPERCASE # PascalCase
 legacyDiscriminatorBehavior: true
-npmName: qaseio
+npmName: qase-api-v2-client
 nullSafeAdditionalProps: false
 paramNaming: camelCase
 prependFormOrBodyParameters: false

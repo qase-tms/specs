@@ -22,7 +22,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/Run.external_issues.yaml'
+          $ref: '../schemas/RunExternalIssues.yaml'
 
   responses:
     200:

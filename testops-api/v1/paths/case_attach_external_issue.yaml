@@ -9,7 +9,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/TestCase.external_issues.yaml'
+          $ref: '../schemas/TestCase.ExternalIssues.yaml'
 
   responses:
     200:

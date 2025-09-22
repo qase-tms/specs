@@ -164,7 +164,7 @@ components:
     ProjectCreate: { $ref: './schemas/Project.create.yaml' }
     Result: { $ref: './schemas/Result.yaml' }
     ResultCreate: { $ref: './schemas/Result.create.yaml' }
-    ResultCreateBulk: { $ref: './schemas/Result.create_bulk.yaml' }
+    ResultCreateBulk: { $ref: './schemas/Result.CreateBulk.yaml' }
     ResultUpdate: { $ref: './schemas/Result.update.yaml' }
     Run: { $ref: './schemas/Run.yaml' }
     RunCreate: { $ref: './schemas/Run.create.yaml' }
@@ -185,7 +185,7 @@ components:
     TagValue: { $ref: './schemas/Tag.value.yaml' }
     TestCase: { $ref: './schemas/TestCase.yaml' }
     TestCaseCreate: { $ref: './schemas/TestCase.create.yaml' }
-    TestCaseExternalIssues: { $ref: './schemas/TestCase.external_issues.yaml' }
+    TestCaseExternalIssues: { $ref: './schemas/TestCase.ExternalIssues.yaml' }
     TestCaseUpdate: { $ref: './schemas/TestCase.update.yaml' }
     TestStep: { $ref: './schemas/TestStep.yaml' }
     TestStepCreate: { $ref: './schemas/TestStep.create.yaml' }

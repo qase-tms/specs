@@ -35,7 +35,7 @@ function typescript() {
   rm -rf "${version}/sdk/ts"
   mkdir "${version}/sdk/ts"
   cp "${version}/sdk/templates/ts-openapi-generator-ignore" "${version}/sdk/ts/.openapi-generator-ignore"
-  openapi generate -i /specs/src.yaml -g typescript-axios -t sdk/templates/axios -o sdk/ts -c sdk/ts.yml --inline-schema-options REFACTOR_ALLOF_INLINE_SCHEMAS=true --additional-properties=npmName=qaseio "${version}"
+  openapi generate -i /specs/src.yaml -g typescript-axios -t sdk/templates/axios -o sdk/ts -c sdk/ts.yml --inline-schema-options REFACTOR_ALLOF_INLINE_SCHEMAS=true "${version}"
 }
 
 function java() {
@@ -43,8 +43,25 @@ function java() {
 
   rm -rf "${version}/sdk/java"
   mkdir -p "${version}/sdk/java"
-  cp "${version}/sdk/templates/java-openapi-generator-ignore" "${version}/sdk/python/.openapi-generator-ignore"
+  cp "${version}/sdk/templates/java-openapi-generator-ignore" "${version}/sdk/java/.openapi-generator-ignore"
   openapi generate -i /specs/src.yaml -g java -t sdk/templates -c /sdk/java.yml -o sdk/java --additional-properties=apiPackage=io.qase.client.${version}.api --additional-properties=modelPackage=io.qase.client.${version}.models "${version}"
+}
+
+function csharp() {
+  local version=${1:-v1}
+
+  rm -rf "${version}/sdk/csharp"
+  mkdir -p "${version}/sdk/csharp"
+  cp "${version}/sdk/templates/csharp-openapi-generator-ignore" "${version}/sdk/csharp/.openapi-generator-ignore"
+  openapi generate -i /specs/src.yaml -g csharp -t sdk/templates -c /sdk/csharp.yml -o sdk/csharp "${version}"
+}
+
+function cpp() {
+  local version=${1:-v1}
+
+  rm -rf "${version}/sdk/cpp"
+  mkdir -p "${version}/sdk/cpp"
+  openapi generate -i /specs/src.yaml -g cpp-restsdk -t sdk/templates -o sdk/cpp "${version}"
 }
 
 function python() {
@@ -72,7 +89,7 @@ function openapi() {
     -v "$(pwd)/${version}/parameters:/specs/parameters" \
     -v "$(pwd)/${version}/src.yaml:/specs/src.yaml" \
     -v "$(pwd)/${version}/sdk:/sdk" \
-    openapitools/openapi-generator-cli:v7.4.0 "${args[@]}"
+    openapitools/openapi-generator-cli:v7.15.0 "${args[@]}"
 }
 
 __default() { help; }

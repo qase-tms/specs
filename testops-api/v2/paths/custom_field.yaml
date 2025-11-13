@@ -1,0 +1,37 @@
+get:
+  operationId: get-custom-field-v2
+  tags: [ custom-fields ]
+  summary: Get Custom Field
+  description: |
+    This method allows to retrieve custom field.
+  parameters:
+    - name: id
+      in: path
+      description: Identifier.
+      required: true
+      schema:
+        type: integer
+  responses:
+    200:
+      description: A Custom Field.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/CustomFieldResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    429:
+      description: Too Many Requests.
+
+
+
+
+
+
+

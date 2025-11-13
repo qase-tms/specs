@@ -17,20 +17,8 @@ info:
     url: https://github.com/qase-tms/specs/blob/master/LICENSE
 
 tags:
-  - name: attachments
-  - name: authors
-  - name: cases
   - name: custom-fields
-  - name: environments
-  - name: defects
-  - name: plans
-  - name: projects
   - name: results
-  - name: milestones
-  - name: runs
-  - name: search
-  - name: shared-steps
-  - name: suites
 
 servers:
   - url: https://api.qase.io/v2
@@ -41,6 +29,10 @@ paths:
     $ref: './paths/result.yaml'
   /{project_code}/run/{run_id}/results:
     $ref: './paths/results_bulk.yaml'
+  /custom_field:
+    $ref: './paths/custom_fields.yaml'
+  /custom_field/{id}:
+    $ref: './paths/custom_field.yaml'
 
 components:
   schemas:
@@ -49,6 +41,8 @@ components:
     ResultStepExecution: { $ref: './schemas/ResultStepExecution.yaml' }
     ResultRelations: { $ref: './schemas/ResultRelations.yaml' }
     ResultStatus: { $ref: './schemas/ResultStatus.yaml' }
+    CustomField: { $ref: './schemas/CustomField.yaml' }
+    CustomFieldOption: { $ref: './schemas/CustomFieldOption.yaml' }
 
   securitySchemes:
     TokenAuth:

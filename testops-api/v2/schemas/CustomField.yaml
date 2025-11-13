@@ -1,0 +1,43 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  title:
+    type: string
+  entity:
+    type: string
+  type:
+    type: string
+  placeholder:
+    type: string
+    nullable: true
+  default_value:
+    type: string
+    nullable: true
+  value:
+    type: array
+    nullable: true
+    items:
+      $ref: 'CustomFieldOption.yaml'
+  is_required:
+    type: boolean
+  is_visible:
+    type: boolean
+  is_filterable:
+    type: boolean
+  is_enabled_for_all_projects:
+    type: boolean
+  created_at:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
+  updated_at:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
+  projects_codes:
+    type: array
+    items:
+      type: string
+

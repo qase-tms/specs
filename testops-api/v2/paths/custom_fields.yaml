@@ -1,0 +1,70 @@
+get:
+  operationId: get-custom-fields-v2
+  tags: [ custom-fields ]
+  summary: Get all Custom Fields
+  description: |
+    This method allows to retrieve and filter custom fields.
+
+  parameters:
+    - in: query
+      name: entity
+      schema:
+        type: string
+        enum:
+          - case
+          - run
+          - defect
+    - in: query
+      name: type
+      schema:
+        type: string
+        enum:
+          - string
+          - text
+          - number
+          - checkbox
+          - selectbox
+          - radio
+          - multiselect
+          - url
+          - user
+          - datetime
+    - name: limit
+      description: A number of entities in result set.
+      in: query
+      schema:
+        type: integer
+        default: 10
+        minimum: 1
+        maximum: 100
+    - name: offset
+      description: How many entities should be skipped.
+      in: query
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+        maximum: 100000
+
+  responses:
+    200:
+      description: Custom Field list.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/CustomFieldListResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    403:
+      description: Forbidden.
+    429:
+      description: Too Many Requests.
+
+
+
+
+
+
+

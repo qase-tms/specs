@@ -1,7 +1,7 @@
 get:
   operationId: get-custom-field
   tags: [ custom-fields ]
-  summary: Get Custom Field by id
+  summary: Get Custom Field
   description: |
     This method allows to retrieve custom field.
   parameters:
@@ -27,7 +27,7 @@ get:
 delete:
   operationId: delete-custom-field
   tags: [ custom-fields ]
-  summary: Delete Custom Field by id
+  summary: Delete Custom Field
   description: |
     This method allows to delete custom field.
   parameters:
@@ -53,7 +53,7 @@ delete:
 patch:
   operationId: update-custom-field
   tags: [ custom-fields ]
-  summary: Update Custom Field by id
+  summary: Update Custom Field
   description: |
     This method allows to update custom field.
   parameters:

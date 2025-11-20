@@ -5,3 +5,29 @@ properties:
     format: int64
   title:
     type: string
+    nullable: true
+  slug:
+    type: string
+    nullable: true
+  color:
+    type: string
+    nullable: true
+  icon:
+    type: string
+    nullable: true
+  is_default:
+    type: boolean
+    nullable: true
+  read_only:
+    type: boolean
+    nullable: true
+  is_active:
+    type: boolean
+    nullable: true
+  is_internal:
+    type: boolean
+    nullable: true
+  behaviour:
+    type: integer
+    format: int32
+    nullable: true

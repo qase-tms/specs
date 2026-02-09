@@ -1,3 +1,6 @@
+# File: run.json
+# Main report file containing aggregated test run data
+
 type: object
 properties:
   title:
@@ -33,9 +36,12 @@ properties:
       skipped:
         type: number
         description: number of skipped tests in the report
-      broken:
+      blocked:
         type: number
-        description: number of broken tests in the report
+        description: number of blocked tests in the report
+      invalid:
+        type: number
+        description: number of invalid tests in the report
       muted:
         type: number
         description: number of muted tests in the report
@@ -78,14 +84,7 @@ properties:
     description: environment of the report
     nullable: true
   host_data:
-    type: array
-    description: list of host data in the report. Like hostname, os, version etc.
-    items:
-      type: object
-      properties:
-        name:
-          type: string
-          description: name of the host data
-        value:
-          type: string
-          description: value of the host data
+    type: object
+    description: host data in the report. Like hostname, os, version etc.
+    additionalProperties:
+      type: string

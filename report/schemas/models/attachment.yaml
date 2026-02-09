@@ -12,8 +12,5 @@ properties:
   mime_type:
     type: string
     nullable: true
-  size:
-    type: number
-    nullable: true
   id:
     type: string

@@ -25,16 +25,11 @@ properties:
         type: string
         nullable: true
   fields:
-    type: array
+    type: object
     nullable: true
-    items:
-      type: object
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-          nullable: true
+    description: custom fields as key-value pairs
+    additionalProperties:
+      type: string
   id:
     type: string
   message:
@@ -43,16 +38,11 @@ properties:
   muted:
     type: boolean
   params:
-    type: array
+    type: object
     nullable: true
-    items:
-      type: object
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-          nullable: true
+    description: test parameters as key-value pairs
+    additionalProperties:
+      type: string
   param_groups:
     type: array
     nullable: true
@@ -84,9 +74,6 @@ properties:
     type: array
     items:
       $ref: "./models/step.yaml"
-  testops_id:
-    type: number
-    nullable: true
   testops_ids:
     type: array
     nullable: true

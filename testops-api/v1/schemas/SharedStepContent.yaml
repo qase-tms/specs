@@ -13,3 +13,8 @@ properties:
     type: array
     items:
       $ref: 'Attachment.hash.yaml'
+  steps:
+    type: array
+    description: 'Nested steps will be here. The same structure is used for them.'
+    items:
+      type: object

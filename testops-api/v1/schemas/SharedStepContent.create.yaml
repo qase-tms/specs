@@ -10,4 +10,9 @@ properties:
     type: string
   attachments:
     $ref: 'Attachment.hash_list.yaml'
+  steps:
+    type: array
+    description: 'Nested steps will be here. The same structure is used for them.'
+    items:
+      type: object
 required: [action]

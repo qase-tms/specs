@@ -89,7 +89,7 @@ function openapi() {
     -v "$(pwd)/${version}/parameters:/specs/parameters" \
     -v "$(pwd)/${version}/src.yaml:/specs/src.yaml" \
     -v "$(pwd)/${version}/sdk:/sdk" \
-    openapitools/openapi-generator-cli:v7.15.0 "${args[@]}"
+    openapitools/openapi-generator-cli:v7.20.0 "${args[@]}"
 }
 
 __default() { help; }

@@ -51,6 +51,9 @@ properties:
   steps_type:
     type: string
     nullable: true
+    enum:
+      - classic
+      - gherkin
   steps:
     type: array
     items:

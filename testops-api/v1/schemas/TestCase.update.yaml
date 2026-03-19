@@ -31,6 +31,16 @@ properties:
     type: integer
   status:
     type: integer
+  steps_type:
+    type: string
+    enum:
+      - classic
+      - gherkin
+    default: classic
+    description: >-
+      Determines the format of the steps field.
+      When "classic", steps use the standard action/expected_result/data format.
+      When "gherkin", steps use the {value: "Given...\nWhen...\nThen..."} format.
   attachments:
     $ref: 'Attachment.hash_list.yaml'
   steps:

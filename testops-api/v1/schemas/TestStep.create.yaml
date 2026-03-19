@@ -2,10 +2,17 @@ type: object
 properties:
   action:
     type: string
+    description: >-
+      Step action text. Used for classic steps. For gherkin steps, use the "value" property instead.
   expected_result:
     type: string
   data:
     type: string
+  value:
+    type: string
+    description: >-
+      Gherkin scenario text. Used when steps_type is "gherkin".
+      Example: "Given a user exists\nWhen they log in\nThen they see the dashboard"
   position:
     type: integer
     deprecated: true

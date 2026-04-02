@@ -47,6 +47,9 @@ properties:
         type: string
       is_flaky:
         type: string
+      tags:
+        type: string
+        description: Comma-separated list of tag titles to assign to the test case
       executed_by:
         type: string
         description: User who executed the test (member id, name or email)

@@ -86,6 +86,8 @@ get:
     - in: query
       name: external_issues[ids][]
       description: A list of issue IDs.
+      style: form
+      explode: true
       schema:
           type: array
           items:

@@ -33,8 +33,6 @@ properties:
       format: int64
     nullable: true
   custom_field:
-    type: object
-    description: A map of custom fields values (id => value)
-    additionalProperties:
-      type: string
     nullable: true
+    allOf:
+      - $ref: 'CustomFieldValueMap.full.yaml'

@@ -1,0 +1,52 @@
+testops-api/v1/schemas/TestCase.update.yaml
+  53b39ae8b9a9266d 70
+testops-api/v1/schemas/Run.create.yaml
+  53b39ae8b9a9266d 47
+testops-api/v1/schemas/Run.update.yaml
+  53b39ae8b9a9266d 37-38
+testops-api/v1/schemas/CustomFieldValueMap.partial.yaml
+  53b39ae8b9a9266d 1-5
+  e576f13445b8cbea 6-26
+testops-api/v1/schemas/Defect.update.yaml
+  53b39ae8b9a9266d 18
+testops-api/v1/schemas/CustomFieldValueMap.full.yaml
+  53b39ae8b9a9266d 1-5
+  e576f13445b8cbea 6-25
+testops-api/v1/schemas/TestCase.create.yaml
+  53b39ae8b9a9266d 70
+testops-api/v1/schemas/Defect.create.yaml
+  53b39ae8b9a9266d 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "ea6aca301312a1bcaaab999754c655c84b20f98f",
+  "prompts": {
+    "53b39ae8b9a9266d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f9ce25d6-d458-4516-9f00-b309dfc95d58",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ruslan Abelkharisov",
+      "messages": [],
+      "total_additions": 252,
+      "total_deletions": 179,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    },
+    "e576f13445b8cbea": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bd4edba6-aade-46aa-abf1-f95e76c6d6c5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ruslan Abelkharisov",
+      "messages": [],
+      "total_additions": 93,
+      "total_deletions": 132,
+      "accepted_lines": 41,
+      "overriden_lines": 0
+    }
+  }
+}

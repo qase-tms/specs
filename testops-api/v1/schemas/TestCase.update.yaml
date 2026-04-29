@@ -67,7 +67,4 @@ properties:
     items:
       $ref: 'TestCase.Parameter.Create.yaml'
   custom_field:
-    type: object
-    description: A map of custom fields values (id => value)
-    additionalProperties:
-      type: string
+    $ref: 'CustomFieldValueMap.partial.yaml'

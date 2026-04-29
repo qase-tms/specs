@@ -44,10 +44,7 @@ properties:
       type: integer
       format: int64
   custom_field:
-    type: object
-    description: A map of custom fields values (id => value)
-    additionalProperties:
-      type: string
+    $ref: 'CustomFieldValueMap.full.yaml'
   start_time:
     type: string
   end_time:

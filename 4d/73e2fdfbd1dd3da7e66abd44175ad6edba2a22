@@ -1,0 +1,36 @@
+testops-api/v1/schemas/TestCase.update.yaml
+  s_49233eedf21276::t_38445098ff8ea0 32-48
+testops-api/v1/schemas/TestCase.create.yaml
+  s_49233eedf21276::t_ff56d62981c96a 32-48
+testops-api/v1/schemas/TestCase.yaml
+  s_49233eedf21276::t_8f21a0755ecbed 33-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "4d73e2fdfbd1dd3da7e66abd44175ad6edba2a22",
+  "prompts": {
+    "0bc00f1f2bd14197": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fc764b59-afeb-472d-98ea-65c75269c678",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>",
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  },
+  "sessions": {
+    "s_49233eedf21276": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "be314ac3-8a57-4c27-b296-87303e5f3c57",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}

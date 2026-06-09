@@ -30,6 +30,21 @@ properties:
     type: integer
   automation:
     type: integer
+    deprecated: true
+    description: >-
+      Deprecated, use `isManual` and `isToBeAutomated` instead.
+      Encodes the test case automation state as a single integer:
+      `0` = manual, `1` = manual planned to be automated, `2` = automated.
+  isManual:
+    type: integer
+    description: >-
+      `1` if the case is manual, `0` if it is automated.
+      Combined with `isToBeAutomated`, replaces the deprecated `automation` field.
+  isToBeAutomated:
+    type: integer
+    description: >-
+      `1` if a manual case is planned to be automated, `0` otherwise.
+      Only meaningful when `isManual = 1`; ignored when `isManual = 0`.
   status:
     type: integer
   milestone_id:

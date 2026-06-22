@@ -1,0 +1,23 @@
+testops-api/v2/src.yaml
+  s_850f72fa0106c8::t_016f4be91414ee 5-9,12-29
+  s_850f72fa0106c8::t_8a725a5ef4fac7 10-11
+testops-api/v1/src.yaml
+  s_850f72fa0106c8::t_5012210466f568 10-11
+  s_850f72fa0106c8::t_5e74ac2f0a86c6 5-9,12-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "e716adef0332d38ac6b82db60a849d75536fc564",
+  "prompts": {},
+  "sessions": {
+    "s_850f72fa0106c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b1f87daf-2709-4868-96af-62e9e18b4cdf",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": null
+    }
+  }
+}

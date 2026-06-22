@@ -1,0 +1,21 @@
+testops-api/v1/src.yaml
+  s_850f72fa0106c8::t_5e74ac2f0a86c6 5-29
+testops-api/v2/src.yaml
+  s_850f72fa0106c8::t_016f4be91414ee 5-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "646d75a19ce521a09d3dbc64298097c72f1d083c",
+  "prompts": {},
+  "sessions": {
+    "s_850f72fa0106c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b1f87daf-2709-4868-96af-62e9e18b4cdf",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Ruslan Abelkharisov <rabelkharisov@qase.io>"
+    }
+  }
+}

@@ -2,7 +2,31 @@ openapi: '3.0.0'
 
 info:
   title: Qase.io TestOps API v2
-  description: Qase TestOps API v2 Specification.
+  description: |
+    Qase TestOps API v2 Specification.
+
+    ## Rate limiting
+
+    Requests are rate limited per workspace (shared across all API tokens of the
+    workspace). The exact limit depends on your subscription plan.
+
+    Every response advertises the current limit state through headers:
+
+    - `RateLimit` and `RateLimit-Policy` — IETF rate-limit headers describing the
+      active policy and the remaining quota for the current window.
+    - `X-RateLimit-Limit` — maximum number of requests allowed in the window.
+    - `X-RateLimit-Remaining` — requests left in the current window.
+    - `X-RateLimit-Reset` — Unix timestamp at which the window resets.
+
+    When the limit is exceeded the API responds with `429 Too Many Requests`, a
+    `Retry-After` header (seconds to wait before retrying), and the body:
+
+    ```json
+    {
+      "status": false,
+      "errorMessage": "API rate limit exceeded."
+    }
+    ```
 
   termsOfService: https://qase.io/terms
   version: 2.0.0

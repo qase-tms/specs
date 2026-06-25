@@ -6,12 +6,30 @@ properties:
   position:
     type: integer
     deprecated: true
+  comment:
+    type: string
+    description: 'Comment left for the step.'
+  start_time:
+    type: integer
+    format: int64
+    nullable: true
+    description: 'Unix timestamp of the step start time.'
+  end_time:
+    type: integer
+    format: int64
+    nullable: true
+    description: 'Unix timestamp of the step end time.'
+  duration_ms:
+    type: integer
+    format: int64
+    nullable: true
+    description: 'Step duration in milliseconds.'
   attachments:
     type: array
     items:
       $ref: 'Attachment.yaml'
   steps:
     type: array
-    description: 'Nested steps results will be here. The same structure is used for them for them.'
+    description: 'Nested steps results will be here. The same structure is used for them.'
     items:
-      type: object
+      $ref: 'TestStepResult.yaml'

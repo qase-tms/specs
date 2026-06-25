@@ -1,0 +1,19 @@
+testops-api/v1/schemas/TestStepResult.yaml
+  s_85ddc622051aaf::t_b98b1d470f517e 9-26,33,35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.1",
+  "base_commit_sha": "dd0a6df97b929fd5d3c693fb9bdc55ac3ffc9ec2",
+  "prompts": {},
+  "sessions": {
+    "s_85ddc622051aaf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "91eedfab-7e7a-4a7a-86cd-851199e64a9f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}

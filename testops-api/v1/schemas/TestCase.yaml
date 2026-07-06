@@ -36,15 +36,15 @@ properties:
       Encodes the test case automation state as a single integer:
       `0` = manual, `1` = manual planned to be automated, `2` = automated.
   isManual:
-    type: integer
+    type: boolean
     description: >-
-      `1` if the case is manual, `0` if it is automated.
+      `true` if the case is manual, `false` if it is automated.
       Combined with `isToBeAutomated`, replaces the deprecated `automation` field.
   isToBeAutomated:
-    type: integer
+    type: boolean
     description: >-
-      `1` if a manual case is planned to be automated, `0` otherwise.
-      Only meaningful when `isManual = 1`; ignored when `isManual = 0`.
+      `true` if a manual case is planned to be automated, `false` otherwise.
+      Only meaningful when `isManual` is `true`; ignored when `isManual` is `false`.
   status:
     type: integer
   milestone_id:

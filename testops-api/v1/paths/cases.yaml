@@ -40,7 +40,7 @@ get:
       name: type
       description: |
         A list of type values separated by comma.
-        Possible values: other, functional smoke, regression,
+        Possible values: other, functional, smoke, regression,
         security, usability, performance, acceptance
       schema:
         type: string
@@ -48,20 +48,20 @@ get:
       name: behavior
       description: |
         A list of behavior values separated by comma.
-        Possible values: undefined, positive negative, destructive
+        Possible values: undefined, positive, negative, destructive
       schema:
         type: string
     - in: query
       name: automation
       description: |
         A list of values separated by comma.
-        Possible values: is-not-automated, automated to-be-automated
+        Possible values: is-not-automated, automated, to-be-automated
       schema:
         type: string
     - in: query
       name: status
       description: |
-        A list of values separated by comma. Possible values: actual, draft deprecated
+        A list of values separated by comma. Possible values: actual, draft, deprecated
       schema:
         type: string
     - in: query

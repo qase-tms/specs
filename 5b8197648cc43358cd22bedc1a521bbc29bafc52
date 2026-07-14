@@ -1,0 +1,22 @@
+testops-api/v1/paths/cases.yaml
+  s_d1216b251d5c1b::t_70334374621eec 43
+  s_d1216b251d5c1b::t_854f915bc5ab67 64
+  s_d1216b251d5c1b::t_849f0c67346b52 58
+  s_d1216b251d5c1b::t_a4f1a1661e46e4 51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5b8197648cc43358cd22bedc1a521bbc29bafc52",
+  "prompts": {},
+  "sessions": {
+    "s_d1216b251d5c1b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2aeea045-5d0f-4287-9d95-3fea2e3deae0",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Nail Ismangulov <nismangulov@qase.io>"
+    }
+  }
+}

@@ -17,12 +17,12 @@ jobs:
       - name: Validate OpenAPI spec for v1
         uses: readmeio/rdme@v9
         with:
-          rdme: openapi validate ./testops-api/v1/src.yaml
+          rdme: openapi validate ./src.yaml --workingDirectory=./testops-api/v1
 
       - name: Validate OpenAPI spec for v2
         uses: readmeio/rdme@v9
         with:
-          rdme: openapi validate ./testops-api/v2/src.yaml
+          rdme: openapi validate ./src.yaml --workingDirectory=./testops-api/v2
 
   publish:
     needs: validate

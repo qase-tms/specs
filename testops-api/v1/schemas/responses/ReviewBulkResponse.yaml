@@ -1,0 +1,29 @@
+allOf:
+  - $ref: './BaseResponse.yaml'
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          items:
+            type: array
+            description: Per-item outcomes, in request order.
+            items:
+              type: object
+              properties:
+                review_id:
+                  type: integer
+                  format: int64
+                  nullable: true
+                  description: ID of the created review. Null when the item failed.
+                case_id:
+                  type: integer
+                  format: int64
+                  nullable: true
+                  description: >-
+                    The `case_id` submitted with the item, echoed back for
+                    correlation. Null for new-case draft reviews.
+                error:
+                  type: string
+                  nullable: true
+                  description: Failure reason. Null when the item was created.

@@ -1,0 +1,109 @@
+get:
+  operationId: get-reviews
+  tags: [ reviews ]
+  summary: Get all reviews
+  description: |
+    This method allows to retrieve all test case reviews stored in selected project.
+
+  parameters:
+    - $ref: '../parameters/Code.yaml'
+    - in: query
+      name: status
+      schema:
+        type: string
+        enum:
+          - open
+          - merged
+          - declined
+    - in: query
+      name: type
+      schema:
+        type: string
+        enum:
+          - create
+          - edit
+    - in: query
+      name: case_id
+      description: Filter reviews by the reviewed test case ID.
+      schema:
+        type: integer
+        format: int64
+    - in: query
+      name: author_uuid
+      description: Filter reviews by the author who created them (author UUID).
+      schema:
+        type: string
+        format: uuid
+    - in: query
+      name: reviewer_uuid
+      description: Filter reviews by an assigned reviewer (author UUID).
+      schema:
+        type: string
+        format: uuid
+    - in: query
+      name: search
+      description: Provide a string that will be used to search by review title.
+      schema:
+        type: string
+    - $ref: '../parameters/pagination/Limit.yaml'
+    - $ref: '../parameters/pagination/Offset.yaml'
+
+  responses:
+    200:
+      description: A list of all reviews.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ReviewListResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    402:
+      description: Payment Required.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    429:
+      description: Too Many Requests.
+
+post:
+  operationId: create-review
+  tags: [ reviews ]
+  summary: Create a new review
+  description: |
+    This method allows to submit a test case for review in selected project.
+
+    Returns an error if test case review is disabled in the project settings.
+
+  parameters:
+    - $ref: '../parameters/Code.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Review.create.yaml'
+
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/IdResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    402:
+      description: Payment Required.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    422:
+      description: Unprocessable Entity.
+    429:
+      description: Too Many Requests.

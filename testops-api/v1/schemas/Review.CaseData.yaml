@@ -1,0 +1,85 @@
+type: object
+description: The test case fields proposed by the review.
+properties:
+  title:
+    type: string
+    maxLength: 255
+  description:
+    type: string
+    nullable: true
+  preconditions:
+    type: string
+    nullable: true
+  postconditions:
+    type: string
+    nullable: true
+  severity:
+    type: integer
+    nullable: true
+  priority:
+    type: integer
+    nullable: true
+  behavior:
+    type: integer
+    nullable: true
+  type:
+    type: integer
+    nullable: true
+  layer:
+    type: integer
+    nullable: true
+  is_flaky:
+    type: integer
+    nullable: true
+  is_muted:
+    type: boolean
+    description: Mute state of the proposed test case.
+  suite_id:
+    type: integer
+    format: int64
+    nullable: true
+  milestone_id:
+    type: integer
+    format: int64
+    nullable: true
+  is_manual:
+    type: boolean
+    description: '`true` if the case is manual, `false` if it is automated.'
+  is_to_be_automated:
+    type: boolean
+    description: '`true` if a manual case is planned to be automated.'
+  status:
+    type: integer
+    nullable: true
+  steps_type:
+    type: string
+    enum:
+      - classic
+      - gherkin
+    description: >-
+      Format of the steps field. Omit to keep the current one, `classic` for a
+      new-case draft; changing it requires sending `steps` in the same request.
+  attachments:
+    $ref: 'Attachment.hash_list.yaml'
+  steps:
+    type: array
+    description: For gherkin steps send the scenario in `value`.
+    items:
+      $ref: 'Review.StepData.yaml'
+  tags:
+    type: array
+    nullable: true
+    items:
+      type: string
+  parameters:
+    type: array
+    nullable: true
+    items:
+      $ref: 'TestCase.Parameter.Create.yaml'
+  custom_field:
+    allOf:
+      - $ref: 'CustomFieldValueMap.partial.yaml'
+    description: >-
+      Map of custom field ID to value. A `create` review must carry every
+      required custom field. An `edit` review is validated against the current
+      test case, so send only the fields the proposal changes.

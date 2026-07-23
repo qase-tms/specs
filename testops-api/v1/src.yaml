@@ -27,6 +27,7 @@ tags:
   - name: plans
   - name: projects
   - name: results
+  - name: reviews
   - name: milestones
   - name: runs
   - name: search
@@ -101,6 +102,12 @@ paths:
     $ref: './paths/result_bulk.yaml'
   /result/{code}/{id}/{hash}:
     $ref: './paths/result_id_hash.yaml'
+  /review/{code}:
+    $ref: './paths/reviews.yaml'
+  /review/{code}/{id}:
+    $ref: './paths/review.yaml'
+  /review/{code}/bulk:
+    $ref: './paths/review_bulk.yaml'
   /run/{code}:
     $ref: './paths/runs.yaml'
   /run/{code}/external-issue:
@@ -166,6 +173,15 @@ components:
     ResultCreate: { $ref: './schemas/Result.create.yaml' }
     ResultCreateBulk: { $ref: './schemas/Result.CreateBulk.yaml' }
     ResultUpdate: { $ref: './schemas/Result.update.yaml' }
+    Review: { $ref: './schemas/Review.yaml' }
+    ReviewCaseData: { $ref: './schemas/Review.CaseData.yaml' }
+    ReviewStepData: { $ref: './schemas/Review.StepData.yaml' }
+    ReviewProposedCase: { $ref: './schemas/Review.ProposedCase.yaml' }
+    ReviewProposedStep: { $ref: './schemas/Review.ProposedStep.yaml' }
+    ReviewDetailed: { $ref: './schemas/Review.detailed.yaml' }
+    ReviewCreate: { $ref: './schemas/Review.create.yaml' }
+    ReviewUpdate: { $ref: './schemas/Review.update.yaml' }
+    ReviewBulk: { $ref: './schemas/Review.bulk.yaml' }
     Run: { $ref: './schemas/Run.yaml' }
     RunCreate: { $ref: './schemas/Run.create.yaml' }
     RunPublic: { $ref: './schemas/Run.public.yaml' }
@@ -222,6 +238,9 @@ components:
     Response: { $ref: './schemas/responses/BaseResponse.yaml' }
     ResultResponse: { $ref: './schemas/responses/ResultResponse.yaml' }
     ResultListResponse: { $ref: './schemas/responses/ResultListResponse.yaml' }
+    ReviewResponse: { $ref: './schemas/responses/ReviewResponse.yaml' }
+    ReviewListResponse: { $ref: './schemas/responses/ReviewListResponse.yaml' }
+    ReviewBulkResponse: { $ref: './schemas/responses/ReviewBulkResponse.yaml' }
     RunResponse: { $ref: './schemas/responses/RunResponse.yaml' }
     RunListResponse: { $ref: './schemas/responses/RunListResponse.yaml' }
     RunPublicResponse: { $ref: './schemas/responses/RunPublicResponse.yaml' }

@@ -1,0 +1,80 @@
+type: object
+description: >-
+  The test case state proposed by the review. Only the fields the proposal
+  carries are present.
+properties:
+  title:
+    type: string
+    maxLength: 255
+  description:
+    type: string
+    nullable: true
+  preconditions:
+    type: string
+    nullable: true
+  postconditions:
+    type: string
+    nullable: true
+  severity:
+    type: integer
+    nullable: true
+  priority:
+    type: integer
+    nullable: true
+  behavior:
+    type: integer
+    nullable: true
+  type:
+    type: integer
+    nullable: true
+  layer:
+    type: integer
+    nullable: true
+  is_flaky:
+    type: integer
+    nullable: true
+  is_muted:
+    type: boolean
+  suite_id:
+    type: integer
+    format: int64
+    nullable: true
+  milestone_id:
+    type: integer
+    format: int64
+    nullable: true
+  is_manual:
+    type: boolean
+    description: '`true` if the case is manual, `false` if it is automated.'
+  is_to_be_automated:
+    type: boolean
+    description: '`true` if a manual case is planned to be automated.'
+  status:
+    type: integer
+    nullable: true
+  steps_type:
+    type: string
+    enum:
+      - classic
+      - gherkin
+  attachments:
+    allOf:
+      - $ref: 'Attachment.hash_list.yaml'
+    description: Attachment hashes.
+  steps:
+    type: array
+    items:
+      $ref: 'Review.ProposedStep.yaml'
+  tags:
+    type: array
+    nullable: true
+    items:
+      type: string
+  parameters:
+    type: array
+    items:
+      $ref: 'TestCaseParameter.yaml'
+  custom_fields:
+    type: array
+    items:
+      $ref: 'CustomFieldValue.yaml'

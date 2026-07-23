@@ -1,0 +1,57 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    description: Review ID, unique within the project.
+  title:
+    type: string
+  type:
+    type: string
+    enum:
+      - create
+      - edit
+    description: >-
+      `create` — the review proposes a new test case;
+      `edit` — the review proposes changes to an existing test case.
+  status:
+    type: string
+    enum:
+      - open
+      - merged
+      - declined
+  case_id:
+    type: integer
+    format: int64
+    nullable: true
+    description: ID of the reviewed test case. Null for new-case draft reviews.
+  author_uuid:
+    type: string
+    format: uuid
+    nullable: true
+    description: Author UUID of the review creator (see `GET /author`).
+  reviewers:
+    type: array
+    items:
+      type: object
+      properties:
+        author_uuid:
+          type: string
+          format: uuid
+          nullable: true
+          description: Author UUID of the reviewer (see `GET /author`).
+        status:
+          type: string
+          enum:
+            - unapproved
+            - approved
+            - changes_requested
+  created_at:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
+  updated_at:
+    type: string
+    format: date-time
+    example: "2021-12-30T19:23:59+00:00"
+    nullable: true

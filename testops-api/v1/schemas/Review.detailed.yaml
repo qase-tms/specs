@@ -1,0 +1,12 @@
+allOf:
+  - $ref: './Review.yaml'
+  - type: object
+    properties:
+      proposed_case:
+        type: object
+        allOf:
+          - $ref: './Review.ProposedCase.yaml'
+        nullable: true
+        description: >-
+          The proposed test case state. Merging the review applies it to the
+          test case.

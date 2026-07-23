@@ -1,13 +1,12 @@
 type: object
 description: >-
-  When `steps_type` is `gherkin` only the scenario text is read from a step. A
-  non-empty `expected_result`, `data`, `attachments`, `shared` or nested `steps`
-  is rejected, and so is sending the scenario in `value` and `action` at once.
+  A step of the proposed test case. When `steps_type` is `gherkin` the step carries
+  the scenario in `value` and nothing else: a non-empty `action`, `expected_result`,
+  `data`, `attachments`, `shared` or nested `steps` is rejected.
 properties:
   action:
     type: string
-    description: >-
-      Step action text. Used for classic steps. For gherkin steps, use the "value" property instead.
+    description: Step action text. Classic steps only.
   shared:
     type: string
     description: >-
@@ -21,9 +20,6 @@ properties:
     description: >-
       Gherkin scenario text. Used when steps_type is "gherkin".
       Example: "Given a user exists\nWhen they log in\nThen they see the dashboard"
-  position:
-    type: integer
-    deprecated: true
   attachments:
     $ref: 'Attachment.hash_list.yaml'
   steps:

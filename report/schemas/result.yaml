@@ -21,6 +21,13 @@ properties:
       stacktrace:
         type: string
         nullable: true
+      error_context:
+        type: string
+        nullable: true
+        description: >-
+          Free-form failure context captured by the reporter. For Playwright this is the content
+          of error-context.md, which may include rendered page content. Reporters may truncate
+          long values; Qase truncates at 262144 characters on upload.
       thread:
         type: string
         nullable: true

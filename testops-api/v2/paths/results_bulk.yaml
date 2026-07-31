@@ -45,5 +45,10 @@ post:
       description: Forbidden
     "404":
       description: Not Found
+    "413":
+      description: |
+        Payload Too Large. Returned when the request contains more than 2000 results, or when the
+        combined length of `execution.error_context` across the batch exceeds 4194304 characters.
+        In both cases the whole batch is rejected — no results are created.
     "422":
       description: Unprocessable Entity

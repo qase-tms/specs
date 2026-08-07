@@ -1,0 +1,97 @@
+testops-api/v1/schemas/responses/ReviewListResponse.yaml
+  s_525980628c559e::t_5547f1ba9db014 1-17
+testops-api/v1/schemas/Review.update.yaml
+  s_525980628c559e::t_687801d4c8c930 10
+  s_525980628c559e::t_cb4d6442c44d10 11-12
+  s_090a97e8d8b2e9::t_19db6dec9d460c 13
+  s_090a97e8d8b2e9::t_0be289d51fac20 14-16
+  s_525980628c559e::t_5eabdbcc923b9d 9
+  s_090a97e8d8b2e9::t_91b1935c4f06a4 17-18
+  s_525980628c559e::t_d844e2623fc5b6 1-8
+testops-api/v1/paths/reviews.yaml
+  s_525980628c559e::t_fbe9b86209f0c2 63,101,103,107
+  s_525980628c559e::t_8b97bb87415089 1-32,34-38,40-62,64-100,102,104-106,108-109
+  s_525980628c559e::t_054d22fe3feb0a 33,39
+testops-api/v1/paths/review.yaml
+  s_525980628c559e::t_ad0f7e1eb5c93b 1-22,24-41,43-51,53-57,59-67,69-92,94,96-98,100-101
+  s_525980628c559e::t_7163c523e5a703 42
+  s_090a97e8d8b2e9::t_8d652965127859 68
+  s_525980628c559e::t_fbe9b86209f0c2 23,52,58,93,95,99
+testops-api/v1/schemas/Review.CaseData.yaml
+  s_090a97e8d8b2e9::t_c44d16429b98fc 105-106
+  s_090a97e8d8b2e9::t_56d44ffb5d0691 9,12,15
+  s_090a97e8d8b2e9::t_8920f209255343 43,47
+  s_525980628c559e::t_5bf5eef1a2d337 1,3-8,10-11,13-14,16-17,19-20,22-23,25-26,28-29,31-32,34-42,44-46,49-51,54-56,58,61-62,64-104
+  s_090a97e8d8b2e9::t_7488bf556144cf 63
+  s_090a97e8d8b2e9::t_116f4daf03f08a 2
+  s_090a97e8d8b2e9::t_3ba11760ef7341 52
+  s_090a97e8d8b2e9::t_240a7f37bf8f34 18,21,24,27,30,33
+  s_090a97e8d8b2e9::t_e000a56cd3328f 48,53,57,59-60
+testops-api/v1/schemas/Review.bulk.yaml
+  s_525980628c559e::t_89c940f3b75905 1-8,13
+  s_090a97e8d8b2e9::t_0b90ec0a3d3a5f 9-12
+testops-api/v1/schemas/TestStep.create.yaml
+  s_7a566e47bb2155::t_ebfb91e5b7b652 16-20
+testops-api/v1/paths/review_bulk.yaml
+  s_525980628c559e::t_2f070237b689c8 1-30,32,34-36,38-39
+  s_525980628c559e::t_fbe9b86209f0c2 31,33,37
+testops-api/v1/schemas/responses/ReviewResponse.yaml
+  s_525980628c559e::t_692382a81085d8 6
+  s_525980628c559e::t_d88f17bf27287a 1-5
+testops-api/v1/schemas/responses/ReviewBulkResponse.yaml
+  s_525980628c559e::t_c5094bb63445fd 18,29
+  s_525980628c559e::t_2a31887620cb14 1-17,19-22,26-28
+  s_525980628c559e::t_b849eb3f9dcec6 23-25
+testops-api/v1/src.yaml
+  s_525980628c559e::t_d4c626487e3ae2 105-110
+  s_525980628c559e::t_bc3c51a6894b88 238-240
+  s_525980628c559e::t_db6ed3afcdf163 178
+  s_525980628c559e::t_5327e4fd8239c8 176,179-181
+  s_525980628c559e::t_7af02424a938a9 30
+  s_525980628c559e::t_aa3a3a71e08dc9 177
+testops-api/v1/schemas/Review.detailed.yaml
+  s_090a97e8d8b2e9::t_3c2b33c20d103f 8
+  s_525980628c559e::t_f922b2eec4f2ce 1-7,9-12
+testops-api/v1/schemas/Review.yaml
+  s_525980628c559e::t_eb982dc38b39be 1-30,32-39,41-55
+  s_525980628c559e::t_51f822ce814f63 31,40
+testops-api/v1/schemas/Review.create.yaml
+  s_525980628c559e::t_d62d65aea04487 1-15
+  s_090a97e8d8b2e9::t_bbf430e0396cfa 23-25
+  s_525980628c559e::t_4db693179eaf80 26
+  s_090a97e8d8b2e9::t_e246a07c86d15b 19-21
+  s_090a97e8d8b2e9::t_01dabf1e3858e0 22
+  s_525980628c559e::t_cb6bd8f49be789 16-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "3112b0e7cbb4c828a4e630b4fce2f9036b78370b",
+  "prompts": {},
+  "sessions": {
+    "s_090a97e8d8b2e9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "79f8a88a-5718-4abe-9ea9-632b5b82f558",
+        "model": "claude-opus-5"
+      },
+      "human_author": null
+    },
+    "s_525980628c559e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3d63e958-ff31-4075-a577-5650a8a12c39",
+        "model": "claude-fable-5"
+      },
+      "human_author": null
+    },
+    "s_7a566e47bb2155": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2098a30c-fde6-4075-a849-a06c78093e8d",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sergey Skaridov <s.skaridov@gmail.com>"
+    }
+  }
+}

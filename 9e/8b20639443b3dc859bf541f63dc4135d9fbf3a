@@ -1,0 +1,20 @@
+testops-api/v1/schemas/TestStep.create.yaml
+  s_e67c9012f31e7d::t_fc77c81265f981 10
+  s_e67c9012f31e7d::t_46990b3ed7e868 7-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "9e8b20639443b3dc859bf541f63dc4135d9fbf3a",
+  "prompts": {},
+  "sessions": {
+    "s_e67c9012f31e7d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f8773974-814e-40ed-b374-1ec358b9181b",
+        "model": "claude-opus-5"
+      },
+      "human_author": null
+    }
+  }
+}

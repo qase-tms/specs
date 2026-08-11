@@ -4,6 +4,10 @@ properties:
     type: string
     description: >-
       Step action text. Used for classic steps. For gherkin steps, use the "value" property instead.
+  shared:
+    type: string
+    description: >-
+      Hash of an existing shared step to insert at this position.
   expected_result:
     type: string
   data:

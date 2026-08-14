@@ -1,0 +1,39 @@
+post:
+  operationId: bulk-create-reviews
+  tags: [ reviews ]
+  summary: Create reviews in bulk
+  description: |
+    This method allows to submit multiple test cases for review in one request.
+
+    Returns an error if test case review is disabled in the project settings.
+
+  parameters:
+    - $ref: '../parameters/Code.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Review.bulk.yaml'
+
+  responses:
+    200:
+      description: Per-item outcomes for the submitted reviews.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ReviewBulkResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    402:
+      description: Payment Required.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    422:
+      description: Unprocessable Entity.
+    429:
+      description: Too Many Requests.

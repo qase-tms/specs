@@ -1,0 +1,18 @@
+type: object
+properties:
+  reviewers:
+    type: array
+    maxItems: 20
+    items:
+      type: string
+      format: uuid
+    description: >-
+      Author UUIDs of team members assigned as reviewers (see `GET /author`).
+      When provided, replaces the current reviewer list; an empty array
+      removes all reviewers. Omit to leave reviewers unchanged.
+  proposed_case:
+    allOf:
+      - $ref: './Review.CaseData.yaml'
+    description: >-
+      Sent fields are merged into the stored proposal. Changing the proposal
+      resets all existing approvals; updating only the reviewers keeps them.

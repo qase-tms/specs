@@ -1,0 +1,103 @@
+get:
+  operationId: get-review
+  tags: [ reviews ]
+  summary: Get a specific review
+  description: |
+    This method allows to retrieve a specific review, including its current
+    approval status per reviewer.
+  parameters:
+    - $ref: '../parameters/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A Review.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/ReviewResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    402:
+      description: Payment Required.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    429:
+      description: Too Many Requests.
+
+delete:
+  operationId: delete-review
+  tags: [ reviews ]
+  summary: Delete review
+  description: |
+    This method allows to delete a review. Merged reviews cannot be deleted.
+
+    Returns an error if test case review is disabled in the project settings.
+  parameters:
+    - $ref: '../parameters/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/IdResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    402:
+      description: Payment Required.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    422:
+      description: Unprocessable Entity.
+    429:
+      description: Too Many Requests.
+
+patch:
+  operationId: update-review
+  tags: [ reviews ]
+  summary: Update review
+  description: |
+    This method allows to update the assigned reviewers and/or the proposed
+    test case payload of an open review. The reviewed test case cannot be changed.
+
+    Returns an error if test case review is disabled in the project settings,
+    or if the review is not open.
+  parameters:
+    - $ref: '../parameters/Code.yaml'
+    - $ref: '../parameters/Id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Review.update.yaml'
+  responses:
+    200:
+      description: A result.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/responses/IdResponse.yaml'
+    400:
+      description: Bad Request.
+    401:
+      description: Unauthorized.
+    402:
+      description: Payment Required.
+    403:
+      description: Forbidden.
+    404:
+      description: Not Found.
+    422:
+      description: Unprocessable Entity.
+    429:
+      description: Too Many Requests.

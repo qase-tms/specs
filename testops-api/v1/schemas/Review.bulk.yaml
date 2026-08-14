@@ -1,0 +1,12 @@
+type: object
+properties:
+  reviews:
+    type: array
+    minItems: 1
+    maxItems: 100
+    items:
+      $ref: 'Review.create.yaml'
+    description: >-
+      Validated as a whole: if any item is invalid nothing is created.
+      Otherwise each item is processed on its own and reported in the response.
+required: [ reviews ]

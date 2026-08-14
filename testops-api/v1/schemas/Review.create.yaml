@@ -1,0 +1,24 @@
+type: object
+properties:
+  case_id:
+    type: integer
+    format: int64
+    nullable: true
+    description: >-
+      ID of the reviewed test case. When present an `edit` review is created,
+      otherwise a `create` review with a new-case draft.
+  reviewers:
+    type: array
+    maxItems: 20
+    items:
+      type: string
+      format: uuid
+    description: >-
+      Author UUIDs of team members to assign as reviewers (see `GET /author`).
+  proposed_case:
+    allOf:
+      - $ref: './Review.CaseData.yaml'
+    description: >-
+      For `create` reviews `title` and all required project fields are
+      required. For `edit` reviews send only the fields the proposal changes.
+required: [ proposed_case ]

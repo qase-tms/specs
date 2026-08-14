@@ -1,0 +1,24 @@
+type: object
+properties:
+  action:
+    type: string
+    description: >-
+      Step action text. Used for classic steps. For gherkin steps, use the "value" property instead.
+  expected_result:
+    type: string
+  data:
+    type: string
+  value:
+    type: string
+    description: >-
+      Gherkin scenario text. Used when steps_type is "gherkin".
+  shared:
+    type: string
+    description: Hash of the referenced shared step.
+  attachments:
+    $ref: 'Attachment.hash_list.yaml'
+  steps:
+    type: array
+    description: Nested steps use the same structure.
+    items:
+      type: object

@@ -5,7 +5,12 @@ get:
   description: |
     This method allows to retrieve a specific author.
   parameters:
-    - $ref: '../parameters/Id.yaml'
+    - name: id
+      in: path
+      description: Author UUID, or the deprecated integer author ID.
+      required: true
+      schema:
+        type: string
   responses:
     '200':
       description: An author.

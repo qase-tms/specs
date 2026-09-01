@@ -1,0 +1,33 @@
+testops-api/v2/src.yaml
+  s_850f72fa0106c8::t_8a725a5ef4fac7 10-11
+  s_850f72fa0106c8::t_016f4be91414ee 5-9,12-15,17-20,43-45,50-55
+  s_e50d8918e81b92::t_27329d25df2202 16,21-42,46-49
+testops-api/v1/src.yaml
+  s_850f72fa0106c8::t_5012210466f568 10-11
+  s_850f72fa0106c8::t_5e74ac2f0a86c6 5-9,12-15,17-20,43-45,50-55
+  s_e50d8918e81b92::t_70fe920df4ffde 16,21-42,46-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "de769cfc3078e9d36498c0b9c1965be0dfe2b891",
+  "prompts": {},
+  "sessions": {
+    "s_850f72fa0106c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b1f87daf-2709-4868-96af-62e9e18b4cdf",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": null
+    },
+    "s_e50d8918e81b92": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cc340679-2bbb-4299-ab63-c1d8a1bb4f64",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ruslan Abelkharisov <rabelkharisov@qase.io>"
+    }
+  }
+}

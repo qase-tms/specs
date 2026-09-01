@@ -1,0 +1,35 @@
+testops-api/v1/schemas/Review.create.yaml
+  s_090a97e8d8b2e9::t_e7d34262f1cb82 25-26
+  s_090a97e8d8b2e9::t_936e84283d37c0 22-24
+  s_090a97e8d8b2e9::t_d8396d9bc4cb87 27
+  s_090a97e8d8b2e9::t_a4cc79e72682df 1-21
+testops-api/v1/schemas/Review.ProposedStep.yaml
+  s_090a97e8d8b2e9::t_3c98dcd3c65946 15
+  s_090a97e8d8b2e9::t_789b0dde1f13cd 5,12-14
+  s_090a97e8d8b2e9::t_7355b8b1f5983b 4,8,10,16-18
+  s_090a97e8d8b2e9::t_16b77a6f50173f 1-3
+  s_090a97e8d8b2e9::t_66d575de29922e 6-7
+  s_090a97e8d8b2e9::t_e5c6c9470557cf 9
+  s_090a97e8d8b2e9::t_1b710f28498fe8 11
+  s_090a97e8d8b2e9::t_1f6a68ea88e648 19-21
+testops-api/v1/schemas/Review.update.yaml
+  s_090a97e8d8b2e9::t_e1d034deb021e8 19
+  s_090a97e8d8b2e9::t_15d81e7713f36b 16-18
+  s_090a97e8d8b2e9::t_b933e360231147 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4ab995eb83d0ef2b49d27e3ab83d9633c37780f3",
+  "prompts": {},
+  "sessions": {
+    "s_090a97e8d8b2e9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "79f8a88a-5718-4abe-9ea9-632b5b82f558",
+        "model": "claude-fable-5"
+      },
+      "human_author": null
+    }
+  }
+}

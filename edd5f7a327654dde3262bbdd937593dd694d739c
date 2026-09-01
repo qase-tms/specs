@@ -1,0 +1,21 @@
+testops-api/v1/schemas/Review.ProposedStep.yaml
+  s_090a97e8d8b2e9::t_3c98dcd3c65946 15
+  s_090a97e8d8b2e9::t_789b0dde1f13cd 12-14
+  s_090a97e8d8b2e9::t_7355b8b1f5983b 16-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "edd5f7a327654dde3262bbdd937593dd694d739c",
+  "prompts": {},
+  "sessions": {
+    "s_090a97e8d8b2e9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "79f8a88a-5718-4abe-9ea9-632b5b82f558",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Sergey Skaridov <s.skaridov@gmail.com>"
+    }
+  }
+}

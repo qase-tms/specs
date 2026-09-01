@@ -1,0 +1,19 @@
+testops-api/v1/schemas/TestStep.create.yaml
+  s_7a566e47bb2155::t_ebfb91e5b7b652 16-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "c5554de46706f482e873eb2b39ada6c022ab6440",
+  "prompts": {},
+  "sessions": {
+    "s_7a566e47bb2155": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2098a30c-fde6-4075-a849-a06c78093e8d",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sergey Skaridov <s.skaridov@gmail.com>"
+    }
+  }
+}

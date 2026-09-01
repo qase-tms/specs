@@ -1,0 +1,20 @@
+.github/workflows/readme.yaml
+  s_c810093af7e9a7::t_e2fba9abb02943 22
+  s_c810093af7e9a7::t_a5999ab180c1e1 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "59f4a317db89a2c6e5e741f51a15af6ca2ef2236",
+  "prompts": {},
+  "sessions": {
+    "s_c810093af7e9a7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5d27c7af-e16b-436b-8351-5d7ff8e45f93",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}

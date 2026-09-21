@@ -7,10 +7,13 @@ allOf:
         properties:
           total:
             type: integer
+            description: A number of results in the project, counted up to the pagination bound.
           filtered:
             type: integer
+            description: A number of results that match the filters, counted up to the pagination bound.
           count:
             type: integer
+            description: A number of results in the current page.
           entities:
             type: array
             items:

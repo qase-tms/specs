@@ -1,0 +1,19 @@
+testops-api/Taskfile
+  s_8325c3417fa0f3::t_3a8b23dd09abd0 92
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "34cc5e71e7824269012e7334ec6c7be082fd7220",
+  "prompts": {},
+  "sessions": {
+    "s_8325c3417fa0f3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3f43354b-0112-4e6a-ad2b-654e2b8062cb",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}

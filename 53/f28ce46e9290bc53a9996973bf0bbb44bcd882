@@ -1,0 +1,21 @@
+testops-api/v1/sdk/templates/axios/common.mustache
+  s_8325c3417fa0f3::t_197788270306bd 123,125
+testops-api/v2/sdk/templates/axios/common.mustache
+  s_8325c3417fa0f3::t_372e1425be968f 123,125
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "53f28ce46e9290bc53a9996973bf0bbb44bcd882",
+  "prompts": {},
+  "sessions": {
+    "s_8325c3417fa0f3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3f43354b-0112-4e6a-ad2b-654e2b8062cb",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Dmitrii Gridnev <dgridnev@qase.io>"
+    }
+  }
+}

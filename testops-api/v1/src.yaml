@@ -291,6 +291,7 @@ components:
     ReviewResponse: { $ref: './schemas/responses/ReviewResponse.yaml' }
     ReviewListResponse: { $ref: './schemas/responses/ReviewListResponse.yaml' }
     ReviewBulkResponse: { $ref: './schemas/responses/ReviewBulkResponse.yaml' }
+    RunCompleteResponse: { $ref: './schemas/responses/RunCompleteResponse.yaml' }
     RunResponse: { $ref: './schemas/responses/RunResponse.yaml' }
     RunListResponse: { $ref: './schemas/responses/RunListResponse.yaml' }
     RunPublicResponse: { $ref: './schemas/responses/RunPublicResponse.yaml' }

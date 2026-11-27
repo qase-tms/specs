@@ -4,6 +4,11 @@ post:
   summary: Complete a specific run
   description: |
     This method allows to complete a specific run.
+
+    `result.completion` is `pending_complete` while bulk results for the run
+    are still in the queue: the run completes after the last of them.
+    Otherwise it is the status of the finished run (`passed`, `failed`,
+    `aborted`), the same value as `status_text` of the run.
   parameters:
     - $ref: '../parameters/Code.yaml'
     - $ref: '../parameters/Id.yaml'
@@ -13,7 +18,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../schemas/responses/BaseResponse.yaml'
+            $ref: '../schemas/responses/RunCompleteResponse.yaml'
     400:
       description: Bad Request.
     401:

@@ -1,0 +1,23 @@
+testops-api/v1/paths/run_complete.yaml
+  s_f81e610c11c5ab::t_c690a3a6931189 7-11,21
+testops-api/v1/schemas/responses/RunCompleteResponse.yaml
+  s_f81e610c11c5ab::t_33a21b66da6d59 1-14
+testops-api/v1/src.yaml
+  s_f81e610c11c5ab::t_53cc16a77dff82 294
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5f25d097cb8712619be2d474cf6a2dd489ec33a9",
+  "prompts": {},
+  "sessions": {
+    "s_f81e610c11c5ab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "445bf8c4-d5e3-45ae-9803-c8a71560bef8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Ruslan Abelkharisov <rabelkharisov@qase.io>"
+    }
+  }
+}

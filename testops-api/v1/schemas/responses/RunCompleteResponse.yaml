@@ -1,0 +1,14 @@
+allOf:
+  - $ref: './BaseResponse.yaml'
+  - type: object
+    properties:
+      result:
+        type: object
+        properties:
+          completion:
+            type: string
+            enum:
+              - pending_complete
+              - passed
+              - failed
+              - aborted
